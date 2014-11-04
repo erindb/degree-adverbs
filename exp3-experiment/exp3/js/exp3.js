@@ -90,7 +90,7 @@ function make_slides(f) {
 
 function get_items() {
   var adverbs = _.shuffle([
-    "", "surpassingly", "colossally", "immoderately",
+    "surpassingly", "colossally", "immoderately",
     "terrifically", "frightfully", "astoundingly", "inordinately",
     "phenomenally", "uncommonly", "outrageously", "fantastically",
     "mightily", "supremely", "insanely", "strikingly", "acutely",
