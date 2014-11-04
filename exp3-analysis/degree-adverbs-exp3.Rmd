@@ -1,0 +1,24 @@
+# Degree Adverbs: Experiment 3
+
+## adverbs
+
+A new set of degree adverbs was chosen for minimal lexical ambiguity and homographs, i.e. such that the main sense of the word is the degree modification one.
+
+```{r, fig.width=10, fig.height=3}
+library(ggplot2)
+total_1grams = 1024908267229
+degree_adverbs = read.table("degree-adverbs-exp3.csv", header=T, sep=",")
+print(degree_adverbs)
+degree_adverbs$log_prob = log(degree_adverbs$count) / log(total_1grams)
+degree_adverbs$sort_order = as.numeric(as.factor(degree_adverbs$log_prob))
+degree_adverbs$adverb = with(degree_adverbs, factor(adverb, levels=adverb[sort_order]))
+p <- ggplot(degree_adverbs, aes(x=sort_order, y=log_prob, colour=adverb)) +
+  geom_point() +
+  geom_text(aes(label=adverb), angle=(180+135), hjust=-0.1, size=3) +
+  xlab("") +
+  ylab("log probability of adverb") +
+  ylim(0.2, 0.71) +
+  theme_bw()  +
+  theme(legend.position="none")
+print(p)
+```
