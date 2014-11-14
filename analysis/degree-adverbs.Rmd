@@ -1,0 +1,403 @@
+---
+title: "degree-adverbs"
+author: "erin"
+date: "11/12/2014"
+output: html_document
+---
+
+# Intensity of degree adverbs
+
+Hypothesis: adverbs of degree, like "somewhat" and "extremely", modify the adjectives they describe in proportion to the cost of uttering them. For example, if "inordinately" is more costly to utter than "very", the former will have a stronger meaning than the latter.
+
+This cost might manifest in syllable length or in surprisal (how unlikely is that word to be said?).
+
+## Experiment 1: intensifiers
+
+```{r echo=F}
+intensifiers = read.table("intensifiers.tsv", header=T, sep="\t")
+intensifiers = subset(intensifiers, workerid < 40) #later workers are for later experiments
+intensifiers$workerid = as.factor(intensifiers$workerid)
+intensifiers = intensifiers[,c("price", "intensifier", "item", "workerid")]
+library(plyr)
+intensifiers$zprice = ddply(intensifiers, .(workerid), summarize, zprice=scale(price))$zprice
+intensifiers = intensifiers[intensifiers$intensifier != "",] #don't include no intensifier in the analysis, but do use it to zscore.
+## ngrams
+ngrams = read.table("ngrams.sep", header=T, sep="\t")
+frequency = ngrams$frequency
+names(frequency) = ngrams$ngram
+syllables = ngrams$syllables
+names(syllables) = ngrams$ngram
+total_1grams = 1024908267229
+intensifiers$frequency = sapply(as.character(intensifiers$intensifier), function(adverb) {
+  frequency[[adverb]]
+})
+intensifiers$probability = intensifiers$frequency / total_1grams
+intensifiers$surprisal = - log(intensifiers$probability)
+intensifiers$syllables = sapply(as.character(intensifiers$intensifier), function(adverb) {
+  if (adverb == "") {
+    return(0)
+  } else {
+    return(syllables[[adverb]])
+  }
+})
+
+human_watch_priors = read.table("pricePriors_humans/watch.txt")$V1
+human_laptop_priors = read.table("pricePriors_humans/laptop.txt")$V1
+human_coffeemaker_priors = read.table("pricePriors_humans/coffee_maker.txt")$V1
+human_electrickettle_priors = read.table("pricePriors_humans/electric_kettle.txt")$V1
+human_headphones_priors = read.table("pricePriors_humans/headphones.txt")$V1
+
+amazon_watch_priors = read.table("pricePriors_scraped/watch.txt")$V1
+amazon_laptop_priors = read.table("pricePriors_scraped/laptop.txt")$V1
+amazon_coffeemaker_priors = read.table("pricePriors_scraped/coffee_maker.txt")$V1
+amazon_electrickettle_priors = read.table("pricePriors_scraped/electric_kettle.txt")$V1
+amazon_headphones_priors = read.table("pricePriors_scraped/headphones.txt")$V1
+
+## i totally made up the sweater one.
+sds = c("watch"=sd(human_watch_priors), "laptop"=sd(human_laptop_priors), "coffee maker"=sd(human_coffeemaker_priors), "electric kettle"=sd(human_electrickettle_priors), "headphones"=sd(human_headphones_priors), "sweater"=50)
+means = c("watch"=mean(human_watch_priors), "laptop"=mean(human_laptop_priors), "coffee maker"=mean(human_coffeemaker_priors), "electric kettle"=mean(human_electrickettle_priors), "headphones"=mean(human_headphones_priors), "sweater"=10)
+
+amazon_sds = c("watch"=sd(amazon_watch_priors), "laptop"=sd(amazon_laptop_priors), "coffee maker"=sd(amazon_coffeemaker_priors), "electric kettle"=sd(amazon_electrickettle_priors), "headphones"=sd(amazon_headphones_priors), "sweater"=50)
+amazon_means = c("watch"=mean(amazon_watch_priors), "laptop"=mean(amazon_laptop_priors), "coffee maker"=mean(amazon_coffeemaker_priors), "electric kettle"=mean(amazon_electrickettle_priors), "headphones"=mean(amazon_headphones_priors), "sweater"=10)
+
+intensifiers$itemsd = sapply(as.character(intensifiers$item), function(item) {sds[[item]]})
+intensifiers$itemmean = sapply(as.character(intensifiers$item), function(item) {means[[item]]})
+intensifiers$sdprice = (intensifiers$price - intensifiers$itemmean) / intensifiers$itemsd
+intensifiers$sdzprice =  ddply(intensifiers, .(workerid), summarize, sdzprice=scale(sdprice))$sdzprice
+
+intensifiers$amazon_itemsd = sapply(as.character(intensifiers$item), function(item) {amazon_sds[[item]]})
+intensifiers$amazon_itemmean = sapply(as.character(intensifiers$item), function(item) {amazon_means[[item]]})
+intensifiers$amazon_sdprice = (intensifiers$price - intensifiers$amazon_itemmean) / intensifiers$amazon_itemsd
+intensifiers$amazon_sdzprice =  ddply(intensifiers, .(workerid), summarize, amazon_sdzprice=scale(amazon_sdprice))$amazon_sdzprice
+```
+
+In Experiment 1, I check whether there is any relationship between cost and strength of an intensifying degree adverb. I ran this experiment on 80 participants.
+
+I use Google Ngrams data to get the surprisal of various intensifying degree adverbs and recorded their syllable lengths.
+
+```{r echo=F}
+print(ngrams)
+```
+
+```{r echo=F}
+#For the set of degree adverbs I studied, the correlation between my two possible measure of cost, surprisal and syllable length, is `r with(intensifiers, cor.test(surprisal, syllables))`.
+```
+
+I ran an experiment asking participants the prices of different "*[adverb]* expensive" watches, laptops, and coffee makers. Prices were elicited with free response, and trials looked like this:
+
+![items-in-friends-purchases.png](items-in-friends-purchases.png)
+
+In a simple ANOVA, participant (`workerid`) predicted responses better than item and intensifier.
+
+```{r echo=F}
+fit = lm(price ~ intensifier * item * workerid, data=intensifiers)
+print(anova(fit))
+```
+
+Surprisal was not a significant predictor of response.
+
+```{r echo=F}
+fit = lm(price ~ surprisal, data=intensifiers)
+print(summary(fit))
+```
+
+This probably has something to do with the fact that some participants gave answers that were insanely high.
+
+```{r fig.width=10, fig.height=4.5, echo=F}
+library(ggplot2)
+source("~/opt/r_helper_scripts/bootsSummary.r")
+intensifiers_summary = bootsSummary(data=intensifiers, measurevar="price", groupvars=c("item", "intensifier", "syllables", "surprisal"))
+p = ggplot(intensifiers_summary, aes(x=surprisal, y=price, colour=syllables)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal)) +
+  facet_wrap(~ item) +
+  #scale_colour_grey() +
+  scale_colour_gradient(low="black", high="gray", space="Lab") +
+  theme_bw(28)
+print(p)
+ggsave("exp1-raw.png", width=10, height=4.5)
+```
+
+```{r fig.width=10, fig.height=4.5, echo=F}
+intensifiers_summary = bootsSummary(data=intensifiers, measurevar="price", groupvars=c("item", "intensifier", "syllables", "surprisal"))
+p = ggplot(intensifiers_summary, aes(x=syllables, y=price, colour=surprisal)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=syllables)) +
+  facet_wrap(~ item) +
+  #scale_colour_grey() +
+  scale_colour_gradient(low="black", high="gray", space="Lab") +
+  theme_bw(28)
+print(p)
+ggsave("exp1-raw-syllables.png", width=10, height=4.5)
+
+
+intensifiers_summary = bootsSummary(data=intensifiers, measurevar="sdprice", groupvars=c("item", "intensifier", "syllables", "surprisal"))
+p = ggplot(intensifiers_summary, aes(x=syllables, y=sdprice, colour=surprisal)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=syllables)) +
+  facet_wrap(~ item) +
+  #scale_colour_grey() +
+  scale_colour_gradient(low="black", high="gray", space="Lab") +
+  theme_bw(28)
+print(p)
+```
+
+I ran a mixed effect model, which found no significant effect of surprisal on response.
+
+```{r echo=F}
+library(lme4)
+fit = lmer(data=intensifiers, price~(surprisal) + (1 | item) + (1 | workerid) + (surprisal | workerid) + (surprisal | item))
+print(summary(fit))
+```
+
+In a similar mixed effect model, there is not significant effect of syllables on response.
+
+```{r echo=F}
+library(lme4)
+fit = lmer(data=intensifiers, price~(syllables) + (1 | item) + (1 | workerid) + (syllables | workerid) + (syllables | item))
+print(summary(fit))
+```
+
+When I incorporate surprisal and syllables both as fixed effects, I again find no significant effect of either.
+
+```{r echo=F}
+library(lme4)
+fit = lmer(data=intensifiers, price~(surprisal + syllables) + (1 | item) + (1 | workerid) + (surprisal + syllables | workerid) + (surprisal + syllables | item))
+print(summary(fit))
+```
+
+However, if I clean up the data and incorporate another source of information, I do find a significant positive effect of surprisal in an ANOVA.
+
+```{r echo=F}
+sdzfit = lm(data=intensifiers, sdzprice~surprisal)
+print(summary(sdzfit))
+```
+
+First, I used Justine's human priors data to subtract out the mean and divide by the standard deviation for each item (it seems reasonable to assume that items with more variation in their prices will have larger jumps between "very" and "inordinately" expensive). Then, because I have a response from every participant for every pair of item and intensifier, I z-scored participants' responses. This does not fully standardize responses, but it comes closer.
+
+```{r fig.width=10, fig.height=4.5, echo=F}
+intensifiers_summary = bootsSummary(data=intensifiers, measurevar="sdzprice", groupvars=c("item", "intensifier", "syllables", "surprisal"))
+p = ggplot(intensifiers_summary, aes(x=surprisal, y=sdzprice, colour=syllables)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal)) +
+  facet_wrap(~ item) +
+  #scale_colour_grey() +
+  scale_colour_gradient(low="black", high="gray") +
+  theme_bw(28)
+print(p)
+ggsave("exp1-scaled.png", width=10, height=4.5)
+```
+
+```{r fig.width=10, fig.height=4.5, echo=F}
+intensifiers_summary = bootsSummary(data=intensifiers, measurevar="sdzprice", groupvars=c("item", "intensifier", "syllables", "surprisal"))
+p = ggplot(intensifiers_summary, aes(x=syllables, y=sdzprice, colour=surprisal)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=syllables)) +
+  facet_wrap(~ item) +
+  #scale_colour_grey() +
+  scale_colour_gradient(low="black", high="gray") +
+  theme_bw(28)
+print(p)
+ggsave("exp1-scaled-syllables.png", width=10, height=4.5)
+```
+
+Additionally, incorporating prior elicitation from Justine's experiment and then z-scoring by participant shows a significant effect of syllables above and beyond the effect of surprisal and an interaction between the two costs.
+
+```{r echo=F}
+sdzfit = lm(data=intensifiers, sdzprice~surprisal * syllables)
+print(summary(sdzfit))
+```
+
+So it seems like there is some relationship between the cost of an intensifier and its strength.
+
+I was concerned that the relationship between surprisal and strength might be an effect of more extreme objects being less common and therefore talked about less, which would result in words that describe those objects being rarer. So I ran Experiment 2 to test that hypothesis.
+
+## Experiment 2: deintensifiers
+
+```{r echo=F}
+deintensifiers = read.table("intensifiers.tsv", header=T, sep="\t")
+deintensifiers = subset(deintensifiers, workerid >= 40) #later workers are for later experiments
+deintensifiers$workerid = as.factor(deintensifiers$workerid)
+deintensifiers = deintensifiers[,c("price", "intensifier", "item", "workerid")]
+deintensifiers$zprice = ddply(deintensifiers, .(workerid), summarize, zprice=scale(price))$zprice
+deintensifiers = deintensifiers[deintensifiers$intensifier != "",]
+deintensifiers = deintensifiers[deintensifiers$item != "sweater",]
+
+## ngrams
+ngrams = read.table("ngrams.sep", header=T, sep="\t")
+frequency = ngrams$frequency
+names(frequency) = ngrams$ngram
+syllables = ngrams$syllables
+names(syllables) = ngrams$ngram
+deintensifiers$frequency = sapply(as.character(deintensifiers$intensifier), function(adverb) {
+  frequency[[adverb]]
+})
+deintensifiers$syllables = sapply(as.character(deintensifiers$intensifier), function(adverb) {
+  syllables[[adverb]]
+})
+deintensifiers$surprisal = -log(deintensifiers$frequency) #this isn't quite surprisal, but it's proportional to surprisal
+
+deintensifiers$itemsd = sapply(as.character(deintensifiers$item), function(item) {sds[[item]]})
+deintensifiers$itemmean = sapply(as.character(deintensifiers$item), function(item) {means[[item]]})
+deintensifiers$sdprice = (deintensifiers$price - deintensifiers$itemmean) / deintensifiers$itemsd
+deintensifiers$sdzprice =  ddply(deintensifiers, .(workerid), summarize, sdzprice=scale(sdprice))$sdzprice
+
+deintensifiers$amazon_itemsd = sapply(as.character(deintensifiers$item), function(item) {amazon_sds[[item]]})
+deintensifiers$amazon_itemmean = sapply(as.character(deintensifiers$item), function(item) {amazon_means[[item]]})
+deintensifiers$amazon_sdprice = (deintensifiers$price - deintensifiers$amazon_itemmean) / deintensifiers$amazon_itemsd
+deintensifiers$amazon_sdzprice =  ddply(deintensifiers, .(workerid), summarize, amazon_sdzprice=scale(amazon_sdprice))$amazon_sdzprice
+```
+
+Experiment 2 tests a competing hypothesis that might explain some of the data in Experiment 1.
+
+Supposed that objects that are more extreme along a scale are less common and therefore talked about less. Then words that describe them (adverbs of degree that are quite strong) would be more rare. Thus the surprisal at these words would be a consequenct of their meaning rather than a cause. Were this the case, then stronger *deintensifying* adverbs of degree (e.g. "somewhat" or "moderately") would be more common because they describe more typical items that are more moderate along a scale.
+
+I found no evidence for the competing hypothesis (that stronger deintensifying adverbs of degree are more common). I also did not find evidence that stronger deintensifying degree adverbs are rarer.
+
+```{r echo=F}
+sdzfit = lm(data=deintensifiers, sdzprice~surprisal * syllables)
+print(summary(sdzfit))
+```
+
+```{r fig.width=10, fig.height=4.5, echo=F}
+deintensifiers_summary = bootsSummary(data=deintensifiers, measurevar="sdzprice", groupvars=c("item", "intensifier", "syllables", "surprisal"))
+p = ggplot(deintensifiers_summary, aes(x=surprisal, y=sdzprice, colour=syllables)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T,colour="black") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal)) +
+  facet_wrap(~ item) +
+  #scale_colour_grey() +
+  scale_colour_gradient(low="black", high="gray") +
+  theme_bw(22)
+print(p)
+ggsave("exp2-scaled.png", width=7, height=5)
+```
+
+```{r fig.width=10, fig.height=4.5, echo=F}
+deintensifiers_summary = bootsSummary(data=deintensifiers, measurevar="sdzprice", groupvars=c("item", "intensifier", "syllables", "surprisal"))
+p = ggplot(deintensifiers_summary, aes(x=syllables, y=sdzprice, colour=surprisal)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T,colour="black") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=syllables)) +
+  facet_wrap(~ item) +
+  #scale_colour_grey() +
+  scale_colour_gradient(low="black", high="gray") +
+  theme_bw(22)
+print(p)
+ggsave("exp2-scaled-syllables.png", width=7, height=5)
+```
+
+This absence of a significant result might be a result of floor effects or a more subtle meaning than I assumed for deintensifiers. Either way, the significance of syllable length in Experiment 1 cannot be explained with this competing hypothesis.
+
+## Experiment 3:
+
+```{r echo=F}
+degree_adverbs = read.table("degree-adverbs.tsv", header=T, sep="\t")
+degree_adverbs$workerid = as.factor(degree_adverbs$workerid)
+degree_adverbs = degree_adverbs[,c("price", "word", "item", "workerid")]
+degree_adverbs$intensifier = degree_adverbs$word
+degree_adverbs$zprice = ddply(degree_adverbs, .(workerid), summarize, zprice=scale(price))$zprice
+
+degree_adverbs$direction = rep("none", nrow(degree_adverbs))
+degree_adverbs$direction[degree_adverbs$word %in% c("horribly","super", "uber", "totally", "radically",
+                                                         "decidedly", "ridiculously", "pretty", "phenomenally",
+                                                         "crazily", "terribly", "stupidly", "vastly", "intensely",
+                                                         "greatly", "highly", "extraordinarily", "really",
+                                                         "outrageously", "excessively", "astoundingly", "very",
+                                                         "extremely", "supremely", "real", "wildly",
+                                                         "fantastically", "truly", "amazingly", "enormously",
+                                                         "crazy", "rather", "uncommonly", "exceedingly", "insanely",
+                                                         "quite", "hugely", "ever so")] = "intensifier"
+degree_adverbs$direction[degree_adverbs$word %in% c("relatively", "somewhat", "moderately", "barely",
+                                                           "fairly", "sorta", "slightly", "kinda", "reasonably",
+                                                           "a tad", "sort of", "a bit", "kind of", "a little")] = "deintensifier"
+
+degree_adverbs = degree_adverbs[degree_adverbs$intensifier != "",]
+
+## ngrams
+ngrams = read.table("ngrams2.sep", header=T, sep="\t")
+frequency = ngrams$frequency
+names(frequency) = ngrams$ngram
+syllables = ngrams$syllables
+names(syllables) = ngrams$ngram
+degree_adverbs$frequency = sapply(as.character(degree_adverbs$intensifier), function(adverb) {
+  frequency[[adverb]]
+})
+degree_adverbs$syllables = sapply(as.character(degree_adverbs$intensifier), function(adverb) {
+  syllables[[adverb]]
+})
+degree_adverbs$surprisal = -log(degree_adverbs$frequency) #this isn't quite surprisal, but it's proportional to surprisal
+
+degree_adverbs$itemsd = sapply(as.character(degree_adverbs$item), function(item) {sds[[item]]})
+degree_adverbs$itemmean = sapply(as.character(degree_adverbs$item), function(item) {means[[item]]})
+degree_adverbs$sdprice = (degree_adverbs$price - degree_adverbs$itemmean) / degree_adverbs$itemsd
+degree_adverbs$sdzprice =  ddply(degree_adverbs, .(workerid), summarize, sdzprice=scale(sdprice))$sdzprice
+
+degree_adverbs$amazon_itemsd = sapply(as.character(degree_adverbs$item), function(item) {amazon_sds[[item]]})
+degree_adverbs$amazon_itemmean = sapply(as.character(degree_adverbs$item), function(item) {amazon_means[[item]]})
+degree_adverbs$amazon_sdprice = (degree_adverbs$price - degree_adverbs$amazon_itemmean) / degree_adverbs$amazon_itemsd
+degree_adverbs$amazon_sdzprice =  ddply(degree_adverbs, .(workerid), summarize, amazon_sdzprice=scale(amazon_sdprice))$amazon_sdzprice
+
+intensifiers = degree_adverbs[degree_adverbs$direction == "intensifier",]
+deintensifiers = degree_adverbs[degree_adverbs$direction == "deintensifier",]
+```
+
+In Experiment 3, I tried to replicate my findings from Experiment 1 (that stronger intensifying degree adverbs happen to have higher costs) and from Experiment 2 (that stronger deintensifying adverbs are not necessarily more common). This time I tested all participants on all combinations of item and adverb, where adverbs were either intensifying or deintensifying degree adverbs. I only ran this experiment on 10 participants.
+
+I found only a marginal effect of surprisal.
+
+```{r fig.width=10, fig.height=4.5, echo=F}
+intensifiers_summary = bootsSummary(data=intensifiers, measurevar="sdzprice", groupvars=c("item", "intensifier", "syllables", "surprisal"))
+p = ggplot(intensifiers_summary, aes(x=surprisal, y=sdzprice, colour=syllables)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal)) +
+  scale_colour_gradient(low="black", high="gray") +
+  facet_wrap(~ item) +
+  theme_bw(28)
+print(p)
+ggsave("exp3-intensifiers-scaled.png", width=10, height=4.5)
+
+sdzfit = lm(data=intensifiers, sdzprice~surprisal * syllables)
+print(summary(sdzfit))
+```
+
+```{r fig.width=10, fig.height=4.5, echo=F}
+intensifiers_summary = bootsSummary(data=intensifiers, measurevar="sdzprice", groupvars=c("item", "intensifier", "syllables", "surprisal"))
+p = ggplot(intensifiers_summary, aes(x=syllables, y=sdzprice, colour=surprisal)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=syllables)) +
+  scale_colour_gradient(low="black", high="gray") +
+  facet_wrap(~ item) +
+  theme_bw(28)
+print(p)
+ggsave("exp3-intensifiers-scaled-syllables.png", width=10, height=4.5)
+
+sdzfit = lm(data=intensifiers, sdzprice~surprisal * syllables)
+print(summary(sdzfit))
+```
+
+I found a marginally significant negative effect of surprisal in the deintensifiers condition, which provides evidence for more costly deintensifying adverbs referring to consequently lower prices. However, in direct contrast to that, syllable length appears to predict more expensive prices.
+
+```{r fig.width=10, fig.height=4.5, echo=F}
+deintensifiers_summary = bootsSummary(data=deintensifiers, measurevar="sdzprice", groupvars=c("item", "intensifier", "syllables", "surprisal"))
+p = ggplot(deintensifiers_summary, aes(x=syllables, y=sdzprice, colour=surprisal)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=syllables)) +
+  scale_colour_gradient(low="black", high="gray") +
+  facet_wrap(~ item) +
+  theme_bw(28)
+  facet_wrap(~ item)
+print(p)
+ggsave("exp3-deintensifiers-scaled-syllables.png", width=10, height=4.5)
+
+sdzfit = lm(data=deintensifiers, sdzprice~surprisal * syllables)
+print(summary(sdzfit))
+```

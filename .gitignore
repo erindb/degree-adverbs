@@ -6,3 +6,6 @@ cogsci_template*
 CogSci_Template*
 *.bbl
 *.blg
+*/mturk
+*/*/mturk
+*/*/*/mturk
