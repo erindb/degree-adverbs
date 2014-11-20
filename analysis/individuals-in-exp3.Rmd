@@ -1,0 +1,100 @@
+---
+title: "Individuals in Experiment 3"
+author: "erin"
+date: "11/17/2014"
+output: html_document
+---
+
+```{r}
+## load required packages
+library(ggplot2)
+source("~/opt/r_helper_scripts/bootsSummary.r")
+
+## load exp1 data
+degree_adverbs = read.table("degree-adverbs.tsv", header=T, sep="\t")
+degree_adverbs$workerid = as.factor(degree_adverbs$workerid)
+degree_adverbs = degree_adverbs[,c("price", "word", "item", "workerid")]
+degree_adverbs$intensifier = degree_adverbs$word
+degree_adverbs = ddply(degree_adverbs, .(workerid), transform, zprice=scale(price))
+degree_adverbs = ddply(degree_adverbs, .(workerid, item), transform, zzprice=scale(price))
+degree_adverbs = degree_adverbs[degree_adverbs$word != "",]
+degree_adverbs = degree_adverbs[!is.na(degree_adverbs$zzprice),]
+
+degree_adverbs$direction = rep("none", nrow(degree_adverbs))
+degree_adverbs$direction[degree_adverbs$word %in% c("horribly","super", "uber", "totally", "radically",
+                                                         "decidedly", "ridiculously", "pretty", "phenomenally",
+                                                         "crazily", "terribly", "stupidly", "vastly", "intensely",
+                                                         "greatly", "highly", "extraordinarily", "really",
+                                                         "outrageously", "excessively", "astoundingly", "very",
+                                                         "extremely", "supremely", "real", "wildly",
+                                                         "fantastically", "truly", "amazingly", "enormously",
+                                                         "crazy", "rather", "uncommonly", "exceedingly", "insanely",
+                                                         "quite", "hugely", "ever so")] = "intensifier"
+degree_adverbs$direction[degree_adverbs$word %in% c("relatively", "somewhat", "moderately", "barely",
+                                                           "fairly", "sorta", "slightly", "kinda", "reasonably",
+                                                           "a tad", "sort of", "a bit", "kind of", "a little")] = "deintensifier"
+
+degree_adverbs = degree_adverbs[degree_adverbs$intensifier != "",]
+
+## ngrams
+ngrams = read.table("ngrams2.sep", header=T, sep="\t")
+frequency = ngrams$frequency
+names(frequency) = ngrams$ngram
+syllables = ngrams$syllables
+names(syllables) = ngrams$ngram
+degree_adverbs$frequency = sapply(as.character(degree_adverbs$intensifier), function(adverb) {
+  frequency[[adverb]]
+})
+degree_adverbs$syllables = sapply(as.character(degree_adverbs$intensifier), function(adverb) {
+  syllables[[adverb]]
+})
+degree_adverbs$surprisal = -log(degree_adverbs$frequency) #this isn't quite surprisal, but it's proportional to surprisal
+
+intensifiers = degree_adverbs[degree_adverbs$direction == "intensifier",]
+deintensifiers = degree_adverbs[degree_adverbs$direction == "deintensifier",]
+```
+
+There's a huge amount of variety in people's responses.
+
+```{r fig.width=19, fig.height=12}
+p = ggplot(intensifiers, aes(x=surprisal, y=price, colour=item)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T) +
+  facet_wrap(~ workerid, scales="free_y") +
+  theme_bw(28)
+print(p)
+```
+
+If we z-score by participant, there's still a lot variation between items.
+
+```{r fig.width=19, fig.height=12}
+p = ggplot(intensifiers, aes(x=surprisal, y=zprice, colour=item)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T) +
+  facet_wrap(~ workerid) +
+  theme_bw(28)
+print(p)
+```
+
+If we z-score by both participant and item, things start to look more stable.
+
+```{r fig.width=19, fig.height=12}
+p = ggplot(intensifiers, aes(x=surprisal, y=zzprice, colour=syllables)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  facet_wrap(~ workerid) +
+  theme_bw(28)
+print(p)
+```
+
+Averaging these values across participants, there appears to be a trend of surpisal indicating higher responses.
+
+```{r fig.width=10, fig.height=6}
+intensifiers_summary = bootsSummary(data=intensifiers, measurevar="zzprice", groupvars=c("intensifier", "syllables", "surprisal"))
+p = ggplot(intensifiers_summary, aes(x=surprisal, y=zzprice, colour=syllables)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal)) +
+  theme_bw(28)
+print(p)
+```

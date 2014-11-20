@@ -112,6 +112,16 @@ p = ggplot(intensifiers_summary, aes(x=syllables, y=price, colour=surprisal)) +
   theme_bw(28)
 print(p)
 ggsave("exp1-raw-syllables.png", width=10, height=4.5)
+
+p = ggplot(intensifiers, aes(x=surprisal, y=zzprice)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  facet_wrap(~ workerid) +
+  #scale_colour_grey() +
+  #scale_colour_gradient(low="black", high="gray", space="Lab") +
+  theme_bw(28)
+print(p)
+ggsave("exp1-raw-syllables.png", width=10, height=4.5)
 ```
 
 I ran a mixed effect model with syllables and surprisal as fixed effects and workerid and item as random effects, which found no significant effect of either fixed effect on response.
@@ -121,6 +131,14 @@ library(lme4)
 library(lmerTest)
 fit = lmer(data=intensifiers, price~(surprisal + syllables) + (1 | item) + (1 | workerid) + (surprisal + syllables | workerid) + (surprisal + syllables | item))
 print(summary(fit))
+fit = lmer(data=intensifiers, price~surprisal + (1 + surprisal | item) + (1 + surprisal | workerid))
+print(summary(fit))
+zfit = lmer(data=intensifiers, zprice~surprisal + (1 + surprisal | item) + (1 + surprisal | workerid))
+print(summary(zfit))
+zzfit = lmer(data=intensifiers, zzprice~surprisal + (1 + surprisal | item) + (1 + surprisal | workerid))
+print(summary(zzfit))
+zzfit = lmer(data=intensifiers, zzprice~(surprisal + syllables) + (1 + (surprisal + syllables) | item) + (1 + (surprisal + syllables) | workerid))
+print(summary(zzfit))
 ```
 
 However, every participant saw every combination of intensifier and item, so I can z-score by `workerid` and `item` which standardizes participants beliefs about different items' prices and the ranges of those prices.
@@ -131,17 +149,7 @@ When I do this, I find significant effects of surprisal and syllable length.
 fit = lm(zzprice ~ surprisal * syllables, data=intensifiers)
 print(summary(fit))
 
-# zz_intensifiers_summary = bootsSummary(data=intensifiers[as.character(as.numeric(intensifiers$workerid))<20,], measurevar="zzprice", groupvars=c("item", "intensifier", "syllables", "surprisal"))
-# p = ggplot(zz_intensifiers_summary, aes(x=syllables, y=zzprice, colour=surprisal)) +
-#   geom_point() +
-#   geom_smooth(method="lm", se=T, colour="black") +
-#   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=syllables)) +
-#   facet_wrap(~ item) +
-#   #scale_colour_grey() +
-#   scale_colour_gradient(low="black", high="gray") +
-#   theme_bw(28)
-# print(p)
-# ggsave("exp1-zz-syllables.png", width=10, height=4.5)
+zz_intensifiers_summary = bootsSummary(data=intensifiers[as.character(as.numeric(intensifiers$workerid))<20,], measurevar="zzprice", groupvars=c("item", "intensifier", "syllables", "surprisal"))
 p = ggplot(zz_intensifiers_summary, aes(x=surprisal, y=zzprice, colour=syllables)) +
   geom_point() +
   geom_smooth(method="lm", se=T, colour="black") +

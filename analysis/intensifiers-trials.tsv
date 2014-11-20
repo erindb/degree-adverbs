@@ -1,0 +1,3441 @@
+workerid	rt	name	intensifier	color	price	item
+0	6501	Robert	exceedingly	DF0101	2000	watch
+0	8715	Patricia		31B404	1500	laptop
+0	6207	Susan	excessively	DF0101	2500	watch
+0	3902	Maria	really	31B404	2000	laptop
+0	5303	Mary	enormously	0404B4	300	coffee maker
+0	3854	Barbara	hugely	31B404	2000	laptop
+0	5857	Robert	crazy	0404B4	500	coffee maker
+0	3445	Tim	insanely	0404B4	600	coffee maker
+0	3527	David	enormously	0404B4	550	coffee maker
+0	9047	Linda	really	0404B4	100	coffee maker
+0	3030	Sally	exceedingly	31B404	3000	laptop
+0	4336	Patricia	wildly	DF0101	500	watch
+0	3679	Susan	super	31B404	2000	laptop
+0	4758	Michael	horribly	31B404	1500	laptop
+0	3375	Patricia	insanely	DF0101	3000	watch
+0	6815	Michael	extremely	31B404	2000	laptop
+0	4002	Sally	very	31B404	1900	laptop
+0	3167	Jennifer	crazy	31B404	2000	laptop
+0	3277	Barbara	vastly	DF0101	2000	watch
+0	2775	Tim	very	DF0101	1000	watch
+0	4031	Elizabeth	quite	31B404	1500	laptop
+0	3743	James	quite	0404B4	300	coffee maker
+0	2735	Richard	terribly	0404B4	300	coffee maker
+0	3887	Mary	insanely	DF0101	4000	watch
+0	2894	Barbara	excessively	DF0101	2000	watch
+0	4415	John		0404B4	100	coffee maker
+0	10816	Linda	extremely	0404B4	300	coffee maker
+0	4346	Tim	hugely	0404B4	200	coffee maker
+0	2992	Robert	crazy	0404B4	200	coffee maker
+0	3567	Maria	quite	DF0101	1000	watch
+0	3055	Michael	really	DF0101	1000	watch
+0	7412	David	terribly	31B404	2000	laptop
+0	2788	Charles	vastly	DF0101	3000	watch
+0	96209	Mary	exceedingly	DF0101	1000	watch
+0	4178	Elizabeth	hugely	0404B4	200	coffee maker
+0	3518	James	horribly	31B404	2000	laptop
+0	2950	William	enormously	DF0101	3000	watch
+0	3543	Richard	wildly	0404B4	500	coffee maker
+0	4647	Jennifer	uncommonly	0404B4	250	coffee maker
+0	4480	Richard	uncommonly	31B404	1500	laptop
+0	7767	David	very	0404B4	250	coffee maker
+0	4735	Linda	extremely	31B404	1500	laptop
+0	3096	Charles		DF0101	200	watch
+0	5015	John	terribly	31B404	2000	laptop
+0	8559	John	wildly	DF0101	3000	watch
+0	3024	James	vastly	0404B4	200	coffee maker
+0	3566	Jennifer	super	DF0101	1000	watch
+0	4464	William	super	31B404	3000	laptop
+0	4711	Maria	uncommonly	DF0101	700	watch
+0	19168	Charles	excessively	31B404	2000	laptop
+0	4256	Sally	horribly	0404B4	200	coffee maker
+1	8966	Elizabeth	really	0404B4	200	coffee maker
+1	7817	John	insanely	DF0101	5000	watch
+1	9859	Sally	extremely	0404B4	200	coffee maker
+1	11164	Susan	quite	DF0101	300	watch
+1	6366	Mary	super	31B404	5000	laptop
+1	6004	Barbara	horribly	0404B4	300	coffee maker
+1	5495	Patricia	very	0404B4	150	coffee maker
+1	5931	William	really	31B404	1000	laptop
+1	9385	Richard	insanely	31B404	5000	laptop
+1	7673	Susan	really	31B404	800	laptop
+1	6476	Charles	uncommonly	0404B4	400	coffee maker
+1	7759	Elizabeth	exceedingly	DF0101	6000	watch
+1	6930	Mary	uncommonly	0404B4	200	coffee maker
+1	4908	John	crazy	0404B4	400	coffee maker
+1	5841	Tim	enormously	31B404	5000	laptop
+1	6023	Jennifer	wildly	DF0101	200	watch
+1	5632	Maria	vastly	31B404	800	laptop
+1	5729	Sally	hugely	31B404	1000	laptop
+1	9287	Susan	hugely	31B404	1000	laptop
+1	5628	William		DF0101	500	watch
+1	5434	Barbara	excessively	DF0101	1000	watch
+1	7074	Tim	exceedingly	31B404	1500	laptop
+1	4973	Jennifer	super	31B404	2000	laptop
+1	5842	William	crazy	DF0101	500	watch
+1	5062	Robert	exceedingly	0404B4	200	coffee maker
+1	5389	David	terribly	DF0101	300	watch
+1	5897	James	super	0404B4	150	coffee maker
+1	9778	Patricia	extremely	DF0101	1000	watch
+1	4441	Richard	wildly	31B404	800	laptop
+1	6240	David	enormously	DF0101	1000	watch
+1	8906	Maria	uncommonly	DF0101	500	watch
+1	6764	Tim	very	DF0101	500	watch
+1	5340	Elizabeth	insanely	31B404	8000	laptop
+1	5932	John		DF0101	200	watch
+1	6405	Robert	excessively	31B404	5000	laptop
+1	6226	Barbara	vastly	31B404	800	laptop
+1	5031	James	quite	DF0101	500	watch
+1	4499	Charles	very	0404B4	200	coffee maker
+1	7084	Michael	horribly	DF0101	1000	watch
+1	9411	Michael	crazy	DF0101	200	watch
+1	4688	Mary	extremely	0404B4	200	coffee maker
+1	7272	Michael		DF0101	200	watch
+1	4152	Sally	horribly	0404B4	200	coffee maker
+1	6322	Patricia	quite	0404B4	300	coffee maker
+1	4530	Maria	terribly	0404B4	200	coffee maker
+1	4574	Robert	wildly	0404B4	300	coffee maker
+1	4541	Linda	terribly	0404B4	200	coffee maker
+1	4648	Richard	vastly	31B404	5000	laptop
+1	5140	David	excessively	31B404	800	laptop
+1	4660	Linda	enormously	31B404	8000	laptop
+1	4726	Linda	hugely	0404B4	300	coffee maker
+2	10823	Sally	insanely	DF0101	1200	laptop
+2	9863	Charles	horribly	0404B4	5000	watch
+2	6495	Michael	hugely	31B404	60	coffee maker
+2	6734	Mary		31B404	50	coffee maker
+2	4704	Patricia	horribly	31B404	75	coffee maker
+2	5949	Charles	vastly	0404B4	4000	watch
+2	4142	James	really	31B404	50	coffee maker
+2	4543	Susan	extremely	DF0101	900	laptop
+2	5023	Mary	insanely	0404B4	5000	watch
+2	6591	Barbara	quite	DF0101	900	laptop
+2	8048	Elizabeth	uncommonly	0404B4	400	watch
+2	4822	James	really	0404B4	3000	watch
+2	3870	Barbara	terribly	0404B4	4000	watch
+2	5487	Richard	enormously	DF0101	1000	laptop
+2	3943	Mary	very	31B404	45	coffee maker
+2	3751	William	hugely	DF0101	900	laptop
+2	4183	Michael	enormously	31B404	50	coffee maker
+2	5438	Richard	crazy	0404B4	8000	watch
+2	8166	Michael		31B404	45	coffee maker
+2	4247	David	exceedingly	0404B4	4000	watch
+2	4567	Susan		31B404	45	coffee maker
+2	5047	Sally	wildly	DF0101	1500	laptop
+2	3223	Robert	hugely	31B404	60	coffee maker
+2	7335	Charles	quite	0404B4	800	watch
+2	4719	Barbara	really	DF0101	800	laptop
+2	3216	Linda	terribly	DF0101	900	laptop
+2	4336	John	wildly	DF0101	1500	laptop
+2	3831	Sally	crazy	DF0101	1500	laptop
+2	4334	Elizabeth	quite	DF0101	900	laptop
+2	7023	Patricia	super	0404B4	5000	watch
+2	3799	Elizabeth	enormously	0404B4	6000	watch
+2	3535	Maria	very	DF0101	900	laptop
+2	7272	Linda	insanely	31B404	100	coffee maker
+2	4086	David	vastly	0404B4	4000	watch
+2	7566	Linda	super	DF0101	1200	laptop
+2	6263	Robert	terribly	31B404	60	coffee maker
+2	4919	John	super	31B404	50	coffee maker
+2	3927	Maria	wildly	DF0101	1200	laptop
+2	3279	Richard	excessively	DF0101	1200	laptop
+2	6469	Tim	uncommonly	0404B4	2500	watch
+2	7230	Jennifer	extremely	31B404	60	coffee maker
+2	3615	Robert	exceedingly	31B404	55	coffee maker
+2	3175	Jennifer	excessively	31B404	55	coffee maker
+2	3943	Patricia	crazy	DF0101	1200	laptop
+2	6904	Maria	uncommonly	0404B4	3000	watch
+2	7590	James	very	0404B4	2000	watch
+2	4055	William	horribly	31B404	120	coffee maker
+2	5432	William	extremely	0404B4	5000	watch
+2	5006	David	exceedingly	DF0101	1500	laptop
+2	5159	Tim	vastly	31B404	60	coffee maker
+2	5727	Susan	excessively	0404B4	6000	watch
+3	8518	Susan	enormously	DF0101	500	laptop
+3	8518	James	hugely	DF0101	500	laptop
+3	6169	Jennifer	quite	DF0101	400	laptop
+3	4472	Mary	quite	DF0101	400	laptop
+3	5431	James	vastly	0404B4	150	coffee maker
+3	6777	William	terribly	0404B4	150	coffee maker
+3	5869	Jennifer	super	0404B4	150	coffee maker
+3	6804	Tim	crazy	DF0101	500	laptop
+3	6225	Michael	crazy	0404B4	200	coffee maker
+3	5949	Barbara	excessively	0404B4	200	coffee maker
+3	7505	David	very	DF0101	400	laptop
+3	4842	Sally	really	31B404	400	watch
+3	4006	Tim	extremely	31B404	400	watch
+3	4891	Robert	wildly	0404B4	200	coffee maker
+3	4097	Barbara	wildly	0404B4	200	coffee maker
+3	7581	Linda	uncommonly	31B404	200	watch
+3	5927	David	super	31B404	200	watch
+3	6215	Patricia	enormously	DF0101	500	laptop
+3	4254	Linda	terribly	DF0101	500	laptop
+3	7190	Richard		31B404	150	watch
+3	4178	David	very	31B404	200	watch
+3	4892	John	quite	DF0101	400	laptop
+3	4382	William	terribly	0404B4	200	coffee maker
+3	4123	Patricia	horribly	0404B4	200	coffee maker
+3	5497	James	vastly	31B404	300	watch
+3	4354	John	super	DF0101	400	laptop
+3	3940	Jennifer	insanely	0404B4	300	coffee maker
+3	3613	Patricia	exceedingly	0404B4	200	coffee maker
+3	4693	Charles	enormously	31B404	300	watch
+3	6719	Tim	really	0404B4	150	coffee maker
+3	5544	Maria	excessively	DF0101	500	laptop
+3	6670	Richard	hugely	DF0101	500	laptop
+3	12707	Mary		DF0101	400	laptop
+3	6488	Mary	horribly	DF0101	500	laptop
+3	5460	Charles	uncommonly	31B404	200	watch
+3	3734	Robert	exceedingly	31B404	300	watch
+3	3784	Richard	exceedingly	31B404	300	watch
+3	5338	Michael	extremely	DF0101	500	laptop
+3	6423	Susan	vastly	0404B4	200	coffee maker
+3	5242	Elizabeth	horribly	31B404	400	watch
+3	4045	John	insanely	0404B4	300	coffee maker
+3	6767	Charles		0404B4	200	coffee maker
+3	4808	Sally	insanely	31B404	400	watch
+3	4029	Maria	really	31B404	200	watch
+3	7751	Barbara	very	DF0101	400	laptop
+3	5723	Elizabeth	wildly	31B404	400	watch
+3	6102	Michael	crazy	DF0101	600	laptop
+3	4741	Maria	uncommonly	31B404	400	watch
+3	4016	Linda	hugely	31B404	500	watch
+3	7110	Sally	extremely	0404B4	300	coffee maker
+3	4936	Elizabeth	excessively	0404B4	300	coffee maker
+4	5149	Susan	quite	DF0101	700	laptop
+4	5747	Mary	horribly	31B404	150	watch
+4	5526	Susan	really	31B404	100	watch
+4	4719	John	quite	DF0101	500	laptop
+4	6462	Linda	insanely	0404B4	100	coffee maker
+4	4415	Michael	crazy	0404B4	120	coffee maker
+4	5663	Barbara	vastly	0404B4	100	coffee maker
+4	3287	Richard	insanely	0404B4	120	coffee maker
+4	3550	William	wildly	31B404	150	watch
+4	3223	Maria	very	0404B4	80	coffee maker
+4	5480	Jennifer	uncommonly	DF0101	1000	laptop
+4	3838	Charles	horribly	0404B4	100	coffee maker
+4	3490	Robert	extremely	0404B4	120	coffee maker
+4	3871	Sally	crazy	31B404	120	watch
+4	3718	David	uncommonly	31B404	200	watch
+4	3208	John	quite	DF0101	500	laptop
+4	6478	Elizabeth	excessively	0404B4	80	coffee maker
+4	3623	John	very	DF0101	500	laptop
+4	4012	William		DF0101	500	laptop
+4	3135	James	terribly	0404B4	100	coffee maker
+4	3873	Maria	wildly	31B404	150	watch
+4	3870	Patricia	enormously	0404B4	100	coffee maker
+4	7032	Mary	really	DF0101	600	laptop
+4	4552	Barbara	crazy	DF0101	500	laptop
+4	4535	Barbara	uncommonly	0404B4	150	coffee maker
+4	4302	Robert	terribly	DF0101	500	laptop
+4	3151	Charles	horribly	31B404	150	watch
+4	5048	Mary	vastly	0404B4	100	coffee maker
+4	5078	Robert		DF0101	500	laptop
+4	5086	Susan	insanely	DF0101	500	laptop
+4	3983	Jennifer	exceedingly	0404B4	100	coffee maker
+4	3614	Michael	extremely	0404B4	150	coffee maker
+4	2888	Elizabeth	enormously	0404B4	150	coffee maker
+4	4086	James	excessively	31B404	80	watch
+4	5399	Elizabeth	wildly	DF0101	700	laptop
+4	4408	Tim	excessively	31B404	80	watch
+4	4741	Sally	terribly	DF0101	500	laptop
+4	5127	Tim	super	0404B4	100	coffee maker
+4	5368	Jennifer	exceedingly	31B404	100	watch
+4	2807	David	extremely	DF0101	500	laptop
+4	3350	William	exceedingly	31B404	150	watch
+4	3046	Linda	vastly	31B404	100	watch
+4	4047	Richard		31B404	100	watch
+4	3302	Sally	hugely	31B404	100	watch
+4	2302	James	really	31B404	100	watch
+4	2224	Michael	hugely	31B404	100	watch
+4	3951	Tim	super	31B404	150	watch
+4	2903	Charles	very	DF0101	500	laptop
+4	2791	Richard	enormously	DF0101	500	laptop
+4	4592	Maria	hugely	DF0101	500	laptop
+4	3494	David	super	0404B4	100	coffee maker
+5	7134	Patricia	vastly	31B404	140	coffee maker
+5	3734	Michael	quite	31B404	125	coffee maker
+5	4622	Linda	extremely	31B404	200	coffee maker
+5	5183	John	very	31B404	157	coffee maker
+5	3583	Jennifer	horribly	31B404	210	coffee maker
+5	8439	Sally	excessively	0404B4	1600	laptop
+5	4759	Linda	crazy	0404B4	1653	laptop
+5	5751	Robert	crazy	DF0101	3643	watch
+5	5751	Maria	horribly	31B404	204	coffee maker
+5	4130	Richard	vastly	0404B4	1400	laptop
+5	6620	Sally	quite	DF0101	900	watch
+5	4887	William	extremely	0404B4	1200	laptop
+5	4296	Sally	wildly	DF0101	5000	watch
+5	3206	William	super	DF0101	7000	watch
+5	3167	John	vastly	DF0101	5000	watch
+5	3751	James	very	DF0101	3257	watch
+5	6759	Linda	exceedingly	DF0101	5435	watch
+5	3944	Michael	insanely	31B404	211	coffee maker
+5	4593	Maria	insanely	31B404	214	coffee maker
+5	3236	Jennifer	really	0404B4	900	laptop
+5	3974	Elizabeth	crazy	0404B4	1087	laptop
+5	7119	Susan	exceedingly	0404B4	1231	laptop
+5	4007	Barbara	wildly	0404B4	1309	laptop
+5	4024	Elizabeth	enormously	0404B4	1400	laptop
+5	3047	Jennifer	uncommonly	0404B4	800	laptop
+5	3039	Elizabeth	horribly	31B404	221	coffee maker
+5	5439	Mary	hugely	DF0101	8762	watch
+5	5631	William		31B404	150	coffee maker
+5	3487	Tim	enormously	DF0101	6432	watch
+5	2816	David	extremely	DF0101	4567	watch
+5	2551	James	exceedingly	DF0101	7543	watch
+5	2941	Maria	insanely	DF0101	8553	watch
+5	4617	Robert	excessively	31B404	202	coffee maker
+5	3615	Susan	super	DF0101	7643	watch
+5	3807	Patricia	hugely	0404B4	1200	laptop
+5	7096	Susan	wildly	31B404	202	coffee maker
+5	4511	Tim		31B404	153	coffee maker
+5	2919	Michael	really	0404B4	90	laptop
+5	3855	Charles	really	0404B4	905	laptop
+5	3759	Mary	terribly	31B404	185	coffee maker
+5	3407	David	excessively	31B404	196	coffee maker
+5	3055	Richard	uncommonly	DF0101	7532	watch
+5	3256	James	uncommonly	DF0101	8534	watch
+5	4686	Barbara	terribly	0404B4	1104	laptop
+5	4160	John		DF0101	4821	watch
+5	4377	David	quite	0404B4	876	laptop
+5	3932	Robert	hugely	31B404	219	coffee maker
+5	4216	Charles	super	0404B4	1567	laptop
+5	3319	Patricia	very	0404B4	1297	laptop
+5	3368	Mary	terribly	31B404	210	coffee maker
+5	3264	Richard	enormously	DF0101	8764	watch
+6	9762	Tim	terribly	DF0101	6.50	coffee maker
+6	6173	Jennifer		0404B4	700	laptop
+6	5406	Mary	terribly	DF0101	55	coffee maker
+6	5076	Barbara	uncommonly	0404B4	800	laptop
+6	6219	Elizabeth	enormously	31B404	250	watch
+6	6584	Sally	super	DF0101	95	coffee maker
+6	7976	Elizabeth	uncommonly	DF0101	100	coffee maker
+6	5208	Jennifer		31B404	100	watch
+6	5385	Patricia	excessively	31B404	500	watch
+6	5268	Michael	very	DF0101	125	coffee maker
+6	5765	Mary	enormously	31B404	500	watch
+6	7815	Linda	vastly	DF0101	125	coffee maker
+6	12364	Patricia	really	DF0101	100	coffee maker
+6	10175	Michael	vastly	DF0101	135	coffee maker
+6	5632	John	excessively	DF0101	150	coffee maker
+6	4857	David	very	31B404	200	watch
+6	5116	James	extremely	0404B4	800	laptop
+6	9740	David	exceedingly	31B404	350	watch
+6	5438	Robert	hugely	DF0101	125	coffee maker
+6	8108	Robert	hugely	0404B4	800	laptop
+6	4797	Maria	crazy	DF0101	200	coffee maker
+6	4673	Sally	wildly	31B404	750	watch
+6	4989	Tim	super	0404B4	800	laptop
+6	6676	William	horribly	0404B4	900	laptop
+6	5681	David	extremely	DF0101	150	coffee maker
+6	6901	Richard	crazy	0404B4	900	laptop
+6	7276	Michael	really	0404B4	750	laptop
+6	10260	Tim	hugely	31B404	500	watch
+6	8499	John	really	0404B4	900	laptop
+6	6204	Robert	enormously	31B404	750	watch
+6	6766	Maria	crazy	0404B4	950	laptop
+6	7135	Sally	insanely	DF0101	175	coffee maker
+6	6885	Linda	uncommonly	31B404	750	watch
+6	5308	Linda	wildly	0404B4	900	laptop
+6	4758	James	horribly	0404B4	950	laptop
+6	4818	Jennifer	exceedingly	31B404	750	watch
+6	4391	James	excessively	31B404	800	watch
+6	5266	Barbara	vastly	0404B4	900	laptop
+6	4579	Patricia	horribly	0404B4	950	laptop
+6	5736	Mary	extremely	0404B4	900	laptop
+6	5336	Charles	terribly	DF0101	150	coffee maker
+6	5095	Maria	wildly	0404B4	1000	laptop
+6	4737	Charles	quite	31B404	850	watch
+6	7160	William	quite	0404B4	1000	laptop
+6	7490	Susan	quite	DF0101	195	coffee maker
+6	5352	Richard	insanely	31B404	900	watch
+6	7588	John	exceedingly	31B404	800	watch
+6	5853	William	super	DF0101	175	coffee maker
+6	6037	Susan		31B404	200	watch
+6	4791	Charles	very	DF0101	100	coffee maker
+6	6956	Susan	insanely	31B404	750	watch
+7	14032	Linda	terribly	DF0101	550	laptop
+7	9806	John	super	DF0101	550	laptop
+7	9553	Mary	enormously	0404B4	120	coffee maker
+7	7411	James	vastly	DF0101	350	laptop
+7	9334	Patricia	horribly	0404B4	150	coffee maker
+7	7271	Maria	hugely	0404B4	110	coffee maker
+7	5425	Elizabeth	super	0404B4	120	coffee maker
+7	9027	Sally	uncommonly	0404B4	115	coffee maker
+7	5818	Linda	excessively	31B404	60	watch
+7	4381	William	insanely	31B404	120	watch
+7	16931	Michael	vastly	DF0101	500	laptop
+7	6431	Richard	quite	31B404	70	watch
+7	22842	Tim	exceedingly	DF0101	500	laptop
+7	4748	John	hugely	DF0101	400	laptop
+7	8560	Jennifer	enormously	0404B4	140	coffee maker
+7	7224	Charles	insanely	DF0101	600	laptop
+7	4972	John	crazy	DF0101	500	laptop
+7	4180	Susan		31B404	50	watch
+7	5408	Barbara	extremely	31B404	100	watch
+7	4832	William	extremely	31B404	120	watch
+7	5006	Sally	vastly	0404B4	75	coffee maker
+7	5907	Robert	hugely	DF0101	500	laptop
+7	5613	Patricia		31B404	50	watch
+7	5643	Richard	enormously	31B404	120	watch
+7	7485	Susan	wildly	DF0101	550	laptop
+7	6145	Maria	horribly	DF0101	550	laptop
+7	4901	Charles		31B404	65	watch
+7	6575	Mary	super	0404B4	120	coffee maker
+7	4713	Barbara	insanely	DF0101	550	laptop
+7	6092	Michael	excessively	31B404	145	watch
+7	7976	Elizabeth	really	0404B4	75	coffee maker
+7	8298	Robert	really	0404B4	85	coffee maker
+7	7919	Tim	wildly	0404B4	60	coffee maker
+7	4275	Susan	terribly	0404B4	100	coffee maker
+7	35646	Jennifer	very	DF0101	450	laptop
+7	8725	Tim	terribly	31B404	120	watch
+7	5404	Robert	really	0404B4	90	coffee maker
+7	5441	Elizabeth	excessively	31B404	75	watch
+7	6008	James	quite	0404B4	65	coffee maker
+7	6809	Michael	crazy	31B404	120	watch
+7	8457	Jennifer	uncommonly	DF0101	550	laptop
+7	9554	David	very	31B404	95	watch
+7	4007	David	quite	0404B4	75	coffee maker
+7	5310	Sally	exceedingly	0404B4	120	coffee maker
+7	3355	Barbara	very	31B404	75	watch
+7	6686	Charles	exceedingly	DF0101	600	laptop
+7	13539	Mary	wildly	DF0101	500	laptop
+7	12513	Linda	crazy	31B404	70	watch
+7	4461	Richard	uncommonly	0404B4	100	coffee maker
+7	6610	Patricia	extremely	31B404	90	watch
+7	4503	Maria	horribly	DF0101	550	laptop
+8	7830	Sally		DF0101	100	coffee maker
+8	6790	Maria	enormously	31B404	2000	laptop
+8	7392	Jennifer		31B404	200	laptop
+8	9591	Jennifer	crazy	0404B4	100	watch
+8	7111	Tim	excessively	31B404	2000	laptop
+8	4968	Charles	vastly	31B404	2000	laptop
+8	3871	John	really	0404B4	150	watch
+8	8048	Robert	horribly	31B404	2000	laptop
+8	5447	Mary	excessively	DF0101	75	coffee maker
+8	6048	Sally	crazy	DF0101	100	coffee maker
+8	8398	Richard	quite	0404B4	70	watch
+8	7175	William	exceedingly	0404B4	100	watch
+8	5744	James	hugely	31B404	2000	laptop
+8	5629	Barbara	extremely	0404B4	120	watch
+8	12607	William	enormously	DF0101	120	coffee maker
+8	3223	Maria	terribly	31B404	2000	laptop
+8	6730	James	really	DF0101	100	coffee maker
+8	3499	David	excessively	DF0101	120	coffee maker
+8	7696	Patricia	insanely	0404B4	150	watch
+8	8152	Tim	very	0404B4	100	watch
+8	3839	Linda	really	DF0101	100	coffee maker
+8	4239	Maria	horribly	31B404	2000	laptop
+8	3505	Mary	vastly	31B404	2000	laptop
+8	11254	Susan	hugely	0404B4	100	watch
+8	5951	Mary	super	31B404	1500	laptop
+8	7767	Charles		31B404	1500	laptop
+8	4277	Patricia	uncommonly	0404B4	100	watch
+8	3615	Barbara	quite	31B404	2000	laptop
+8	4319	Elizabeth	very	31B404	2000	laptop
+8	4775	Susan	vastly	31B404	2000	laptop
+8	8367	Charles	super	DF0101	100	coffee maker
+8	3533	Michael	very	DF0101	100	coffee maker
+8	5823	Sally	wildly	DF0101	120	coffee maker
+8	4176	Susan	uncommonly	0404B4	100	watch
+8	3475	Patricia	exceedingly	31B404	2000	laptop
+8	8425	Robert	exceedingly	0404B4	120	watch
+8	3239	Michael	wildly	DF0101	150	coffee maker
+8	11017	Richard	quite	DF0101	100	coffee maker
+8	3908	James	wildly	0404B4	150	watch
+8	4579	Barbara	hugely	0404B4	120	watch
+8	3583	Elizabeth	extremely	0404B4	120	watch
+8	8949	Michael	terribly	DF0101	100	coffee maker
+8	3187	David	horribly	DF0101	100	coffee maker
+8	2764	Linda	crazy	DF0101	100	coffee maker
+8	10319	Jennifer	uncommonly	DF0101	120	coffee maker
+8	5360	Richard	terribly	0404B4	120	watch
+8	7944	Elizabeth	insanely	0404B4	130	watch
+8	5143	Tim	extremely	0404B4	100	watch
+8	5167	David	super	31B404	2000	laptop
+8	14385	Robert	insanely	DF0101	150	coffee maker
+8	12455	John	enormously	31B404	2000	laptop
+9	5239	Linda	crazy	31B404	200	coffee maker
+9	9059	Maria	wildly	DF0101	999	laptop
+9	7059	Sally	wildly	31B404	250	coffee maker
+9	6286	Maria	terribly	0404B4	300	watch
+9	4947	William	excessively	0404B4	300	watch
+9	6681	Robert		DF0101	900	laptop
+9	6162	Sally	insanely	31B404	400	coffee maker
+9	6549	Linda	uncommonly	0404B4	300	watch
+9	8600	Richard	vastly	0404B4	330	watch
+9	5830	Richard	extremely	DF0101	900	laptop
+9	7455	David	crazy	31B404	250	coffee maker
+9	4593	Patricia	vastly	DF0101	900	laptop
+9	4647	Jennifer	very	31B404	200	coffee maker
+9	7804	James	enormously	31B404	250	coffee maker
+9	7474	Susan	exceedingly	31B404	225	coffee maker
+9	3936	David	hugely	DF0101	900	laptop
+9	6251	Michael	really	0404B4	299	watch
+9	4459	Elizabeth	really	DF0101	800	laptop
+9	4806	Barbara	super	DF0101	800	laptop
+9	4924	Tim	hugely	0404B4	300	watch
+9	3779	John	uncommonly	DF0101	1000	laptop
+9	4132	Barbara	hugely	31B404	350	coffee maker
+9	3662	William	uncommonly	0404B4	300	watch
+9	3306	Charles	very	DF0101	900	laptop
+9	4982	Elizabeth	super	DF0101	950	laptop
+9	6705	Tim	horribly	31B404	250	coffee maker
+9	4006	Mary	extremely	31B404	200	coffee maker
+9	5854	Mary	excessively	DF0101	950	laptop
+9	5472	Barbara	vastly	0404B4	350	watch
+9	3944	Tim	quite	0404B4	299	watch
+9	5710	James		DF0101	900	laptop
+9	4188	Linda	horribly	31B404	300	coffee maker
+9	3616	Robert	quite	0404B4	300	watch
+9	3864	Jennifer		DF0101	800	laptop
+9	3664	Richard	wildly	31B404	300	coffee maker
+9	6628	Maria	extremely	DF0101	999	laptop
+9	3814	Robert	very	0404B4	299	watch
+9	4340	Sally	terribly	0404B4	350	watch
+9	6640	Elizabeth	excessively	31B404	350	coffee maker
+9	4115	Susan	insanely	31B404	350	coffee maker
+9	3901	Mary	horribly	31B404	360	coffee maker
+9	4326	Susan	enormously	0404B4	300	watch
+9	3679	Charles	terribly	0404B4	350	watch
+9	7389	John	exceedingly	31B404	300	coffee maker
+9	2894	John	quite	DF0101	900	laptop
+9	2801	Michael	really	31B404	300	coffee maker
+9	3428	James	crazy	DF0101	999	laptop
+9	4162	Patricia	super	DF0101	900	laptop
+9	4165	Charles	insanely	0404B4	399	watch
+9	3265	Jennifer	enormously	0404B4	399	watch
+9	3021	William	exceedingly	0404B4	399	watch
+10	4518	Robert		31B404	200	coffee maker
+10	3950	Maria	terribly	0404B4	500	watch
+10	4904	Patricia		0404B4	100	watch
+10	4455	William	excessively	31B404	400	coffee maker
+10	3807	Susan	quite	31B404	150	coffee maker
+10	8328	James	super	0404B4	1000	watch
+10	3983	Robert	vastly	DF0101	3000	laptop
+10	3992	Maria	super	0404B4	500	watch
+10	5263	James		0404B4	200	watch
+10	3287	David	enormously	DF0101	5000	laptop
+10	3033	John	really	DF0101	2000	laptop
+10	2673	John	very	31B404	300	coffee maker
+10	3965	Elizabeth	hugely	DF0101	4000	laptop
+10	4431	Mary	hugely	31B404	300	coffee maker
+10	2512	Jennifer	extremely	0404B4	100	watch
+10	2856	Patricia	very	0404B4	100	watch
+10	2959	Sally	terribly	0404B4	200	watch
+10	2583	Barbara	really	31B404	400	coffee maker
+10	3424	Jennifer	wildly	0404B4	5000	watch
+10	3918	David	uncommonly	0404B4	1000	watch
+10	4256	James	insanely	0404B4	7000	watch
+10	6215	Jennifer	horribly	DF0101	4000	laptop
+10	3047	Susan	uncommonly	31B404	300	coffee maker
+10	2159	Susan	extremely	31B404	400	coffee maker
+10	3312	John	uncommonly	DF0101	3000	laptop
+10	2673	Elizabeth	vastly	31B404	300	coffee maker
+10	2679	Barbara	wildly	DF0101	4000	laptop
+10	3279	Tim	excessively	31B404	400	coffee maker
+10	5407	Michael	vastly	DF0101	4000	laptop
+10	3518	David	terribly	0404B4	400	watch
+10	2528	Linda	horribly	31B404	300	coffee maker
+10	3157	Mary	wildly	31B404	400	coffee maker
+10	3296	Richard	exceedingly	0404B4	7000	watch
+10	3199	Michael	quite	DF0101	2000	laptop
+10	3135	Mary	really	0404B4	100	watch
+10	2703	Charles	crazy	31B404	500	coffee maker
+10	3232	Robert	insanely	0404B4	7000	watch
+10	3279	Linda	enormously	DF0101	5000	laptop
+10	3945	Charles	extremely	31B404	400	coffee maker
+10	2773	Sally	exceedingly	DF0101	5000	laptop
+10	2112	Richard	quite	31B404	400	coffee maker
+10	2631	William	excessively	DF0101	5000	laptop
+10	2888	Barbara	enormously	DF0101	4000	laptop
+10	3527	Patricia	horribly	31B404	400	coffee maker
+10	2456	Charles	exceedingly	DF0101	5000	laptop
+10	2224	Michael	crazy	DF0101	4000	laptop
+10	2839	Tim	super	DF0101	4000	laptop
+10	4231	Linda	crazy	DF0101	3000	laptop
+10	2729	Sally	very	0404B4	200	watch
+10	4447	Tim	hugely	0404B4	300	watch
+10	4351	Elizabeth	insanely	31B404	500	coffee maker
+11	10977	Susan	enormously	31B404	1800	laptop
+11	5518	Elizabeth	uncommonly	0404B4	95	coffee maker
+11	5727	Tim	insanely	31B404	1250	laptop
+11	7605	David	very	DF0101	225	watch
+11	24947	Maria	super	0404B4	140	coffee maker
+11	4131	Barbara	extremely	DF0101	350	watch
+11	8518	David	exceedingly	0404B4	350	coffee maker
+11	3997	Maria	insanely	31B404	1250	laptop
+11	8319	Linda	excessively	0404B4	175	coffee maker
+11	12655	Mary	wildly	DF0101	450	watch
+11	4393	Charles	very	DF0101	175	watch
+11	3855	Richard	crazy	31B404	1500	laptop
+11	3943	John	enormously	31B404	1900	laptop
+11	3998	Barbara	uncommonly	DF0101	500	watch
+11	30136	Patricia	insanely	DF0101	350	watch
+11	3431	Barbara	terribly	DF0101	200	watch
+11	3609	Susan	wildly	0404B4	225	coffee maker
+11	5111	Jennifer	hugely	31B404	1000	laptop
+11	30918	Charles	extremely	0404B4	290	coffee maker
+11	79629	Robert	quite	31B404	1200	laptop
+11	3607	John		DF0101	150	watch
+11	4879	Patricia	extremely	DF0101	370	watch
+11	3696	Jennifer	uncommonly	31B404	2500	laptop
+11	3470	Linda	hugely	31B404	1500	laptop
+11	6047	Michael	really	DF0101	180	watch
+11	4400	Richard	horribly	DF0101	350	watch
+11	3592	Robert	wildly	0404B4	225	coffee maker
+11	3336	James	crazy	31B404	1800	laptop
+11	6502	Mary	quite	31B404	1100	laptop
+11	14640	Sally	very	31B404	1300	laptop
+11	3095	William	horribly	DF0101	350	watch
+11	8864	Susan	excessively	0404B4	270	coffee maker
+11	9030	Maria	vastly	0404B4	280	coffee maker
+11	5120	Linda	exceedingly	0404B4	175	coffee maker
+11	8319	John		DF0101	150	watch
+11	3183	Elizabeth	terribly	DF0101	300	watch
+11	4106	James	super	0404B4	95	coffee maker
+11	160925	Michael	enormously	31B404	1500	laptop
+11	3167	Robert	super	31B404	1000	laptop
+11	2999	Patricia	terribly	DF0101	380	watch
+11	4560	Sally	hugely	0404B4	200	coffee maker
+11	3535	Mary	crazy	0404B4	125	coffee maker
+11	3025	Tim	vastly	DF0101	500	watch
+11	4607	Michael	vastly	31B404	2300	laptop
+11	4023	Charles	quite	31B404	1400	laptop
+11	3240	Tim	really	0404B4	125	coffee maker
+11	12544	William	horribly	31B404	1500	laptop
+11	5791	James	exceedingly	DF0101	200	watch
+11	3663	Sally	really	0404B4	125	coffee maker
+11	2711	David		0404B4	90	coffee maker
+11	4351	Jennifer	excessively	0404B4	195	coffee maker
+12	7623	Tim	exceedingly	0404B4	350	coffee maker
+12	7855	David	very	0404B4	199	coffee maker
+12	10591	Linda	exceedingly	0404B4	299	coffee maker
+12	11759	Mary	wildly	DF0101	1200	laptop
+12	7558	David		31B404	200	watch
+12	5768	Susan	very	0404B4	199	coffee maker
+12	7063	William	enormously	0404B4	149	coffee maker
+12	7233	Linda	wildly	0404B4	249	coffee maker
+12	6247	Maria	quite	DF0101	999	laptop
+12	7336	Barbara	super	DF0101	949	laptop
+12	6496	Sally	terribly	31B404	199	watch
+12	22599	Elizabeth	terribly	DF0101	999	laptop
+12	4479	Jennifer	insanely	DF0101	1400	laptop
+12	4576	Jennifer	terribly	31B404	199	watch
+12	5992	Sally	excessively	DF0101	1700	laptop
+12	3927	Richard	crazy	0404B4	199	coffee maker
+12	6119	Robert	crazy	31B404	215	watch
+12	6281	Robert	vastly	0404B4	179	coffee maker
+12	5149	Charles	super	0404B4	145	coffee maker
+12	11838	Michael	hugely	31B404	199	watch
+12	5447	Mary	enormously	DF0101	1250	laptop
+12	6543	Charles	hugely	DF0101	1149	laptop
+12	6104	Tim	hugely	0404B4	189	coffee maker
+12	8791	Elizabeth	horribly	DF0101	1249	laptop
+12	4504	Patricia	uncommonly	DF0101	1600	laptop
+12	5215	Susan	crazy	31B404	189	watch
+12	3543	Elizabeth	wildly	0404B4	199	coffee maker
+12	5719	Tim	super	31B404	199	watch
+12	6968	Maria	extremely	31B404	199	watch
+12	6966	Susan	excessively	31B404	215	watch
+12	5240	John	uncommonly	31B404	299	watch
+12	3950	Richard	vastly	DF0101	1250	laptop
+12	16814	Barbara	enormously	31B404	199	watch
+12	7383	Michael	vastly	DF0101	1100	laptop
+12	6953	James	quite	31B404	189	watch
+12	9767	Charles	uncommonly	0404B4	289	coffee maker
+12	9376	James		31B404	129	watch
+12	21407	Michael	excessively	0404B4	279	coffee maker
+12	10136	Richard	extremely	31B404	215	watch
+12	5305	Sally	quite	31B404	159	watch
+12	6743	John	really	0404B4	179	coffee maker
+12	8744	Maria	extremely	DF0101	1290	laptop
+12	4703	Robert	exceedingly	DF0101	1699	laptop
+12	3687	William	really	DF0101	999	laptop
+12	9264	William	very	DF0101	1050	laptop
+12	5743	Linda	horribly	DF0101	1250	laptop
+12	6839	Mary	insanely	0404B4	299	coffee maker
+12	6200	James	really	0404B4	169	coffee maker
+12	6456	David		31B404	129	watch
+12	6639	Patricia	horribly	0404B4	279	coffee maker
+12	9791	Patricia	insanely	31B404	209	watch
+13	5505	Sally	exceedingly	0404B4	75	coffee maker
+13	5290	Tim	exceedingly	0404B4	75	coffee maker
+13	5836	Charles	vastly	DF0101	400	watch
+13	4512	William	quite	0404B4	65	coffee maker
+13	3878	Maria	very	0404B4	70	coffee maker
+13	4047	Robert	insanely	31B404	1500	laptop
+13	2904	Elizabeth	very	0404B4	70	coffee maker
+13	4797	Jennifer	extremely	DF0101	500	watch
+13	4693	Susan	enormously	DF0101	550	watch
+13	4093	Linda	enormously	0404B4	80	coffee maker
+13	3238	Sally	vastly	0404B4	75	coffee maker
+13	9290	Charles	uncommonly	DF0101	400	watch
+13	3236	Richard	really	DF0101	300	watch
+13	5185	David	vastly	DF0101	550	watch
+13	3371	Michael	wildly	31B404	1200	laptop
+13	4690	Charles	terribly	31B404	1000	laptop
+13	4174	Barbara	super	DF0101	400	watch
+13	3766	Linda	horribly	0404B4	80	coffee maker
+13	4709	Maria		DF0101	200	watch
+13	4197	Barbara	crazy	0404B4	80	coffee maker
+13	4061	Elizabeth	hugely	31B404	1100	laptop
+13	3412	Susan	horribly	0404B4	80	coffee maker
+13	2842	Michael	super	DF0101	400	watch
+13	3142	William	wildly	0404B4	75	coffee maker
+13	3356	Susan	extremely	DF0101	500	watch
+13	3008	Mary	wildly	DF0101	500	watch
+13	5021	James	uncommonly	31B404	1500	laptop
+13	4225	John	quite	31B404	1000	laptop
+13	3305	Richard		DF0101	200	watch
+13	3926	Barbara	terribly	31B404	1000	laptop
+13	6815	Tim	quite	DF0101	350	watch
+13	3145	Mary	uncommonly	DF0101	450	watch
+13	5298	Richard	excessively	31B404	1400	laptop
+13	4773	John	enormously	31B404	1500	laptop
+13	6597	Sally	extremely	DF0101	450	watch
+13	10428	James	crazy	DF0101	400	watch
+13	3681	Maria	very	DF0101	300	watch
+13	5317	Patricia	hugely	31B404	1000	laptop
+13	3406	Robert	insanely	0404B4	80	coffee maker
+13	4527	David	excessively	31B404	1200	laptop
+13	3013	Linda	super	0404B4	70	coffee maker
+13	2928	Patricia		0404B4	60	coffee maker
+13	5128	Elizabeth	exceedingly	31B404	1200	laptop
+13	2662	Michael	crazy	31B404	1200	laptop
+13	4929	James	horribly	31B404	1000	laptop
+13	2681	William	really	31B404	1000	laptop
+13	4165	Robert	terribly	31B404	1000	laptop
+13	3175	Tim	excessively	0404B4	80	coffee maker
+13	3290	David	insanely	0404B4	80	coffee maker
+13	4065	Mary	really	0404B4	70	coffee maker
+13	5204	John	hugely	31B404	1200	laptop
+14	17099	John	very	0404B4	2000	laptop
+14	7924	Elizabeth	excessively	0404B4	2000	laptop
+14	9295	Maria	excessively	31B404	500	watch
+14	6911	Sally	insanely	31B404	1500	watch
+14	5295	Mary		0404B4	1500	laptop
+14	4455	Barbara	super	0404B4	2000	laptop
+14	4990	Richard	insanely	31B404	1500	watch
+14	4767	Sally	enormously	31B404	750	watch
+14	4495	Robert	terribly	31B404	500	watch
+14	4239	Elizabeth	crazy	0404B4	2000	laptop
+14	7783	James	exceedingly	DF0101	250	coffee maker
+14	8967	Barbara	super	0404B4	2000	laptop
+14	4563	Susan	very	DF0101	150	coffee maker
+14	4943	Tim	really	DF0101	150	coffee maker
+14	5215	David	exceedingly	31B404	500	watch
+14	4759	Tim	extremely	DF0101	250	coffee maker
+14	6199	William	super	31B404	1000	watch
+14	4567	William	horribly	0404B4	2000	laptop
+14	4654	James	uncommonly	0404B4	1500	laptop
+14	6279	Jennifer		0404B4	1000	laptop
+14	8517	John	uncommonly	DF0101	150	coffee maker
+14	4096	Charles	horribly	DF0101	250	coffee maker
+14	5622	Maria	very	DF0101	150	coffee maker
+14	5967	Mary	quite	DF0101	150	coffee maker
+14	4567	Maria	terribly	0404B4	2000	laptop
+14	3880	Linda	quite	DF0101	150	coffee maker
+14	4574	Michael		0404B4	1000	laptop
+14	3919	Linda	quite	31B404	500	watch
+14	3511	James	really	DF0101	150	coffee maker
+14	3743	Charles	wildly	31B404	1000	watch
+14	9159	Michael	extremely	0404B4	2000	laptop
+14	4015	David	exceedingly	0404B4	2000	laptop
+14	3515	Mary	vastly	DF0101	250	coffee maker
+14	3742	Susan	enormously	0404B4	3000	laptop
+14	4495	Elizabeth	vastly	DF0101	250	coffee maker
+14	3823	John	horribly	31B404	1000	watch
+14	3815	Susan	excessively	DF0101	250	coffee maker
+14	3631	Tim	insanely	DF0101	250	coffee maker
+14	4039	Barbara	hugely	31B404	1000	watch
+14	4279	William	terribly	31B404	1000	watch
+14	3895	Patricia	hugely	DF0101	250	coffee maker
+14	3871	Patricia	extremely	0404B4	2000	laptop
+14	3710	Patricia	wildly	31B404	1000	watch
+14	3359	Richard	hugely	DF0101	250	coffee maker
+14	8799	Robert	uncommonly	31B404	750	watch
+14	3871	Jennifer	enormously	0404B4	3000	laptop
+14	3671	David	crazy	31B404	1000	watch
+14	6375	Jennifer	crazy	0404B4	3000	laptop
+14	3927	Linda	really	DF0101	250	coffee maker
+14	4031	Sally	vastly	31B404	1000	watch
+14	3431	Michael	wildly	31B404	1000	watch
+15	6143	Maria	quite	0404B4	150	coffee maker
+15	5224	James	excessively	31B404	600	watch
+15	6201	Sally	vastly	31B404	700	watch
+15	8109	Jennifer	uncommonly	0404B4	150	coffee maker
+15	5173	Maria	wildly	31B404	800	watch
+15	6152	Linda	really	DF0101	1000	laptop
+15	3779	William	crazy	DF0101	1200	laptop
+15	5459	Patricia	extremely	31B404	900	watch
+15	4351	David	exceedingly	31B404	600	watch
+15	7610	Linda	excessively	0404B4	225	coffee maker
+15	4138	Elizabeth	very	DF0101	900	laptop
+15	4167	John	uncommonly	0404B4	200	coffee maker
+15	3710	James	exceedingly	31B404	900	watch
+15	4257	William	super	DF0101	1200	laptop
+15	7700	Patricia		31B404	600	watch
+15	2592	Mary	horribly	31B404	900	watch
+15	2928	Tim	terribly	0404B4	200	coffee maker
+15	2381	Charles	enormously	31B404	900	watch
+15	2108	Charles	terribly	31B404	900	watch
+15	5988	Jennifer	very	DF0101	1000	laptop
+15	3142	John	really	DF0101	1200	laptop
+15	3613	Tim	horribly	DF0101	1400	laptop
+15	5219	Maria	super	DF0101	1400	laptop
+15	5861	Tim	hugely	0404B4	200	coffee maker
+15	2753	James	crazy	DF0101	1000	laptop
+15	4717	Linda	very	0404B4	200	coffee maker
+15	3897	Sally	quite	DF0101	1100	laptop
+15	2616	Jennifer	crazy	DF0101	1200	laptop
+15	2654	Richard	hugely	0404B4	200	coffee maker
+15	4112	Mary	super	0404B4	225	coffee maker
+15	5685	Richard	insanely	31B404	1500	watch
+15	3437	Michael	wildly	DF0101	1300	laptop
+15	2674	Patricia	exceedingly	DF0101	1200	laptop
+15	4268	Michael	extremely	0404B4	250	coffee maker
+15	2225	Mary	really	0404B4	200	coffee maker
+15	3367	Barbara	enormously	31B404	1200	watch
+15	2371	David	hugely	31B404	1200	watch
+15	11640	Robert	enormously	DF0101	1200	laptop
+15	2440	Sally	insanely	DF0101	1200	laptop
+15	5950	Susan		31B404	900	watch
+15	2293	Barbara	vastly	31B404	900	watch
+15	2587	Elizabeth	wildly	DF0101	1200	laptop
+15	2831	Charles	uncommonly	0404B4	200	coffee maker
+15	2577	Susan	insanely	0404B4	200	coffee maker
+15	6122	Robert	horribly	0404B4	200	coffee maker
+15	4180	Susan		0404B4	250	coffee maker
+15	3593	John	terribly	DF0101	1200	laptop
+15	2938	Elizabeth	excessively	31B404	1200	watch
+15	4531	David	extremely	31B404	900	watch
+15	2752	William	quite	0404B4	200	coffee maker
+15	2684	Richard	vastly	0404B4	200	coffee maker
+16	10840	Richard	enormously	0404B4	100	watch
+16	7710	Jennifer	very	31B404	400	laptop
+16	10166	Robert		DF0101	100	coffee maker
+16	6646	William	very	31B404	500	laptop
+16	11134	Maria	exceedingly	0404B4	50	watch
+16	4086	Elizabeth	quite	0404B4	35	watch
+16	4302	Barbara	crazy	DF0101	35	coffee maker
+16	7511	Charles		31B404	670	laptop
+16	4525	Jennifer	insanely	31B404	350	laptop
+16	5974	David	excessively	31B404	760	laptop
+16	4671	Sally	exceedingly	DF0101	25	coffee maker
+16	4574	Mary	quite	DF0101	20	coffee maker
+16	5927	James	vastly	0404B4	250	watch
+16	6182	Elizabeth	crazy	DF0101	35	coffee maker
+16	3455	Linda	vastly	0404B4	25	watch
+16	9085	Richard	hugely	DF0101	200	coffee maker
+16	7935	Tim	uncommonly	DF0101	150	coffee maker
+16	4023	Barbara		DF0101	36	coffee maker
+16	8998	Michael	terribly	DF0101	250	coffee maker
+16	6229	Tim	extremely	0404B4	300	watch
+16	7975	Richard	really	0404B4	375	watch
+16	7085	Maria	excessively	0404B4	75	watch
+16	6174	John	super	31B404	457	laptop
+16	5287	David	horribly	DF0101	103	coffee maker
+16	5151	Linda	vastly	31B404	200	laptop
+16	6126	Patricia	wildly	DF0101	35	coffee maker
+16	5391	Susan	enormously	31B404	150	laptop
+16	6373	Sally	enormously	DF0101	45	coffee maker
+16	6551	William	terribly	DF0101	300	coffee maker
+16	5279	Linda	terribly	0404B4	45	watch
+16	8421	Patricia	hugely	DF0101	27	coffee maker
+16	4365	Robert	horribly	DF0101	99	coffee maker
+16	5951	Mary	wildly	31B404	175	laptop
+16	4639	James	uncommonly	31B404	1000	laptop
+16	7391	Barbara	really	31B404	165	laptop
+16	8104	Jennifer	super	0404B4	69	watch
+16	8655	William	excessively	31B404	645	laptop
+16	5934	James	exceedingly	31B404	1200	laptop
+16	7063	Susan	horribly	0404B4	30	watch
+16	9085	Robert	really	0404B4	400	watch
+16	7263	John	wildly	0404B4	450	watch
+16	3911	Charles	insanely	0404B4	500	watch
+16	5142	Elizabeth	super	31B404	205	laptop
+16	5621	David	uncommonly	0404B4	350	watch
+16	17166	Charles	extremely	31B404	1115	laptop
+16	4151	Mary	crazy	DF0101	34	coffee maker
+16	5263	Tim	quite	DF0101	98	coffee maker
+16	5280	Michael	extremely	31B404	305	laptop
+16	6910	Michael	hugely	31B404	650	laptop
+16	4751	John	insanely	0404B4	500	watch
+16	6261	Susan	very	0404B4	55	watch
+17	11239	Maria	excessively	31B404	2000	watch
+17	5556	Richard	quite	DF0101	120	coffee maker
+17	6075	Robert	excessively	0404B4	4000	laptop
+17	6142	Richard	terribly	0404B4	3500	laptop
+17	5377	Tim	enormously	0404B4	4000	laptop
+17	5489	Charles	vastly	31B404	2500	watch
+17	5523	John	horribly	DF0101	150	coffee maker
+17	4590	David	super	0404B4	3000	laptop
+17	4522	Maria	hugely	DF0101	150	coffee maker
+17	5096	Jennifer	vastly	0404B4	3000	laptop
+17	6604	Jennifer	super	0404B4	3000	laptop
+17	7684	Charles	vastly	0404B4	3500	laptop
+17	5727	William	excessively	DF0101	200	coffee maker
+17	4545	Elizabeth	enormously	DF0101	200	coffee maker
+17	4871	John	exceedingly	31B404	2000	watch
+17	5501	Linda	hugely	31B404	2000	watch
+17	5074	Sally	very	DF0101	100	coffee maker
+17	4094	Michael	uncommonly	DF0101	100	coffee maker
+17	5309	Robert	crazy	31B404	3000	watch
+17	4860	Tim	insanely	0404B4	4000	laptop
+17	4634	William	crazy	31B404	3000	watch
+17	4501	Richard	extremely	DF0101	120	coffee maker
+17	5310	William	terribly	0404B4	3500	laptop
+17	4511	Mary	extremely	0404B4	3000	laptop
+17	5108	Sally	really	31B404	1000	watch
+17	5221	David	exceedingly	31B404	1500	watch
+17	3858	Sally	horribly	DF0101	100	coffee maker
+17	3791	Barbara	crazy	DF0101	200	coffee maker
+17	4410	Patricia	wildly	0404B4	4000	laptop
+17	7930	Robert		0404B4	1500	laptop
+17	4285	James	insanely	DF0101	200	coffee maker
+17	7065	Barbara	quite	0404B4	1800	laptop
+17	4556	David	wildly	0404B4	2000	laptop
+17	4735	Michael	wildly	31B404	3000	watch
+17	4927	James	quite	31B404	500	watch
+17	3893	Tim	uncommonly	DF0101	100	coffee maker
+17	7830	Patricia	enormously	0404B4	3000	laptop
+17	4522	Elizabeth		31B404	200	watch
+17	4309	Patricia	really	DF0101	100	coffee maker
+17	3825	Susan	exceedingly	DF0101	200	coffee maker
+17	8515	Linda	uncommonly	31B404	500	watch
+17	4252	Elizabeth		31B404	300	watch
+17	5276	Mary	hugely	DF0101	200	coffee maker
+17	5264	Michael	horribly	31B404	3000	watch
+17	6424	Linda	terribly	0404B4	2000	laptop
+17	5198	Barbara	very	31B404	400	watch
+17	4624	James	super	31B404	1000	watch
+17	9102	Charles	extremely	DF0101	150	coffee maker
+17	5861	John	very	0404B4	1800	laptop
+17	4467	Susan	really	DF0101	120	coffee maker
+17	5051	Maria	insanely	31B404	3000	watch
+18	9440	Elizabeth	vastly	0404B4	200	coffee maker
+18	6233	David	terribly	31B404	500	watch
+18	10375	Mary	crazy	31B404	200	watch
+18	3352	Barbara	horribly	31B404	500	watch
+18	4929	James		DF0101	900	laptop
+18	4567	Sally	wildly	DF0101	1200	laptop
+18	5640	Michael	exceedingly	0404B4	150	coffee maker
+18	4149	Tim		DF0101	900	laptop
+18	6528	Robert	really	DF0101	1200	laptop
+18	5697	Patricia	horribly	0404B4	200	coffee maker
+18	4152	Robert	uncommonly	31B404	250	watch
+18	4024	Linda	crazy	0404B4	200	coffee maker
+18	4696	Maria	very	DF0101	1000	laptop
+18	3736	John	vastly	DF0101	1200	laptop
+18	4008	James	very	0404B4	100	coffee maker
+18	4233	Charles	uncommonly	0404B4	150	coffee maker
+18	5534	Mary	hugely	DF0101	1500	laptop
+18	3647	William	really	DF0101	1200	laptop
+18	3728	Elizabeth	enormously	0404B4	250	coffee maker
+18	6448	Sally	very	31B404	200	watch
+18	3067	Patricia		0404B4	100	coffee maker
+18	3673	Susan	hugely	31B404	500	watch
+18	4201	Robert	wildly	DF0101	2000	laptop
+18	4000	Michael	terribly	0404B4	200	coffee maker
+18	4848	Tim	extremely	0404B4	200	coffee maker
+18	6857	Linda	wildly	DF0101	1500	laptop
+18	3407	Jennifer	crazy	0404B4	250	coffee maker
+18	4128	Susan	extremely	31B404	500	watch
+18	3575	Jennifer	exceedingly	0404B4	150	coffee maker
+18	5442	James	extremely	31B404	300	watch
+18	3112	Mary	excessively	31B404	500	watch
+18	3639	Charles	insanely	0404B4	300	coffee maker
+18	5455	David	quite	DF0101	1000	laptop
+18	3753	Patricia	super	DF0101	1200	laptop
+18	4149	Richard	quite	31B404	300	watch
+18	7041	Maria	insanely	DF0101	2000	laptop
+18	5040	Richard	super	31B404	750	watch
+18	3105	Elizabeth	terribly	31B404	500	watch
+18	3560	Barbara	horribly	DF0101	1500	laptop
+18	2935	Jennifer	hugely	31B404	500	watch
+18	2856	Barbara	exceedingly	0404B4	250	coffee maker
+18	3272	John	enormously	0404B4	300	coffee maker
+18	4130	Sally	really	0404B4	150	coffee maker
+18	5089	William	vastly	31B404	750	watch
+18	3712	William	excessively	DF0101	1500	laptop
+18	3335	Linda	enormously	31B404	500	watch
+18	3729	Charles	super	DF0101	2000	laptop
+18	3416	David	insanely	31B404	750	watch
+18	3808	Susan	uncommonly	0404B4	150	coffee maker
+18	8109	Tim	quite	DF0101	900	laptop
+18	3889	Michael	excessively	31B404	750	watch
+19	30777	Susan	excessively	31B404	170.00	coffee maker
+19	14138	Tim	hugely	DF0101	400.00	watch
+19	18291	Maria	horribly	31B404	200.00	coffee maker
+19	55368	Jennifer	extremely	0404B4	1500	laptop
+19	51876	Charles	uncommonly	0404B4	1800	laptop
+19	30280	William	vastly	31B404	90.00	coffee maker
+19	13340	Richard	quite	0404B4	900.00	laptop
+19	13337	Linda	horribly	31B404	200.00	coffee maker
+19	15818	Sally	exceedingly	0404B4	1500.00	laptop
+19	17648	David	insanely	0404B4	2000.00	laptop
+19	13749	Jennifer	really	DF0101	150.00	watch
+19	16148	Patricia	extremely	DF0101	350.00	watch
+19	9072	Elizabeth	uncommonly	31B404	200.00	coffee maker
+19	20332	John	wildly	31B404	70.00	coffee maker
+19	7317	David	exceedingly	31B404	200.00	coffee maker
+19	10229	Michael	crazy	31B404	250.00	coffee maker
+19	14410	Susan	super	31B404	130.00	coffee maker
+19	11567	James	enormously	0404B4	1100.00	laptop
+19	85956	Jennifer	vastly	DF0101	150.00	watch
+19	9296	Sally	super	DF0101	200.00	watch
+19	10675	Tim	exceedingly	31B404	200.00	coffee maker
+19	8300	Sally	extremely	31B404	250.00	coffee maker
+19	25771	Maria	insanely	DF0101	700.00	watch
+19	14369	Robert		0404B4	995.00	laptop
+19	21642	Tim	very	DF0101	150.00	watch
+19	10362	Michael	crazy	0404B4	2000.00	laptop
+19	16091	Linda	super	31B404	200.00	coffee maker
+19	14797	Susan	crazy	DF0101	1500.00	watch
+19	13589	Mary	horribly	DF0101	2000.00	watch
+19	18787	Michael		DF0101	150.00	watch
+19	23691	Charles	hugely	31B404	200.00	coffee maker
+19	12494	Mary	terribly	0404B4	1500.00	laptop
+19	32656	William	excessively	0404B4	1100.00	laptop
+19	18819	John	quite	DF0101	250.00	watch
+19	7640	Elizabeth	enormously	DF0101	2000.00	watch
+19	15718	Patricia	really	0404B4	995.00	laptop
+19	10814	Maria	vastly	31B404	120.00	coffee maker
+19	30857	David	excessively	DF0101	1500.00	watch
+19	11360	Richard	terribly	31B404	150.00	coffee maker
+19	13837	William	very	31B404	130.00	coffee maker
+19	10076	James	very	0404B4	950.00	laptop
+19	12109	Elizabeth	really	0404B4	995.00	laptop
+19	9445	Linda	uncommonly	0404B4	2000.00	laptop
+19	9387	Charles	wildly	DF0101	1500.00	watch
+19	11493	Patricia	quite	DF0101	250.00	watch
+19	9716	John	enormously	DF0101	2000.00	watch
+19	10429	Robert	wildly	DF0101	400.00	watch
+19	13202	Robert	terribly	0404B4	1100.00	laptop
+19	8351	Barbara		0404B4	995.00	laptop
+19	12165	James	insanely	31B404	250.00	coffee maker
+19	12716	Barbara	hugely	0404B4	1200.00	laptop
+20	5575	Linda	vastly	31B404	500	laptop
+20	5640	Michael	uncommonly	31B404	200	laptop
+20	4191	Richard	quite	0404B4	99	coffee maker
+20	6680	Robert	very	DF0101	99	watch
+20	10139	Robert	enormously	0404B4	99	coffee maker
+20	6424	Linda	uncommonly	31B404	500	laptop
+20	4163	Tim	excessively	31B404	500	laptop
+20	6314	William	extremely	DF0101	100	watch
+20	3309	Linda	hugely	DF0101	100	watch
+20	4739	Mary	terribly	0404B4	100	coffee maker
+20	4399	Barbara	really	31B404	400	laptop
+20	4041	Susan		31B404	400	laptop
+20	4504	David	excessively	0404B4	99	coffee maker
+20	5863	David		31B404	450	laptop
+20	3616	Elizabeth	enormously	0404B4	99	coffee maker
+20	2799	Maria	super	0404B4	99	coffee maker
+20	2392	Charles	vastly	DF0101	99	watch
+20	2373	Robert	wildly	DF0101	99	watch
+20	3048	Richard	very	0404B4	99	coffee maker
+20	6151	William	crazy	31B404	500	laptop
+20	5704	Maria	horribly	31B404	500	laptop
+20	5784	Tim	wildly	0404B4	100	coffee maker
+20	6080	James	horribly	0404B4	100	coffee maker
+20	3387	Barbara	hugely	0404B4	100	coffee maker
+20	3829	Mary	vastly	31B404	500	laptop
+20	5144	Sally	exceedingly	0404B4	99	coffee maker
+20	3031	Maria	quite	DF0101	99	watch
+20	4505	John	exceedingly	DF0101	99	watch
+20	4662	Mary	insanely	31B404	550	laptop
+20	5030	David	super	DF0101	100	watch
+20	3880	William	insanely	0404B4	100	coffee maker
+20	4200	Susan	quite	0404B4	100	coffee maker
+20	2680	Susan	really	DF0101	99	watch
+20	4510	James		DF0101	50	watch
+20	8138	Richard	insanely	31B404	550	laptop
+20	6474	James	enormously	DF0101	130	watch
+20	4349	John	extremely	0404B4	100	coffee maker
+20	7705	Patricia	uncommonly	31B404	500	laptop
+20	3232	Elizabeth	terribly	DF0101	100	watch
+20	4136	Michael	extremely	DF0101	100	watch
+20	5848	Patricia	terribly	0404B4	100	coffee maker
+20	3119	Jennifer	super	DF0101	100	watch
+20	3824	Jennifer	crazy	DF0101	120	watch
+20	3528	Charles	really	DF0101	100	watch
+20	5817	Barbara	excessively	31B404	550	laptop
+20	5544	Sally	wildly	31B404	550	laptop
+20	2888	Jennifer	hugely	31B404	550	laptop
+20	4632	Charles	crazy	0404B4	100	coffee maker
+20	7921	Michael	very	0404B4	75	coffee maker
+20	3741	Sally	horribly	31B404	550	laptop
+20	4779	Elizabeth	exceedingly	DF0101	110	watch
+21	11132	Jennifer	enormously	DF0101	75.00	coffee maker
+21	14767	Michael	vastly	0404B4	45.00	watch
+21	7390	Patricia	wildly	DF0101	100.00	coffee maker
+21	5231	Sally	very	31B404	250.00	laptop
+21	7126	Tim	insanely	DF0101	150.00	coffee maker
+21	7761	Mary	excessively	DF0101	100.00	coffee maker
+21	9985	Linda	enormously	DF0101	150.00	coffee maker
+21	5933	James	really	DF0101	65.00	coffee maker
+21	4363	James	terribly	0404B4	200.00	watch
+21	5125	John	vastly	0404B4	50.00	watch
+21	5656	John	crazy	0404B4	400.00	watch
+21	4590	Michael	hugely	31B404	500.00	laptop
+21	4886	Tim	hugely	DF0101	150.00	coffee maker
+21	4871	Maria	very	DF0101	175.00	coffee maker
+21	6303	Richard	crazy	31B404	550.00	laptop
+21	4669	David	very	0404B4	200.00	watch
+21	4944	Sally	exceedingly	0404B4	250.00	watch
+21	7467	Susan	quite	0404B4	220.00	watch
+21	6835	Robert		DF0101	95.00	coffee maker
+21	4658	Tim	horribly	31B404	600.00	laptop
+21	6029	Elizabeth	quite	31B404	575.00	laptop
+21	6071	Charles	vastly	31B404	300.00	laptop
+21	6174	David	super	31B404	600.00	laptop
+21	6297	John	extremely	0404B4	300.00	watch
+21	6861	Robert	super	0404B4	350.00	watch
+21	5174	Richard	horribly	31B404	600.00	laptop
+21	4342	Charles	exceedingly	DF0101	200.00	coffee maker
+21	4084	Susan	excessively	0404B4	500.00	watch
+21	6274	Patricia	terribly	31B404	625.00	laptop
+21	6155	Mary	extremely	31B404	500.00	laptop
+21	4474	David	quite	0404B4	300.00	watch
+21	4913	Elizabeth	hugely	31B404	475.00	laptop
+21	5246	Susan	uncommonly	31B404	750.00	laptop
+21	7399	Jennifer	enormously	0404B4	1000.00	watch
+21	4823	Linda	excessively	DF0101	150.00	coffee maker
+21	8911	Richard	insanely	0404B4	2000.00	watch
+21	6022	Barbara	terribly	31B404	600.00	laptop
+21	4667	Barbara	wildly	DF0101	200.00	coffee maker
+21	5969	Sally	super	DF0101	175.00	coffee maker
+21	4328	Maria	wildly	31B404	750.00	laptop
+21	9407	Elizabeth	uncommonly	0404B4	5000.00	watch
+21	8500	Jennifer	really	DF0101	150.00	coffee maker
+21	7103	William	insanely	DF0101	250.00	coffee maker
+21	5110	Barbara	really	31B404	475.00	laptop
+21	6811	Linda	extremely	DF0101	175.00	coffee maker
+21	4997	Charles	horribly	31B404	750.00	laptop
+21	4787	Michael		0404B4	300.00	watch
+21	5095	William	exceedingly	31B404	575.00	laptop
+21	6107	William	crazy	0404B4	900.00	watch
+21	4263	Robert		DF0101	100.00	coffee maker
+21	5886	Mary	uncommonly	0404B4	2000.00	watch
+22	5661	William	extremely	31B404	500	watch
+22	5076	Sally	super	DF0101	100	coffee maker
+22	5326	Richard	vastly	DF0101	150	coffee maker
+22	9847	Robert	wildly	31B404	200	watch
+22	5926	Jennifer		0404B4	2000	laptop
+22	6111	David	really	31B404	250	watch
+22	5047	Richard	excessively	31B404	700	watch
+22	8159	Barbara	exceedingly	DF0101	299	coffee maker
+22	5959	Patricia	excessively	31B404	799	watch
+22	5039	Michael	terribly	DF0101	140	coffee maker
+22	4605	Michael	enormously	DF0101	125	coffee maker
+22	5656	James	super	0404B4	1999	laptop
+22	5192	James	terribly	31B404	175	watch
+22	5030	David	excessively	31B404	225	watch
+22	6286	Michael	insanely	31B404	900	watch
+22	5911	Maria	enormously	0404B4	3000	laptop
+22	4846	Robert	horribly	0404B4	2500	laptop
+22	7537	Tim	extremely	31B404	755	watch
+22	4909	John	horribly	0404B4	3000	laptop
+22	5726	Susan	exceedingly	31B404	210	watch
+22	6287	David	uncommonly	0404B4	1000	laptop
+22	9759	Susan	exceedingly	0404B4	1700	laptop
+22	5655	Linda	very	DF0101	200	coffee maker
+22	7791	Jennifer	super	31B404	800	watch
+22	4191	Tim	insanely	0404B4	1500	laptop
+22	6423	Mary	vastly	0404B4	1800	laptop
+22	5135	Tim	very	DF0101	150	coffee maker
+22	5622	Mary	hugely	DF0101	110	coffee maker
+22	5911	Charles	uncommonly	31B404	224	watch
+22	4831	Charles	quite	31B404	566	watch
+22	5840	Patricia	terribly	31B404	745	watch
+22	5126	William	wildly	0404B4	1600	laptop
+22	5791	William	horribly	0404B4	3000	laptop
+22	9503	Patricia		DF0101	125	coffee maker
+22	3782	James	really	DF0101	175	coffee maker
+22	5111	Linda	wildly	0404B4	1500	laptop
+22	6327	Richard	crazy	DF0101	3500	coffee maker
+22	5551	John	extremely	DF0101	299	coffee maker
+22	5367	Robert	hugely	DF0101	200	coffee maker
+22	6319	Barbara	very	31B404	456	watch
+22	5590	John	insanely	0404B4	4000	laptop
+22	6095	Maria	vastly	0404B4	2000	laptop
+22	4350	Sally	crazy	DF0101	399	coffee maker
+22	5078	Linda	quite	DF0101	255	coffee maker
+22	5518	Charles	hugely	31B404	575	watch
+22	5144	Mary		0404B4	2000	laptop
+22	3974	Elizabeth	enormously	DF0101	399	coffee maker
+22	4520	Elizabeth	quite	0404B4	2100	laptop
+22	4366	Barbara	uncommonly	DF0101	350	coffee maker
+22	5424	Sally	really	31B404	700	watch
+22	7270	Jennifer	crazy	0404B4	4000	laptop
+23	8664	Susan	crazy	0404B4	1200	laptop
+23	7406	Tim		0404B4	800	laptop
+23	6593	Susan	really	0404B4	1100	laptop
+23	4430	Michael	enormously	DF0101	200	coffee maker
+23	5233	Jennifer	very	0404B4	1100	laptop
+23	5383	Mary	excessively	31B404	300	watch
+23	3906	Sally	exceedingly	31B404	400	watch
+23	5032	William	vastly	31B404	400	watch
+23	5791	William	super	0404B4	1000	laptop
+23	4256	Richard	hugely	31B404	300	watch
+23	4704	Barbara	excessively	DF0101	200	coffee maker
+23	4063	James	wildly	31B404	400	watch
+23	3335	James	horribly	31B404	400	watch
+23	3968	John	quite	0404B4	900	laptop
+23	6512	Linda	excessively	0404B4	1100	laptop
+23	5360	Elizabeth	vastly	0404B4	1200	laptop
+23	4000	David	horribly	31B404	300	watch
+23	4040	John	super	0404B4	900	laptop
+23	4582	Robert	quite	31B404	200	watch
+23	5750	David	wildly	0404B4	1100	laptop
+23	4119	Charles	uncommonly	DF0101	150	coffee maker
+23	4689	Linda	insanely	0404B4	1400	laptop
+23	3631	Mary	insanely	31B404	500	watch
+23	3848	Michael	enormously	DF0101	200	coffee maker
+23	3768	William	exceedingly	0404B4	1000	laptop
+23	3983	Tim	terribly	DF0101	300	coffee maker
+23	4063	Sally	wildly	0404B4	1000	laptop
+23	4688	Sally	very	31B404	150	watch
+23	6888	Charles	crazy	DF0101	300	coffee maker
+23	4383	Michael	crazy	31B404	300	watch
+23	3454	Elizabeth	insanely	31B404	400	watch
+23	3464	Charles	terribly	DF0101	200	coffee maker
+23	4624	Patricia	uncommonly	DF0101	150	coffee maker
+23	4350	John		31B404	100	watch
+23	5511	Maria	really	0404B4	700	laptop
+23	4073	Elizabeth	really	DF0101	100	coffee maker
+23	4351	Jennifer	vastly	DF0101	300	coffee maker
+23	4112	Patricia	very	31B404	150	watch
+23	3576	Robert	hugely	0404B4	1100	laptop
+23	4271	Richard	extremely	0404B4	1300	laptop
+23	3976	Linda	extremely	DF0101	250	coffee maker
+23	4191	Barbara	super	DF0101	200	coffee maker
+23	4216	Maria	quite	31B404	150	watch
+23	3407	Jennifer	terribly	DF0101	300	coffee maker
+23	3192	Tim	horribly	DF0101	300	coffee maker
+23	4335	David	extremely	31B404	200	watch
+23	3752	Robert		DF0101	150	coffee maker
+23	4032	Barbara	uncommonly	DF0101	200	coffee maker
+23	3216	Patricia	enormously	DF0101	300	coffee maker
+23	4552	Maria	exceedingly	0404B4	1300	laptop
+23	3936	Mary	hugely	31B404	200	watch
+24	18758	Tim		0404B4	39.99	coffee maker
+24	10553	Robert	uncommonly	0404B4	69.99	coffee maker
+24	7014	Michael	terribly	31B404	114	watch
+24	5960	Patricia	uncommonly	31B404	259	watch
+24	11982	Jennifer	extremely	DF0101	1500	laptop
+24	6008	Mary	really	31B404	99	watch
+24	5726	Michael	really	DF0101	900	laptop
+24	5758	Charles	hugely	31B404	200	watch
+24	4599	Jennifer	super	0404B4	100	coffee maker
+24	5054	Robert	super	DF0101	2100	laptop
+24	7726	Sally	extremely	31B404	210	watch
+24	4744	John	quite	DF0101	800	laptop
+24	6606	David	really	DF0101	900	laptop
+24	7495	Richard	very	DF0101	800	laptop
+24	7094	Tim	exceedingly	DF0101	1500	laptop
+24	7950	Charles	wildly	DF0101	2500	laptop
+24	6789	Susan	enormously	31B404	300	watch
+24	5854	Maria	vastly	31B404	220	watch
+24	8752	Elizabeth	wildly	DF0101	1900	laptop
+24	6359	Barbara	exceedingly	31B404	210	watch
+24	5598	Susan	super	31B404	250	watch
+24	6400	Mary	enormously	DF0101	2400	laptop
+24	5037	Elizabeth	insanely	31B404	500	watch
+24	7334	David	terribly	0404B4	79	coffee maker
+24	7695	Patricia	quite	0404B4	59	coffee maker
+24	8663	John	vastly	31B404	150	watch
+24	6583	Barbara	uncommonly	31B404	150	watch
+24	7155	Maria	exceedingly	0404B4	69	coffee maker
+24	4183	David	quite	DF0101	800	laptop
+24	4945	James	excessively	0404B4	80	coffee maker
+24	5600	Richard	wildly	31B404	200	watch
+24	8271	William	extremely	0404B4	69	coffee maker
+24	3805	William	crazy	0404B4	99	coffee maker
+24	4853	Tim	excessively	0404B4	79	coffee maker
+24	4054	Linda	terribly	DF0101	900	laptop
+24	6736	Linda	very	31B404	180	watch
+24	6086	Barbara		DF0101	700	laptop
+24	7398	James	excessively	DF0101	1100	laptop
+24	5448	Linda	hugely	DF0101	900	laptop
+24	4382	Robert	horribly	0404B4	69	coffee maker
+24	5590	Maria	insanely	0404B4	80	coffee maker
+24	4086	Michael	horribly	0404B4	99	coffee maker
+24	7598	Patricia	very	0404B4	59	coffee maker
+24	7398	Mary	crazy	0404B4	80	coffee maker
+24	5886	James		0404B4	49	coffee maker
+24	6288	Jennifer	vastly	0404B4	70	coffee maker
+24	5507	Sally	hugely	31B404	200	watch
+24	9737	John	crazy	DF0101	1500	laptop
+24	7582	Richard	horribly	31B404	199	watch
+24	4536	Charles	insanely	31B404	250	watch
+24	6477	William	enormously	DF0101	900	laptop
+25	5415	Michael	exceedingly	31B404	500	watch
+25	8271	Sally	vastly	31B404	500	watch
+25	7936	William	horribly	31B404	500	watch
+25	4296	Susan	quite	0404B4	100	coffee maker
+25	4935	David	terribly	0404B4	100	coffee maker
+25	3311	Susan	quite	0404B4	100	coffee maker
+25	3336	James	vastly	0404B4	100	coffee maker
+25	4208	Robert	terribly	0404B4	100	coffee maker
+25	4583	Charles	crazy	DF0101	1000	laptop
+25	4431	Maria	extremely	0404B4	200	coffee maker
+25	3560	Patricia		0404B4	100	coffee maker
+25	7119	Tim	exceedingly	DF0101	1000	laptop
+25	5767	Barbara	exceedingly	31B404	700	watch
+25	4232	Richard	terribly	DF0101	1000	laptop
+25	4352	Elizabeth	horribly	31B404	500	watch
+25	4270	John	really	DF0101	1500	laptop
+25	4511	Michael	uncommonly	0404B4	250	coffee maker
+25	4529	Charles	hugely	DF0101	1500	laptop
+25	4126	James	enormously	0404B4	200	coffee maker
+25	3303	Patricia	excessively	DF0101	1500	laptop
+25	3879	Robert	super	DF0101	1200	laptop
+25	4056	Mary	really	0404B4	100	coffee maker
+25	5856	David	very	0404B4	100	coffee maker
+25	4407	Maria	wildly	0404B4	150	coffee maker
+25	4744	David	uncommonly	DF0101	1200	laptop
+25	3496	Maria	wildly	DF0101	1500	laptop
+25	3968	Mary	excessively	31B404	500	watch
+25	3807	Tim	super	31B404	500	watch
+25	3120	Barbara	extremely	31B404	1000	watch
+25	4473	Robert	really	DF0101	1500	laptop
+25	5726	William		DF0101	800	laptop
+25	3287	Linda	very	DF0101	1000	laptop
+25	3424	Susan	insanely	0404B4	300	coffee maker
+25	3975	Michael	insanely	31B404	1000	watch
+25	5208	Linda	crazy	0404B4	150	coffee maker
+25	8303	Jennifer	very	DF0101	1000	laptop
+25	7351	Richard	crazy	31B404	500	watch
+25	4249	Richard	hugely	DF0101	1000	laptop
+25	5839	Sally	excessively	0404B4	150	coffee maker
+25	7271	Linda	vastly	31B404	100	watch
+25	3521	Sally	hugely	31B404	150	watch
+25	3368	John	uncommonly	DF0101	200	laptop
+25	3591	Jennifer	wildly	31B404	200	watch
+25	5175	Elizabeth	enormously	0404B4	200	coffee maker
+25	4729	Patricia	quite	31B404	500	watch
+25	4463	Barbara	super	31B404	700	watch
+25	3927	Charles	enormously	DF0101	1500	laptop
+25	8040	John	extremely	31B404	500	watch
+25	7007	Mary	insanely	0404B4	250	coffee maker
+25	21486	Tim		31B404	250	watch
+25	18192	Jennifer	horribly	DF0101	1000	laptop
+26	7375	Mary	horribly	DF0101	250	coffee maker
+26	3782	Barbara	quite	DF0101	150	coffee maker
+26	2929	Tim	super	DF0101	300	coffee maker
+26	5728	James	crazy	31B404	3500	laptop
+26	4498	Michael	wildly	DF0101	400	coffee maker
+26	6712	Sally	insanely	DF0101	350	coffee maker
+26	4692	Robert	insanely	0404B4	200	watch
+26	4316	Charles		0404B4	100	watch
+26	4213	Susan	excessively	31B404	5000	laptop
+26	8846	Sally	very	0404B4	225	watch
+26	5198	Elizabeth	really	31B404	1500	laptop
+26	5301	Patricia	terribly	0404B4	250	watch
+26	4370	John	terribly	31B404	2500	laptop
+26	10450	David	hugely	DF0101	375	coffee maker
+26	9042	James	extremely	DF0101	325	coffee maker
+26	4932	Maria	very	0404B4	150	watch
+26	5489	Maria	exceedingly	31B404	4225	laptop
+26	5080	Jennifer		0404B4	100	watch
+26	5796	Michael	enormously	31B404	4775	laptop
+26	9307	Barbara	super	0404B4	300	watch
+26	6766	John	quite	31B404	3500	laptop
+26	4567	Mary	hugely	31B404	4500	laptop
+26	5413	Charles	horribly	31B404	5200	laptop
+26	4494	Jennifer	horribly	0404B4	500	watch
+26	7048	Richard	vastly	0404B4	500	watch
+26	9305	Robert	wildly	31B404	4300	laptop
+26	5249	Jennifer	really	0404B4	250	watch
+26	9163	Tim	extremely	DF0101	300	coffee maker
+26	6311	Mary	excessively	31B404	5200	laptop
+26	6403	Linda	wildly	DF0101	350	coffee maker
+26	5621	John	crazy	0404B4	600	watch
+26	3887	William	enormously	0404B4	750	watch
+26	6766	David	vastly	DF0101	550	coffee maker
+26	4742	Elizabeth	exceedingly	DF0101	450	coffee maker
+26	3162	Richard	terribly	0404B4	350	watch
+26	4643	Linda	very	31B404	3000	laptop
+26	5441	Elizabeth	uncommonly	31B404	2500	laptop
+26	4937	William	extremely	DF0101	450	coffee maker
+26	3732	Charles	quite	0404B4	250	watch
+26	3656	Richard	hugely	DF0101	450	coffee maker
+26	3319	James	excessively	31B404	5000	laptop
+26	5105	Michael	insanely	0404B4	550	watch
+26	3472	Sally	crazy	31B404	6500	laptop
+26	9448	Patricia	enormously	DF0101	450	coffee maker
+26	3915	William	really	DF0101	250	coffee maker
+26	2799	Barbara	super	0404B4	300	watch
+26	5791	Maria	uncommonly	31B404	4000	laptop
+26	3811	David	uncommonly	DF0101	450	coffee maker
+26	4031	Patricia		0404B4	200	watch
+26	3565	Linda	exceedingly	DF0101	350	coffee maker
+26	3201	Tim	vastly	31B404	5500	laptop
+27	6407	Michael	horribly	DF0101	300	watch
+27	6918	John	terribly	31B404	1200	laptop
+27	9543	Sally	uncommonly	31B404	900	laptop
+27	4598	Robert	excessively	DF0101	250	watch
+27	6190	Robert	vastly	31B404	1100	laptop
+27	8655	James	insanely	0404B4	200	coffee maker
+27	4015	Patricia	exceedingly	DF0101	250	watch
+27	6095	Maria	wildly	31B404	1200	laptop
+27	4782	Mary		0404B4	100	coffee maker
+27	4406	Elizabeth	crazy	0404B4	200	coffee maker
+27	3271	William	crazy	0404B4	200	coffee maker
+27	8870	David	super	DF0101	300	watch
+27	8822	Michael	vastly	0404B4	200	coffee maker
+27	5486	Jennifer	insanely	31B404	2500	laptop
+27	4518	Linda	exceedingly	0404B4	150	coffee maker
+27	4159	David	hugely	31B404	1200	laptop
+27	4207	Richard	really	0404B4	75	coffee maker
+27	4398	Sally	enormously	0404B4	175	coffee maker
+27	3206	Sally	vastly	DF0101	200	watch
+27	3502	Patricia		DF0101	125	watch
+27	3454	John	enormously	0404B4	250	coffee maker
+27	3423	James	hugely	0404B4	250	coffee maker
+27	4310	Barbara	excessively	0404B4	275	coffee maker
+27	4327	Susan	very	0404B4	125	coffee maker
+27	4862	Maria	extremely	31B404	2750	laptop
+27	5286	Jennifer	exceedingly	DF0101	175	watch
+27	3679	Patricia	horribly	31B404	3000	laptop
+27	3495	Linda	uncommonly	0404B4	175	coffee maker
+27	3047	Barbara	terribly	0404B4	200	coffee maker
+27	3367	Tim	insanely	31B404	3500	laptop
+27	3918	Susan	horribly	DF0101	350	watch
+27	5678	Michael	terribly	DF0101	200	watch
+27	2591	Richard	wildly	DF0101	300	watch
+27	3159	James	uncommonly	DF0101	250	watch
+27	3455	Mary	really	31B404	1500	laptop
+27	3511	Linda	quite	0404B4	200	coffee maker
+27	3639	Tim	wildly	0404B4	275	coffee maker
+27	3351	William		31B404	1200	laptop
+27	2926	Maria	hugely	DF0101	300	watch
+27	3143	Robert	very	DF0101	250	watch
+27	4783	Mary	extremely	DF0101	350	watch
+27	4687	Richard	super	31B404	2000	laptop
+27	3319	Jennifer	really	DF0101	250	watch
+27	6335	Charles	super	31B404	1750	laptop
+27	2958	Charles	very	DF0101	250	watch
+27	3182	Barbara	quite	31B404	2000	laptop
+27	3183	David	quite	31B404	2000	laptop
+27	4431	Elizabeth	excessively	31B404	2500	laptop
+27	3119	Susan	enormously	31B404	3500	laptop
+27	3975	William	extremely	0404B4	300	coffee maker
+27	3943	Elizabeth	crazy	DF0101	350	watch
+28	10077	William	wildly	31B404	500	watch
+28	7411	Linda	crazy	DF0101	75	coffee maker
+28	8102	Sally	exceedingly	31B404	500	watch
+28	6324	Linda	really	31B404	500	watch
+28	8629	David	super	0404B4	1200	laptop
+28	5480	Susan	wildly	31B404	500	watch
+28	7508	William	enormously	0404B4	1200	laptop
+28	5525	Maria	super	DF0101	75	coffee maker
+28	5831	James	enormously	0404B4	1200	laptop
+28	4662	Mary	terribly	31B404	500	watch
+28	5159	Jennifer		DF0101	75	coffee maker
+28	7975	Susan	uncommonly	0404B4	1200	laptop
+28	4974	Jennifer	horribly	31B404	500	watch
+28	5702	Barbara	vastly	DF0101	75	coffee maker
+28	5479	Barbara	terribly	0404B4	1200	laptop
+28	5277	Tim	hugely	31B404	500	watch
+28	4854	James	exceedingly	DF0101	75	coffee maker
+28	4912	Patricia	extremely	31B404	500	watch
+28	4227	Michael	really	DF0101	75	coffee maker
+28	5086	Michael	horribly	0404B4	1200	laptop
+28	4444	Linda	terribly	31B404	500	watch
+28	4799	Barbara	crazy	0404B4	1200	laptop
+28	4381	Elizabeth	uncommonly	DF0101	75	coffee maker
+28	4575	Charles	wildly	0404B4	1200	laptop
+28	4725	Maria	vastly	0404B4	1200	laptop
+28	4725	Tim	very	31B404	500	watch
+28	5037	Sally	enormously	DF0101	75	coffee maker
+28	4077	John	extremely	DF0101	75	coffee maker
+28	4437	Tim	quite	31B404	500	watch
+28	4638	Robert		31B404	500	watch
+28	5263	John	insanely	31B404	500	watch
+28	5022	Jennifer	excessively	0404B4	1200	laptop
+28	5168	Michael	extremely	0404B4	1200	laptop
+28	5006	Charles	insanely	0404B4	1200	laptop
+28	4518	Elizabeth	very	DF0101	75	coffee maker
+28	4829	Mary	hugely	0404B4	1200	laptop
+28	4823	Robert	excessively	0404B4	1200	laptop
+28	4614	Patricia		DF0101	75	coffee maker
+28	4454	Sally	uncommonly	31B404	500	watch
+28	5349	William	super	0404B4	1200	laptop
+28	6519	Susan	exceedingly	DF0101	75	coffee maker
+28	4415	David	really	0404B4	1200	laptop
+28	4285	Robert	horribly	31B404	500	watch
+28	4599	Richard	quite	31B404	500	watch
+28	4294	Mary	insanely	DF0101	75	coffee maker
+28	4622	Patricia	hugely	DF0101	75	coffee maker
+28	4358	Richard	quite	0404B4	1200	laptop
+28	4230	Charles	very	31B404	500	watch
+28	5351	Maria	vastly	DF0101	75	coffee maker
+28	4166	James	excessively	DF0101	75	coffee maker
+28	4439	Richard	crazy	DF0101	75	coffee maker
+29	11898	Robert	wildly	0404B4	125	coffee maker
+29	10984	Maria	really	0404B4	100	coffee maker
+29	12739	Robert		DF0101	500	watch
+29	9633	William	extremely	31B404	850	laptop
+29	12236	Barbara	hugely	0404B4	100	coffee maker
+29	12364	Richard	quite	DF0101	300	watch
+29	6924	Linda	quite	DF0101	300	watch
+29	8013	Jennifer		0404B4	100	coffee maker
+29	9078	Elizabeth	excessively	0404B4	150	coffee maker
+29	9338	Patricia	extremely	31B404	850	laptop
+29	8297	Charles	horribly	DF0101	750	watch
+29	7788	Patricia	very	0404B4	75	coffee maker
+29	5665	Michael	super	0404B4	100	coffee maker
+29	6636	Tim	super	31B404	1000	laptop
+29	7061	James	hugely	DF0101	500	watch
+29	6121	Barbara	enormously	31B404	1000	laptop
+29	6230	Susan	terribly	31B404	1000	laptop
+29	10682	Patricia	crazy	0404B4	125	coffee maker
+29	7255	James	horribly	DF0101	500	watch
+29	13879	Mary	wildly	0404B4	125	coffee maker
+29	6794	Robert	uncommonly	31B404	1000	laptop
+29	5835	James	horribly	0404B4	125	coffee maker
+29	9169	Susan	uncommonly	DF0101	350	watch
+29	5785	Sally	excessively	DF0101	500	watch
+29	7808	Linda	terribly	31B404	1000	laptop
+29	5993	Barbara	insanely	31B404	1250	laptop
+29	6280	Sally	very	31B404	1000	laptop
+29	6723	Michael	vastly	DF0101	500	watch
+29	5726	Maria	insanely	DF0101	750	watch
+29	9001	David	insanely	DF0101	1000	watch
+29	5421	William	exceedingly	31B404	1250	laptop
+29	5014	Charles	enormously	31B404	1250	laptop
+29	7250	John		DF0101	500	watch
+29	5330	Tim	exceedingly	DF0101	750	watch
+29	8484	Maria	crazy	0404B4	125	coffee maker
+29	6755	Elizabeth	terribly	31B404	900	laptop
+29	4875	Mary	quite	31B404	1000	laptop
+29	5301	Tim	exceedingly	31B404	1250	laptop
+29	5043	Jennifer	hugely	31B404	1250	laptop
+29	5193	Charles	vastly	31B404	1250	laptop
+29	7299	Michael	very	0404B4	125	coffee maker
+29	6716	Richard	vastly	0404B4	125	coffee maker
+29	7152	William	extremely	DF0101	500	watch
+29	7160	Sally	really	0404B4	100	coffee maker
+29	6250	Linda	enormously	DF0101	250	watch
+29	5507	John	excessively	0404B4	125	coffee maker
+29	5291	Richard	super	0404B4	250	coffee maker
+29	5647	John	wildly	31B404	1250	laptop
+29	6913	David	uncommonly	0404B4	100	coffee maker
+29	6754	Jennifer	really	DF0101	500	watch
+29	5548	Mary	crazy	DF0101	500	watch
+30	4093	Robert	really	DF0101	1000	laptop
+30	7148	Mary	insanely	31B404	500	watch
+30	7671	David	super	31B404	350	watch
+30	5118	Robert	super	DF0101	1200	laptop
+30	4136	Sally	uncommonly	0404B4	150	coffee maker
+30	9391	Barbara	excessively	0404B4	250	coffee maker
+30	3847	Patricia	terribly	0404B4	200	coffee maker
+30	3255	John	exceedingly	0404B4	125	coffee maker
+30	3807	Jennifer	quite	0404B4	100	coffee maker
+30	3606	John	excessively	DF0101	800	laptop
+30	3310	Patricia	very	31B404	300	watch
+30	3471	Barbara	crazy	31B404	1000	watch
+30	2823	John	vastly	31B404	1500	watch
+30	3814	Richard	hugely	0404B4	350	coffee maker
+30	2970	Linda	extremely	DF0101	1500	laptop
+30	3438	Charles	terribly	31B404	1200	watch
+30	2927	Linda	enormously	31B404	2000	watch
+30	3638	Richard	horribly	DF0101	900	laptop
+30	5655	Michael	exceedingly	0404B4	150	coffee maker
+30	3165	Tim	really	0404B4	125	coffee maker
+30	5303	Tim		0404B4	100	coffee maker
+30	5062	Maria	horribly	DF0101	1200	laptop
+30	10496	Susan	insanely	31B404	750	watch
+30	3023	James	enormously	0404B4	500	coffee maker
+30	3414	James	crazy	DF0101	1000	laptop
+30	4671	Mary	excessively	DF0101	1100	laptop
+30	3271	Jennifer	vastly	DF0101	1300	laptop
+30	3674	Mary	crazy	31B404	500	watch
+30	4093	Richard	enormously	31B404	550	watch
+30	2654	William	wildly	DF0101	2000	laptop
+30	6056	David	really	31B404	400	watch
+30	5126	David	vastly	0404B4	200	coffee maker
+30	3631	Robert	uncommonly	0404B4	175	coffee maker
+30	4671	Elizabeth	extremely	DF0101	1750	laptop
+30	3679	Susan	exceedingly	0404B4	175	coffee maker
+30	4064	Sally	quite	DF0101	900	laptop
+30	3663	William	insanely	0404B4	300	coffee maker
+30	3511	Charles	wildly	31B404	500	watch
+30	5101	Michael	very	DF0101	1100	laptop
+30	2352	Linda	horribly	DF0101	1200	laptop
+30	3110	Maria	super	31B404	500	watch
+30	4296	Maria	quite	DF0101	850	laptop
+30	3062	Susan	extremely	0404B4	350	coffee maker
+30	6744	Elizabeth	terribly	31B404	500	watch
+30	5015	Elizabeth		DF0101	800	laptop
+30	3572	William	hugely	31B404	500	watch
+30	7024	Barbara	hugely	DF0101	1900	laptop
+30	3039	James		0404B4	100	coffee maker
+30	3807	Tim	very	31B404	450	watch
+30	5888	Jennifer	wildly	0404B4	250	coffee maker
+30	3390	Charles	uncommonly	31B404	300	watch
+31	14801	Elizabeth	uncommonly	0404B4	1400	laptop
+31	8214	David	exceedingly	0404B4	1000	laptop
+31	8229	Sally	horribly	DF0101	800	watch
+31	6319	James	very	31B404	70	coffee maker
+31	4631	John		DF0101	500	watch
+31	7165	Linda	hugely	0404B4	900	laptop
+31	4975	Linda	super	31B404	80	coffee maker
+31	9576	David	crazy	DF0101	850	watch
+31	5693	David	super	DF0101	700	watch
+31	4869	Elizabeth	really	DF0101	590	watch
+31	5208	William	quite	31B404	65	coffee maker
+31	5589	Richard	enormously	0404B4	800	laptop
+31	4903	Tim	insanely	0404B4	1500	laptop
+31	6512	Susan	uncommonly	DF0101	1300	watch
+31	4896	John	excessively	31B404	90	coffee maker
+31	5170	Sally	extremely	0404B4	1000	laptop
+31	4884	Linda		31B404	75	coffee maker
+31	10546	Michael	terribly	DF0101	2000	watch
+31	4642	Maria	terribly	0404B4	1800	laptop
+31	6437	William	uncommonly	31B404	99	coffee maker
+31	4738	Robert	wildly	31B404	120	coffee maker
+31	8983	Patricia	vastly	DF0101	1500	watch
+31	4248	James	crazy	31B404	120	coffee maker
+31	6144	Charles	really	DF0101	600	watch
+31	8698	Barbara	exceedingly	31B404	120	coffee maker
+31	8050	Barbara	very	DF0101	750	watch
+31	4354	Barbara	quite	DF0101	500	watch
+31	6185	Tim	insanely	31B404	129	coffee maker
+31	7401	Maria	enormously	0404B4	1300	laptop
+31	3712	Richard	wildly	0404B4	1800	laptop
+31	5067	Patricia	wildly	DF0101	1800	watch
+31	5930	Richard	terribly	0404B4	2000	laptop
+31	7619	Tim	hugely	DF0101	800	watch
+31	5427	Robert	crazy	DF0101	1200	watch
+31	4485	John	very	31B404	80	coffee maker
+31	5205	Michael	excessively	0404B4	1400	laptop
+31	5255	Jennifer	horribly	0404B4	1500	laptop
+31	7847	Robert	insanely	31B404	110	coffee maker
+31	4675	Sally	horribly	0404B4	89	laptop
+31	9300	Mary	extremely	31B404	90	coffee maker
+31	4707	Patricia	hugely	0404B4	1200	laptop
+31	5679	Susan	vastly	0404B4	1400	laptop
+31	4320	Susan	extremely	31B404	80	coffee maker
+31	7998	Jennifer	enormously	DF0101	1200	watch
+31	4722	Mary		DF0101	700	watch
+31	5206	Mary	quite	31B404	75	coffee maker
+31	5138	Charles	really	DF0101	800	watch
+31	5397	Elizabeth	exceedingly	0404B4	1400	laptop
+31	5567	Jennifer	vastly	31B404	99	coffee maker
+31	7000	Maria	excessively	31B404	110	coffee maker
+31	5399	Michael	super	0404B4	1200	laptop
+32	10997	Linda	hugely	DF0101	150	watch
+32	10002	William	uncommonly	0404B4	1500	laptop
+32	7591	Barbara	enormously	DF0101	200	watch
+32	8049	Robert	wildly	0404B4	1200	laptop
+32	6849	Sally	insanely	31B404	250	coffee maker
+32	7797	Richard	super	31B404	270	coffee maker
+32	8256	Charles	wildly	0404B4	1350	laptop
+32	7696	Elizabeth	extremely	31B404	290	coffee maker
+32	5516	Robert	hugely	31B404	290	coffee maker
+32	6152	Jennifer	vastly	DF0101	350	watch
+32	5607	Maria	excessively	0404B4	1400	laptop
+32	9216	James	excessively	DF0101	250	watch
+32	6843	Robert	really	31B404	290	coffee maker
+32	4858	Linda	quite	DF0101	300	watch
+32	8174	Mary	terribly	31B404	300	coffee maker
+32	7766	Michael	uncommonly	DF0101	450	watch
+32	7277	Jennifer	insanely	DF0101	400	watch
+32	7143	Patricia	extremely	DF0101	300	watch
+32	9340	Jennifer	uncommonly	DF0101	375	watch
+32	19040	Charles	hugely	31B404	350	coffee maker
+32	6855	Susan	vastly	31B404	350	coffee maker
+32	7519	John	extremely	31B404	350	coffee maker
+32	6515	Patricia	horribly	0404B4	1700	laptop
+32	8951	Barbara	crazy	0404B4	950	laptop
+32	11280	William	quite	0404B4	1100	laptop
+32	11957	Michael	vastly	DF0101	400	watch
+32	5443	John	super	0404B4	1300	laptop
+32	5026	Sally	wildly	0404B4	1400	laptop
+32	7031	Mary	excessively	0404B4	2500	laptop
+32	6506	James	really	31B404	600	coffee maker
+32	6310	Tim		31B404	400	coffee maker
+32	8864	Elizabeth	crazy	31B404	290	coffee maker
+32	14858	Elizabeth	super	0404B4	2500	laptop
+32	23652	Susan		0404B4	1300	laptop
+32	6111	Michael	exceedingly	0404B4	2100	laptop
+32	5388	Barbara	very	DF0101	550	watch
+32	4538	Tim	exceedingly	DF0101	700	watch
+32	7503	William		DF0101	345	watch
+32	8119	Linda	enormously	DF0101	750	watch
+32	6346	Tim	terribly	DF0101	750	watch
+32	6201	Susan	terribly	0404B4	2850	laptop
+32	10900	Maria	crazy	31B404	350	coffee maker
+32	7428	Richard	really	0404B4	2900	laptop
+32	8604	Patricia	enormously	0404B4	2700	laptop
+32	4996	Richard	horribly	0404B4	1600	laptop
+32	5384	Maria	insanely	DF0101	950	watch
+32	5831	David	very	DF0101	800	watch
+32	5154	Mary	very	31B404	350	coffee maker
+32	7826	Sally	exceedingly	31B404	400	coffee maker
+32	6767	David	quite	31B404	320	coffee maker
+32	5506	James	horribly	31B404	290	coffee maker
+33	8767	Patricia		DF0101	1200	laptop
+33	8444	Jennifer	wildly	DF0101	1800	laptop
+33	6093	Robert	quite	DF0101	1200	laptop
+33	7873	Maria	excessively	0404B4	500	watch
+33	10694	Michael	very	0404B4	500	watch
+33	8156	Richard	wildly	DF0101	1700	laptop
+33	4519	David	really	0404B4	400	watch
+33	4370	Tim	very	0404B4	500	watch
+33	6419	Jennifer	horribly	31B404	150	coffee maker
+33	5985	John		DF0101	1200	laptop
+33	6898	William	hugely	DF0101	1500	laptop
+33	4917	Elizabeth	hugely	0404B4	600	watch
+33	6106	Robert	extremely	0404B4	700	watch
+33	7008	Charles	uncommonly	31B404	150	coffee maker
+33	5260	Charles	enormously	DF0101	2000	laptop
+33	5324	Maria	quite	0404B4	350	watch
+33	6257	Jennifer	insanely	DF0101	2200	laptop
+33	5214	David	uncommonly	DF0101	1400	laptop
+33	4079	Sally	horribly	DF0101	1600	laptop
+33	4398	Charles	really	31B404	125	coffee maker
+33	13805	Mary	insanely	31B404	150	coffee maker
+33	4024	John	extremely	31B404	150	coffee maker
+33	4287	Richard	terribly	31B404	150	coffee maker
+33	4496	Linda	vastly	0404B4	500	watch
+33	3966	James	uncommonly	31B404	125	coffee maker
+33	5352	Patricia	quite	0404B4	300	watch
+33	3928	Barbara	wildly	0404B4	500	watch
+33	5275	William		0404B4	250	watch
+33	4657	Elizabeth	insanely	31B404	150	coffee maker
+33	4841	Robert	super	31B404	100	coffee maker
+33	4471	Tim	vastly	0404B4	500	watch
+33	4063	Richard	excessively	31B404	150	coffee maker
+33	5362	Barbara	exceedingly	DF0101	1500	laptop
+33	4556	Michael	enormously	0404B4	750	watch
+33	4536	Barbara	crazy	DF0101	1800	laptop
+33	7022	Linda	super	31B404	125	coffee maker
+33	6591	Sally	super	31B404	125	coffee maker
+33	5495	William	really	DF0101	1500	laptop
+33	6790	Susan	horribly	0404B4	750	watch
+33	4711	John	very	31B404	100	coffee maker
+33	4272	Linda	excessively	31B404	150	coffee maker
+33	9570	Susan	terribly	DF0101	1500	laptop
+33	5643	Susan	exceedingly	31B404	125	coffee maker
+33	6374	Maria	crazy	0404B4	550	watch
+33	6080	Patricia	enormously	DF0101	1800	laptop
+33	7345	James	crazy	0404B4	550	watch
+33	7421	Mary	hugely	DF0101	1700	laptop
+33	4892	Mary	vastly	0404B4	750	watch
+33	4203	Tim	terribly	DF0101	1700	laptop
+33	5572	David	extremely	31B404	125	coffee maker
+33	4004	Michael	exceedingly	31B404	150	coffee maker
+34	8183	Jennifer	enormously	31B404	70	coffee maker
+34	4847	Sally		DF0101	1200	laptop
+34	4423	Jennifer	hugely	0404B4	3000	watch
+34	6047	John	vastly	31B404	80	coffee maker
+34	7152	Charles	hugely	0404B4	1500	watch
+34	4016	Richard	crazy	DF0101	2000	laptop
+34	4943	Barbara	extremely	0404B4	8000	watch
+34	4560	David	really	31B404	180	coffee maker
+34	9876	Charles	vastly	0404B4	1400	watch
+34	5047	David		0404B4	300	watch
+34	12623	Sally	very	0404B4	2800	watch
+34	4703	Charles	horribly	0404B4	4500	watch
+34	5400	Robert	crazy	31B404	350	coffee maker
+34	5663	Tim	extremely	0404B4	4000	watch
+34	5973	Jennifer	very	31B404	200	coffee maker
+34	8264	Mary	enormously	DF0101	1600	laptop
+34	5647	Linda	very	DF0101	2000	laptop
+34	4364	Patricia	insanely	0404B4	6000	watch
+34	7952	Mary	really	31B404	280	coffee maker
+34	7511	Maria	super	0404B4	3000	watch
+34	4872	Robert	exceedingly	DF0101	1800	laptop
+34	4112	John	terribly	31B404	300	coffee maker
+34	10015	Elizabeth	excessively	0404B4	6000	watch
+34	5096	William	exceedingly	0404B4	5000	watch
+34	11391	James	excessively	31B404	400	coffee maker
+34	4280	James	excessively	31B404	350	coffee maker
+34	3344	William	wildly	31B404	600	coffee maker
+34	11939	Linda	terribly	31B404	150	coffee maker
+34	26769	James	hugely	DF0101	1500	laptop
+34	4630	Sally	super	DF0101	1800	laptop
+34	4048	Michael	wildly	0404B4	600	watch
+34	8191	Susan	terribly	DF0101	1300	laptop
+34	9429	William	uncommonly	31B404	800	coffee maker
+34	5952	Elizabeth	quite	0404B4	200	watch
+34	4751	Tim	insanely	0404B4	8000	watch
+34	5559	Richard	quite	0404B4	300	watch
+34	29856	Patricia	uncommonly	31B404	300	coffee maker
+34	4503	Susan	exceedingly	31B404	600	coffee maker
+34	4472	Susan	insanely	0404B4	12000	watch
+34	3692	Mary	uncommonly	31B404	800	coffee maker
+34	36968	John		31B404	100	coffee maker
+34	20000	Elizabeth	extremely	DF0101	2000	laptop
+34	3972	Robert	enormously	DF0101	2500	laptop
+34	3800	Barbara	super	DF0101	1800	laptop
+34	3080	Patricia	crazy	DF0101	3000	laptop
+34	3800	Michael	really	DF0101	1200	laptop
+34	3919	David	horribly	DF0101	1700	laptop
+34	3935	Linda	quite	DF0101	1300	laptop
+34	3312	Maria	horribly	DF0101	1400	laptop
+34	4800	Michael	wildly	31B404	250	coffee maker
+34	69573	Richard	vastly	DF0101	1300	laptop
+35	15295	Maria	vastly	DF0101	400.00	laptop
+35	8139	Sally	crazy	31B404	150.00	watch
+35	12868	Charles	quite	0404B4	150.00	coffee maker
+35	11227	David	quite	0404B4	150.00	coffee maker
+35	13477	Patricia	insanely	0404B4	175.00	coffee maker
+35	8563	Michael	exceedingly	31B404	300.00	watch
+35	11036	Mary	really	31B404	150.00	watch
+35	9961	Mary	wildly	31B404	200.00	watch
+35	10948	Richard	extremely	31B404	400.00	watch
+35	13438	James	very	DF0101	500.00	laptop
+35	12956	Charles	very	31B404	150.00	watch
+35	11069	Jennifer	hugely	DF0101	150.00	laptop
+35	10366	James	extremely	31B404	400.00	watch
+35	7156	James	really	DF0101	400.00	laptop
+35	7522	Maria	hugely	DF0101	500.00	laptop
+35	8173	Michael	excessively	0404B4	350.00	coffee maker
+35	5437	Barbara	terribly	0404B4	300.00	coffee maker
+35	16567	William	terribly	31B404	300.00	watch
+35	5768	Patricia	extremely	31B404	400.00	watch
+35	5178	David	vastly	DF0101	600.00	laptop
+35	6244	Barbara	horribly	31B404	500.00	watch
+35	25747	Susan	super	DF0101	600.00	laptop
+35	5924	Robert	enormously	DF0101	700.00	laptop
+35	5363	Robert	wildly	31B404	500.00	watch
+35	5416	John	vastly	DF0101	600.00	laptop
+35	5453	Elizabeth	wildly	DF0101	500.00	laptop
+35	8412	Barbara		0404B4	200.00	coffee maker
+35	21638	Patricia	uncommonly	DF0101	500.00	laptop
+35	10164	Michael	exceedingly	31B404	500.00	watch
+35	18638	Tim	excessively	0404B4	300.00	coffee maker
+35	11549	Sally	super	31B404	300.00	watch
+35	7084	Richard	hugely	0404B4	200.00	coffee maker
+35	14301	John	super	0404B4	200.00	coffee maker
+35	7293	Tim	horribly	0404B4	300.00	coffee maker
+35	5941	David	quite	31B404	500.00	watch
+35	7174	Sally	crazy	DF0101	700.00	laptop
+35	10830	Linda	enormously	DF0101	600.00	laptop
+35	8946	Maria	exceedingly	DF0101	700.00	laptop
+35	16038	Elizabeth	insanely	0404B4	300.00	coffee maker
+35	11788	Jennifer		0404B4	150.00	coffee maker
+35	5717	Robert	very	DF0101	500.00	laptop
+35	20822	William	really	0404B4	250.00	coffee maker
+35	5830	Tim	enormously	31B404	500.00	watch
+35	4669	Elizabeth	horribly	0404B4	300.00	coffee maker
+35	9294	Richard		0404B4	200.00	coffee maker
+35	5894	Susan	uncommonly	0404B4	300.00	coffee maker
+35	13527	Jennifer	excessively	31B404	500.00	watch
+35	5470	William	terribly	DF0101	700.00	laptop
+35	14099	John	uncommonly	DF0101	600.00	laptop
+35	22909	Charles	insanely	31B404	500.00	watch
+35	5970	Linda	crazy	0404B4	300.00	coffee maker
+36	9864	David	wildly	0404B4	50	coffee maker
+36	9430	Charles	excessively	DF0101	1000	laptop
+36	13509	Patricia	exceedingly	0404B4	50	coffee maker
+36	6253	Mary	extremely	DF0101	1000	laptop
+36	9310	Charles	horribly	DF0101	1000	laptop
+36	5724	Linda	uncommonly	0404B4	50	coffee maker
+36	5965	Linda	quite	DF0101	800	laptop
+36	6487	Linda	very	31B404	200	watch
+36	6612	Tim	enormously	31B404	600	watch
+36	4206	Charles	excessively	31B404	500	watch
+36	5965	William	very	31B404	150	watch
+36	4453	John	extremely	DF0101	1000	laptop
+36	5453	Michael	quite	31B404	150	watch
+36	5014	Michael	vastly	DF0101	1000	laptop
+36	6068	Susan	crazy	31B404	500	watch
+36	4788	Maria		31B404	150	watch
+36	5135	Tim	exceedingly	31B404	500	watch
+36	4485	Maria	really	31B404	300	watch
+36	4222	Elizabeth	crazy	31B404	500	watch
+36	119115	John	terribly	0404B4	50	coffee maker
+36	43820	Maria	insanely	DF0101	800	laptop
+36	20582	Richard	hugely	31B404	500	watch
+36	4437	Mary	exceedingly	DF0101	1000	laptop
+36	20157	Michael	uncommonly	0404B4	50	coffee maker
+36	35573	Robert	super	0404B4	50	coffee maker
+36	12141	William	terribly	0404B4	50	coffee maker
+36	5864	Barbara	horribly	DF0101	1000	laptop
+36	3468	Robert	vastly	31B404	200	watch
+36	28565	Tim	vastly	DF0101	1000	laptop
+36	3812	James	hugely	DF0101	1000	laptop
+36	3486	Sally		0404B4	50	coffee maker
+36	3101	Jennifer	really	0404B4	60	coffee maker
+36	4548	Richard	wildly	0404B4	50	coffee maker
+36	6188	David	crazy	DF0101	800	laptop
+36	3533	James	quite	DF0101	600	laptop
+36	8109	Sally	enormously	DF0101	1000	laptop
+36	7318	Patricia	super	31B404	200	watch
+36	4302	Sally	super	DF0101	1000	laptop
+36	4165	Barbara	insanely	31B404	500	watch
+36	6917	Jennifer	enormously	0404B4	50	coffee maker
+36	5333	Susan	horribly	0404B4	60	coffee maker
+36	4653	David	excessively	DF0101	1200	laptop
+36	3685	Barbara	insanely	0404B4	50	coffee maker
+36	5734	Richard	terribly	31B404	200	watch
+36	3261	James		0404B4	50	coffee maker
+36	18133	William	really	DF0101	1000	laptop
+36	4213	Jennifer	extremely	0404B4	50	coffee maker
+36	3045	Patricia	hugely	0404B4	50	coffee maker
+36	3229	Mary	very	31B404	200	watch
+36	5677	John	wildly	31B404	300	watch
+36	3669	Elizabeth	uncommonly	0404B4	50	coffee maker
+37	6595	Maria	terribly	31B404	2000	laptop
+37	5862	Elizabeth	crazy	DF0101	400	coffee maker
+37	4853	Linda	exceedingly	DF0101	400	coffee maker
+37	5551	Jennifer	insanely	0404B4	1000	watch
+37	8856	Mary	super	DF0101	300	coffee maker
+37	7575	Jennifer	crazy	31B404	4000	laptop
+37	7608	Tim	vastly	DF0101	350	coffee maker
+37	5415	Michael		0404B4	300	watch
+37	5075	William	horribly	0404B4	2000	watch
+37	6005	Barbara	enormously	31B404	2000	laptop
+37	5516	Linda	really	31B404	1500	laptop
+37	4238	Richard	really	31B404	1500	laptop
+37	3582	Mary	extremely	31B404	2500	laptop
+37	3355	Robert	quite	DF0101	300	coffee maker
+37	4484	Linda	hugely	0404B4	2000	watch
+37	7840	David	exceedingly	31B404	2000	laptop
+37	4731	James	hugely	0404B4	1000	watch
+37	4590	Richard	enormously	31B404	2000	laptop
+37	3440	James	quite	31B404	1500	laptop
+37	3360	Elizabeth	extremely	DF0101	400	coffee maker
+37	4196	Susan	vastly	0404B4	1000	watch
+37	2938	Michael	insanely	0404B4	1000	watch
+37	4592	Charles	exceedingly	DF0101	350	coffee maker
+37	7129	Tim	really	0404B4	700	watch
+37	4189	John	terribly	0404B4	1000	watch
+37	3048	Sally	extremely	0404B4	1000	watch
+37	5827	Charles	excessively	0404B4	1500	watch
+37	2879	Michael	terribly	0404B4	1000	watch
+37	3390	Elizabeth		DF0101	300	coffee maker
+37	5986	Patricia	quite	31B404	1500	laptop
+37	4834	William	uncommonly	0404B4	3000	watch
+37	3634	Susan	super	0404B4	1000	watch
+37	3882	Barbara	very	DF0101	400	coffee maker
+37	4778	John	wildly	DF0101	500	coffee maker
+37	2959	Sally	excessively	DF0101	400	coffee maker
+37	3062	Susan	excessively	31B404	2000	laptop
+37	4334	Charles	vastly	DF0101	400	coffee maker
+37	4215	John	enormously	0404B4	1000	watch
+37	2883	David	very	DF0101	300	coffee maker
+37	3132	David	very	DF0101	300	coffee maker
+37	3343	Patricia	horribly	DF0101	400	coffee maker
+37	4743	Barbara		31B404	1500	laptop
+37	3709	Tim	wildly	0404B4	1500	watch
+37	3025	Maria	horribly	DF0101	400	coffee maker
+37	3280	Richard	hugely	0404B4	1000	watch
+37	3603	Patricia	insanely	31B404	3000	laptop
+37	3844	Robert	wildly	DF0101	400	coffee maker
+37	4369	William	uncommonly	31B404	3000	laptop
+37	3694	James	super	31B404	2000	laptop
+37	3025	Sally	uncommonly	31B404	3000	laptop
+37	3710	Maria	crazy	31B404	2500	laptop
+38	7814	Charles	uncommonly	DF0101	3200	laptop
+38	7933	Robert	exceedingly	31B404	5500	watch
+38	5711	Maria	super	DF0101	2800	laptop
+38	5128	Susan	horribly	DF0101	2800	laptop
+38	3928	Susan	crazy	DF0101	3500	laptop
+38	4208	Richard	very	DF0101	2500	laptop
+38	3639	James	hugely	DF0101	2500	laptop
+38	4096	John	very	0404B4	200	coffee maker
+38	3728	Robert	vastly	0404B4	220	coffee maker
+38	13743	Linda	really	31B404	500	watch
+38	4552	Michael	exceedingly	31B404	2500	watch
+38	6134	Elizabeth	enormously	31B404	5000	watch
+38	3299	John	quite	0404B4	150	coffee maker
+38	3437	Susan	vastly	0404B4	250	coffee maker
+38	4608	Michael	hugely	DF0101	2800	laptop
+38	3602	Tim	insanely	0404B4	350	coffee maker
+38	5229	Elizabeth	uncommonly	31B404	8000	watch
+38	5191	David	vastly	31B404	4500	watch
+38	4927	James	extremely	0404B4	225	coffee maker
+38	4599	Barbara	horribly	31B404	4500	watch
+38	3959	James	insanely	31B404	6500	watch
+38	3464	Richard	terribly	DF0101	1800	laptop
+38	3376	Richard	excessively	DF0101	2500	laptop
+38	4879	John		31B404	1500	watch
+38	3137	Jennifer	hugely	31B404	1800	watch
+38	3909	Charles	terribly	0404B4	150	coffee maker
+38	3440	David	very	31B404	900	watch
+38	3199	Charles	enormously	0404B4	150	coffee maker
+38	3063	Tim	really	31B404	900	watch
+38	3543	Sally	quite	DF0101	1800	laptop
+38	125622	Mary	excessively	DF0101	2200	laptop
+38	3228	Barbara	really	DF0101	1500	laptop
+38	3094	Jennifer	super	DF0101	1800	laptop
+38	3175	Linda	crazy	DF0101	2500	laptop
+38	3687	Sally	wildly	31B404	5500	watch
+38	2991	Maria	quite	DF0101	1800	laptop
+38	3103	Robert	excessively	0404B4	250	coffee maker
+38	2815	William	horribly	0404B4	225	coffee maker
+38	3767	Mary	insanely	0404B4	280	coffee maker
+38	3128	Sally		0404B4	150	coffee maker
+38	3288	David	crazy	31B404	6500	watch
+38	4849	Mary	enormously	0404B4	250	coffee maker
+38	3087	Linda	extremely	0404B4	250	coffee maker
+38	3040	Patricia	wildly	31B404	6500	watch
+38	3855	Tim	exceedingly	31B404	4500	watch
+38	3439	Patricia	wildly	DF0101	3500	laptop
+38	3239	Elizabeth	terribly	0404B4	150	coffee maker
+38	3623	Barbara	super	DF0101	2500	laptop
+38	2923	Maria		0404B4	150	coffee maker
+38	3811	Patricia	extremely	0404B4	150	coffee maker
+38	4255	William	uncommonly	31B404	8000	watch
+39	7788	William	very	DF0101	600	laptop
+39	26148	William	wildly	DF0101	1500	laptop
+39	6555	Maria	vastly	DF0101	1200	laptop
+39	8048	Charles	insanely	0404B4	23000	watch
+39	7364	Linda	horribly	0404B4	2300000	watch
+39	8169	Sally	insanely	DF0101	2000	laptop
+39	8678	Linda	crazy	DF0101	2500	laptop
+39	10258	David	super	0404B4	175	watch
+39	8143	Michael	exceedingly	0404B4	250	watch
+39	4567	Mary	enormously	DF0101	1750	laptop
+39	7188	Barbara	really	0404B4	2000	watch
+39	14474	Elizabeth	terribly	DF0101	1500	laptop
+39	5250	Mary	enormously	0404B4	250	watch
+39	4053	Charles	horribly	0404B4	600	watch
+39	5622	Michael		DF0101	800	laptop
+39	8465	Jennifer	super	0404B4	2	watch
+39	4020	Tim	hugely	31B404	50	coffee maker
+39	5244	Robert	vastly	0404B4	250	watch
+39	4137	James	really	31B404	175	coffee maker
+39	3086	Jennifer	really	31B404	175	coffee maker
+39	3019	Linda	super	31B404	175	coffee maker
+39	3027	Sally	extremely	0404B4	250	watch
+39	3617	Robert	exceedingly	DF0101	250	laptop
+39	6065	Barbara	quite	31B404	175	coffee maker
+39	3871	Susan	excessively	DF0101	800	laptop
+39	6018	Elizabeth	terribly	31B404	175	coffee maker
+39	4333	Richard	uncommonly	DF0101	2000	laptop
+39	3642	Richard	extremely	31B404	175	coffee maker
+39	5949	John	extremely	DF0101	1000	laptop
+39	4714	Maria	uncommonly	31B404	175	coffee maker
+39	4423	Patricia	insanely	31B404	250	coffee maker
+39	3226	Robert	very	0404B4	200	watch
+39	3191	David	enormously	DF0101	2000	laptop
+39	7575	John	vastly	31B404	250	coffee maker
+39	4933	Barbara	crazy	0404B4	200000	watch
+39	4985	Jennifer	wildly	DF0101	400000	laptop
+39	10574	John	excessively	31B404	494837.32	coffee maker
+39	10613	Elizabeth		31B404	50	coffee maker
+39	2119	James		31B404	50	coffee maker
+39	10856	Sally	wildly	0404B4	10000	watch
+39	4326	Michael	quite	0404B4	150	watch
+39	11583	Richard	horribly	DF0101	750	laptop
+39	4264	Susan	exceedingly	31B404	600	coffee maker
+39	10459	Susan	quite	31B404	500	coffee maker
+39	4384	Charles	crazy	0404B4	400000	watch
+39	4111	Patricia	hugely	0404B4	4000	watch
+39	3149	David	hugely	31B404	175	coffee maker
+39	5283	Mary	excessively	DF0101	2000	laptop
+39	3527	Tim	very	31B404	200	coffee maker
+39	9248	James	uncommonly	DF0101	20000	laptop
+39	3877	Patricia	terribly	0404B4	400000	watch
+40	6948	Richard	slightly	F87217	700	laptop
+40	5051	Mary	a bit	E4287C	99	coffee maker
+40	5147	James	a tad	DF0101	120	sweater
+40	5542	David	slightly	0404B4	110	watch
+40	7530	David	slightly	E4287C	45	coffee maker
+40	5772	Sally	a tad	0404B4	250	watch
+40	5093	Mary	a bit	0404B4	400	watch
+40	7014	Linda	slightly	F87217	550	laptop
+40	4390	Richard	somewhat	F87217	600	laptop
+40	4686	Maria	sort of	31B404	100	headphones
+40	5358	Barbara	a tad	31B404	65	headphones
+40	4845	John	kind of	0404B4	800	watch
+40	4597	Elizabeth	somewhat	E4287C	70	coffee maker
+40	5724	Charles	somewhat	31B404	75	headphones
+40	7726	David	moderately	31B404	80	headphones
+40	5990	Barbara	a bit	F87217	600	laptop
+40	4851	Robert	sort of	DF0101	100	sweater
+40	5514	Jennifer	slightly	F87217	500	laptop
+40	5330	John	kind of	F87217	900	laptop
+40	10626	Tim	a bit	DF0101	150	sweater
+40	4620	James	kind of	0404B4	400	watch
+40	5685	Sally	kind of	E4287C	99	coffee maker
+40	5030	William	moderately	E4287C	70	coffee maker
+40	4645	Linda	moderately	E4287C	70	coffee maker
+40	3732	William	a tad	E4287C	65	coffee maker
+40	4774	Susan	a tad	DF0101	95	sweater
+40	4773	Michael	kind of	DF0101	180	sweater
+40	4006	Robert	sort of	DF0101	120	sweater
+40	3509	Michael	moderately	31B404	75	headphones
+40	5310	Sally	sort of	F87217	1100	laptop
+40	5868	Jennifer	somewhat	31B404	100	headphones
+40	5102	Patricia	moderately	DF0101	100	sweater
+40	5942	John	a bit	31B404	120	headphones
+40	5798	Mary	somewhat	0404B4	700	watch
+40	4758	Linda	sort of	0404B4	800	watch
+41	8300	Robert	a tad	E4287C	150	watch
+41	10371	Charles	kind of	DF0101	750	laptop
+41	7735	Charles	somewhat	31B404	200	coffee maker
+41	12623	John	somewhat	31B404	200	coffee maker
+41	8047	Barbara	kind of	0404B4	100	headphones
+41	8239	Maria	somewhat	31B404	200	coffee maker
+41	25775	Mary	a bit	E4287C	150	watch
+41	12751	Jennifer	slightly	0404B4	75	headphones
+41	9662	Barbara	sort of	F87217	65	sweater
+41	16782	Maria	a bit	E4287C	200	watch
+41	6431	James	a tad	F87217	75	sweater
+41	6775	William	sort of	DF0101	650	laptop
+41	19951	Charles	moderately	E4287C	250	watch
+41	13775	Elizabeth	a bit	DF0101	600	laptop
+41	5999	Sally	slightly	0404B4	75	headphones
+41	7376	Elizabeth	moderately	31B404	225	coffee maker
+41	6926	Elizabeth	slightly	F87217	65	sweater
+41	11096	David	a bit	E4287C	100	watch
+41	5334	William	moderately	F87217	85	sweater
+41	6572	Maria	a tad	0404B4	85	headphones
+41	4655	Patricia	moderately	0404B4	125	headphones
+41	6735	Robert	sort of	0404B4	60	headphones
+41	6759	Maria	moderately	31B404	200	coffee maker
+41	8479	David	sort of	DF0101	550	laptop
+41	7431	Jennifer	sort of	DF0101	550	laptop
+41	6215	Richard	slightly	0404B4	125	headphones
+41	22653	Elizabeth	kind of	31B404	175	coffee maker
+41	15529	Michael	kind of	E4287C	150	watch
+41	4868	John	kind of	DF0101	550	laptop
+41	8176	Jennifer	slightly	31B404	175	coffee maker
+41	5135	Mary	a bit	F87217	75	sweater
+41	7280	Patricia	somewhat	F87217	75	sweater
+41	13798	Sally	somewhat	E4287C	175	watch
+41	4407	Susan	a tad	F87217	75	sweater
+41	6421	Jennifer	a tad	DF0101	550	laptop
+42	7896	Maria	somewhat	DF0101	650	laptop
+42	6386	Charles	a tad	E4287C	45	sweater
+42	5214	Tim	a tad	0404B4	250	watch
+42	4019	David	somewhat	F87217	125	coffee maker
+42	4573	Patricia	kind of	DF0101	450	laptop
+42	6097	Patricia	a bit	31B404	120	headphones
+42	4014	David	a bit	0404B4	400	watch
+42	3446	Jennifer	sort of	F87217	80	coffee maker
+42	10689	Patricia	moderately	31B404	150	headphones
+42	4008	Susan	slightly	0404B4	100	watch
+42	4184	Michael	slightly	31B404	75	headphones
+42	7239	David	sort of	F87217	140	coffee maker
+42	5013	Robert	kind of	E4287C	60	sweater
+42	6495	Richard	sort of	31B404	100	headphones
+42	4381	Richard	kind of	0404B4	200	watch
+42	5281	Susan	slightly	31B404	80	headphones
+42	11027	Barbara	somewhat	0404B4	300	watch
+42	3894	Michael	somewhat	0404B4	100	watch
+42	5456	Elizabeth	moderately	DF0101	750	laptop
+42	5481	Linda	sort of	E4287C	50	sweater
+42	6159	James	a bit	F87217	120	coffee maker
+42	3612	Mary	moderately	E4287C	60	sweater
+42	7654	Sally	slightly	F87217	120	coffee maker
+42	9257	Maria	a tad	E4287C	65	sweater
+42	4012	John	moderately	DF0101	750	laptop
+42	3439	James	a bit	31B404	120	headphones
+42	2503	Barbara	a tad	0404B4	100	watch
+42	4511	Patricia	a bit	DF0101	850	laptop
+42	2869	Jennifer	moderately	E4287C	60	sweater
+42	11027	Sally	slightly	DF0101	650	laptop
+42	3543	Jennifer	kind of	DF0101	650	laptop
+42	3475	Michael	a tad	F87217	120	coffee maker
+42	3503	Charles	sort of	E4287C	60	sweater
+42	2892	Maria	somewhat	31B404	120	headphones
+42	5113	William	kind of	F87217	140	coffee maker
+43	10639	Linda	a tad	F87217	99	headphones
+43	9382	John	slightly	31B404	800	laptop
+43	9485	James	moderately	DF0101	190	watch
+43	8908	William	a tad	F87217	89	headphones
+43	8471	Richard	moderately	31B404	750	laptop
+43	8548	Susan	a bit	E4287C	125	sweater
+43	5944	Michael	slightly	E4287C	99	sweater
+43	9844	Charles	kind of	F87217	69	headphones
+43	7606	Barbara	kind of	31B404	600	laptop
+43	11122	Maria	sort of	DF0101	149	watch
+43	8112	William	a bit	DF0101	99	watch
+43	7067	Charles	slightly	0404B4	49	coffee maker
+43	7098	Maria	moderately	F87217	79	headphones
+43	7145	James	somewhat	E4287C	99	sweater
+43	7971	Sally	kind of	F87217	69	headphones
+43	8113	Michael	sort of	F87217	59	headphones
+43	6127	Susan	somewhat	E4287C	89	sweater
+43	7130	Barbara	somewhat	0404B4	59	coffee maker
+43	6021	Michael	a bit	E4287C	99	sweater
+43	9236	Tim	slightly	0404B4	49	coffee maker
+43	7503	Mary	sort of	E4287C	129	sweater
+43	8440	Charles	a tad	DF0101	129	watch
+43	7082	Richard	a tad	0404B4	69	coffee maker
+43	4773	Linda	slightly	E4287C	99	sweater
+43	6591	Linda	a bit	31B404	550	laptop
+43	5289	Sally	kind of	0404B4	59	coffee maker
+43	5148	Susan	moderately	31B404	699	laptop
+43	4992	Jennifer	somewhat	31B404	649	laptop
+43	4774	David	kind of	DF0101	149	watch
+43	5616	Robert	somewhat	0404B4	59	coffee maker
+43	3838	Linda	sort of	0404B4	49	coffee maker
+43	4305	Robert	moderately	F87217	89	headphones
+43	4041	Mary	sort of	DF0101	129	watch
+43	5366	Tim	a bit	DF0101	149	watch
+43	5320	Jennifer	a tad	31B404	599	laptop
+44	4256	David	a bit	0404B4	50	sweater
+44	3510	Elizabeth	somewhat	DF0101	500	laptop
+44	3360	Linda	kind of	31B404	80	headphones
+44	3438	William	kind of	F87217	200	watch
+44	3800	Patricia	a tad	E4287C	70	coffee maker
+44	3573	Sally	somewhat	DF0101	450	laptop
+44	5344	Charles	moderately	DF0101	500	laptop
+44	3521	Mary	a tad	31B404	30	headphones
+44	3622	Linda	somewhat	F87217	150	watch
+44	3030	David	somewhat	0404B4	40	sweater
+44	4216	Richard	moderately	31B404	150	headphones
+44	5814	Patricia	slightly	DF0101	300	laptop
+44	2832	Susan	kind of	E4287C	40	coffee maker
+44	3640	Elizabeth	kind of	DF0101	250	laptop
+44	3940	Sally	a tad	0404B4	45	sweater
+44	3328	Mary	slightly	DF0101	300	laptop
+44	4446	Elizabeth	sort of	E4287C	50	coffee maker
+44	4684	Patricia	a bit	F87217	175	watch
+44	4129	Jennifer	a tad	DF0101	250	laptop
+44	4247	Mary	moderately	E4287C	75	coffee maker
+44	3888	Maria	moderately	F87217	250	watch
+44	3359	Susan	slightly	F87217	100	watch
+44	3845	Michael	kind of	0404B4	50	sweater
+44	3156	Robert	slightly	31B404	30	headphones
+44	4338	David	a bit	E4287C	80	coffee maker
+44	3903	Charles	sort of	F87217	300	watch
+44	3816	James	a bit	E4287C	90	coffee maker
+44	3939	Barbara	moderately	0404B4	80	sweater
+44	5487	Tim	a tad	F87217	175	watch
+44	3308	Richard	sort of	0404B4	50	sweater
+44	3350	James	a bit	31B404	60	headphones
+44	10901	William	sort of	31B404	80	headphones
+44	10200	Susan	somewhat	0404B4	70	sweater
+44	3121	James	sort of	E4287C	60	coffee maker
+44	2971	Richard	slightly	31B404	40	headphones
+45	9875	Robert	kind of	31B404	2000	laptop
+45	6885	Linda	moderately	31B404	1000	laptop
+45	12184	Michael	a tad	DF0101	125	coffee maker
+45	12148	James	a bit	31B404	1500	laptop
+45	15640	Mary	a tad	F87217	1000	watch
+45	6670	Jennifer	a bit	0404B4	200	headphones
+45	9930	Richard	kind of	F87217	150	watch
+45	8366	Barbara	sort of	31B404	2000	laptop
+45	11559	James	somewhat	E4287C	100	sweater
+45	7534	Michael	a tad	E4287C	75	sweater
+45	7801	William	slightly	E4287C	50	sweater
+45	10699	Jennifer	somewhat	DF0101	125	coffee maker
+45	11527	David	kind of	DF0101	75	coffee maker
+45	11102	Tim	sort of	DF0101	50	coffee maker
+45	5726	Charles	slightly	0404B4	100	headphones
+45	4798	Charles	kind of	DF0101	75	coffee maker
+45	14342	Susan	a tad	31B404	1500	laptop
+45	6574	Elizabeth	a bit	F87217	200	watch
+45	20383	James	a bit	DF0101	75	coffee maker
+45	5530	Maria	slightly	0404B4	100	headphones
+45	5998	Mary	moderately	F87217	200	watch
+45	6081	Charles	sort of	31B404	2500	laptop
+45	6402	Mary	moderately	0404B4	75	headphones
+45	5993	Tim	sort of	F87217	200	watch
+45	15030	Richard	somewhat	F87217	400	watch
+45	12352	Elizabeth	sort of	0404B4	300	headphones
+45	6556	Barbara	moderately	E4287C	125	sweater
+45	5487	Richard	slightly	0404B4	100	headphones
+45	5318	James	somewhat	E4287C	200	sweater
+45	7310	Sally	a bit	E4287C	150	sweater
+45	7134	Robert	a tad	0404B4	150	headphones
+45	6430	Sally	somewhat	31B404	2000	laptop
+45	12135	Maria	moderately	F87217	150	watch
+45	9366	Robert	kind of	E4287C	200	sweater
+45	13591	Jennifer	slightly	DF0101	100	coffee maker
+46	7590	David	slightly	0404B4	150	watch
+46	5629	Jennifer	sort of	0404B4	150	watch
+46	6494	William	somewhat	DF0101	75	headphones
+46	4741	John	slightly	F87217	99	coffee maker
+46	5036	Mary	kind of	E4287C	125	sweater
+46	5277	Maria	a tad	F87217	125	coffee maker
+46	5582	Maria	slightly	DF0101	75	headphones
+46	7465	Jennifer	a tad	31B404	2000	laptop
+46	4721	Linda	a bit	0404B4	150	watch
+46	3964	Elizabeth	somewhat	E4287C	125	sweater
+46	5701	Linda	somewhat	0404B4	150	watch
+46	4131	Sally	kind of	0404B4	150	watch
+46	4947	Charles	slightly	31B404	2500	laptop
+46	3041	James	sort of	F87217	125	coffee maker
+46	3394	Patricia	sort of	E4287C	125	sweater
+46	4851	Jennifer	moderately	E4287C	75	sweater
+46	4001	Robert	somewhat	F87217	125	coffee maker
+46	6247	Jennifer	kind of	31B404	2200	laptop
+46	3526	Elizabeth	a tad	E4287C	125	sweater
+46	3867	Elizabeth	slightly	DF0101	75	headphones
+46	5122	Sally	sort of	DF0101	75	headphones
+46	3752	Barbara	a tad	F87217	125	coffee maker
+46	21313	Patricia	somewhat	0404B4	150	watch
+46	3834	Mary	moderately	0404B4	150	watch
+46	5952	Barbara	moderately	E4287C	125	sweater
+46	4596	Robert	a bit	31B404	2000	laptop
+46	4118	James	a bit	DF0101	75	headphones
+46	5896	William	kind of	DF0101	75	headphones
+46	5069	Linda	sort of	F87217	125	coffee maker
+46	5575	Charles	a bit	F87217	125	coffee maker
+46	21517	Richard	kind of	DF0101	75	headphones
+46	6296	Charles	a tad	31B404	2500	laptop
+46	6425	Patricia	moderately	31B404	2200	laptop
+46	4320	David	a bit	31B404	2500	laptop
+46	3943	Michael	moderately	E4287C	75	sweater
+47	9850	Robert	somewhat	DF0101	20	headphones
+47	6436	Mary	kind of	E4287C	15	sweater
+47	8906	William	sort of	F87217	45	watch
+47	5682	Maria	a tad	E4287C	10	sweater
+47	4935	Michael	slightly	F87217	30	watch
+47	9919	Tim	slightly	31B404	350	laptop
+47	8818	Sally	sort of	0404B4	45	coffee maker
+47	4845	Barbara	somewhat	31B404	500	laptop
+47	6694	James	somewhat	31B404	500	laptop
+47	5338	Charles	kind of	E4287C	30	sweater
+47	6299	David	a bit	31B404	600	laptop
+47	5491	Maria	sort of	DF0101	20	headphones
+47	4914	Michael	a bit	F87217	50	watch
+47	4836	Linda	slightly	DF0101	25	headphones
+47	5196	Tim	a tad	E4287C	20	sweater
+47	4669	Michael	sort of	F87217	60	watch
+47	4490	Patricia	slightly	0404B4	55	coffee maker
+47	5099	Richard	moderately	0404B4	65	coffee maker
+47	4455	Sally	a bit	DF0101	35	headphones
+47	7667	Jennifer	a bit	31B404	600	laptop
+47	6265	William	a bit	F87217	65	watch
+47	5717	Richard	moderately	0404B4	40	coffee maker
+47	5040	Richard	sort of	DF0101	25	headphones
+47	5559	John	moderately	F87217	45	watch
+47	8700	Elizabeth	somewhat	E4287C	20	sweater
+47	3079	Linda	moderately	0404B4	45	coffee maker
+47	5828	Jennifer	a tad	0404B4	55	coffee maker
+47	4176	Elizabeth	a tad	31B404	555	laptop
+47	6873	Linda	kind of	0404B4	60	coffee maker
+47	4677	Barbara	somewhat	E4287C	35	sweater
+47	5710	Charles	moderately	31B404	499	laptop
+47	5365	Maria	slightly	DF0101	20	headphones
+47	5433	Sally	a tad	DF0101	22	headphones
+47	4102	Mary	kind of	F87217	75	watch
+47	4030	William	kind of	E4287C	40	sweater
+48	5774	Barbara	moderately	F87217	150	watch
+48	5062	Tim	somewhat	31B404	595	laptop
+48	5118	Elizabeth	sort of	31B404	499	laptop
+48	5032	Richard	a tad	E4287C	85	sweater
+48	5902	James	moderately	DF0101	75	headphones
+48	4287	William	moderately	DF0101	100	headphones
+48	5159	Elizabeth	kind of	0404B4	75	coffee maker
+48	3455	Sally	slightly	F87217	75	watch
+48	3920	James	a bit	F87217	100	watch
+48	4415	Patricia	sort of	DF0101	55	headphones
+48	3590	Susan	somewhat	F87217	100	watch
+48	3806	James	slightly	0404B4	100	coffee maker
+48	4103	Richard	sort of	F87217	125	watch
+48	3615	David	kind of	F87217	150	watch
+48	4238	Patricia	a tad	DF0101	55	headphones
+48	4407	Linda	moderately	0404B4	100	coffee maker
+48	4391	Barbara	a tad	0404B4	110	coffee maker
+48	4031	John	a tad	31B404	450	laptop
+48	5110	Jennifer	a bit	E4287C	110	sweater
+48	3431	Mary	somewhat	E4287C	95	sweater
+48	3935	Patricia	kind of	31B404	500	laptop
+48	3776	Susan	sort of	31B404	525	laptop
+48	3880	Robert	somewhat	DF0101	100	headphones
+48	3216	David	somewhat	0404B4	75	coffee maker
+48	3270	Charles	a bit	E4287C	85	sweater
+48	3518	Mary	a bit	E4287C	85	sweater
+48	5307	Tim	sort of	DF0101	75	headphones
+48	4299	Maria	kind of	F87217	85	watch
+48	5639	Robert	a tad	31B404	450	laptop
+48	4776	Richard	moderately	DF0101	95	headphones
+48	3899	William	a bit	0404B4	100	coffee maker
+48	4153	James	kind of	E4287C	75	sweater
+48	3911	William	slightly	31B404	399	laptop
+48	4157	Susan	slightly	0404B4	50	coffee maker
+48	3799	Robert	slightly	E4287C	35	sweater
+49	7634	Richard	kind of	31B404	65	sweater
+49	14609	Maria	moderately	31B404	50	sweater
+49	8922	Susan	a bit	F87217	65	watch
+49	12642	Patricia	a tad	0404B4	75	headphones
+49	5859	Robert	kind of	E4287C	85	coffee maker
+49	4779	Linda	moderately	F87217	55	watch
+49	10547	Jennifer	a bit	F87217	45	watch
+49	9395	Mary	a tad	0404B4	75	headphones
+49	5515	Susan	moderately	F87217	65	watch
+49	9226	Tim	kind of	DF0101	250	laptop
+49	6796	Barbara	slightly	E4287C	35	coffee maker
+49	6459	Richard	slightly	0404B4	65	headphones
+49	6251	David	a bit	0404B4	45	headphones
+49	8531	Robert	slightly	E4287C	35	coffee maker
+49	6451	Susan	somewhat	DF0101	150	laptop
+49	11891	Robert	sort of	DF0101	265	laptop
+49	11091	Maria	kind of	31B404	45	sweater
+49	8564	Jennifer	sort of	31B404	75	sweater
+49	10970	Maria	slightly	DF0101	450	laptop
+49	8219	Patricia	moderately	E4287C	75	coffee maker
+49	8155	Richard	kind of	31B404	65	sweater
+49	6995	James	sort of	F87217	65	watch
+49	6051	William	a bit	E4287C	45	coffee maker
+49	5459	Robert	somewhat	31B404	55	sweater
+49	7179	Susan	a tad	F87217	35	watch
+49	17299	Patricia	sort of	DF0101	400	laptop
+49	6923	Michael	a tad	0404B4	65	headphones
+49	5795	Charles	sort of	DF0101	400	laptop
+49	5300	William	somewhat	DF0101	550	laptop
+49	6522	Robert	moderately	F87217	75	watch
+49	5891	Elizabeth	slightly	E4287C	45	coffee maker
+49	8531	Jennifer	somewhat	31B404	65	sweater
+49	5867	John	a bit	0404B4	75	headphones
+49	5356	Mary	a tad	0404B4	65	headphones
+49	4723	Susan	somewhat	E4287C	45	coffee maker
+50	8439	Sally	sort of	0404B4	800	watch
+50	7245	James	slightly	31B404	90	coffee maker
+50	6791	Michael	sort of	DF0101	140	headphones
+50	10206	Robert	a tad	0404B4	450	watch
+50	8782	Charles	moderately	F87217	175	sweater
+50	7854	Charles	moderately	31B404	75	coffee maker
+50	6313	Elizabeth	a bit	0404B4	250	watch
+50	6934	James	kind of	E4287C	800	laptop
+50	15502	Mary	moderately	DF0101	75	headphones
+50	11759	Barbara	moderately	F87217	95	sweater
+50	49645	Jennifer	a bit	E4287C	1100	laptop
+50	6659	Robert	somewhat	0404B4	400	watch
+50	10471	Barbara	somewhat	E4287C	800	laptop
+50	4727	Mary	kind of	F87217	100	sweater
+50	4335	Patricia	slightly	F87217	75	sweater
+50	7173	David	kind of	0404B4	600	watch
+50	8392	Mary	moderately	E4287C	850	laptop
+50	4286	Tim	slightly	F87217	95	sweater
+50	6807	Linda	a tad	DF0101	95	headphones
+50	4430	William	somewhat	E4287C	1000	laptop
+50	7143	Barbara	somewhat	DF0101	150	headphones
+50	5194	Patricia	a bit	0404B4	500	watch
+50	8152	John	a bit	E4287C	950	laptop
+50	5160	Elizabeth	a tad	31B404	75	coffee maker
+50	4926	Maria	slightly	31B404	65	coffee maker
+50	7463	Tim	a tad	31B404	75	coffee maker
+50	4847	James	sort of	DF0101	125	headphones
+50	5327	Tim	kind of	E4287C	950	laptop
+50	4408	James	sort of	31B404	100	coffee maker
+50	8184	Barbara	kind of	DF0101	125	headphones
+50	5967	Linda	somewhat	31B404	85	coffee maker
+50	4395	Sally	slightly	DF0101	95	headphones
+50	4743	Charles	a tad	F87217	100	sweater
+50	5072	Richard	sort of	0404B4	350	watch
+50	5407	Elizabeth	a bit	F87217	125	sweater
+51	8884	Michael	a tad	31B404	100	coffee maker
+51	9014	Robert	slightly	F87217	70	watch
+51	8214	Linda	moderately	0404B4	30	sweater
+51	9710	Richard	sort of	0404B4	25	sweater
+51	10326	Richard	kind of	F87217	80	watch
+51	8991	Charles	a bit	E4287C	700	laptop
+51	8943	John	a bit	E4287C	700	laptop
+51	12984	Richard	moderately	F87217	80	watch
+51	11942	James	a bit	F87217	60	watch
+51	7470	John	kind of	31B404	80	coffee maker
+51	5767	Elizabeth	kind of	E4287C	600	laptop
+51	6414	John	kind of	0404B4	35	sweater
+51	7760	Michael	a tad	DF0101	100	headphones
+51	7175	James	sort of	31B404	80	coffee maker
+51	9494	David	sort of	DF0101	70	headphones
+51	10422	Elizabeth	somewhat	0404B4	40	sweater
+51	7655	Robert	moderately	F87217	60	watch
+51	9943	David	somewhat	E4287C	650	laptop
+51	5463	Mary	a tad	0404B4	40	sweater
+51	6863	John	moderately	0404B4	45	sweater
+51	7327	Richard	a tad	0404B4	50	sweater
+51	10631	James	moderately	31B404	80	coffee maker
+51	7253	Susan	somewhat	E4287C	600	laptop
+51	4783	Sally	a tad	DF0101	80	headphones
+51	9359	David	slightly	E4287C	500	laptop
+51	7966	Elizabeth	a bit	DF0101	80	headphones
+51	3656	Linda	somewhat	E4287C	600	laptop
+51	6630	Robert	slightly	DF0101	60	headphones
+51	7295	Robert	slightly	F87217	60	watch
+51	10352	Charles	kind of	DF0101	65	headphones
+51	7117	Sally	a bit	31B404	90	coffee maker
+51	7558	Sally	somewhat	DF0101	70	headphones
+51	5983	Richard	sort of	F87217	70	watch
+51	8071	Maria	sort of	31B404	80	coffee maker
+51	10871	Barbara	slightly	31B404	90	coffee maker
+52	6313	Richard	moderately	F87217	90	headphones
+52	4609	Richard	a tad	E4287C	120	coffee maker
+52	3360	Richard	somewhat	31B404	80	watch
+52	9672	Linda	a bit	E4287C	100	coffee maker
+52	5265	Linda	moderately	0404B4	1400	laptop
+52	7547	Patricia	kind of	31B404	120	watch
+52	5859	Barbara	a bit	0404B4	1000	laptop
+52	3469	Barbara	a tad	31B404	100	watch
+52	3328	William	slightly	E4287C	85	coffee maker
+52	4328	Sally	slightly	DF0101	40	sweater
+52	4383	Susan	somewhat	DF0101	65	sweater
+52	7125	Tim	slightly	31B404	90	watch
+52	3063	Jennifer	sort of	31B404	100	watch
+52	4203	Robert	a tad	DF0101	70	sweater
+52	3844	Maria	sort of	0404B4	1400	laptop
+52	3484	John	kind of	F87217	120	headphones
+52	5266	Maria	a bit	F87217	100	headphones
+52	3187	Charles	a tad	0404B4	1200	laptop
+52	3391	James	somewhat	F87217	90	headphones
+52	3250	Patricia	slightly	F87217	100	headphones
+52	4812	Patricia	moderately	F87217	130	headphones
+52	7813	Charles	slightly	DF0101	75	sweater
+52	6965	Sally	sort of	E4287C	100	coffee maker
+52	3125	Sally	kind of	F87217	90	headphones
+52	3593	Mary	kind of	0404B4	1500	laptop
+52	3735	Susan	a bit	0404B4	1200	laptop
+52	3640	James	a tad	DF0101	75	sweater
+52	5032	Charles	kind of	E4287C	90	coffee maker
+52	4937	Jennifer	somewhat	DF0101	85	sweater
+52	5469	Jennifer	moderately	31B404	75	watch
+52	12344	Charles	sort of	E4287C	130	coffee maker
+52	3265	Mary	moderately	DF0101	85	sweater
+52	7641	Tim	a bit	0404B4	1300	laptop
+52	4812	Elizabeth	somewhat	E4287C	100	coffee maker
+52	3284	William	sort of	31B404	90	watch
+53	8115	Elizabeth	a bit	F87217	700	laptop
+53	8683	William	somewhat	E4287C	60	coffee maker
+53	7586	Linda	somewhat	F87217	600	laptop
+53	14633	Michael	moderately	E4287C	65	coffee maker
+53	11354	John	moderately	31B404	110	headphones
+53	10073	Susan	a bit	0404B4	70	sweater
+53	8188	Richard	a tad	E4287C	45	coffee maker
+53	6192	Barbara	a tad	DF0101	120	watch
+53	9268	John	a tad	0404B4	60	sweater
+53	9010	Mary	slightly	DF0101	130	watch
+53	11643	Susan	kind of	F87217	550	laptop
+53	14864	Richard	sort of	DF0101	140	watch
+53	61884	Mary	moderately	31B404	130	headphones
+53	7680	Michael	sort of	E4287C	65	coffee maker
+53	17820	Barbara	kind of	31B404	140	headphones
+53	7006	David	moderately	F87217	550	laptop
+53	32163	William	sort of	E4287C	60	coffee maker
+53	5558	Charles	a bit	0404B4	60	sweater
+53	5341	Jennifer	somewhat	DF0101	140	watch
+53	11415	Barbara	a tad	0404B4	50	sweater
+53	8301	John	a bit	31B404	130	headphones
+53	5565	Sally	moderately	31B404	120	headphones
+53	15709	Michael	sort of	0404B4	65	sweater
+53	8945	David	kind of	DF0101	120	watch
+53	5946	Richard	a tad	0404B4	50	sweater
+53	5445	David	slightly	31B404	110	headphones
+53	8543	Mary	slightly	F87217	450	laptop
+53	5569	Barbara	slightly	F87217	450	laptop
+53	6159	Charles	sort of	31B404	120	headphones
+53	6797	Elizabeth	a bit	0404B4	70	sweater
+53	5731	Mary	kind of	DF0101	140	watch
+53	7797	John	somewhat	F87217	600	laptop
+53	4915	James	kind of	E4287C	70	coffee maker
+53	7977	Maria	slightly	DF0101	120	watch
+53	5162	Michael	somewhat	E4287C	60	coffee maker
+54	9342	Elizabeth	kind of	F87217	55	coffee maker
+54	10008	Richard	moderately	31B404	100	headphones
+54	9143	Robert	a bit	31B404	85	headphones
+54	6086	Jennifer	somewhat	31B404	90	headphones
+54	5189	William	somewhat	E4287C	70	watch
+54	7457	James	somewhat	F87217	40	coffee maker
+54	5222	Tim	moderately	0404B4	350	laptop
+54	6438	Elizabeth	a bit	E4287C	66	watch
+54	5819	John	kind of	E4287C	82	watch
+54	3979	Patricia	a tad	DF0101	45	sweater
+54	6291	Susan	slightly	0404B4	320	laptop
+54	4637	Tim	a tad	0404B4	300	laptop
+54	7078	James	slightly	E4287C	75	watch
+54	3754	Patricia	slightly	31B404	90	headphones
+54	4580	Linda	a bit	F87217	44	coffee maker
+54	7288	Tim	sort of	E4287C	82	watch
+54	6497	Maria	somewhat	F87217	60	coffee maker
+54	8396	Richard	slightly	31B404	78	headphones
+54	7545	Elizabeth	sort of	31B404	90	headphones
+54	6984	David	sort of	31B404	105	headphones
+54	3394	Sally	kind of	DF0101	55	sweater
+54	4305	Charles	a tad	DF0101	48	sweater
+54	5584	William	kind of	0404B4	450	laptop
+54	5798	Richard	moderately	0404B4	480	laptop
+54	4175	Linda	a tad	E4287C	77	watch
+54	3586	Susan	moderately	DF0101	60	sweater
+54	7725	Patricia	a bit	DF0101	33	sweater
+54	13813	Sally	a bit	0404B4	400	laptop
+54	3998	John	moderately	F87217	58	coffee maker
+54	6074	Robert	slightly	DF0101	34	sweater
+54	5870	Patricia	sort of	E4287C	67	watch
+54	3582	David	sort of	F87217	55	coffee maker
+54	4363	Robert	kind of	F87217	72	coffee maker
+54	4258	Michael	somewhat	DF0101	50	sweater
+54	9318	Tim	a tad	0404B4	360	laptop
+55	9500	David	sort of	0404B4	200	headphones
+55	12289	Maria	a tad	F87217	500	laptop
+55	8516	Sally	a bit	0404B4	120	headphones
+55	10109	Elizabeth	kind of	0404B4	100	headphones
+55	9609	Richard	somewhat	E4287C	150	coffee maker
+55	11813	Michael	a tad	DF0101	300	watch
+55	8703	John	somewhat	E4287C	120	coffee maker
+55	10557	James	a tad	0404B4	200	headphones
+55	12266	David	somewhat	DF0101	150	watch
+55	8109	Richard	moderately	E4287C	200	coffee maker
+55	6297	Tim	moderately	E4287C	150	coffee maker
+55	9047	David	slightly	0404B4	100	headphones
+55	10828	Charles	kind of	0404B4	90	headphones
+55	6500	James	sort of	F87217	200	laptop
+55	14754	David	somewhat	31B404	60	sweater
+55	45078	Linda	sort of	31B404	60	sweater
+55	15518	Barbara	moderately	31B404	65	sweater
+55	10765	Maria	moderately	31B404	70	sweater
+55	6188	William	a bit	DF0101	200	watch
+55	9687	Linda	kind of	DF0101	150	watch
+55	7938	Michael	moderately	F87217	300	laptop
+55	7609	Robert	slightly	E4287C	200	coffee maker
+55	5063	Richard	a bit	31B404	60	sweater
+55	9323	Richard	slightly	E4287C	220	coffee maker
+55	10187	Mary	slightly	31B404	60	sweater
+55	8047	Robert	a bit	F87217	350	laptop
+55	8172	Robert	slightly	F87217	300	laptop
+55	12235	Sally	somewhat	DF0101	200	watch
+55	10469	John	sort of	E4287C	200	coffee maker
+55	7307	Susan	a bit	F87217	300	laptop
+55	11109	Patricia	kind of	DF0101	150	watch
+55	4594	James	a tad	F87217	500	laptop
+55	5703	Tim	a tad	0404B4	200	headphones
+55	5969	Susan	kind of	DF0101	150	watch
+55	5172	Barbara	sort of	31B404	60	sweater
+56	8722	Barbara	moderately	DF0101	50	sweater
+56	5106	James	moderately	31B404	100	watch
+56	4631	Barbara	sort of	0404B4	75	headphones
+56	5332	John	somewhat	31B404	150	watch
+56	4915	Sally	a bit	31B404	300	watch
+56	4562	Barbara	kind of	0404B4	75	headphones
+56	6932	Linda	a tad	E4287C	50	coffee maker
+56	9339	Linda	sort of	DF0101	75	sweater
+56	4281	Robert	kind of	F87217	250	laptop
+56	5066	Elizabeth	a tad	0404B4	75	headphones
+56	3850	Tim	sort of	E4287C	50	coffee maker
+56	4762	Michael	a bit	0404B4	100	headphones
+56	4430	Susan	somewhat	F87217	250	laptop
+56	4367	David	somewhat	E4287C	50	coffee maker
+56	5223	James	a bit	DF0101	50	sweater
+56	3855	Maria	moderately	DF0101	75	sweater
+56	3556	Tim	kind of	F87217	250	laptop
+56	3712	Linda	slightly	F87217	200	laptop
+56	5107	Charles	a tad	DF0101	75	sweater
+56	6163	Michael	a tad	0404B4	50	headphones
+56	9842	Richard	sort of	DF0101	50	sweater
+56	10166	Charles	somewhat	0404B4	50	headphones
+56	9061	Sally	moderately	31B404	150	watch
+56	3613	Robert	slightly	0404B4	50	headphones
+56	7527	John	slightly	31B404	100	watch
+56	3415	William	slightly	E4287C	50	coffee maker
+56	5014	Sally	sort of	E4287C	50	coffee maker
+56	35375	Maria	a bit	E4287C	50	coffee maker
+56	3505	Mary	kind of	E4287C	50	coffee maker
+56	9694	Elizabeth	slightly	31B404	100	watch
+56	3680	David	a bit	F87217	250	laptop
+56	4250	Robert	a tad	F87217	200	laptop
+56	5332	Jennifer	moderately	DF0101	75	sweater
+56	7821	Maria	somewhat	F87217	350	laptop
+56	7436	William	kind of	31B404	150	watch
+57	7957	Elizabeth	sort of	F87217	200	watch
+57	5292	William	a bit	0404B4	100	headphones
+57	7701	David	kind of	DF0101	100	sweater
+57	6118	David	kind of	0404B4	100	headphones
+57	6830	Michael	slightly	DF0101	50	sweater
+57	5861	Richard	a tad	31B404	80	coffee maker
+57	4676	David	somewhat	31B404	200	coffee maker
+57	5325	Mary	kind of	31B404	150	coffee maker
+57	4261	Elizabeth	moderately	DF0101	50	sweater
+57	6565	Maria	a bit	E4287C	800	laptop
+57	8102	Sally	sort of	F87217	500	watch
+57	4613	Elizabeth	sort of	E4287C	600	laptop
+57	5558	Maria	a tad	F87217	200	watch
+57	4613	Barbara	somewhat	0404B4	100	headphones
+57	5293	John	slightly	E4287C	600	laptop
+57	5221	William	slightly	E4287C	600	laptop
+57	5605	Maria	moderately	31B404	400	coffee maker
+57	4390	Mary	a bit	0404B4	100	headphones
+57	4518	Patricia	a bit	E4287C	600	laptop
+57	4414	Maria	somewhat	31B404	400	coffee maker
+57	4166	Susan	somewhat	0404B4	100	headphones
+57	4581	Barbara	a tad	DF0101	100	sweater
+57	4974	Robert	slightly	F87217	200	watch
+57	4444	James	a tad	31B404	200	coffee maker
+57	3805	Tim	sort of	0404B4	100	headphones
+57	4557	Susan	sort of	31B404	200	coffee maker
+57	4534	Charles	moderately	E4287C	600	laptop
+57	3934	Sally	a bit	0404B4	100	headphones
+57	5358	Elizabeth	moderately	DF0101	150	sweater
+57	5214	Tim	moderately	DF0101	150	sweater
+57	4413	James	kind of	F87217	200	watch
+57	4077	Mary	a tad	E4287C	600	laptop
+57	7141	James	slightly	F87217	250	watch
+57	6189	Patricia	kind of	F87217	500	watch
+57	4014	Patricia	somewhat	DF0101	250	sweater
+58	10741	Maria	moderately	F87217	110	headphones
+58	9894	Elizabeth	somewhat	DF0101	70	sweater
+58	8158	Richard	a tad	31B404	100	coffee maker
+58	10718	John	a tad	E4287C	900	watch
+58	6535	Mary	moderately	F87217	110	headphones
+58	7223	James	slightly	0404B4	1000	laptop
+58	5511	William	a tad	31B404	100	coffee maker
+58	8830	Robert	slightly	31B404	100	coffee maker
+58	5496	Linda	a bit	E4287C	500	watch
+58	5216	John	a bit	E4287C	500	watch
+58	7175	Mary	kind of	DF0101	100	sweater
+58	5142	John	moderately	DF0101	150	sweater
+58	3999	Jennifer	slightly	E4287C	500	watch
+58	3263	Linda	somewhat	DF0101	100	sweater
+58	2631	Tim	moderately	0404B4	1000	laptop
+58	3223	Barbara	kind of	E4287C	750	watch
+58	3823	James	kind of	0404B4	950	laptop
+58	3462	Barbara	kind of	F87217	120	headphones
+58	4791	Robert	sort of	DF0101	120	sweater
+58	3464	Maria	slightly	E4287C	550	watch
+58	2551	Elizabeth	slightly	31B404	100	coffee maker
+58	2639	Michael	a tad	F87217	120	headphones
+58	2519	Susan	sort of	0404B4	1000	laptop
+58	3455	Tim	somewhat	F87217	110	headphones
+58	2839	Barbara	a bit	E4287C	750	watch
+58	3239	Sally	somewhat	0404B4	1100	laptop
+58	2863	Patricia	kind of	F87217	125	headphones
+58	3095	Charles	a bit	0404B4	1100	laptop
+58	2647	James	sort of	DF0101	150	sweater
+58	2895	William	a bit	0404B4	1000	laptop
+58	2415	David	moderately	F87217	120	headphones
+58	2952	Michael	sort of	31B404	120	coffee maker
+58	2430	Mary	somewhat	DF0101	100	sweater
+58	1991	James	a tad	31B404	120	coffee maker
+58	2071	Tim	sort of	31B404	120	coffee maker
+59	9401	Sally	somewhat	0404B4	30	sweater
+59	11096	Charles	sort of	DF0101	25	coffee maker
+59	6155	William	slightly	0404B4	20	sweater
+59	7638	Linda	slightly	0404B4	20	sweater
+59	5509	Tim	a bit	F87217	50	headphones
+59	7165	Maria	slightly	DF0101	25	coffee maker
+59	5291	Robert	a tad	0404B4	15	sweater
+59	29537	David	somewhat	31B404	500	laptop
+59	19297	Michael	moderately	0404B4	20	sweater
+59	17611	Patricia	sort of	0404B4	35	sweater
+59	9119	Mary	a tad	DF0101	25	coffee maker
+59	6756	Robert	kind of	0404B4	65	sweater
+59	6121	Patricia	somewhat	F87217	23	headphones
+59	5273	Susan	sort of	F87217	43	headphones
+59	5345	Linda	a bit	E4287C	21	watch
+59	11443	Charles	a bit	F87217	30	headphones
+59	5444	Tim	moderately	DF0101	25	coffee maker
+59	10670	David	somewhat	31B404	350	laptop
+59	12655	Elizabeth	sort of	DF0101	21	coffee maker
+59	6967	Jennifer	a bit	E4287C	200	watch
+59	6742	Susan	kind of	F87217	20	headphones
+59	5533	Linda	moderately	DF0101	45	coffee maker
+59	6333	Patricia	somewhat	F87217	12	headphones
+59	6799	Richard	a tad	F87217	20	headphones
+59	11249	Jennifer	kind of	E4287C	22	watch
+59	12187	William	kind of	31B404	200	laptop
+59	9172	Barbara	moderately	31B404	265	laptop
+59	14223	Michael	sort of	31B404	345	laptop
+59	17746	Sally	kind of	E4287C	30	watch
+59	4416	Maria	a bit	31B404	200	laptop
+59	7981	James	slightly	DF0101	45	coffee maker
+59	28412	Patricia	a tad	E4287C	25	watch
+59	5171	John	a tad	31B404	300	laptop
+59	12123	Linda	moderately	E4287C	23	watch
+59	7382	William	slightly	E4287C	15	watch
+60	5134	Michael	slightly	E4287C	55	sweater
+60	5343	Charles	kind of	E4287C	45	sweater
+60	5623	Richard	slightly	DF0101	75	headphones
+60	6303	Robert	moderately	F87217	1300	laptop
+60	4822	Susan	kind of	F87217	1100	laptop
+60	6134	James	a bit	0404B4	65	coffee maker
+60	4862	David	a bit	31B404	75	watch
+60	4639	Tim	kind of	E4287C	45	sweater
+60	5775	Patricia	a tad	0404B4	70	coffee maker
+60	7166	Barbara	somewhat	E4287C	40	sweater
+60	7767	Sally	sort of	0404B4	65	coffee maker
+60	6743	James	kind of	E4287C	45	sweater
+60	3663	Charles	somewhat	31B404	75	watch
+60	4767	John	moderately	DF0101	85	headphones
+60	4198	Sally	sort of	DF0101	75	headphones
+60	4558	Richard	a bit	0404B4	40	coffee maker
+60	3887	Maria	slightly	31B404	60	watch
+60	6639	Linda	a tad	F87217	900	laptop
+60	6655	David	sort of	E4287C	55	sweater
+60	5647	Susan	slightly	31B404	60	watch
+60	3983	John	slightly	DF0101	60	headphones
+60	4047	Barbara	somewhat	E4287C	55	sweater
+60	4271	Barbara	a tad	F87217	900	laptop
+60	7415	Mary	kind of	DF0101	65	headphones
+60	4423	Michael	a bit	DF0101	60	headphones
+60	4693	Mary	a tad	DF0101	55	headphones
+60	4079	Elizabeth	moderately	0404B4	50	coffee maker
+60	4174	Linda	sort of	31B404	75	watch
+60	4711	Jennifer	a tad	31B404	65	watch
+60	5615	Elizabeth	a bit	F87217	900	laptop
+60	3575	Jennifer	somewhat	F87217	1100	laptop
+60	4264	William	sort of	0404B4	55	coffee maker
+60	7952	Barbara	moderately	F87217	1300	laptop
+60	4358	Jennifer	somewhat	0404B4	55	coffee maker
+60	5566	Linda	moderately	31B404	75	watch
+61	12684	Elizabeth	kind of	31B404	120	watch
+61	6172	Richard	a bit	E4287C	45	sweater
+61	8261	Charles	slightly	0404B4	60	coffee maker
+61	8223	William	a bit	F87217	35	headphones
+61	5996	Tim	moderately	F87217	30	headphones
+61	5884	Charles	moderately	F87217	30	headphones
+61	6898	Barbara	a tad	31B404	50	watch
+61	7120	Tim	somewhat	E4287C	40	sweater
+61	12012	Barbara	a tad	DF0101	500	laptop
+61	9437	Richard	a bit	31B404	75	watch
+61	5517	Jennifer	sort of	E4287C	60	sweater
+61	4363	Jennifer	slightly	DF0101	600	laptop
+61	8475	Tim	moderately	0404B4	80	coffee maker
+61	8565	Sally	sort of	E4287C	50	sweater
+61	5194	Robert	kind of	0404B4	75	coffee maker
+61	4958	Tim	somewhat	F87217	40	headphones
+61	4156	James	a bit	DF0101	600	laptop
+61	9566	Elizabeth	moderately	31B404	80	watch
+61	5170	Sally	a tad	31B404	70	watch
+61	4691	Robert	a tad	0404B4	80	coffee maker
+61	5845	Maria	sort of	0404B4	80	coffee maker
+61	9071	Barbara	somewhat	DF0101	700	laptop
+61	4935	Linda	kind of	DF0101	700	laptop
+61	5157	Elizabeth	slightly	0404B4	80	coffee maker
+61	9643	Jennifer	slightly	31B404	60	watch
+61	5601	John	a tad	31B404	60	watch
+61	5845	Susan	sort of	E4287C	50	sweater
+61	7042	Susan	kind of	E4287C	60	sweater
+61	5852	Charles	slightly	F87217	35	headphones
+61	6112	Mary	moderately	0404B4	80	coffee maker
+61	4208	Patricia	a bit	E4287C	60	sweater
+61	5338	David	somewhat	DF0101	600	laptop
+61	5868	Mary	somewhat	F87217	45	headphones
+61	5433	Elizabeth	kind of	F87217	45	headphones
+61	5545	David	sort of	DF0101	800	laptop
+62	15881	Patricia	sort of	DF0101	900	laptop
+62	22371	Elizabeth	somewhat	E4287C	45	sweater
+62	12035	Jennifer	slightly	F87217	250	watch
+62	14119	Tim	somewhat	DF0101	1200	laptop
+62	12460	Susan	somewhat	E4287C	35	sweater
+62	9973	Patricia	sort of	31B404	40	headphones
+62	10430	Sally	sort of	F87217	90	watch
+62	9933	Linda	a tad	31B404	65	headphones
+62	12110	Elizabeth	moderately	F87217	50	watch
+62	16005	James	somewhat	31B404	60	headphones
+62	20166	William	a tad	F87217	65	watch
+62	7558	Maria	a bit	E4287C	35	sweater
+62	9878	William	sort of	DF0101	800	laptop
+62	9215	Susan	a tad	0404B4	50	coffee maker
+62	9262	John	kind of	0404B4	65	coffee maker
+62	10092	Tim	sort of	0404B4	49	coffee maker
+62	13316	Barbara	a bit	E4287C	39	sweater
+62	17894	Linda	a tad	31B404	35	headphones
+62	13158	Michael	kind of	0404B4	50	coffee maker
+62	9854	William	kind of	E4287C	30	sweater
+62	9173	William	slightly	31B404	55	headphones
+62	6518	Susan	moderately	F87217	85	watch
+62	7686	William	moderately	DF0101	500	laptop
+62	8854	Robert	a bit	31B404	39	headphones
+62	5839	Charles	a tad	0404B4	35	coffee maker
+62	7805	Barbara	kind of	E4287C	79	sweater
+62	5141	Richard	a bit	0404B4	45	coffee maker
+62	16212	John	slightly	DF0101	700	laptop
+62	6422	David	slightly	E4287C	39	sweater
+62	10669	John	kind of	0404B4	69	coffee maker
+62	9095	Barbara	moderately	DF0101	590	laptop
+62	6725	Elizabeth	moderately	F87217	55	watch
+62	11134	David	somewhat	31B404	65	headphones
+62	8223	Susan	a bit	DF0101	450	laptop
+62	19694	Charles	slightly	F87217	95	watch
+63	10170	Tim	slightly	31B404	100	coffee maker
+63	10932	David	kind of	0404B4	150	headphones
+63	7206	Charles	slightly	DF0101	150	watch
+63	11344	Jennifer	slightly	0404B4	100	headphones
+63	6799	Michael	a tad	31B404	100	coffee maker
+63	5720	William	slightly	DF0101	100	watch
+63	11288	Jennifer	a bit	F87217	1000	laptop
+63	4845	Patricia	a bit	31B404	100	coffee maker
+63	4091	Sally	sort of	F87217	1000	laptop
+63	7119	Patricia	somewhat	0404B4	150	headphones
+63	6455	Charles	sort of	E4287C	150	sweater
+63	6069	Robert	somewhat	0404B4	150	headphones
+63	7351	William	moderately	DF0101	100	watch
+63	4639	James	moderately	DF0101	100	watch
+63	5302	Mary	a tad	DF0101	100	watch
+63	5568	Richard	kind of	0404B4	150	headphones
+63	5911	Robert	a tad	E4287C	150	sweater
+63	14021	Barbara	somewhat	DF0101	500	watch
+63	5903	Charles	kind of	0404B4	150	headphones
+63	5342	Elizabeth	somewhat	E4287C	200	sweater
+63	4351	Michael	a tad	31B404	100	coffee maker
+63	5103	Elizabeth	somewhat	F87217	1500	laptop
+63	5527	Richard	sort of	0404B4	300	headphones
+63	4805	Susan	slightly	E4287C	150	sweater
+63	4352	Michael	kind of	E4287C	200	sweater
+63	4503	James	moderately	31B404	100	coffee maker
+63	4327	Maria	moderately	E4287C	100	sweater
+63	5463	David	a bit	F87217	1000	laptop
+63	5931	James	a bit	F87217	1000	laptop
+63	4975	Susan	sort of	31B404	100	coffee maker
+63	4399	Linda	kind of	DF0101	200	watch
+63	4972	Jennifer	a tad	31B404	150	coffee maker
+63	4199	David	a bit	E4287C	200	sweater
+63	4960	William	moderately	F87217	1000	laptop
+63	5592	James	sort of	F87217	1500	laptop
+64	11446	Robert	sort of	F87217	100	headphones
+64	6430	Elizabeth	slightly	E4287C	50	sweater
+64	6607	John	moderately	0404B4	900	laptop
+64	5966	William	a tad	0404B4	750	laptop
+64	8966	Robert	somewhat	DF0101	150	watch
+64	6566	Patricia	a tad	0404B4	750	laptop
+64	6294	William	kind of	0404B4	850	laptop
+64	7894	Linda	slightly	0404B4	750	laptop
+64	8959	Richard	slightly	E4287C	45	sweater
+64	7487	Elizabeth	a tad	31B404	100	coffee maker
+64	5071	Elizabeth	slightly	E4287C	45	sweater
+64	7079	Tim	moderately	DF0101	85	watch
+64	7983	Charles	a bit	31B404	80	coffee maker
+64	8175	Jennifer	a tad	F87217	50	headphones
+64	6495	Richard	kind of	F87217	50	headphones
+64	8191	Susan	moderately	31B404	75	coffee maker
+64	5679	David	kind of	31B404	75	coffee maker
+64	5079	Tim	kind of	E4287C	55	sweater
+64	9462	Barbara	a tad	DF0101	150	watch
+64	5238	Charles	somewhat	DF0101	150	watch
+64	5358	Jennifer	a bit	0404B4	950	laptop
+64	4998	Robert	a bit	31B404	85	coffee maker
+64	5678	Michael	kind of	F87217	70	headphones
+64	4582	Barbara	sort of	DF0101	200	watch
+64	5719	Mary	sort of	E4287C	110	sweater
+64	5822	Charles	sort of	E4287C	110	sweater
+64	6311	Robert	slightly	31B404	50	coffee maker
+64	4775	John	a bit	DF0101	150	watch
+64	4903	David	somewhat	31B404	100	coffee maker
+64	5223	Sally	sort of	F87217	50	headphones
+64	6783	Susan	moderately	F87217	75	headphones
+64	5631	Mary	somewhat	F87217	75	headphones
+64	5095	Michael	moderately	E4287C	80	sweater
+64	6183	Mary	somewhat	0404B4	850	laptop
+64	5487	John	a bit	DF0101	110	watch
+65	5208	Patricia	kind of	DF0101	65	sweater
+65	5605	John	a tad	31B404	50	headphones
+65	6492	Richard	a tad	DF0101	40	sweater
+65	5206	William	moderately	0404B4	100	watch
+65	4887	Robert	sort of	0404B4	100	watch
+65	6012	Linda	sort of	E4287C	650	laptop
+65	5848	Barbara	slightly	31B404	50	headphones
+65	6934	William	somewhat	F87217	75	coffee maker
+65	7352	Patricia	kind of	31B404	85	headphones
+65	8609	Barbara	sort of	DF0101	50	sweater
+65	5854	Susan	sort of	31B404	50	headphones
+65	4993	Mary	somewhat	DF0101	45	sweater
+65	4178	Richard	moderately	DF0101	70	sweater
+65	9986	Sally	a tad	DF0101	50	sweater
+65	5326	James	a bit	F87217	100	coffee maker
+65	3514	Susan	moderately	E4287C	500	laptop
+65	4367	Charles	somewhat	F87217	100	coffee maker
+65	7014	Michael	a bit	E4287C	500	laptop
+65	3767	John	slightly	31B404	40	headphones
+65	4413	John	kind of	F87217	80	coffee maker
+65	4053	Elizabeth	moderately	F87217	120	coffee maker
+65	4562	Maria	sort of	0404B4	100	watch
+65	3957	Barbara	a bit	E4287C	600	laptop
+65	4783	Jennifer	a bit	F87217	120	coffee maker
+65	5001	William	kind of	DF0101	50	sweater
+65	16366	Jennifer	a bit	0404B4	120	watch
+65	5844	Charles	moderately	E4287C	550	laptop
+65	3867	Tim	kind of	31B404	100	headphones
+65	7930	Linda	a tad	0404B4	99	watch
+65	2753	Tim	a tad	0404B4	99	watch
+65	6416	John	slightly	E4287C	500	laptop
+65	6159	Maria	somewhat	31B404	100	headphones
+65	6391	William	somewhat	E4287C	450	laptop
+65	5742	David	slightly	F87217	100	coffee maker
+65	4273	Richard	slightly	0404B4	100	watch
+66	10204	Barbara	a bit	E4287C	70	coffee maker
+66	23279	Richard	moderately	DF0101	500	laptop
+66	7596	Charles	a bit	31B404	75	watch
+66	7170	Maria	sort of	F87217	50	headphones
+66	9507	Linda	a tad	31B404	125	watch
+66	8810	Robert	somewhat	E4287C	100	coffee maker
+66	10470	Charles	a bit	31B404	150	watch
+66	15057	Jennifer	slightly	DF0101	700	laptop
+66	12933	Robert	somewhat	31B404	150	watch
+66	9311	Maria	kind of	E4287C	125	coffee maker
+66	5243	Tim	a tad	F87217	100	headphones
+66	8874	David	sort of	E4287C	150	coffee maker
+66	6329	Linda	kind of	F87217	125	headphones
+66	7966	Sally	moderately	31B404	175	watch
+66	8586	John	somewhat	0404B4	65	sweater
+66	10385	James	moderately	E4287C	200	coffee maker
+66	5265	John	a bit	F87217	150	headphones
+66	8017	Linda	kind of	DF0101	850	laptop
+66	5493	Charles	kind of	DF0101	850	laptop
+66	9455	Richard	somewhat	DF0101	800	laptop
+66	6136	David	moderately	0404B4	80	sweater
+66	7231	Mary	sort of	0404B4	70	sweater
+66	10213	Sally	a tad	0404B4	75	sweater
+66	8555	Patricia	somewhat	DF0101	800	laptop
+66	7433	James	slightly	0404B4	85	sweater
+66	4710	Elizabeth	sort of	31B404	150	watch
+66	8179	Barbara	a tad	F87217	100	headphones
+66	7687	Susan	a tad	0404B4	80	sweater
+66	8611	Elizabeth	moderately	DF0101	850	laptop
+66	7618	Barbara	a bit	F87217	150	headphones
+66	6134	John	slightly	31B404	150	watch
+66	5544	William	slightly	0404B4	85	sweater
+66	6623	Patricia	slightly	F87217	125	headphones
+66	7114	Jennifer	sort of	E4287C	150	coffee maker
+66	4448	Barbara	kind of	E4287C	150	coffee maker
+67	13526	David	kind of	F87217	200.00	coffee maker
+67	10623	Susan	slightly	DF0101	1000.00	laptop
+67	10411	Charles	slightly	0404B4	50.00	headphones
+67	13947	David	moderately	E4287C	300.00	watch
+67	12187	Richard	somewhat	DF0101	900.00	laptop
+67	7003	James	slightly	31B404	50.00	sweater
+67	7883	Susan	somewhat	0404B4	50.00	headphones
+67	5499	James	a bit	0404B4	75.00	headphones
+67	8955	Robert	a tad	DF0101	1200.00	laptop
+67	10451	Jennifer	moderately	F87217	100.00	coffee maker
+67	5131	Mary	a bit	31B404	75.00	sweater
+67	8371	Tim	sort of	F87217	200.00	coffee maker
+67	8851	Michael	somewhat	DF0101	1500.00	laptop
+67	5956	William	slightly	F87217	75.00	coffee maker
+67	4883	John	a tad	31B404	100.00	sweater
+67	5812	Linda	a bit	0404B4	100.00	headphones
+67	4856	John	sort of	0404B4	75.00	headphones
+67	4960	Linda	sort of	31B404	75.00	sweater
+67	4995	Robert	kind of	F87217	75.00	coffee maker
+67	7364	David	kind of	DF0101	1000.00	laptop
+67	7355	Barbara	a bit	E4287C	500.00	watch
+67	8643	Elizabeth	somewhat	31B404	75.00	sweater
+67	6612	John	sort of	DF0101	1000.00	laptop
+67	5300	Jennifer	moderately	E4287C	300.00	watch
+67	6820	Michael	a tad	E4287C	500.00	watch
+67	9180	Maria	a tad	E4287C	500.00	watch
+67	8476	Mary	sort of	F87217	75.00	coffee maker
+67	11116	Susan	slightly	E4287C	200.00	watch
+67	5611	Susan	kind of	31B404	50.00	sweater
+67	6859	John	moderately	F87217	75.00	coffee maker
+67	8132	Robert	somewhat	0404B4	100.00	headphones
+67	8308	Patricia	moderately	E4287C	300.00	watch
+67	9796	Charles	kind of	31B404	50.00	sweater
+67	8612	William	a tad	DF0101	1200.00	laptop
+67	7195	Sally	a bit	0404B4	100.00	headphones
+68	10821	John	a bit	F87217	250	watch
+68	12619	Linda	a tad	F87217	200	watch
+68	8493	Barbara	somewhat	31B404	150	sweater
+68	7727	David	sort of	F87217	150	watch
+68	10503	David	sort of	E4287C	1100	laptop
+68	7215	William	slightly	E4287C	800	laptop
+68	8255	John	moderately	31B404	100	sweater
+68	9319	Tim	a bit	E4287C	800	laptop
+68	6855	David	a tad	DF0101	150	coffee maker
+68	9070	Michael	somewhat	E4287C	800	laptop
+68	5799	Sally	kind of	DF0101	100	coffee maker
+68	6727	Susan	sort of	31B404	100	sweater
+68	6950	Linda	slightly	31B404	75	sweater
+68	6967	Susan	a bit	0404B4	200	headphones
+68	9758	Tim	kind of	E4287C	1000	laptop
+68	6358	William	slightly	0404B4	100	headphones
+68	7534	Elizabeth	slightly	31B404	75	sweater
+68	6591	Jennifer	moderately	F87217	200	watch
+68	5311	Richard	a bit	31B404	100	sweater
+68	6399	Richard	somewhat	0404B4	200	headphones
+68	8935	Elizabeth	moderately	DF0101	125	coffee maker
+68	8535	Michael	a tad	DF0101	200	coffee maker
+68	13679	James	a tad	DF0101	150	coffee maker
+68	8310	Barbara	a tad	F87217	200	watch
+68	8286	William	kind of	DF0101	150	coffee maker
+68	4183	James	sort of	F87217	200	watch
+68	10247	Linda	moderately	31B404	100	sweater
+68	5631	Michael	kind of	E4287C	1100	laptop
+68	5686	David	kind of	F87217	250	watch
+68	5950	Maria	a bit	E4287C	1000	laptop
+68	10902	Mary	moderately	0404B4	100	headphones
+68	6407	Mary	somewhat	0404B4	150	headphones
+68	7511	Michael	somewhat	0404B4	150	headphones
+68	5390	Barbara	sort of	0404B4	100	headphones
+68	6022	Robert	slightly	DF0101	100	coffee maker
+69	6096	Michael	a tad	31B404	50	sweater
+69	7063	Elizabeth	somewhat	0404B4	60	coffee maker
+69	4270	Tim	sort of	F87217	600	laptop
+69	4210	Tim	somewhat	0404B4	50	coffee maker
+69	5592	James	moderately	E4287C	35	headphones
+69	4869	James	kind of	F87217	600	laptop
+69	4406	William	sort of	E4287C	25	headphones
+69	3775	Richard	slightly	0404B4	40	coffee maker
+69	3882	Susan	a bit	31B404	50	sweater
+69	2963	Richard	somewhat	0404B4	60	coffee maker
+69	2962	Patricia	slightly	0404B4	50	coffee maker
+69	3754	Robert	a tad	F87217	600	laptop
+69	3985	William	sort of	DF0101	100	watch
+69	3838	Mary	a bit	E4287C	40	headphones
+69	3488	David	a tad	0404B4	50	coffee maker
+69	5251	Jennifer	moderately	31B404	65	sweater
+69	3443	James	slightly	DF0101	100	watch
+69	3308	Michael	moderately	DF0101	150	watch
+69	3379	Patricia	somewhat	E4287C	40	headphones
+69	3508	Linda	a bit	31B404	75	sweater
+69	3658	Barbara	somewhat	DF0101	150	watch
+69	3577	Barbara	kind of	E4287C	50	headphones
+69	3319	Elizabeth	a tad	31B404	50	sweater
+69	5885	Robert	moderately	31B404	60	sweater
+69	2872	Robert	a bit	F87217	750	laptop
+69	3100	Tim	moderately	E4287C	50	headphones
+69	3309	Patricia	sort of	F87217	750	laptop
+69	3190	Linda	kind of	E4287C	40	headphones
+69	3020	Sally	slightly	F87217	600	laptop
+69	3343	Mary	kind of	DF0101	150	watch
+69	2934	Jennifer	a tad	F87217	600	laptop
+69	3369	Maria	slightly	DF0101	100	watch
+69	3388	Susan	sort of	31B404	60	sweater
+69	2686	Barbara	kind of	0404B4	50	coffee maker
+69	3113	Patricia	a bit	DF0101	125	watch
+70	15038	Linda	slightly	31B404	50	headphones
+70	6484	Maria	sort of	31B404	40	headphones
+70	7259	David	a tad	31B404	45	headphones
+70	7224	Patricia	somewhat	E4287C	800	laptop
+70	5758	Richard	somewhat	0404B4	60	sweater
+70	4169	Jennifer	kind of	F87217	100	watch
+70	5312	Sally	a bit	0404B4	50	sweater
+70	6015	Robert	sort of	31B404	50	headphones
+70	5097	Mary	sort of	DF0101	75	coffee maker
+70	4789	Richard	somewhat	DF0101	80	coffee maker
+70	8176	Linda	kind of	F87217	90	watch
+70	4018	John	moderately	DF0101	120	coffee maker
+70	5143	John	slightly	31B404	50	headphones
+70	7891	David	slightly	DF0101	80	coffee maker
+70	4353	Barbara	slightly	E4287C	700	laptop
+70	4153	James	kind of	E4287C	900	laptop
+70	4774	William	sort of	F87217	105	watch
+70	8872	Michael	somewhat	DF0101	95	coffee maker
+70	3984	Richard	kind of	E4287C	900	laptop
+70	3915	John	a tad	F87217	75	watch
+70	4614	Jennifer	a tad	0404B4	60	sweater
+70	8385	Mary	moderately	0404B4	70	sweater
+70	6017	John	moderately	31B404	70	headphones
+70	4639	Tim	moderately	31B404	70	headphones
+70	10541	Elizabeth	moderately	F87217	90	watch
+70	4303	Robert	somewhat	0404B4	60	sweater
+70	4194	James	a bit	E4287C	800	laptop
+70	7909	Tim	slightly	F87217	100	watch
+70	12811	Jennifer	a tad	0404B4	65	sweater
+70	3777	Susan	kind of	E4287C	900	laptop
+70	6761	Barbara	a bit	F87217	60	watch
+70	5121	Linda	sort of	DF0101	70	coffee maker
+70	5595	Barbara	a bit	DF0101	75	coffee maker
+70	10819	Susan	a tad	E4287C	700	laptop
+70	4023	Jennifer	a bit	0404B4	55	sweater
+71	23138	Patricia	moderately	31B404	200	headphones
+71	11863	James	a bit	DF0101	100	sweater
+71	5507	Jennifer	moderately	F87217	900	laptop
+71	14941	William	moderately	DF0101	120	sweater
+71	4907	Michael	a tad	31B404	150	headphones
+71	17094	William	a tad	0404B4	100	watch
+71	5251	Richard	a tad	DF0101	80	sweater
+71	12966	Maria	sort of	F87217	1000	laptop
+71	5282	David	somewhat	0404B4	140	watch
+71	9013	Linda	a bit	DF0101	95	sweater
+71	4587	Elizabeth	somewhat	31B404	130	headphones
+71	4674	Robert	sort of	DF0101	105	sweater
+71	7242	Jennifer	sort of	E4287C	45	coffee maker
+71	7163	Jennifer	a bit	0404B4	150	watch
+71	3989	Linda	slightly	0404B4	140	watch
+71	3567	Robert	a bit	0404B4	130	watch
+71	4077	David	a bit	E4287C	35	coffee maker
+71	6314	Mary	kind of	E4287C	50	coffee maker
+71	6540	Sally	moderately	0404B4	165	watch
+71	4319	Barbara	kind of	0404B4	150	watch
+71	6529	Linda	a tad	31B404	200	headphones
+71	5449	Susan	sort of	DF0101	130	sweater
+71	6453	Robert	somewhat	31B404	160	headphones
+71	3542	Sally	kind of	E4287C	50	coffee maker
+71	5804	Elizabeth	slightly	F87217	950	laptop
+71	3805	Robert	slightly	31B404	130	headphones
+71	4511	Richard	somewhat	F87217	1000	laptop
+71	5058	Tim	moderately	F87217	1100	laptop
+71	10570	Linda	sort of	31B404	160	headphones
+71	3041	Charles	somewhat	DF0101	100	sweater
+71	3330	Linda	a tad	E4287C	40	coffee maker
+71	7195	Patricia	slightly	E4287C	40	coffee maker
+71	2724	David	kind of	E4287C	45	coffee maker
+71	3760	William	slightly	F87217	1000	laptop
+71	4006	Barbara	kind of	F87217	900	laptop
+72	5037	Sally	a bit	31B404	150	watch
+72	55374	William	a tad	DF0101	85	headphones
+72	6203	Barbara	kind of	E4287C	120	sweater
+72	5771	Mary	a bit	DF0101	85	headphones
+72	4647	Elizabeth	somewhat	0404B4	1500	laptop
+72	5072	William	a tad	F87217	125	coffee maker
+72	5100	Linda	kind of	0404B4	1500	laptop
+72	3639	Richard	slightly	DF0101	45	headphones
+72	4141	Charles	somewhat	F87217	135	coffee maker
+72	4444	Michael	moderately	DF0101	60	headphones
+72	3448	William	slightly	31B404	75	watch
+72	3706	Susan	somewhat	E4287C	87	sweater
+72	3367	Jennifer	a tad	0404B4	1200	laptop
+72	15057	Elizabeth	slightly	E4287C	65	sweater
+72	4370	James	kind of	E4287C	98	sweater
+72	3727	Sally	sort of	E4287C	80	sweater
+72	5925	Elizabeth	a bit	DF0101	80	headphones
+72	4276	Richard	sort of	DF0101	85	headphones
+72	14620	Charles	sort of	F87217	125	coffee maker
+72	4160	Maria	kind of	F87217	135	coffee maker
+72	32407	John	moderately	31B404	175	watch
+72	8677	Mary	a tad	DF0101	85	headphones
+72	4465	Robert	moderately	31B404	200	watch
+72	4216	Robert	kind of	31B404	175	watch
+72	3502	Linda	a tad	0404B4	150	laptop
+72	3495	Jennifer	moderately	F87217	175	coffee maker
+72	4068	Tim	moderately	0404B4	1600	laptop
+72	5474	James	sort of	31B404	90	watch
+72	4147	Robert	somewhat	31B404	125	watch
+72	5114	Sally	somewhat	0404B4	1700	laptop
+72	3820	Patricia	slightly	F87217	95	coffee maker
+72	3566	Barbara	sort of	F87217	85	coffee maker
+72	7973	Michael	a bit	E4287C	100	sweater
+72	4355	David	slightly	E4287C	90	sweater
+72	3946	Patricia	a bit	0404B4	1400	laptop
+73	9940	William	a bit	F87217	40.00	sweater
+73	8156	Linda	sort of	31B404	1000.00	laptop
+73	6534	Elizabeth	kind of	E4287C	250.00	headphones
+73	6011	Linda	slightly	DF0101	50.00	coffee maker
+73	5492	Linda	a tad	0404B4	150.00	watch
+73	4455	Patricia	moderately	31B404	750.00	laptop
+73	5949	Barbara	moderately	E4287C	125.00	headphones
+73	7175	Linda	slightly	DF0101	50.00	coffee maker
+73	6387	James	slightly	DF0101	50.00	coffee maker
+73	5612	James	kind of	DF0101	60.00	coffee maker
+73	5274	Elizabeth	moderately	F87217	35.00	sweater
+73	5820	Michael	somewhat	31B404	800.00	laptop
+73	5139	Charles	slightly	0404B4	75.00	watch
+73	4660	Charles	somewhat	0404B4	80.00	watch
+73	12275	David	a bit	F87217	60.00	sweater
+73	4571	Patricia	kind of	F87217	50.00	sweater
+73	5315	Patricia	somewhat	E4287C	100.00	headphones
+73	4358	Maria	somewhat	F87217	60.00	sweater
+73	4546	Susan	kind of	DF0101	60.00	coffee maker
+73	5226	Elizabeth	sort of	31B404	850.00	laptop
+73	4445	James	sort of	0404B4	150.00	watch
+73	4319	John	kind of	F87217	60.00	sweater
+73	5187	Robert	a tad	E4287C	125.00	headphones
+73	11294	Susan	moderately	31B404	800.00	laptop
+73	10856	Robert	slightly	0404B4	150.00	watch
+73	4104	Tim	a tad	E4287C	200.00	headphones
+73	4394	Barbara	moderately	0404B4	175.00	watch
+73	6338	James	a bit	31B404	1000.00	laptop
+73	4913	Barbara	sort of	DF0101	50.00	coffee maker
+73	4722	Maria	a tad	E4287C	175.00	headphones
+73	3877	Sally	a bit	DF0101	60.00	coffee maker
+73	4900	Susan	somewhat	F87217	60.00	sweater
+73	5342	Michael	sort of	E4287C	200.00	headphones
+73	4771	Tim	a bit	31B404	1000.00	laptop
+73	4900	James	a tad	0404B4	200.00	watch
+74	10343	Patricia	somewhat	E4287C	110.00	watch
+74	34046	Richard	a tad	31B404	75.00	sweater
+74	7775	John	slightly	F87217	1100.00	laptop
+74	7095	Charles	a bit	DF0101	95.00	coffee maker
+74	10031	Jennifer	kind of	31B404	90.00	sweater
+74	14966	Tim	moderately	0404B4	90.00	headphones
+74	8214	Mary	moderately	E4287C	80.00	watch
+74	16478	Michael	slightly	DF0101	60.00	coffee maker
+74	4959	James	sort of	0404B4	80.00	headphones
+74	5503	Susan	somewhat	F87217	800.00	laptop
+74	6047	David	somewhat	E4287C	85.00	watch
+74	9191	Susan	moderately	F87217	750.00	laptop
+74	6599	Barbara	sort of	F87217	900.00	laptop
+74	9895	William	sort of	F87217	1200.00	laptop
+74	5303	Robert	moderately	E4287C	90.00	watch
+74	11503	Linda	a bit	F87217	800.00	laptop
+74	6631	Richard	a tad	DF0101	65.00	coffee maker
+74	6382	Mary	kind of	0404B4	60.00	headphones
+74	5319	Robert	sort of	0404B4	100.00	headphones
+74	7318	John	somewhat	DF0101	75.00	coffee maker
+74	6848	William	slightly	F87217	900.00	laptop
+74	5263	Susan	moderately	31B404	60.00	sweater
+74	5870	Linda	a tad	DF0101	60.00	coffee maker
+74	6247	John	slightly	31B404	50.00	sweater
+74	4503	John	somewhat	E4287C	85.00	watch
+74	10535	William	a bit	DF0101	60.00	coffee maker
+74	5823	Patricia	sort of	0404B4	60.00	headphones
+74	5830	William	a bit	E4287C	75.00	watch
+74	6454	Barbara	kind of	31B404	75.00	sweater
+74	5375	David	slightly	31B404	60.00	sweater
+74	5935	Elizabeth	kind of	E4287C	100.00	watch
+74	5510	Elizabeth	a tad	0404B4	55.00	headphones
+74	6767	Richard	a bit	31B404	50.00	sweater
+74	5463	Sally	a tad	0404B4	60.00	headphones
+74	5831	Charles	kind of	DF0101	75.00	coffee maker
+75	22831	Jennifer	kind of	31B404	300	watch
+75	22585	David	a bit	0404B4	150	coffee maker
+75	10205	Richard	somewhat	DF0101	300	headphones
+75	14336	Maria	kind of	E4287C	600	laptop
+75	23274	James	moderately	0404B4	89	coffee maker
+75	12572	John	sort of	31B404	150	watch
+75	53266	Susan	a tad	0404B4	59	coffee maker
+75	18585	Jennifer	a bit	31B404	200	watch
+75	20764	Tim	slightly	0404B4	99	coffee maker
+75	12057	Linda	kind of	E4287C	500	laptop
+75	10748	Maria	moderately	DF0101	200	headphones
+75	10127	Susan	a tad	F87217	69	sweater
+75	17936	Robert	moderately	DF0101	175	headphones
+75	15931	John	slightly	31B404	195	watch
+75	12104	Barbara	a tad	0404B4	69	coffee maker
+75	21910	Maria	somewhat	DF0101	350	headphones
+75	16526	Mary	sort of	E4287C	650	laptop
+75	27477	Tim	a tad	0404B4	89	coffee maker
+75	22884	David	a bit	E4287C	700	laptop
+75	12542	David	slightly	31B404	295	watch
+75	8075	James	somewhat	E4287C	700	laptop
+75	8145	William	moderately	F87217	100	sweater
+75	9521	John	a bit	F87217	150	sweater
+75	15537	William	somewhat	DF0101	325	headphones
+75	9799	Robert	somewhat	0404B4	99	coffee maker
+75	13484	Jennifer	sort of	F87217	89	sweater
+75	7724	Patricia	a tad	E4287C	599	laptop
+75	9057	Charles	slightly	DF0101	195	headphones
+75	10580	James	a bit	E4287C	600	laptop
+75	9343	Barbara	kind of	31B404	1000	watch
+75	8984	Charles	sort of	DF0101	400	headphones
+75	11933	Barbara	moderately	F87217	79	sweater
+75	7251	Elizabeth	kind of	F87217	100	sweater
+75	10400	Linda	slightly	31B404	300	watch
+75	15183	Sally	sort of	F87217	69	sweater
+76	10781	William	slightly	31B404	50	headphones
+76	12187	John	slightly	31B404	40	headphones
+76	9735	Elizabeth	a tad	0404B4	500	laptop
+76	4043	Charles	a tad	DF0101	150	sweater
+76	4609	Michael	moderately	F87217	400	coffee maker
+76	4766	Mary	a bit	31B404	40	headphones
+76	10250	Barbara	somewhat	E4287C	750	watch
+76	5203	John	sort of	0404B4	600	laptop
+76	4891	Jennifer	slightly	E4287C	650	watch
+76	3750	William	sort of	DF0101	120	sweater
+76	3234	Barbara	moderately	0404B4	550	laptop
+76	5110	Linda	moderately	0404B4	600	laptop
+76	4625	Sally	moderately	0404B4	400	laptop
+76	4125	Susan	a tad	DF0101	200	sweater
+76	9071	Maria	a bit	31B404	45	headphones
+76	3438	James	a bit	E4287C	400	watch
+76	3657	Jennifer	kind of	31B404	53	headphones
+76	4218	Mary	somewhat	0404B4	460	laptop
+76	3672	Charles	somewhat	DF0101	140	sweater
+76	3188	Patricia	somewhat	F87217	250	coffee maker
+76	5265	Susan	sort of	E4287C	700	watch
+76	5032	Patricia	a bit	31B404	45	headphones
+76	3281	Richard	kind of	31B404	55	headphones
+76	3922	Richard	sort of	0404B4	850	laptop
+76	9734	John	kind of	F87217	200	coffee maker
+76	3922	Susan	a tad	F87217	250	coffee maker
+76	3609	Michael	a tad	E4287C	450	watch
+76	3766	Tim	kind of	F87217	365	coffee maker
+76	4339	Elizabeth	kind of	E4287C	778	watch
+76	2703	James	slightly	F87217	556	coffee maker
+76	2500	Patricia	slightly	DF0101	125	sweater
+76	3609	Susan	moderately	DF0101	130	sweater
+76	3860	Michael	somewhat	E4287C	122	watch
+76	2937	Jennifer	a bit	F87217	253	coffee maker
+76	6016	David	sort of	DF0101	123	sweater
+77	9099	David	kind of	31B404	800	laptop
+77	9603	Patricia	moderately	31B404	650	laptop
+77	30016	Jennifer	sort of	F87217	100	watch
+77	25389	Elizabeth	somewhat	31B404	700	laptop
+77	10927	David	slightly	F87217	125	watch
+77	9320	Tim	kind of	E4287C	70	sweater
+77	7781	Robert	slightly	E4287C	50	sweater
+77	8698	Sally	sort of	0404B4	80	coffee maker
+77	7607	Maria	slightly	F87217	150	watch
+77	6594	William	a bit	DF0101	60	headphones
+77	7583	David	kind of	0404B4	100	coffee maker
+77	8525	Tim	a bit	0404B4	100	coffee maker
+77	10420	James	somewhat	31B404	700	laptop
+77	7643	Mary	a bit	E4287C	60	sweater
+77	9017	Susan	moderately	E4287C	55	sweater
+77	14481	Richard	somewhat	0404B4	80	coffee maker
+77	8986	James	kind of	F87217	100	watch
+77	9836	Susan	kind of	0404B4	75	coffee maker
+77	8097	David	moderately	DF0101	70	headphones
+77	12098	Maria	a tad	31B404	750	laptop
+77	7518	Maria	slightly	31B404	700	laptop
+77	10963	David	a bit	E4287C	60	sweater
+77	5792	Susan	a bit	DF0101	80	headphones
+77	6662	Charles	a tad	DF0101	80	headphones
+77	7311	Michael	moderately	0404B4	80	coffee maker
+77	5329	Tim	a tad	0404B4	80	coffee maker
+77	6381	Richard	slightly	31B404	650	laptop
+77	18797	Elizabeth	a tad	DF0101	80	headphones
+77	11088	Richard	somewhat	F87217	100	watch
+77	8825	Mary	a tad	E4287C	60	sweater
+77	7392	Barbara	moderately	DF0101	80	headphones
+77	6806	Elizabeth	somewhat	E4287C	75	sweater
+77	5729	John	sort of	DF0101	100	headphones
+77	5596	Sally	sort of	F87217	200	watch
+77	9728	James	sort of	F87217	200	watch
+78	5222	James	slightly	DF0101	75	headphones
+78	4389	Mary	somewhat	DF0101	90	headphones
+78	4534	Richard	a bit	0404B4	150	coffee maker
+78	3975	Maria	sort of	0404B4	100	coffee maker
+78	3975	Charles	a bit	E4287C	1000	laptop
+78	2703	Sally	kind of	E4287C	850	laptop
+78	4392	Elizabeth	a bit	0404B4	125	coffee maker
+78	2816	John	slightly	F87217	50	sweater
+78	4248	Tim	a tad	E4287C	1200	laptop
+78	3895	Patricia	moderately	31B404	70	watch
+78	3031	Robert	moderately	31B404	70	watch
+78	3934	David	somewhat	0404B4	110	coffee maker
+78	2887	Sally	moderately	0404B4	80	coffee maker
+78	3879	Maria	a tad	31B404	150	watch
+78	3295	Jennifer	kind of	DF0101	100	headphones
+78	4047	Tim	slightly	F87217	75	sweater
+78	2928	Michael	somewhat	0404B4	140	coffee maker
+78	2695	William	sort of	F87217	45	sweater
+78	3551	Elizabeth	somewhat	DF0101	110	headphones
+78	2967	David	a tad	31B404	200	watch
+78	3582	Elizabeth	a bit	31B404	90	watch
+78	3688	James	somewhat	E4287C	800	laptop
+78	3559	Barbara	moderately	DF0101	90	headphones
+78	2854	Charles	sort of	E4287C	900	laptop
+78	3015	Robert	sort of	0404B4	100	coffee maker
+78	4271	Jennifer	kind of	31B404	50	watch
+78	2175	James	slightly	F87217	50	sweater
+78	2847	Maria	kind of	F87217	75	sweater
+78	3200	John	a bit	E4287C	1100	laptop
+78	5320	Tim	a tad	F87217	80	sweater
+78	3072	Charles	moderately	F87217	60	sweater
+78	2638	Barbara	a tad	E4287C	1200	laptop
+78	3375	Michael	sort of	31B404	80	watch
+78	3351	Susan	slightly	DF0101	90	headphones
+78	2207	Barbara	kind of	DF0101	90	headphones
+79	12232	Mary	somewhat	31B404	40	sweater
+79	13079	Barbara	somewhat	31B404	40	sweater
+79	12749	Elizabeth	sort of	0404B4	60	coffee maker
+79	10013	Linda	somewhat	31B404	30	sweater
+79	8031	William	sort of	F87217	50	watch
+79	11081	Jennifer	kind of	E4287C	50	headphones
+79	9097	Patricia	moderately	F87217	75	watch
+79	12980	Linda	kind of	0404B4	80	coffee maker
+79	18047	Barbara	somewhat	DF0101	700	laptop
+79	8082	John	a tad	DF0101	600	laptop
+79	7666	Susan	a bit	F87217	75	watch
+79	6478	Michael	a tad	31B404	30	sweater
+79	7749	Tim	a tad	0404B4	75	coffee maker
+79	8715	John	sort of	DF0101	700	laptop
+79	7883	Barbara	a bit	DF0101	800	laptop
+79	8299	Patricia	slightly	E4287C	40	headphones
+79	9413	Robert	kind of	DF0101	900	laptop
+79	7447	James	sort of	E4287C	30	headphones
+79	9382	Robert	sort of	0404B4	75	coffee maker
+79	8146	William	a tad	0404B4	100	coffee maker
+79	13183	Tim	moderately	31B404	50	sweater
+79	7533	David	slightly	E4287C	40	headphones
+79	11626	Elizabeth	somewhat	E4287C	50	headphones
+79	7532	William	kind of	DF0101	900	laptop
+79	7168	Charles	a bit	E4287C	40	headphones
+79	7596	Richard	moderately	DF0101	700	laptop
+79	6798	Sally	kind of	F87217	60	watch
+79	6796	Susan	a tad	F87217	75	watch
+79	6897	William	moderately	0404B4	100	coffee maker
+79	6099	Michael	slightly	F87217	50	watch
+79	7433	Charles	a bit	0404B4	75	coffee maker
+79	5927	Mary	slightly	31B404	50	sweater
+79	5701	John	a bit	F87217	50	watch
+79	8183	David	moderately	E4287C	30	headphones
+79	5799	Michael	slightly	31B404	40	sweater

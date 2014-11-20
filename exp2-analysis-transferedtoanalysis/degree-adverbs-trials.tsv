@@ -1,0 +1,1591 @@
+workerid	rt	word	name	color	gender	price	item
+0	7604	horribly	Tim	0404B4	m	300	coffee maker
+0	4179	super	Bryson	31B404	m	599	laptop
+0	3748	relatively	Clinton	31B404	m	399	laptop
+0	4891	uber	Bruce	DF0101	m	1200	watch
+0	5300	somewhat	Travis	0404B4	m	200	coffee maker
+0	4469	ever so	Willard	31B404	m	800	laptop
+0	5923	radically	Arthur	DF0101	m	1500	watch
+0	5117	a tad	Paul	0404B4	m	250	coffee maker
+0	5092	moderately	Jaxon	31B404	m	300	laptop
+0	4197	super	Blake	DF0101	m	1200	watch
+0	8766	uber	Henry	31B404	m	1200	laptop
+0	3506	sort of	Albert	DF0101	m	700	watch
+0	5244	barely	Cory	0404B4	m	100	coffee maker
+0	3684		Jordan	DF0101	m	200	watch
+0	3916	a bit	Brian	0404B4	m	250	coffee maker
+0	4342	phenomenally	Brett	0404B4	m	400	coffee maker
+0	3346	crazily	Nathaniel	0404B4	m	350	coffee maker
+0	4726	super	Maurice	0404B4	m	500	coffee maker
+0	4957	terribly	Jerry	31B404	m	600	laptop
+0	4118	stupidly	Lester	DF0101	m	1300	watch
+0	7486	vastly	Isaiah	31B404	m	700	laptop
+0	6531	fairly	Jesse	DF0101	m	300	watch
+0	4539	intensely	Samuel	0404B4	m	500	coffee maker
+0	4196	greatly	Kevin	DF0101	m	500	watch
+0	3204	highly	Wesley	DF0101	m	1000	watch
+0	2908	extraordinarily	Casey	DF0101	m	1500	watch
+0	3997	really	Tyrone	31B404	m	700	laptop
+0	5035	a bit	Herman	DF0101	m	800	watch
+0	4797	outrageously	Harvey	0404B4	m	600	coffee maker
+0	3357	excessively	Byron	31B404	m	1500	laptop
+0	4469	fairly	Carter	31B404	m	500	laptop
+0	4110	really	Jay	DF0101	m	1000	watch
+0	3306	astoundingly	Gilbert	DF0101	m	2000	watch
+0	4341	very	Frank	0404B4	m	400	coffee maker
+0	3719	extremely	Clayton	DF0101	m	1500	watch
+0	3597	supremely	James	DF0101	m	1500	watch
+0	3164	sorta	Dwayne	DF0101	m	500	watch
+0	3315	real	Russell	DF0101	m	800	watch
+0	12636	highly	Willie	0404B4	m	600	coffee maker
+0	3278	wildly	Jason	0404B4	m	700	coffee maker
+0	4003	slightly	Roger	DF0101	m	500	watch
+0	3493	very	Hector	31B404	m	1500	laptop
+0	3245	extremely	Noah	0404B4	m	500	coffee maker
+0	3565	moderately	Chad	0404B4	m	200	coffee maker
+0	3494	terribly	Victor	DF0101	m	800	watch
+0	5618	fantastically	Jerome	0404B4	m	500	coffee maker
+0	5047	kinda	Bradley	DF0101	m	500	watch
+0	3674	stupidly	Randy	0404B4	m	600	coffee maker
+0	3268	phenomenally	Brent	31B404	m	1500	laptop
+0	4291	truly	Adrian	0404B4	m	500	coffee maker
+0	5131	amazingly	Gordon	DF0101	m	2000	watch
+0	5169	enormously	Hunter	31B404	m	2000	laptop
+0	3498	crazy	Calvin	31B404	m	2000	laptop
+0	4224	reasonably	Lance	31B404	m	900	laptop
+0	2926	sorta	Logan	31B404	m	800	laptop
+0	2526	kinda	Ivan	31B404	m	700	laptop
+0	3886	rather	Leonard	31B404	m	800	laptop
+0	2955	relatively	Robert	DF0101	m	800	watch
+0	5373	uncommonly	Dale	DF0101	m	700	watch
+0	5543	relatively	Jack	0404B4	m	300	coffee maker
+0	3410	exceedingly	Theodore	0404B4	m	500	coffee maker
+0	3196	a bit	Nathan	31B404	m	800	laptop
+0	4012	radically	Clifford	31B404	m	1000	laptop
+0	4372	uncommonly	Mitchell	0404B4	m	600	coffee maker
+0	3598	greatly	Kyle	31B404	m	1000	laptop
+0	3659	terribly	Lucas	0404B4	m	700	coffee maker
+0	3901	uncommonly	Clarence	31B404	m	1000	laptop
+0	3061	astoundingly	Jayden	31B404	m	1000	laptop
+0	3229	extraordinarily	Eric	31B404	m	1000	laptop
+0	4967	phenomenally	Nicholas	DF0101	m	800	watch
+0	3521	intensely	Gavin	DF0101	m	700	watch
+0	3105	real	Mark	31B404	m	800	laptop
+0	3689	barely	William	31B404	m	700	laptop
+0	3336	fantastically	Keith	DF0101	m	1500	watch
+0	4026	amazingly	Shane	31B404	m	1500	laptop
+0	2940	kind of	Anthony	DF0101	m	800	watch
+0	3611	a tad	Alvin	31B404	m	800	laptop
+0	3588	stupidly	Kent	31B404	m	1000	laptop
+0	4118	ever so	Greg	0404B4	m	500	coffee maker
+0	6918	reasonably	Terrence	DF0101	m	1000	watch
+0	2979	rather	Joseph	0404B4	m	500	coffee maker
+0	2717	quite	Peter	DF0101	m	800	watch
+0	3693	horribly	Colton	31B404	m	2000	laptop
+0	3694	enormously	Landon	0404B4	m	600	coffee maker
+0	11538	excessively	Daryl	DF0101	m	2000	watch
+0	3132	somewhat	Wade	DF0101	m	800	watch
+0	3580	hugely	Uri	0404B4	m	500	coffee maker
+0	3068	a little	Dave	0404B4	m	400	coffee maker
+0	3123	outrageously	Liam	31B404	m	2000	laptop
+0	4084	kind of	Edwin	31B404	m	1600	laptop
+0	3293	ridiculously	Harold	0404B4	m	600	coffee maker
+0	2843	crazily	Joshua	31B404	m	1500	laptop
+0	3206	astoundingly	Ryan	0404B4	m	800	coffee maker
+0	3885	sort of	Oscar	0404B4	m	300	coffee maker
+0	3829	totally	Bill	DF0101	m	1000	watch
+0	2710	truly	Zachary	31B404	m	1500	laptop
+0	2850	supremely	Marshall	0404B4	m	800	coffee maker
+0	3629	slightly	Ken	31B404	m	700	laptop
+0	4447	quite	Arnold	0404B4	m	400	coffee maker
+0	4274	barely	Eugene	DF0101	m	500	watch
+0	3276	hugely	Felix	31B404	m	1500	laptop
+0	6812	amazingly	Adam	0404B4	m	500	coffee maker
+0	4580	pretty	Jeremiah	DF0101	m	1000	watch
+0	3990	uber	Todd	0404B4	m	800	coffee maker
+0	3178	slightly	Jeff	0404B4	m	300	coffee maker
+0	3296	vastly	Vernon	0404B4	m	500	coffee maker
+0	3285	insanely	Grayson	DF0101	m	1000	watch
+0	5134	exceedingly	Jacob	31B404	m	1500	laptop
+0	4798		Ted	0404B4	m	300	coffee maker
+0	6306	reasonably	Wallace	0404B4	m	250	coffee maker
+0	3495	fantastically	Herbert	31B404	m	1000	laptop
+0	2995	truly	George	DF0101	m	1500	watch
+0	2956	horribly	Gene	DF0101	m	1500	watch
+0	2691	wildly	Kurt	31B404	m	1500	laptop
+0	3076	rather	Elijah	DF0101	m	800	watch
+0	2646	totally	Brandon	31B404	m	1000	laptop
+0	2684	ridiculously	Ryder	31B404	m	1000	laptop
+0	3229	a little	Damian	31B404	m	700	laptop
+0	4389	really	Juan	0404B4	m	500	coffee maker
+0	3381	pretty	Chase	0404B4	m	600	coffee maker
+0	2958	real	Roy	0404B4	m	800	coffee maker
+0	2930	wildly	Ernest	DF0101	m	1500	watch
+0	4350	excessively	Charlie	0404B4	m	1000	coffee maker
+0	3804	a tad	Julian	DF0101	m	500	watch
+0	2929	vastly	Joe	DF0101	m	700	watch
+0	5170	kinda	Jose	0404B4	m	300	coffee maker
+0	2380	sort of	Raymond	31B404	m	400	laptop
+0	3595	highly	Warren	31B404	m	1500	laptop
+0	3252	crazy	Thomas	DF0101	m	1500	watch
+0	3230	radically	Danny	0404B4	m	800	coffee maker
+0	3203	a little	Phillip	DF0101	m	500	watch
+0	4805	fairly	Jace	0404B4	m	300	coffee maker
+0	2869	crazy	Vincent	0404B4	m	500	coffee maker
+0	3254	extraordinarily	Gerald	0404B4	m	700	coffee maker
+0	3439	sorta	Ruben	0404B4	m	250	coffee maker
+0	3130	crazily	John	DF0101	m	1000	watch
+0	2765	pretty	Levi	31B404	m	1500	laptop
+0	3037	greatly	Alan	0404B4	m	700	coffee maker
+0	3262		Roland	31B404	m	1000	laptop
+0	3038	somewhat	Gary	31B404	m	800	laptop
+0	3084	exceedingly	Gabriel	DF0101	m	1500	watch
+0	5516	decidedly	Steven	0404B4	m	400	coffee maker
+0	3124	extremely	Douglas	31B404	m	1500	laptop
+0	3731	kind of	Connor	0404B4	m	250	coffee maker
+0	3428	quite	Quentin	31B404	m	1000	laptop
+0	4501	decidedly	Fred	31B404	m	1200	laptop
+0	4747	ever so	Owen	DF0101	m	500	watch
+0	3157	totally	Ray	0404B4	m	300	coffee maker
+0	2517	hugely	Ian	DF0101	m	1500	watch
+0	2566	enormously	Xavier	DF0101	m	1500	watch
+0	2727	insanely	Harry	31B404	m	2000	laptop
+0	2857	insanely	Troy	0404B4	m	700	coffee maker
+0	3605	ridiculously	Mason	DF0101	m	1500	watch
+0	2733	supremely	Chester	31B404	m	2000	laptop
+0	4383	decidedly	Jeremy	DF0101	m	1500	watch
+0	2780	outrageously	Hugh	DF0101	m	2000	watch
+0	3556	intensely	Yakov	31B404	m	1500	laptop
+0	2900	very	Isaac	DF0101	m	800	watch
+0	3772	moderately	Carl	DF0101	m	600	watch
+1	4530	insanely	Ted	31B404	m	1000	watch
+1	3334	stupidly	Barry	DF0101	m	3000	laptop
+1	4528	sort of	Dorian	0404B4	m	100	coffee maker
+1	6990	intensely	Travis	31B404	m	500	watch
+1	6033	real	Bryson	31B404	m	500	watch
+1	5698	sort of	Leo	31B404	m	200	watch
+1	6404	relatively	Jerome	0404B4	m	100	coffee maker
+1	3332	really	Landon	0404B4	m	300	coffee maker
+1	3854	amazingly	Samuel	DF0101	m	2500	laptop
+1	3384	kinda	Jared	0404B4	m	75	coffee maker
+1	4301	supremely	Ethan	31B404	m	5000	watch
+1	3914	wildly	Joe	DF0101	m	4000	laptop
+1	4535	astoundingly	Dominic	31B404	m	5000	watch
+1	4294	slightly	Aiden	31B404	m	150	watch
+1	5860	enormously	George	31B404	m	2000	watch
+1	4102	extraordinarily	Harry	31B404	m	2000	watch
+1	4192		Clifton	DF0101	m	2000	laptop
+1	6504	highly	Lucas	DF0101	m	2500	laptop
+1	9222	sorta	Kyle	31B404	m	300	watch
+1	3172	very	Bernard	0404B4	m	500	coffee maker
+1	3236	barely	Joshua	0404B4	m	50	coffee maker
+1	3959	insanely	Mark	DF0101	m	6000	laptop
+1	4178	fairly	Dave	31B404	m	300	watch
+1	2790	sorta	Michael	0404B4	m	100	coffee maker
+1	4417	pretty	Julian	DF0101	m	1500	laptop
+1	4526	excessively	Gary	DF0101	m	10000	laptop
+1	4350	hugely	Jack	DF0101	m	4000	laptop
+1	4031	wildly	Jeff	0404B4	m	500	coffee maker
+1	3508	vastly	Rodney	31B404	m	3000	watch
+1	3798	amazingly	Oscar	31B404	m	2000	watch
+1	3075	crazy	Clinton	DF0101	m	5000	laptop
+1	3532	hugely	Clayton	31B404	m	3000	watch
+1	4427	ever so	Ross	DF0101	m	3000	laptop
+1	3302	truly	Quentin	31B404	m	1000	watch
+1	5258	uncommonly	Troy	0404B4	m	250	coffee maker
+1	3698	totally	Everett	DF0101	m	2000	laptop
+1	5921	a bit	Carson	31B404	m	125	watch
+1	2973	barely	Rick	31B404	m	50	watch
+1	4058	fairly	Warren	DF0101	m	1250	laptop
+1	3051	hugely	Kevin	0404B4	m	500	coffee maker
+1	3792	a bit	Norman	0404B4	m	100	coffee maker
+1	5454	totally	Hugh	31B404	m	750	watch
+1	3268	uber	Jayden	0404B4	m	1000	coffee maker
+1	4260	extremely	Roland	0404B4	m	800	coffee maker
+1	4565	horribly	Larry	DF0101	m	2500	laptop
+1	4902	amazingly	Ralph	0404B4	m	500	coffee maker
+1	7166	totally	Ryder	0404B4	m	200	coffee maker
+1	5538	a bit	Brian	DF0101	m	1200	laptop
+1	4468	barely	Harvey	DF0101	m	700	laptop
+1	4444	relatively	Hector	31B404	m	250	watch
+1	3232	rather	Wyatt	DF0101	m	3000	laptop
+1	6726	vastly	Lee	DF0101	m	6000	laptop
+1	4242	outrageously	Owen	0404B4	m	1200	coffee maker
+1	3979	decidedly	Alfred	0404B4	m	300	coffee maker
+1	7485	fantastically	Alvin	0404B4	m	400	coffee maker
+1	4115	ever so	Cooper	0404B4	m	400	coffee maker
+1	3720	outrageously	Easton	DF0101	m	6000	laptop
+1	4002	kinda	Dwayne	31B404	m	75	watch
+1	2924	kind of	Arthur	0404B4	m	50	coffee maker
+1	3238	ridiculously	Lester	31B404	m	5000	watch
+1	3102	crazy	Lance	0404B4	m	400	coffee maker
+1	4277	extremely	Ruben	DF0101	m	8000	laptop
+1	4070	radically	Jonathan	0404B4	m	600	coffee maker
+1	4364	phenomenally	Randy	0404B4	m	2000	coffee maker
+1	6250	a little	Harold	DF0101	m	1500	laptop
+1	4408	highly	Roger	31B404	m	1000	watch
+1	3234	fantastically	Dylan	31B404	m	2000	watch
+1	3121		Sam	0404B4	m	200	coffee maker
+1	5671	decidedly	Glen	31B404	m	500	watch
+1	3575	somewhat	Isaac	31B404	m	250	watch
+1	3788	uber	Herbert	31B404	m	5000	watch
+1	3440	extraordinarily	Morris	0404B4	m	2000	coffee maker
+1	3662	reasonably	Tyrone	0404B4	m	300	coffee maker
+1	2831	crazily	Nicholas	0404B4	m	500	coffee maker
+1	3070	vastly	Patrick	0404B4	m	600	coffee maker
+1	3039	phenomenally	Chester	DF0101	m	4000	laptop
+1	5307	insanely	Brett	0404B4	m	2000	coffee maker
+1	3513	intensely	Perry	DF0101	m	4000	laptop
+1	3912	rather	Elijah	0404B4	m	300	coffee maker
+1	5775	stupidly	Walter	31B404	m	1000	watch
+1	3070	terribly	Dennis	DF0101	m	4000	laptop
+1	4415	quite	Ryan	DF0101	m	2000	laptop
+1	3096	outrageously	Henry	31B404	m	2000	watch
+1	4334	ridiculously	Theodore	0404B4	m	500	coffee maker
+1	6572	real	Josh	0404B4	m	200	coffee maker
+1	4456	kind of	Bradley	DF0101	m	1400	laptop
+1	8245	terribly	Chad	0404B4	m	400	coffee maker
+1	7256	crazily	Joseph	DF0101	m	5000	laptop
+1	12146	ridiculously	Eli	DF0101	m	5000	laptop
+1	4484	a little	Albert	0404B4	m	150	coffee maker
+1	5970	greatly	Parker	31B404	m	900	watch
+1	9768	exceedingly	Phillip	0404B4	m	500	coffee maker
+1	3614	a tad	Paul	31B404	m	200	watch
+1	3187	super	Herman	0404B4	m	300	coffee maker
+1	3260	fairly	Clyde	0404B4	m	250	coffee maker
+1	4253	terribly	Julius	31B404	m	1000	watch
+1	4629	somewhat	Donald	0404B4	m	200	coffee maker
+1	6006	excessively	Ken	31B404	m	3000	watch
+1	3176	somewhat	Bentley	DF0101	m	1500	laptop
+1	3698	kinda	Terrence	DF0101	m	1250	laptop
+1	4236	a tad	Seth	DF0101	m	1000	laptop
+1	3236	phenomenally	Austin	31B404	m	5000	watch
+1	3273	sorta	Juan	DF0101	m	2000	laptop
+1	3699	pretty	Melvin	31B404	m	500	watch
+1	3271	greatly	Levi	DF0101	m	4000	laptop
+1	3596	sort of	Dwight	DF0101	m	2000	laptop
+1	19064	quite	Nathaniel	31B404	m	500	watch
+1	15543	kind of	Curtis	31B404	m	300	watch
+1	3836	super	Nathan	DF0101	m	4000	laptop
+1	4379	uber	Logan	DF0101	m	10000	laptop
+1	4318		Eddie	31B404	m	500	watch
+1	3138	very	Louis	DF0101	m	3000	laptop
+1	6156	rather	Willie	31B404	m	350	watch
+1	3682	truly	Craig	0404B4	m	500	coffee maker
+1	5108	very	Lawrence	31B404	m	1000	watch
+1	3033	a little	Tyler	31B404	m	200	watch
+1	3808	reasonably	Peter	31B404	m	300	watch
+1	3957	slightly	Jackson	DF0101	m	1300	laptop
+1	3059	horribly	Victor	0404B4	m	1000	coffee maker
+1	5744	moderately	Bob	DF0101	m	1500	laptop
+1	3491	exceedingly	Anthony	DF0101	m	3000	laptop
+1	2736	enormously	Eugene	DF0101	m	4000	laptop
+1	2977	supremely	Carter	DF0101	m	5000	laptop
+1	3262	a tad	Brayden	0404B4	m	150	coffee maker
+1	5078	super	Arnold	31B404	m	600	watch
+1	8871	truly	Lonnie	DF0101	m	3000	laptop
+1	3795	radically	Wade	DF0101	m	5000	laptop
+1	3610	highly	Yakov	0404B4	m	300	coffee maker
+1	3425	uncommonly	Brent	DF0101	m	2000	laptop
+1	3057	crazily	Kent	31B404	m	1000	watch
+1	3957	decidedly	Brody	DF0101	m	2000	laptop
+1	3821	moderately	Connor	0404B4	m	300	coffee maker
+1	3580	really	Todd	DF0101	m	2000	laptop
+1	3551	supremely	Jim	0404B4	m	500	coffee maker
+1	3950	astoundingly	Milton	DF0101	m	5000	laptop
+1	3391	excessively	Aaron	0404B4	m	500	coffee maker
+1	3014	moderately	Brandon	31B404	m	300	watch
+1	2979	greatly	Cory	0404B4	m	500	coffee maker
+1	3490	real	Ben	DF0101	m	2000	laptop
+1	3645	intensely	Casey	0404B4	m	300	coffee maker
+1	2988	pretty	Danny	0404B4	m	200	coffee maker
+1	3308	quite	Cameron	0404B4	m	150	coffee maker
+1	4827	reasonably	Dustin	DF0101	m	1300	laptop
+1	3300	extremely	Raymond	31B404	m	1000	watch
+1	3601	horribly	Gerald	31B404	m	1500	watch
+1	3788	enormously	Jordan	0404B4	m	600	coffee maker
+1	5576	radically	Hunter	31B404	m	999	watch
+1	3672	ever so	William	31B404	m	500	watch
+1	3772	wildly	Mason	31B404	m	1500	watch
+1	3690	exceedingly	Max	31B404	m	1400	watch
+1	4949	fantastically	Stanley	DF0101	m	6000	laptop
+1	3748	extraordinarily	Jace	DF0101	m	3000	laptop
+1	6546	stupidly	Damian	0404B4	m	1000	coffee maker
+1	8250	astoundingly	Noah	0404B4	m	600	coffee maker
+1	9313	relatively	Gavin	DF0101	m	1250	laptop
+1	5386	crazy	Charlie	31B404	m	750	watch
+1	3806	uncommonly	Tony	31B404	m	500	watch
+1	3738	really	Vincent	31B404	m	500	watch
+1	3261	slightly	Jerry	0404B4	m	150	coffee maker
+2	8214	wildly	Joel	31B404	m	1500	laptop
+2	6025	kinda	Brandon	31B404	m	1100	laptop
+2	4324	moderately	Willie	31B404	m	750	laptop
+2	6310	uncommonly	Leon	DF0101	m	5000	watch
+2	10775	excessively	Jose	DF0101	m	4000	watch
+2	7539	terribly	Jeff	DF0101	m	5500	watch
+2	4152	ridiculously	Jesse	0404B4	m	500	coffee maker
+2	5390	a little	Vincent	DF0101	m	250	watch
+2	4901	uber	Clayton	DF0101	m	15000	watch
+2	4865	sort of	Raymond	31B404	m	700	laptop
+2	7878	ever so	Gordon	DF0101	m	12500	watch
+2	4288	terribly	Douglas	0404B4	m	750	coffee maker
+2	3808	phenomenally	Alex	0404B4	m	1000	coffee maker
+2	3458	barely	Barry	0404B4	m	200	coffee maker
+2	4402	crazily	Tyler	DF0101	m	3500	watch
+2	4265	extraordinarily	Russell	0404B4	m	1250	coffee maker
+2	5008	super	Jason	0404B4	m	1185	coffee maker
+2	5817	relatively	Jacob	31B404	m	700	laptop
+2	4270	a little	Parker	31B404	m	675	laptop
+2	3988		Harold	31B404	m	650	laptop
+2	3835	sorta	Frank	0404B4	m	275	coffee maker
+2	4784	very	Louis	31B404	m	2000	laptop
+2	4907	truly	Gene	DF0101	m	2500	watch
+2	7419	a tad	Dwayne	DF0101	m	500	watch
+2	3713	greatly	Carson	0404B4	m	650	coffee maker
+2	3117	truly	Hector	0404B4	m	700	coffee maker
+2	5817	hugely	Zachary	0404B4	m	1050	coffee maker
+2	3573	real	Austin	DF0101	m	450	watch
+2	4411	enormously	Wallace	DF0101	m	25000	watch
+2	4088	phenomenally	Steven	31B404	m	2895	laptop
+2	4933	kinda	Patrick	0404B4	m	175	coffee maker
+2	6171	crazy	Cory	31B404	m	3950	laptop
+2	8720	phenomenally	Julian	DF0101	m	2575	watch
+2	6558	really	Ayden	DF0101	m	950	watch
+2	3483	real	Lee	0404B4	m	300	coffee maker
+2	5704	intensely	Ted	0404B4	m	895	coffee maker
+2	5485	astoundingly	Donald	DF0101	m	28500	watch
+2	4707	highly	Jay	31B404	m	2100	laptop
+2	4449	ever so	Brody	0404B4	m	995	coffee maker
+2	7789	decidedly	Ryder	31B404	m	1375	laptop
+2	10894	vastly	Jace	31B404	m	2675	laptop
+2	23557	a tad	Jayden	31B404	m	095	laptop
+2	11216	a bit	George	DF0101	m	375	watch
+2	5316	kind of	Travis	0404B4	m	200	coffee maker
+2	4405	stupidly	James	31B404	m	2375	laptop
+2	5906	outrageously	Dustin	31B404	m	3700	laptop
+2	3932	ridiculously	Neil	31B404	m	4500	laptop
+2	4257	highly	Mason	DF0101	m	1250	watch
+2	5779	hugely	Norman	31B404	m	2175	laptop
+2	5740	moderately	Dave	0404B4	m	150	coffee maker
+2	4211	a tad	Gabriel	0404B4	m	125	coffee maker
+2	5555	truly	Lonnie	31B404	m	750	laptop
+2	6746	super	Cody	DF0101	m	1250	watch
+2	3874	exceedingly	Roger	DF0101	m	2500	watch
+2	4941	astoundingly	Clyde	0404B4	m	1350	coffee maker
+2	4989	wildly	Yakov	DF0101	m	2000	watch
+2	6264	pretty	Casey	DF0101	m	750	watch
+2	3865	amazingly	Alfred	31B404	m	1895	laptop
+2	5849	supremely	Albert	31B404	m	3100	laptop
+2	5529	quite	Peter	0404B4	m	500	coffee maker
+2	5177	kinda	Felix	DF0101	m	600	watch
+2	5045	somewhat	Stanley	0404B4	m	375	coffee maker
+2	5027	crazy	Ray	0404B4	m	1300	coffee maker
+2	4020	slightly	Liam	0404B4	m	200	coffee maker
+2	6244	barely	Jaxon	DF0101	m	150	watch
+2	3693	highly	Jordan	0404B4	m	800	coffee maker
+2	4360	vastly	Harry	0404B4	m	1500	coffee maker
+2	3940	amazingly	Michael	DF0101	m	2000	watch
+2	4423	kind of	Jackson	DF0101	m	750	watch
+2	18425	totally	Ken	0404B4	m	825	coffee maker
+2	6988	extraordinarily	Adrian	31B404	m	2950	laptop
+2	4485	enormously	Ryan	31B404	m	3000	laptop
+2	6506	sorta	Clarence	31B404	m	1000	laptop
+2	4303	reasonably	Victor	DF0101	m	1750	watch
+2	6078	totally	Jeremy	DF0101	m	6000	watch
+2	5147	radically	Caleb	31B404	m	4000	laptop
+2	7360	relatively	Blake	0404B4	m	475	coffee maker
+2	5218	reasonably	Jim	0404B4	m	200	coffee maker
+2	4787	pretty	Gavin	0404B4	m	500	coffee maker
+2	5101	barely	Evan	31B404	m	375	laptop
+2	4499	crazy	Ernest	DF0101	m	3000	watch
+2	17868	really	Herbert	0404B4	m	775	coffee maker
+2	4993	excessively	Bradley	31B404	m	4500	laptop
+2	4890	rather	Wayne	31B404	m	1895	laptop
+2	6743	real	Brent	31B404	m	1400	laptop
+2	7183	totally	Nolan	31B404	m	3995	laptop
+2	5810	fantastically	Joe	31B404	m	3567	laptop
+2	5902	enormously	Martin	0404B4	m	1800	coffee maker
+2	6133	quite	Bryson	DF0101	m	2500	watch
+2	8190	pretty	Calvin	31B404	m	1450	laptop
+2	4718	horribly	Aiden	0404B4	m	1350	coffee maker
+2	5290	fairly	Easton	DF0101	m	1275	watch
+2	5441	a bit	Shane	0404B4	m	395	coffee maker
+2	6124	fantastically	Quentin	0404B4	m	1200	coffee maker
+2	5930	slightly	Julius	DF0101	m	225	watch
+2	5956	moderately	Uri	DF0101	m	600	watch
+2	6434	excessively	Chase	0404B4	m	1255	coffee maker
+2	10279	extraordinarily	Edgar	DF0101	m	4500	watch
+2	4316	radically	Adam	0404B4	m	2000	coffee maker
+2	5321	intensely	Arthur	31B404	m	2385	laptop
+2	7763	stupidly	Bruce	DF0101	m	2000	watch
+2	7460	hugely	Connor	DF0101	m	8500	watch
+2	5400	fairly	Vernon	31B404	m	795	laptop
+2	5140	horribly	Arnold	31B404	m	3995	laptop
+2	23248	rather	Kent	0404B4	m	550	coffee maker
+2	8861	somewhat	Noah	31B404	m	895	laptop
+2	3673	fairly	Scott	0404B4	m	450	coffee maker
+2	5812	amazingly	Perry	0404B4	m	895	coffee maker
+2	8201	fantastically	Seth	DF0101	m	20000	watch
+2	5276	uber	Curtis	31B404	m	6500	laptop
+2	4883	stupidly	Daryl	0404B4	m	1550	coffee maker
+2	4746	ever so	Howard	31B404	m	4500	laptop
+2	5577	insanely	Colton	0404B4	m	2500	coffee maker
+2	5170	greatly	Ian	31B404	m	2000	laptop
+2	4297	exceedingly	Willard	31B404	m	1875	laptop
+2	26185	exceedingly	Samuel	0404B4	m	855	coffee maker
+2	18143	quite	Logan	31B404	m	1375	laptop
+2	5519	decidedly	Cooper	0404B4	m	575	coffee maker
+2	7734	intensely	Floyd	DF0101	m	3500	watch
+2	4926		Maurice	0404B4	m	400	coffee maker
+2	5134	sorta	William	DF0101	m	450	watch
+2	6784	radically	Ron	DF0101	m	7500	watch
+2	4068	sort of	Walter	0404B4	m	400	coffee maker
+2	3612		Sam	DF0101	m	1000	watch
+2	5980	insanely	Dwight	DF0101	m	4500	watch
+2	4635	slightly	Carter	31B404	m	1455	laptop
+2	5701	outrageously	Jonathan	DF0101	m	8500	watch
+2	4154	a little	Jerry	0404B4	m	375	coffee maker
+2	11174	a bit	Jared	31B404	m	1295	laptop
+2	5759	super	Darren	31B404	m	2355	laptop
+2	4206	crazily	Harvey	0404B4	m	975	coffee maker
+2	31902	sort of	Leroy	DF0101	m	2000	watch
+2	6710	wildly	Kyle	0404B4	m	2175	coffee maker
+2	5364	somewhat	Dennis	DF0101	m	500	watch
+2	5269	relatively	Nathan	DF0101	m	1895	watch
+2	4669	astoundingly	Clifford	31B404	m	4500	laptop
+2	3905	extremely	Everett	31B404	m	2500	laptop
+2	4924	uber	Joshua	0404B4	m	2000	coffee maker
+2	6441	greatly	Damian	DF0101	m	3500	watch
+2	6100	very	Cameron	0404B4	m	675	coffee maker
+2	5919	uncommonly	Bill	0404B4	m	2195	coffee maker
+2	21190	extremely	Levi	DF0101	m	185	watch
+2	10110	very	Roland	DF0101	m	200	watch
+2	4426	terribly	Rick	31B404	m	2300	laptop
+2	5832	reasonably	Clifton	31B404	m	1800	laptop
+2	5463	decidedly	Ethan	DF0101	m	1745	watch
+2	4507	vastly	Todd	DF0101	m	8599	watch
+2	5246	extremely	Jeremiah	0404B4	m	750	coffee maker
+2	3783	kind of	Kurt	31B404	m	1000	laptop
+2	18133	supremely	Milton	0404B4	m	2200	coffee maker
+2	6395	horribly	Dylan	DF0101	m	6575	watch
+2	4565	outrageously	Keith	0404B4	m	1250	coffee maker
+2	7839	insanely	Tim	31B404	m	3500	laptop
+2	4113	rather	Justin	DF0101	m	2000	watch
+2	6003	ridiculously	Josiah	DF0101	m	18000	watch
+2	10727	crazily	Claude	31B404	m	3500	laptop
+2	8178	supremely	Eddie	DF0101	m	23500	watch
+2	4917	uncommonly	Ivan	31B404	m	5000	laptop
+2	4454	really	Mark	31B404	m	2500	laptop
+3	115314	moderately	Lester	31B404	m	16	watch
+3	27992	barely	Randy	0404B4	m	298	laptop
+3	21236	barely	Adam	31B404	m	20	watch
+3	3695	really	Howard	31B404	m	50	watch
+3	2879	super	Clinton	31B404	m	100	watch
+3	7335	insanely	Cory	31B404	m	1000	watch
+3	5279	relatively	Nicholas	31B404	m	25	watch
+3	5976	uber	Jace	31B404	m	300	watch
+3	4021	extraordinarily	Alvin	31B404	m	2000	watch
+3	4384	sorta	Lee	31B404	m	18	watch
+3	8943	truly	Samuel	0404B4	m	700	laptop
+3	7038		Elijah	31B404	m	40	watch
+3	5469	stupidly	William	31B404	m	1000	watch
+3	15505	uncommonly	Uri	31B404	m	1000	watch
+3	8782	a little	Jesse	0404B4	m	20	laptop
+3	29311		Robert	DF0101	m	30	coffee maker
+3	4004	crazily	Herbert	0404B4	m	70	laptop
+3	4786	somewhat	Maurice	DF0101	m	50	coffee maker
+3	4823	crazy	Aaron	DF0101	m	60	coffee maker
+3	2838	outrageously	Andrew	0404B4	m	100	laptop
+3	5544	a tad	Norman	DF0101	m	30	coffee maker
+3	4183	amazingly	Arthur	DF0101	m	60	coffee maker
+3	6935	slightly	Jordan	DF0101	m	30	coffee maker
+3	3175	relatively	Leroy	DF0101	m	30	coffee maker
+3	4087	pretty	Fred	DF0101	m	35	coffee maker
+3	5141	fantastically	Terrence	DF0101	m	70	coffee maker
+3	5343	crazy	Craig	0404B4	m	80	laptop
+3	3561	astoundingly	Ralph	DF0101	m	100	coffee maker
+3	13158	very	Josiah	31B404	m	50	watch
+3	2846	quite	Lance	31B404	m	60	watch
+3	3632	pretty	Felix	31B404	m	45	watch
+3	5206	supremely	Daryl	0404B4	m	1000	laptop
+3	3912	ridiculously	Dale	0404B4	m	1000	laptop
+3	5638		Brayden	0404B4	m	600	laptop
+3	7711	astoundingly	Bob	31B404	m	1000	watch
+3	25375	reasonably	Marshall	31B404	m	25	watch
+3	3998	exceedingly	Gene	31B404	m	80	watch
+3	5672	fantastically	Paul	0404B4	m	700	laptop
+3	2590	enormously	Ruben	0404B4	m	900	laptop
+3	2456	wildly	Bryson	0404B4	m	900	laptop
+3	9261	highly	Caleb	31B404	m	100	watch
+3	5014	ridiculously	Tristan	31B404	m	150	watch
+3	13549	truly	Marvin	DF0101	m	80	coffee maker
+3	11969	a little	Ken	DF0101	m	35	coffee maker
+3	30873	ever so	Gilbert	0404B4	m	900	laptop
+3	9823	fairly	Carter	0404B4	m	650	laptop
+3	3999	extremely	Harold	DF0101	m	200	coffee maker
+3	5327	uncommonly	Joel	0404B4	m	1000	laptop
+3	10166	greatly	Evan	31B404	m	100	watch
+3	6294	very	Kayden	DF0101	m	100	coffee maker
+3	3566	extremely	Adrian	31B404	m	200	watch
+3	5954	kinda	Roland	0404B4	m	550	laptop
+3	4470	intensely	Jonathan	0404B4	m	1000	laptop
+3	7853	slightly	Michael	31B404	m	35	watch
+3	3895	vastly	Cody	DF0101	m	100	coffee maker
+3	3247	greatly	Arnold	DF0101	m	100	coffee maker
+3	2688	crazily	Carson	DF0101	m	200	coffee maker
+3	2391	really	Floyd	DF0101	m	100	coffee maker
+3	2422	horribly	Harvey	DF0101	m	300	coffee maker
+3	5000	real	Bernard	0404B4	m	800	laptop
+3	6527	real	Damian	DF0101	m	100	coffee maker
+3	5104	crazily	Charlie	31B404	m	30	watch
+3	7471	vastly	Leonard	0404B4	m	700	laptop
+3	3487	ridiculously	Jared	DF0101	m	200	coffee maker
+3	3630	phenomenally	Landon	0404B4	m	1000	laptop
+3	3414	uncommonly	Lawrence	DF0101	m	100	coffee maker
+3	4693	reasonably	Casey	DF0101	m	35	coffee maker
+3	3887	ever so	Bill	DF0101	m	100	coffee maker
+3	5479	sort of	Aiden	0404B4	m	650	laptop
+3	2856	hugely	Juan	0404B4	m	900	laptop
+3	6303	moderately	Alan	DF0101	m	35	coffee maker
+3	4543	rather	Willie	DF0101	m	70	coffee maker
+3	4465	sorta	Leon	0404B4	m	650	laptop
+3	3933	highly	Jeremiah	0404B4	m	900	laptop
+3	3983	uber	Dylan	0404B4	m	1000	laptop
+3	4102	pretty	Jeremy	0404B4	m	650	laptop
+3	5342	rather	Colin	0404B4	m	650	laptop
+3	3761	a bit	Jerome	0404B4	m	650	laptop
+3	2485	kind of	Neil	0404B4	m	650	laptop
+3	5487	radically	Sam	31B404	m	500	watch
+3	8720	relatively	Victor	0404B4	m	650	laptop
+3	5599	uber	Blake	DF0101	m	100	coffee maker
+3	8792	ever so	Yakov	31B404	m	100	watch
+3	3051	hugely	Owen	31B404	m	100	watch
+3	4205	somewhat	Roger	0404B4	m	600	laptop
+3	6806	somewhat	Darren	31B404	m	30	watch
+3	4029	super	Tony	DF0101	m	200	coffee maker
+3	5000	truly	Alfred	31B404	m	90	watch
+3	5334	decidedly	Claude	31B404	m	50	watch
+3	3838	terribly	Wyatt	DF0101	m	200	coffee maker
+3	5831	fantastically	Ross	31B404	m	100	watch
+3	3903	hugely	Everett	DF0101	m	100	coffee maker
+3	3479	intensely	Matthew	DF0101	m	200	coffee maker
+3	4263	reasonably	Nathaniel	0404B4	m	650	laptop
+3	4677	insanely	Eddie	0404B4	m	1000	laptop
+3	5863	phenomenally	Bentley	DF0101	m	200	coffee maker
+3	10870	intensely	Clarence	31B404	m	100	watch
+3	4872	kind of	Gordon	DF0101	m	35	coffee maker
+3	4207	enormously	Dwight	DF0101	m	200	coffee maker
+3	3319	rather	Clifton	31B404	m	35	watch
+3	3831	extraordinarily	Martin	DF0101	m	200	coffee maker
+3	7574	totally	Kevin	DF0101	m	100	coffee maker
+3	2966	wildly	Hunter	DF0101	m	100	coffee maker
+3	2615	horribly	Raymond	31B404	m	100	watch
+3	3526	extraordinarily	Jaxon	0404B4	m	900	laptop
+3	3422	phenomenally	Perry	31B404	m	100	watch
+3	7863	outrageously	Vernon	DF0101	m	200	coffee maker
+3	3094	supremely	Jose	31B404	m	100	watch
+3	3503	supremely	Larry	DF0101	m	200	coffee maker
+3	3679	very	Harry	0404B4	m	800	laptop
+3	2911	sort of	Nelson	31B404	m	35	watch
+3	5472	decidedly	Jack	0404B4	m	700	laptop
+3	4542	super	Glen	0404B4	m	900	laptop
+3	2884	radically	Levi	DF0101	m	200	coffee maker
+3	11382	extremely	Morris	0404B4	m	900	laptop
+3	4387	amazingly	Lonnie	0404B4	m	800	laptop
+3	2652	horribly	Mitchell	0404B4	m	1000	laptop
+3	11679	fairly	Max	31B404	m	45	watch
+3	6154	excessively	Albert	0404B4	m	1000	laptop
+3	6340	fairly	Danny	DF0101	m	50	coffee maker
+3	11029	a tad	Colton	31B404	m	30	watch
+3	3054	terribly	Chris	31B404	m	100	watch
+3	3231	crazy	Theodore	31B404	m	100	watch
+3	4323	kind of	Gerald	31B404	m	35	watch
+3	3835	astoundingly	Ryan	0404B4	m	1000	laptop
+3	6240	totally	Leo	31B404	m	90	watch
+3	3680	radically	Thomas	0404B4	m	1000	laptop
+3	6020	really	Clyde	0404B4	m	800	laptop
+3	3975	quite	Herman	0404B4	m	800	laptop
+3	5415	kinda	Logan	DF0101	m	35	coffee maker
+3	6760	greatly	Ben	0404B4	m	800	laptop
+3	3501	enormously	Joshua	31B404	m	100	watch
+3	5504	excessively	Quentin	DF0101	m	200	coffee maker
+3	3899	exceedingly	Liam	DF0101	m	200	coffee maker
+3	3983	wildly	Brett	31B404	m	100	watch
+3	5338	barely	Elliott	DF0101	m	30	coffee maker
+3	2757	excessively	Clifford	31B404	m	100	watch
+3	3520	terribly	Julius	0404B4	m	1000	laptop
+3	3558	stupidly	Vincent	DF0101	m	200	coffee maker
+3	4046	a bit	Dominic	DF0101	m	30	coffee maker
+3	3615	highly	Oliver	DF0101	m	70	coffee maker
+3	3719	exceedingly	Hector	0404B4	m	900	laptop
+3	5439	amazingly	Travis	31B404	m	100	watch
+3	5886	slightly	Calvin	0404B4	m	650	laptop
+3	3584	sorta	Peter	DF0101	m	35	coffee maker
+3	5294	real	Luis	31B404	m	60	watch
+3	3344	insanely	Rick	DF0101	m	100	coffee maker
+3	6319	decidedly	Isaiah	DF0101	m	50	coffee maker
+3	3951	moderately	Ron	0404B4	m	650	laptop
+3	3815	a bit	Stanley	31B404	m	30	watch
+3	6103	outrageously	Jim	31B404	m	100	watch
+3	6592	totally	Kent	0404B4	m	900	laptop
+3	2414	stupidly	Chester	0404B4	m	1000	laptop
+3	6599	a little	Scott	31B404	m	40	watch
+3	7399	sort of	Josh	DF0101	m	45	coffee maker
+3	6935	vastly	Tyrone	31B404	m	100	watch
+3	9815	quite	Phillip	DF0101	m	90	coffee maker
+3	3400	kinda	Chase	31B404	m	35	watch
+3	9063	a tad	Jayden	0404B4	m	700	laptop
+4	10002	hugely	Eddie	0404B4	m	800	watch
+4	5602	real	Jeremiah	0404B4	m	400	watch
+4	9454	relatively	Dwayne	DF0101	m	650	laptop
+4	6391	pretty	John	DF0101	m	775	laptop
+4	5819	slightly	Tyrone	DF0101	m	500	laptop
+4	4359	excessively	Kurt	DF0101	m	850	laptop
+4	5308	astoundingly	Clifton	31B404	m	130	coffee maker
+4	5544	quite	Derrick	DF0101	m	150	laptop
+4	7120	decidedly	Leonard	0404B4	m	800	watch
+4	66640	terribly	Edwin	31B404	m	200	coffee maker
+4	17649	fairly	Ivan	31B404	m	100	coffee maker
+4	5375	extremely	Paul	31B404	m	185	coffee maker
+4	4985	very	Nathaniel	DF0101	m	1200	laptop
+4	4157	wildly	Steven	31B404	m	200	coffee maker
+4	5549	vastly	Dave	0404B4	m	650	watch
+4	63361	ridiculously	Randy	31B404	m	225	coffee maker
+4	4526	fairly	Easton	0404B4	m	400	watch
+4	6466	moderately	Claude	31B404	m	750	coffee maker
+4	5476	reasonably	Curtis	31B404	m	85	coffee maker
+4	5946	somewhat	Lee	0404B4	m	450	watch
+4	5994	horribly	Jose	0404B4	m	1200	watch
+4	9596	highly	Martin	DF0101	m	950	laptop
+4	417937	amazingly	Eli	DF0101	m	1300	laptop
+4	9048	stupidly	Jace	31B404	m	150	coffee maker
+4	8293	hugely	Adrian	DF0101	m	1700	laptop
+4	3779	outrageously	Wyatt	31B404	m	230	coffee maker
+4	3755	enormously	Jay	0404B4	m	680	watch
+4	3071	a bit	Ernest	31B404	m	200	coffee maker
+4	5151	very	Samuel	31B404	m	225	coffee maker
+4	5976	moderately	Greg	DF0101	m	650	laptop
+4	2648	horribly	Arthur	31B404	m	50	coffee maker
+4	18417	a tad	Douglas	31B404	m	125	coffee maker
+4	9084	fantastically	Alex	DF0101	m	800	laptop
+4	8012	ever so	George	0404B4	m	1000	watch
+4	3801	rather	Daryl	0404B4	m	450	watch
+4	3791	truly	Alan	DF0101	m	900	laptop
+4	5738	ever so	Roy	DF0101	m	1250	laptop
+4	3946	wildly	Isaac	DF0101	m	1500	laptop
+4	3243	moderately	Dale	0404B4	m	450	watch
+4	4689	radically	Kent	0404B4	m	950	watch
+4	3430	amazingly	Luke	0404B4	m	850	watch
+4	7085	reasonably	Oliver	DF0101	m	600	laptop
+4	3623	really	Rodney	31B404	m	200	coffee maker
+4	5636	barely	Terrence	DF0101	m	450	laptop
+4	3929	extremely	Julian	DF0101	m	1300	laptop
+4	3291	astoundingly	Justin	DF0101	m	1600	laptop
+4	2896	extraordinarily	Maurice	DF0101	m	1400	laptop
+4	3946	uncommonly	Dennis	31B404	m	150	coffee maker
+4	6449	a little	Robert	31B404	m	100	coffee maker
+4	4320	amazingly	Jared	31B404	m	175	coffee maker
+4	3851	outrageously	Bruce	DF0101	m	1250	laptop
+4	3206	greatly	Patrick	DF0101	m	1400	laptop
+4	3470	extremely	Joseph	0404B4	m	1300	watch
+4	3879	a bit	Norman	DF0101	m	450	laptop
+4	3607	vastly	Morris	DF0101	m	850	laptop
+4	3278	slightly	Roland	0404B4	m	400	watch
+4	3249	exceedingly	Ray	31B404	m	225	coffee maker
+4	3982	crazy	Connor	DF0101	m	1150	laptop
+4	3453	phenomenally	Brayden	DF0101	m	1700	laptop
+4	5680	kinda	Bill	DF0101	m	460	laptop
+4	3628	a little	Nathan	DF0101	m	400	laptop
+4	3108	real	Chester	31B404	m	150	coffee maker
+4	3963	really	Mark	DF0101	m	1000	laptop
+4	3769	totally	Dwight	31B404	m	125	coffee maker
+4	4527	astoundingly	Jacob	0404B4	m	1500	watch
+4	3522	truly	Logan	31B404	m	120	coffee maker
+4	9865	insanely	Harold	0404B4	m	1200	watch
+4	3688	stupidly	Joshua	0404B4	m	900	watch
+4	3018	somewhat	Charlie	DF0101	m	450	laptop
+4	3796	quite	Stanley	31B404	m	125	coffee maker
+4	5249	enormously	Elliott	31B404	m	100	coffee maker
+4	3375	outrageously	Wesley	0404B4	m	1100	watch
+4	3279	super	Perry	DF0101	m	950	laptop
+4	3507	stupidly	Cameron	DF0101	m	700	laptop
+4	4676	totally	Gabriel	0404B4	m	650	watch
+4	4412	intensely	Ruben	31B404	m	85	coffee maker
+4	4201	terribly	Keith	DF0101	m	1200	laptop
+4	4347	insanely	Hudson	DF0101	m	1600	laptop
+4	3518	supremely	Sam	31B404	m	100	coffee maker
+4	3569	crazy	Tony	31B404	m	150	coffee maker
+4	3717	kinda	Josiah	31B404	m	70	coffee maker
+4	2880	fantastically	Marvin	31B404	m	120	coffee maker
+4	5275	ridiculously	Felix	0404B4	m	2000	watch
+4	5079	uncommonly	Hugh	0404B4	m	1200	watch
+4	3452	kind of	Raymond	0404B4	m	750	watch
+4	3607	exceedingly	Sean	0404B4	m	1300	watch
+4	2925	real	Brian	DF0101	m	560	laptop
+4	2951	phenomenally	Leroy	31B404	m	125	coffee maker
+4	3440	crazily	Chase	0404B4	m	1400	watch
+4	3369	decidedly	Craig	DF0101	m	650	laptop
+4	4669	intensely	William	0404B4	m	400	watch
+4	3052	quite	Willard	0404B4	m	650	watch
+4	4775	uncommonly	Casey	DF0101	m	1100	laptop
+4	5650	phenomenally	Neil	0404B4	m	2000	watch
+4	3037	really	Howard	0404B4	m	1000	watch
+4	2875	crazy	Hunter	0404B4	m	1600	watch
+4	3471	a bit	Hector	0404B4	m	550	watch
+4	3193	kind of	Tristan	DF0101	m	450	laptop
+4	4187	terribly	Lloyd	0404B4	m	900	watch
+4	3282	a tad	Glen	DF0101	m	560	laptop
+4	3319	highly	Chris	31B404	m	125	coffee maker
+4	2857	decidedly	Jerome	31B404	m	100	coffee maker
+4	2800	kinda	Carl	0404B4	m	600	watch
+4	3175	kind of	Xavier	31B404	m	110	coffee maker
+4	2901	slightly	Donald	31B404	m	80	coffee maker
+4	2811	pretty	Edgar	0404B4	m	500	watch
+4	2890	barely	Liam	0404B4	m	400	watch
+4	3682	pretty	Blake	31B404	m	125	coffee maker
+4	4975		Ayden	DF0101	m	550	laptop
+4	2813	relatively	Melvin	0404B4	m	700	watch
+4	2517	extraordinarily	Matthew	0404B4	m	950	watch
+4	3665	radically	Wayne	31B404	m	100	coffee maker
+4	4074	sorta	Lucas	31B404	m	70	coffee maker
+4	3146	a little	Gavin	0404B4	m	500	watch
+4	3583	barely	Dorian	31B404	m	60	coffee maker
+4	3026	rather	Brody	DF0101	m	600	laptop
+4	2999	vastly	Harry	31B404	m	150	coffee maker
+4	3014	supremely	Jeremy	0404B4	m	1600	watch
+4	3884	crazily	Wade	31B404	m	165	coffee maker
+4	3127	ridiculously	Evan	DF0101	m	1200	laptop
+4	3542	fairly	Vernon	DF0101	m	700	laptop
+4	3355		Josh	31B404	m	100	coffee maker
+4	3224	greatly	Elijah	0404B4	m	1200	watch
+4	2924	sorta	Harvey	0404B4	m	600	watch
+4	4027	intensely	Scott	DF0101	m	1000	laptop
+4	3168	enormously	Juan	DF0101	m	1200	laptop
+4	3371	super	Kevin	31B404	m	150	coffee maker
+4	3116	wildly	Anthony	0404B4	m	800	watch
+4	3371	horribly	Lawrence	DF0101	m	1400	laptop
+4	3125	ever so	Vincent	31B404	m	100	coffee maker
+4	3795	truly	Noah	0404B4	m	1000	watch
+4	3985	crazily	Mitchell	DF0101	m	1450	laptop
+4	3076	relatively	Oscar	31B404	m	85	coffee maker
+4	4352	excessively	Max	31B404	m	150	coffee maker
+4	2851	extraordinarily	Jim	31B404	m	175	coffee maker
+4	3603	a tad	Ryder	0404B4	m	400	watch
+4	3036	sort of	Dylan	DF0101	m	600	laptop
+4	5930	excessively	Ron	0404B4	m	1500	watch
+4	2899	very	Marshall	0404B4	m	1600	watch
+4	2732	somewhat	Leo	31B404	m	75	coffee maker
+4	5286	insanely	Leon	31B404	m	175	coffee maker
+4	3438	uber	Owen	DF0101	m	800	laptop
+4	3692	highly	Danny	0404B4	m	1500	watch
+4	3778	totally	James	DF0101	m	1600	laptop
+4	4394	fantastically	Alvin	0404B4	m	1025	watch
+4	3919	rather	Bryson	31B404	m	85	coffee maker
+4	3611	sort of	Byron	31B404	m	70	coffee maker
+4	3535	uber	Everett	0404B4	m	1500	watch
+4	3395	sorta	Joel	DF0101	m	460	laptop
+4	2610	sort of	Russell	0404B4	m	500	watch
+4	4116		Roger	0404B4	m	750	watch
+4	3585	radically	Chad	DF0101	m	1500	laptop
+4	3816	super	Ethan	0404B4	m	1250	watch
+4	3601	reasonably	Clayton	0404B4	m	1000	watch
+4	2811	exceedingly	Ryan	DF0101	m	1400	laptop
+4	2657	hugely	Yakov	31B404	m	125	coffee maker
+4	3418	supremely	Tyler	DF0101	m	1600	laptop
+4	3066	greatly	Clinton	31B404	m	125	coffee maker
+4	2507	uber	Herbert	31B404	m	150	coffee maker
+5	21635	fairly	Willard	DF0101	m	59	coffee maker
+5	7724	fairly	Mark	31B404	m	700	laptop
+5	14471	highly	Tristan	0404B4	m	9000	watch
+5	12480	super	Travis	0404B4	m	19000	watch
+5	10591	truly	Ivan	0404B4	m	900	watch
+5	13695	ridiculously	Jeff	0404B4	m	25000	watch
+5	5936	extraordinarily	Ray	31B404	m	1200	laptop
+5	8472	enormously	Derrick	0404B4	m	30000	watch
+5	10119	fantastically	Lucas	DF0101	m	120	coffee maker
+5	8559	uber	Willie	31B404	m	700	laptop
+5	6184	intensely	Josiah	31B404	m	1500	laptop
+5	6831	reasonably	Logan	DF0101	m	39	coffee maker
+5	8399	super	Bill	31B404	m	2000	laptop
+5	5807	vastly	Rick	DF0101	m	69	coffee maker
+5	6039	sort of	Lance	31B404	m	500	laptop
+5	6703	moderately	Chester	0404B4	m	150	watch
+5	6215	barely	Connor	31B404	m	200	laptop
+5	4743	real	Arnold	31B404	m	800	laptop
+5	13767	supremely	Robert	DF0101	m	199	coffee maker
+5	7903	vastly	Clifford	31B404	m	700	laptop
+5	7655	reasonably	Bob	0404B4	m	300	watch
+5	43172	sorta	Melvin	DF0101	m	60	coffee maker
+5	8103	kinda	Donald	31B404	m	500	laptop
+5	5982	ever so	Bryson	31B404	m	800	laptop
+5	13863	hugely	Brett	31B404	m	1200	laptop
+5	6087	terribly	Brent	31B404	m	1500	laptop
+5	5991	amazingly	Oscar	0404B4	m	5000	watch
+5	6591	ridiculously	Carson	31B404	m	1800	laptop
+5	6916	relatively	Levi	0404B4	m	200	watch
+5	11223	fairly	Wesley	0404B4	m	300	watch
+5	8983	crazily	Harold	0404B4	m	9000	watch
+5	6392	somewhat	Alvin	0404B4	m	350	watch
+5	6039	really	Charlie	31B404	m	1300	laptop
+5	9511	crazy	Ken	31B404	m	1500	laptop
+5	5592	phenomenally	Neil	DF0101	m	300	coffee maker
+5	6615	wildly	Dwight	0404B4	m	15000	watch
+5	6202	amazingly	Gerald	DF0101	m	350	coffee maker
+5	6420	totally	Jeremy	31B404	m	1800	laptop
+5	7540	highly	Gilbert	DF0101	m	280	coffee maker
+5	6591	supremely	Joseph	31B404	m	1800	laptop
+5	5447	pretty	Craig	31B404	m	700	laptop
+5	6255	greatly	Aiden	DF0101	m	200	coffee maker
+5	6022	decidedly	Joel	0404B4	m	9000	watch
+5	4992	real	Paul	DF0101	m	299	coffee maker
+5	6111	terribly	Douglas	0404B4	m	5000	watch
+5	5559	super	Leonard	DF0101	m	399	coffee maker
+5	9295	hugely	Bruce	DF0101	m	200	coffee maker
+5	37623	horribly	Jay	31B404	m	2000	laptop
+5	17564	excessively	Eric	31B404	m	2200	laptop
+5	6159	really	Marshall	DF0101	m	300	coffee maker
+5	6552	uber	Perry	DF0101	m	500	coffee maker
+5	9455	crazily	Blake	31B404	m	900	laptop
+5	6567	slightly	Alan	DF0101	m	39	coffee maker
+5	5647	relatively	Michael	DF0101	m	49	coffee maker
+5	5176	exceedingly	Claude	0404B4	m	4000	watch
+5	4527	excessively	Morris	DF0101	m	300	coffee maker
+5	7399	quite	Joshua	0404B4	m	5000	watch
+5	4736	uber	Cory	0404B4	m	7000	watch
+5	5731	decidedly	Josh	DF0101	m	300	coffee maker
+5	5440	ever so	Brian	DF0101	m	400	coffee maker
+5	6214	vastly	Jack	0404B4	m	20000	watch
+5	5087	outrageously	Larry	31B404	m	3000	laptop
+5	4991	somewhat	Scott	DF0101	m	69	coffee maker
+5	9112	intensely	Phillip	0404B4	m	25000	watch
+5	4647	a little	Lonnie	0404B4	m	300	watch
+5	4215	sort of	George	0404B4	m	500	watch
+5	5062	quite	Nicholas	DF0101	m	388	coffee maker
+5	6128	wildly	Adam	31B404	m	1800	laptop
+5	5408	insanely	Lee	DF0101	m	400	coffee maker
+5	5966	horribly	Ben	0404B4	m	25000	watch
+5	5615	greatly	Gabriel	0404B4	m	5000	watch
+5	5743	ever so	Clarence	0404B4	m	8000	watch
+5	5735	greatly	Jace	31B404	m	2000	laptop
+5	6000	truly	Rodney	DF0101	m	3000	coffee maker
+5	7008	sorta	James	0404B4	m	499	watch
+5	8239	a little	Gordon	31B404	m	1200	laptop
+5	5048	real	Dustin	0404B4	m	600	watch
+5	5688	astoundingly	Greg	31B404	m	3000	laptop
+5	5575	crazily	Felix	DF0101	m	499	coffee maker
+5	5373	pretty	Warren	DF0101	m	79	coffee maker
+5	5263	truly	Steven	31B404	m	900	laptop
+5	4774	a bit	Zachary	0404B4	m	300	watch
+5	5369		Colin	31B404	m	900	laptop
+5	5245	really	Tony	0404B4	m	400	watch
+5	5183	phenomenally	Floyd	31B404	m	3000	laptop
+5	5705	uncommonly	Eugene	DF0101	m	299	coffee maker
+5	4903	somewhat	Seth	31B404	m	800	laptop
+5	6256	stupidly	Sam	0404B4	m	3000	watch
+5	5048	kinda	Kevin	0404B4	m	300	watch
+5	5543	astoundingly	Ruben	0404B4	m	10000	watch
+5	4758	sort of	Dorian	DF0101	m	99	coffee maker
+5	6391	enormously	Danny	DF0101	m	499	coffee maker
+5	8104	barely	Brody	0404B4	m	49	watch
+5	5063	insanely	Todd	31B404	m	3000	laptop
+5	10231	wildly	Cameron	DF0101	m	400	coffee maker
+5	5711	moderately	Arthur	DF0101	m	49	coffee maker
+5	7560	excessively	Joe	0404B4	m	20000	watch
+5	10191	relatively	Russell	31B404	m	1400	laptop
+5	7652	astoundingly	Ralph	DF0101	m	399	coffee maker
+5	5478	outrageously	Brayden	DF0101	m	499	coffee maker
+5	6432	radically	Vernon	DF0101	m	599	coffee maker
+5	6408	reasonably	Matthew	31B404	m	1300	laptop
+5	6536		Maurice	0404B4	m	160	watch
+5	6056	very	Alex	0404B4	m	270	watch
+5	5831	a tad	Thomas	31B404	m	900	laptop
+5	5200	kinda	Harvey	DF0101	m	89	coffee maker
+5	5336	exceedingly	Carl	31B404	m	1800	laptop
+5	5296	very	Uri	31B404	m	1500	laptop
+5	5129	enormously	Byron	31B404	m	2100	laptop
+5	4295	extremely	Vincent	DF0101	m	499	coffee maker
+5	5343	slightly	Julian	31B404	m	800	laptop
+5	4615	a little	Ryan	DF0101	m	69	coffee maker
+5	6720	radically	Elijah	0404B4	m	25000	watch
+5	4632	kind of	Gary	DF0101	m	89	coffee maker
+5	5208	uncommonly	Hector	31B404	m	3000	laptop
+5	5416	moderately	Evan	31B404	m	1500	laptop
+5	5616	extremely	Troy	31B404	m	3500	laptop
+5	4567	kind of	Liam	31B404	m	1200	laptop
+5	5255	fantastically	Hugh	0404B4	m	9000	watch
+5	4560	crazy	Nelson	DF0101	m	399	coffee maker
+5	5629	phenomenally	Darren	0404B4	m	30000	watch
+5	5880	exceedingly	Edwin	DF0101	m	499	coffee maker
+5	6936	quite	Jonathan	31B404	m	2600	laptop
+5	5583	very	Terrence	DF0101	m	399	coffee maker
+5	9335	stupidly	Roland	DF0101	m	488	coffee maker
+5	5176	barely	Max	DF0101	m	10	coffee maker
+5	7352	decidedly	Bernard	31B404	m	1600	laptop
+5	5671	intensely	Isaac	DF0101	m	399	coffee maker
+5	6663	kind of	Jeremiah	0404B4	m	350	watch
+5	5124	hugely	Landon	0404B4	m	700	watch
+5	6238	extraordinarily	Barry	0404B4	m	30000	watch
+5	15772	slightly	Wade	0404B4	m	128	watch
+5	6876	sorta	Peter	31B404	m	1000	laptop
+5	6351	pretty	Hunter	0404B4	m	350	watch
+5	6247	insanely	Tim	0404B4	m	25000	watch
+5	7847	horribly	Daryl	DF0101	m	399	coffee maker
+5	6312	crazy	Grayson	0404B4	m	19000	watch
+5	6483	radically	Lester	31B404	m	3100	laptop
+5	9008	extraordinarily	Chad	DF0101	m	499	coffee maker
+5	8815	terribly	Colton	DF0101	m	129	coffee maker
+5	9928	totally	Shane	DF0101	m	169	coffee maker
+5	5943	rather	Brandon	DF0101	m	59	coffee maker
+5	8280	extremely	Kyle	0404B4	m	9000	watch
+5	6495	stupidly	Jesse	31B404	m	2500	laptop
+5	7223	totally	Luke	0404B4	m	8000	watch
+5	5080	ridiculously	Austin	DF0101	m	399	coffee maker
+5	9399	a tad	Calvin	0404B4	m	250	watch
+5	5110	a bit	Sebastian	DF0101	m	199	coffee maker
+5	5352	fantastically	Xavier	31B404	m	2900	laptop
+5	5327	a tad	Dale	DF0101	m	129	coffee maker
+5	5135	a bit	Sean	31B404	m	900	laptop
+5	8096	outrageously	Bradley	0404B4	m	20000	watch
+5	5959	rather	Lawrence	0404B4	m	450	watch
+5	5712	highly	Wallace	31B404	m	3000	laptop
+5	5727	supremely	Mason	0404B4	m	30000	watch
+5	6310	rather	Everett	31B404	m	1500	laptop
+5	7383		Fred	DF0101	m	129	coffee maker
+5	8011	amazingly	Clinton	31B404	m	1800	laptop
+5	8024	uncommonly	Howard	0404B4	m	900	watch
+6	11439	amazingly	Morris	31B404	m	1000	laptop
+6	4710	ridiculously	Kayden	DF0101	m	300	watch
+6	9400	outrageously	Jared	DF0101	m	600	watch
+6	7408	very	Derrick	DF0101	m	200	watch
+6	7832		Arthur	31B404	m	700	laptop
+6	8103	ever so	Noah	31B404	m	900	laptop
+6	10023	truly	Wyatt	31B404	m	1200	laptop
+6	13895	supremely	Raymond	0404B4	m	200	coffee maker
+6	6391	horribly	Dominic	31B404	m	1300	laptop
+6	7799	fairly	Blake	0404B4	m	150	coffee maker
+6	5696	crazy	John	DF0101	m	1000	watch
+6	8639	kind of	Ken	31B404	m	600	laptop
+6	5936	really	Evan	31B404	m	800	laptop
+6	6863	radically	Kent	31B404	m	1000	laptop
+6	5784	super	Frank	0404B4	m	250	coffee maker
+6	5312	supremely	Claude	31B404	m	1200	laptop
+6	6159	supremely	Levi	DF0101	m	1000	watch
+6	4744	uncommonly	Willard	DF0101	m	2000	watch
+6	3736	amazingly	Brandon	0404B4	m	300	coffee maker
+6	8376	extremely	Jace	0404B4	m	250	coffee maker
+6	9679	barely	Josh	0404B4	m	80	coffee maker
+6	6928	quite	Isaac	DF0101	m	600	watch
+6	9279	quite	Jayden	0404B4	m	200	coffee maker
+6	7648	extremely	Steven	31B404	m	1000	laptop
+6	7215	a tad	Quentin	0404B4	m	150	coffee maker
+6	8856	a little	Roy	31B404	m	600	laptop
+6	5967	astoundingly	Jeremy	DF0101	m	3000	watch
+6	6216	reasonably	Dale	31B404	m	700	laptop
+6	4720	hugely	Nolan	0404B4	m	300	coffee maker
+6	5615	wildly	Howard	31B404	m	1500	laptop
+6	6711	ridiculously	Bryson	31B404	m	1600	laptop
+6	5176	excessively	Tyler	0404B4	m	300	coffee maker
+6	3975	outrageously	Hugh	0404B4	m	400	coffee maker
+6	28768	quite	Dennis	31B404	m	600	laptop
+6	4167		Felix	0404B4	m	150	coffee maker
+6	8471	relatively	Louis	DF0101	m	500	watch
+6	5071	vastly	Casey	DF0101	m	1000	watch
+6	7271	moderately	Dorian	31B404	m	700	laptop
+6	3528	truly	Kevin	DF0101	m	800	watch
+6	5912	wildly	Brian	DF0101	m	1500	watch
+6	5239	sort of	Gavin	31B404	m	800	laptop
+6	7728	uncommonly	Brody	0404B4	m	400	coffee maker
+6	6567	terribly	Grayson	0404B4	m	500	coffee maker
+6	5527	highly	Matthew	DF0101	m	1500	watch
+6	9752	intensely	Jerome	31B404	m	1500	laptop
+6	14359	super	Barry	DF0101	m	1000	watch
+6	7664	uber	Alfred	DF0101	m	2000	watch
+6	8447	relatively	Aaron	31B404	m	600	laptop
+6	10624	phenomenally	Joshua	31B404	m	2000	laptop
+6	5575	greatly	Clifton	DF0101	m	1000	watch
+6	7496	uncommonly	Damian	31B404	m	2500	laptop
+6	5911	decidedly	Curtis	31B404	m	1500	laptop
+6	4776	totally	Willie	0404B4	m	350	coffee maker
+6	6920	kinda	Bentley	DF0101	m	500	watch
+6	5991	astoundingly	Jaxon	0404B4	m	400	coffee maker
+6	5984	exceedingly	Cameron	DF0101	m	1500	watch
+6	6280	insanely	Austin	31B404	m	2500	laptop
+6	13247	vastly	Robert	31B404	m	2500	laptop
+6	10424	a bit	Mason	DF0101	m	400	watch
+6	5280	extraordinarily	Jeremiah	0404B4	m	350	coffee maker
+6	7528	somewhat	Phillip	DF0101	m	600	watch
+6	6719	reasonably	Zachary	DF0101	m	700	watch
+6	10128	enormously	Victor	31B404	m	1500	laptop
+6	3583	really	Kurt	DF0101	m	1000	watch
+6	5327	crazy	Gerald	0404B4	m	400	coffee maker
+6	6569	excessively	Joseph	31B404	m	2000	laptop
+6	12927	ever so	Fred	0404B4	m	300	coffee maker
+6	15070	radically	Seth	DF0101	m	2000	watch
+6	6481	fantastically	Nelson	DF0101	m	2500	watch
+6	14247	greatly	Nathan	31B404	m	1500	laptop
+6	5352	uber	Keith	0404B4	m	400	coffee maker
+6	5911	highly	Ted	31B404	m	1200	laptop
+6	8847	greatly	Bernard	0404B4	m	300	coffee maker
+6	4359	totally	Ralph	31B404	m	1500	laptop
+6	4663	super	Dustin	31B404	m	1800	laptop
+6	8896	barely	Sebastian	DF0101	m	100	watch
+6	5975	moderately	Landon	0404B4	m	150	coffee maker
+6	6504	ever so	Roger	DF0101	m	1100	watch
+6	5152	hugely	Lonnie	31B404	m	1500	laptop
+6	3975	real	Sam	31B404	m	1000	laptop
+6	4271	fantastically	Hector	31B404	m	2000	laptop
+6	14800	extraordinarily	Vincent	DF0101	m	2500	watch
+6	4959	amazingly	Perry	DF0101	m	3000	watch
+6	4783	barely	Jonathan	31B404	m	400	laptop
+6	3992	crazily	Tristan	DF0101	m	2000	watch
+6	4671	terribly	Nicholas	DF0101	m	3000	watch
+6	5032	outrageously	William	31B404	m	2500	laptop
+6	5376	pretty	Alvin	31B404	m	1200	laptop
+6	3967	a tad	Neil	31B404	m	900	laptop
+6	3207	vastly	Ross	0404B4	m	400	coffee maker
+6	5288	somewhat	Tony	31B404	m	800	laptop
+6	3639	horribly	Calvin	DF0101	m	2000	watch
+6	9288	exceedingly	Gene	0404B4	m	400	coffee maker
+6	5759	highly	Albert	0404B4	m	300	coffee maker
+6	9608	extraordinarily	Rick	31B404	m	2000	laptop
+6	10176	very	Brett	31B404	m	1200	laptop
+6	24328	a little	Tyrone	DF0101	m	300	watch
+6	4864		Marshall	DF0101	m	400	watch
+6	4152	a bit	Brayden	0404B4	m	200	coffee maker
+6	5776	crazily	Liam	31B404	m	2600	laptop
+6	6663	kinda	Carl	0404B4	m	250	coffee maker
+6	4128	sorta	Byron	0404B4	m	200	coffee maker
+6	4992	reasonably	Cooper	0404B4	m	200	coffee maker
+6	4415	horribly	Patrick	0404B4	m	350	coffee maker
+6	3312	crazily	Randy	0404B4	m	400	coffee maker
+6	3776	a bit	Justin	31B404	m	900	laptop
+6	4864	insanely	Luis	0404B4	m	400	coffee maker
+6	4551	pretty	Alan	0404B4	m	300	coffee maker
+6	4143	kinda	Russell	31B404	m	1000	laptop
+6	5944	decidedly	Clifford	0404B4	m	350	coffee maker
+6	7208	kind of	Logan	0404B4	m	200	coffee maker
+6	6399	astoundingly	Ryan	31B404	m	2200	laptop
+6	6872	enormously	Elliott	DF0101	m	3000	watch
+6	17175	stupidly	Scott	0404B4	m	400	coffee maker
+6	6799	a little	Uri	0404B4	m	150	coffee maker
+6	3864	rather	Larry	31B404	m	1300	laptop
+6	4784	totally	Daryl	DF0101	m	1500	watch
+6	5904	slightly	Maurice	DF0101	m	400	watch
+6	3967	sorta	Henry	DF0101	m	500	watch
+6	5632	extremely	Jim	DF0101	m	1500	watch
+6	6472	moderately	Gary	DF0101	m	1200	watch
+6	3615	sorta	Wade	31B404	m	900	laptop
+6	7720	really	Everett	0404B4	m	300	coffee maker
+6	10664	slightly	Cory	31B404	m	800	laptop
+6	11328	intensely	Floyd	0404B4	m	400	coffee maker
+6	5687	kind of	Clyde	DF0101	m	600	watch
+6	6208	fairly	Bill	DF0101	m	300	watch
+6	4249	excessively	Danny	DF0101	m	1100	watch
+6	5159	slightly	Glen	0404B4	m	200	coffee maker
+6	13399	truly	Adam	0404B4	m	400	coffee maker
+6	6639	relatively	Cody	0404B4	m	170	coffee maker
+6	10175	a tad	Dave	DF0101	m	300	watch
+6	5542	phenomenally	Jacob	0404B4	m	450	coffee maker
+6	8543	somewhat	Leonard	0404B4	m	250	coffee maker
+6	6064	real	Wayne	DF0101	m	1100	watch
+6	3439	insanely	Craig	DF0101	m	2000	watch
+6	16784	stupidly	Bob	DF0101	m	2500	watch
+6	8271	rather	Jordan	DF0101	m	1000	watch
+6	4704	sort of	Milton	0404B4	m	300	coffee maker
+6	4303	uber	Isaiah	31B404	m	1800	laptop
+6	8119	intensely	Mitchell	DF0101	m	2500	watch
+6	4936	fairly	Lester	31B404	m	1000	laptop
+6	3615	terribly	Josiah	31B404	m	2000	laptop
+6	4319	phenomenally	Terrence	DF0101	m	3000	watch
+6	12088	fantastically	Troy	0404B4	m	500	coffee maker
+6	11887	hugely	Eli	DF0101	m	2000	watch
+6	4201	real	Peter	0404B4	m	300	coffee maker
+6	7911	pretty	Anthony	DF0101	m	600	watch
+6	16752	wildly	Adrian	0404B4	m	300	coffee maker
+6	4328	enormously	Ben	0404B4	m	400	coffee maker
+6	4272	rather	Ivan	0404B4	m	250	coffee maker
+6	6863	ridiculously	Colton	0404B4	m	400	coffee maker
+6	21463	stupidly	Hunter	31B404	m	1800	laptop
+6	5592	radically	Jason	0404B4	m	500	coffee maker
+6	7944	exceedingly	Julius	31B404	m	2000	laptop
+6	8424	very	Lloyd	0404B4	m	350	coffee maker
+6	4911	sort of	Kyle	DF0101	m	400	watch
+6	19503	crazy	Chad	31B404	m	1500	laptop
+6	7695	decidedly	Jose	DF0101	m	800	watch
+7	7285	rather	Daryl	0404B4	m	30	coffee maker
+7	6079	exceedingly	Harry	0404B4	m	60	coffee maker
+7	5941	kinda	Lloyd	DF0101	m	500	laptop
+7	4351	phenomenally	Tim	0404B4	m	120	coffee maker
+7	4453	sort of	Dustin	DF0101	m	700	laptop
+7	5462	insanely	Damian	0404B4	m	170	coffee maker
+7	5799	decidedly	Keith	0404B4	m	80	coffee maker
+7	7450	fantastically	Milton	31B404	m	800	watch
+7	4465	stupidly	Kent	DF0101	m	1500	laptop
+7	6705	very	Cory	0404B4	m	75	coffee maker
+7	5136	exceedingly	Matthew	31B404	m	1200	watch
+7	7229	relatively	Peter	31B404	m	600	watch
+7	5593	horribly	Russell	0404B4	m	200	coffee maker
+7	5865	insanely	Seth	31B404	m	2500	watch
+7	7661	phenomenally	Mason	DF0101	m	1800	laptop
+7	5305	ever so	Todd	DF0101	m	1300	laptop
+7	521294	pretty	Patrick	0404B4	m	50	coffee maker
+7	4464	slightly	Bruce	31B404	m	100	watch
+7	6183	vastly	Easton	0404B4	m	200	coffee maker
+7	6590	kind of	Ayden	DF0101	m	600	laptop
+7	4431	totally	Phillip	0404B4	m	120	coffee maker
+7	4969	uber	Hugh	DF0101	m	1900	laptop
+7	3723	outrageously	Isaiah	0404B4	m	250	coffee maker
+7	4768	pretty	Landon	DF0101	m	850	laptop
+7	4308	ridiculously	Max	DF0101	m	2000	laptop
+7	4872	really	Elliott	DF0101	m	1600	laptop
+7	5522	terribly	Wayne	31B404	m	1400	watch
+7	7441	ever so	Dwight	31B404	m	1100	watch
+7	4512	a little	Xavier	DF0101	m	450	laptop
+7	4393		Colton	DF0101	m	650	laptop
+7	6836	really	Nathan	0404B4	m	130	coffee maker
+7	4325	slightly	Ryan	0404B4	m	85	coffee maker
+7	4629	moderately	Kyle	0404B4	m	75	coffee maker
+7	3443	barely	Jeremiah	0404B4	m	40	coffee maker
+7	3340	highly	Liam	31B404	m	1000	watch
+7	3566	wildly	Cody	31B404	m	3000	watch
+7	2944	amazingly	Craig	DF0101	m	2500	laptop
+7	5859	sorta	Eugene	0404B4	m	110	coffee maker
+7	3779	highly	Clayton	DF0101	m	1700	laptop
+7	5708	supremely	Edgar	DF0101	m	2600	laptop
+7	3151	uncommonly	Donald	31B404	m	3500	watch
+7	3277	decidedly	Raymond	DF0101	m	1500	laptop
+7	3393	super	Harold	0404B4	m	260	coffee maker
+7	4484	real	Jay	31B404	m	1700	watch
+7	4323	a little	Glen	31B404	m	900	watch
+7	4949	sorta	Adam	DF0101	m	900	laptop
+7	2729	real	Nelson	0404B4	m	200	coffee maker
+7	3407	excessively	Jared	DF0101	m	3000	laptop
+7	5838	kind of	Chris	31B404	m	950	watch
+7	8438	highly	Martin	0404B4	m	200	coffee maker
+7	3775	relatively	Joe	0404B4	m	170	coffee maker
+7	4014	uber	Clyde	31B404	m	4000	watch
+7	2954	rather	Lee	DF0101	m	1200	laptop
+7	3158	phenomenally	Samuel	31B404	m	5000	watch
+7	5922	moderately	Curtis	31B404	m	1300	watch
+7	2902	rather	Juan	31B404	m	1500	watch
+7	3428	quite	Andrew	0404B4	m	180	coffee maker
+7	3585	kinda	Michael	31B404	m	1000	watch
+7	2741	relatively	Evan	DF0101	m	1000	laptop
+7	3771	uncommonly	Paul	DF0101	m	4000	laptop
+7	2567	fantastically	Thomas	0404B4	m	300	coffee maker
+7	4523	super	Willard	31B404	m	3000	watch
+7	3117	greatly	Ted	DF0101	m	1400	laptop
+7	3797	reasonably	Marshall	DF0101	m	1000	laptop
+7	5506	fantastically	Charlie	DF0101	m	4000	laptop
+7	4116	amazingly	Felix	0404B4	m	350	coffee maker
+7	3723	horribly	Carter	31B404	m	5000	watch
+7	6823	astoundingly	Chad	DF0101	m	4500	laptop
+7	3248	exceedingly	Ken	DF0101	m	5000	laptop
+7	3001	intensely	Brody	0404B4	m	200	coffee maker
+7	4100	quite	Herman	31B404	m	1400	watch
+7	4051	moderately	James	DF0101	m	1000	laptop
+7	2393	a bit	Jackson	DF0101	m	1200	laptop
+7	2995	crazy	Eli	31B404	m	3500	watch
+7	3619	crazily	Troy	31B404	m	4000	watch
+7	3201	ridiculously	Yakov	0404B4	m	400	coffee maker
+7	3063	a bit	Julian	31B404	m	1200	watch
+7	5685	somewhat	Elijah	DF0101	m	1100	laptop
+7	3680	astoundingly	Dave	0404B4	m	250	coffee maker
+7	8520	very	Morris	31B404	m	1900	watch
+7	2738	terribly	Luis	0404B4	m	200	coffee maker
+7	3035	somewhat	Fred	0404B4	m	120	coffee maker
+7	2885	extraordinarily	George	0404B4	m	300	coffee maker
+7	3780	crazily	Leon	DF0101	m	1600	laptop
+7	3289	really	Ross	31B404	m	1400	watch
+7	2712	enormously	Brandon	DF0101	m	2000	laptop
+7	3450	somewhat	Dorian	31B404	m	1000	watch
+7	3389	kind of	Louis	0404B4	m	100	coffee maker
+7	3576	terribly	Alfred	DF0101	m	2000	laptop
+7	6895	reasonably	Clifton	31B404	m	300	watch
+7	3500	super	Byron	DF0101	m	2000	laptop
+7	2840	uber	Lester	0404B4	m	400	coffee maker
+7	8771	quite	Everett	DF0101	m	1000	laptop
+7	3228	decidedly	Danny	31B404	m	1500	watch
+7	3009	enormously	Nolan	31B404	m	2500	watch
+7	3538	fairly	Colin	0404B4	m	150	coffee maker
+7	3402	totally	Terrence	DF0101	m	1200	laptop
+7	2866	fairly	Edwin	31B404	m	1100	watch
+7	2479	greatly	Gene	0404B4	m	200	coffee maker
+7	25043	hugely	Albert	0404B4	m	200	coffee maker
+7	3159	vastly	Lawrence	31B404	m	1000	watch
+7	3503	truly	Roy	0404B4	m	150	coffee maker
+7	2879	stupidly	Brayden	31B404	m	2500	watch
+7	2325	reasonably	Jose	0404B4	m	100	coffee maker
+7	2965	a little	Jeremy	0404B4	m	120	coffee maker
+7	2933	truly	Ray	31B404	m	2000	watch
+7	3100	supremely	Carson	31B404	m	5000	watch
+7	2527	ridiculously	Sam	31B404	m	6000	watch
+7	3180	extraordinarily	Howard	31B404	m	10000	watch
+7	3703	extraordinarily	Sebastian	DF0101	m	4000	laptop
+7	3447	supremely	Isaac	0404B4	m	350	coffee maker
+7	2890	greatly	Nicholas	31B404	m	400	watch
+7	3317	vastly	Bernard	DF0101	m	1500	laptop
+7	2789	hugely	Jerry	DF0101	m	1600	laptop
+7	2574	a tad	Uri	DF0101	m	1200	laptop
+7	3395	sort of	Tyler	31B404	m	1500	watch
+7	3293	radically	Justin	DF0101	m	3500	laptop
+7	2321	a tad	Floyd	0404B4	m	120	coffee maker
+7	2630	barely	Calvin	DF0101	m	800	laptop
+7	2829	crazily	Jesse	0404B4	m	300	coffee maker
+7	2654	crazy	Levi	0404B4	m	300	coffee maker
+7	3674	sorta	Joel	31B404	m	800	watch
+7	2846	intensely	Anthony	31B404	m	1500	watch
+7	3186	radically	Vernon	0404B4	m	350	coffee maker
+7	3034	pretty	Clinton	31B404	m	900	watch
+7	2432		Adrian	31B404	m	700	watch
+7	3399	fairly	Bradley	DF0101	m	900	laptop
+7	3741	wildly	Blake	DF0101	m	2500	laptop
+7	3227	extremely	Carl	0404B4	m	300	coffee maker
+7	2370	stupidly	Dominic	0404B4	m	400	coffee maker
+7	3007	uncommonly	Cameron	0404B4	m	600	coffee maker
+7	4260	a bit	Herbert	0404B4	m	120	coffee maker
+7	3138	very	Steven	DF0101	m	1500	laptop
+7	2376	slightly	Josiah	DF0101	m	800	laptop
+7	2834	hugely	Norman	31B404	m	2500	watch
+7	3575	outrageously	Luke	31B404	m	5000	watch
+7	4106	insanely	Marvin	DF0101	m	3500	laptop
+7	2773	horribly	William	DF0101	m	4000	laptop
+7	2445	enormously	Josh	0404B4	m	300	coffee maker
+7	5966	extremely	Jacob	DF0101	m	2500	laptop
+7	3055	ever so	Dylan	0404B4	m	200	coffee maker
+7	3940	truly	Mitchell	DF0101	m	1600	laptop
+7	3571	amazingly	Jordan	31B404	m	3000	watch
+7	2953	radically	Travis	31B404	m	5000	watch
+7	2674	excessively	Chester	0404B4	m	400	coffee maker
+7	3453	kinda	Tyrone	0404B4	m	120	coffee maker
+7	3752	totally	Tony	31B404	m	1200	watch
+7	4827	sort of	Larry	0404B4	m	120	coffee maker
+7	3381	crazy	Arnold	DF0101	m	2500	laptop
+7	3029	wildly	Oscar	0404B4	m	350	coffee maker
+7	3521	barely	Dennis	31B404	m	500	watch
+7	5313	excessively	Roger	31B404	m	6000	watch
+7	3620	a tad	Robert	31B404	m	1000	watch
+7	4151	astoundingly	Lonnie	31B404	m	10000	watch
+7	2788	real	Quentin	DF0101	m	1400	laptop
+7	5027	extremely	Shane	31B404	m	2000	watch
+7	2353		Jace	0404B4	m	100	coffee maker
+7	3784	outrageously	Alvin	DF0101	m	3500	laptop
+7	4309	intensely	Joseph	DF0101	m	4000	laptop
+8	12229	radically	Stanley	31B404	m	300	watch
+8	5670	sort of	Clayton	0404B4	m	1000	laptop
+8	9454	crazy	Edgar	31B404	m	300	watch
+8	5008	sort of	Colton	DF0101	m	75	coffee maker
+8	4375	pretty	Elijah	0404B4	m	800	laptop
+8	12247	a little	Austin	DF0101	m	50	coffee maker
+8	7056	kinda	Josh	31B404	m	50	watch
+8	15496	reasonably	Melvin	31B404	m	100	watch
+8	4881	kinda	Chris	0404B4	m	700	laptop
+8	6687	terribly	Lloyd	DF0101	m	250	coffee maker
+8	3976	super	Elliott	DF0101	m	300	coffee maker
+8	4608	sorta	Samuel	31B404	m	75	watch
+8	8656	quite	Jay	DF0101	m	250	coffee maker
+8	7600	extremely	Dominic	DF0101	m	300	coffee maker
+8	7928	greatly	Walter	0404B4	m	1000	laptop
+8	12544	somewhat	Jeff	DF0101	m	100	coffee maker
+8	5296	pretty	Bryson	DF0101	m	100	coffee maker
+8	4535	really	Michael	0404B4	m	1500	laptop
+8	6391	uncommonly	Edwin	DF0101	m	300	coffee maker
+8	13206	rather	Cody	DF0101	m	200	coffee maker
+8	4023	quite	Frank	0404B4	m	1500	laptop
+8	7792	slightly	Alex	31B404	m	75	watch
+8	5313	phenomenally	Larry	DF0101	m	2000	coffee maker
+8	4383	greatly	Chad	DF0101	m	1500	coffee maker
+8	16871	ridiculously	Arthur	0404B4	m	3000	laptop
+8	7448	extraordinarily	Liam	31B404	m	1500	watch
+8	7040	hugely	Brody	31B404	m	500	watch
+8	7320	crazily	Adrian	31B404	m	1000	watch
+8	6000	really	Perry	31B404	m	500	watch
+8	4464	uber	Curtis	0404B4	m	5000	laptop
+8	6399	astoundingly	Randy	31B404	m	4000	watch
+8	6710	phenomenally	Norman	31B404	m	1000	watch
+8	4401	stupidly	Jackson	DF0101	m	500	coffee maker
+8	3760	a little	Clyde	31B404	m	50	watch
+8	20143	astoundingly	Ivan	0404B4	m	3000	laptop
+8	5840	ridiculously	Colin	DF0101	m	1000	coffee maker
+8	7327	horribly	Alfred	31B404	m	3000	watch
+8	5639	uber	Bradley	31B404	m	5000	watch
+8	5119	truly	Brandon	DF0101	m	1000	coffee maker
+8	5159	very	Eddie	DF0101	m	500	coffee maker
+8	8897	a bit	Lance	DF0101	m	200	coffee maker
+8	18143	sorta	Jace	DF0101	m	125	coffee maker
+8	13184	wildly	Parker	31B404	m	3000	watch
+8	6808	hugely	Landon	DF0101	m	1000	coffee maker
+8	5271	crazy	Lucas	DF0101	m	2000	coffee maker
+8	4543	extraordinarily	Russell	DF0101	m	3000	coffee maker
+8	6070	fantastically	Felix	0404B4	m	5000	laptop
+8	9385	totally	Evan	DF0101	m	1000	coffee maker
+8	5551	radically	Ethan	0404B4	m	5000	laptop
+8	6488	phenomenally	Eric	0404B4	m	5000	laptop
+8	4951	excessively	Sean	DF0101	m	1000	coffee maker
+8	6648	amazingly	Andrew	31B404	m	3000	watch
+8	10200	slightly	Albert	0404B4	m	900	laptop
+8	9808	fairly	Jason	DF0101	m	300	coffee maker
+8	4480	a little	Maurice	0404B4	m	800	laptop
+8	16815	fairly	Vincent	31B404	m	600	watch
+8	26624	amazingly	Clinton	0404B4	m	4000	laptop
+8	15904	horribly	Claude	DF0101	m	2000	coffee maker
+8	17615	horribly	Gordon	0404B4	m	3000	laptop
+8	4288	radically	Sam	DF0101	m	500	coffee maker
+8	4704	totally	Levi	31B404	m	1000	watch
+8	5440	ever so	Julian	DF0101	m	400	coffee maker
+8	8094	intensely	Jaxon	DF0101	m	2000	coffee maker
+8	7328	rather	Tristan	0404B4	m	1200	laptop
+8	7648	uber	Jim	DF0101	m	2000	coffee maker
+8	7577	supremely	Damian	DF0101	m	2500	coffee maker
+8	46791	outrageously	Paul	DF0101	m	2000	coffee maker
+8	12127	decidedly	Noah	31B404	m	1500	watch
+8	12417	exceedingly	Ayden	DF0101	m	2500	coffee maker
+8	6601	a tad	Dale	31B404	m	75	watch
+8	7463	kinda	Howard	DF0101	m	275	coffee maker
+8	6390	sort of	Hudson	31B404	m	65	watch
+8	7128	kind of	Brayden	DF0101	m	200	coffee maker
+8	4217	enormously	Ryder	DF0101	m	1000	coffee maker
+8	6343	crazily	Bentley	0404B4	m	3000	laptop
+8	4080	terribly	Alan	0404B4	m	2000	laptop
+8	7215	crazily	Neil	DF0101	m	2500	coffee maker
+8	4792	intensely	Alvin	31B404	m	5000	watch
+8	5831	reasonably	Kevin	DF0101	m	150	coffee maker
+8	6927	greatly	Kurt	31B404	m	5000	watch
+8	6151	vastly	Shane	31B404	m	10000	watch
+8	15592	highly	Wade	0404B4	m	3000	laptop
+8	19248	relatively	Raymond	31B404	m	1000	watch
+8	6199	really	Brian	DF0101	m	1000	coffee maker
+8	8503	sorta	Juan	0404B4	m	800	laptop
+8	16513	amazingly	Rodney	DF0101	m	1500	coffee maker
+8	45279	relatively	Tony	DF0101	m	150	coffee maker
+8	70254	decidedly	Robert	DF0101	m	1000	coffee maker
+8	7832	extremely	Yakov	31B404	m	5000	watch
+8	13320	slightly	Connor	DF0101	m	120	coffee maker
+8	9607	excessively	Ron	0404B4	m	4000	laptop
+8	14440	excessively	Roy	31B404	m	3000	watch
+8	4239	moderately	Uri	DF0101	m	300	coffee maker
+8	4808	extraordinarily	Greg	0404B4	m	6000	laptop
+8	5536	fantastically	Lee	DF0101	m	3000	coffee maker
+8	5063		Isaiah	0404B4	m	1000	laptop
+8	6136	intensely	Keith	0404B4	m	3500	laptop
+8	5038	fantastically	Scott	31B404	m	5000	watch
+8	4321	rather	Brett	31B404	m	500	watch
+8	6056	ever so	Jose	31B404	m	10000	watch
+8	4512	real	Todd	DF0101	m	500	coffee maker
+8	6911	crazy	Blake	0404B4	m	5000	laptop
+8	5255	somewhat	Louis	31B404	m	250	watch
+8	5489	insanely	Lonnie	31B404	m	5000	watch
+8	15631	astoundingly	Kyle	DF0101	m	750	coffee maker
+8	13431	vastly	Jeremiah	0404B4	m	6000	laptop
+8	8704	somewhat	Jerry	0404B4	m	1200	laptop
+8	10767		Dave	31B404	m	500	watch
+8	9776	relatively	Jonathan	0404B4	m	950	laptop
+8	70503	barely	Donald	0404B4	m	250	laptop
+8	13552	highly	Joshua	31B404	m	1500	watch
+8	8497	a tad	Bruce	DF0101	m	225	coffee maker
+8	7335	wildly	Eli	DF0101	m	1500	coffee maker
+8	5912	highly	Oscar	DF0101	m	1500	coffee maker
+8	6704	stupidly	Kayden	31B404	m	5000	watch
+8	12832	uncommonly	Ben	0404B4	m	8000	laptop
+8	10191	pretty	Gabriel	31B404	m	350	watch
+8	5919	decidedly	William	0404B4	m	3500	laptop
+8	4424	quite	Dorian	31B404	m	500	watch
+8	4583	enormously	Glen	31B404	m	5000	watch
+8	5640	super	George	31B404	m	4000	watch
+8	4175	barely	Victor	DF0101	m	20	coffee maker
+8	5096	terribly	Clarence	31B404	m	5000	watch
+8	8808	exceedingly	Lawrence	31B404	m	10000	watch
+8	8968	moderately	Everett	0404B4	m	800	laptop
+8	5623	truly	Vernon	0404B4	m	3500	laptop
+8	4448	super	Dustin	0404B4	m	3000	laptop
+8	5719	insanely	Fred	DF0101	m	2000	coffee maker
+8	4896	very	Seth	0404B4	m	2900	laptop
+8	15287	vastly	Nathan	DF0101	m	2500	coffee maker
+8	4888	supremely	Charlie	31B404	m	10000	watch
+8	4119	a bit	Warren	0404B4	m	2500	laptop
+8	17885	wildly	Gavin	0404B4	m	6000	laptop
+8	4264	a tad	Leo	0404B4	m	2500	laptop
+8	10048	exceedingly	Nicholas	0404B4	m	7000	laptop
+8	4679	fairly	Willard	0404B4	m	1000	laptop
+8	4496	barely	Wyatt	31B404	m	15	watch
+8	6320	real	Ernest	0404B4	m	2500	laptop
+8	8288	moderately	Peter	31B404	m	250	watch
+8	13544	very	Floyd	31B404	m	500	watch
+8	4432	enormously	Jeremy	0404B4	m	5000	laptop
+8	11639	real	Cameron	31B404	m	500	watch
+8	7687	truly	Joel	31B404	m	1500	watch
+8	19265	ridiculously	Hunter	31B404	m	6000	watch
+8	5263	a bit	Isaac	31B404	m	300	watch
+8	19664	uncommonly	Chester	31B404	m	2500	watch
+8	8896	stupidly	Brent	0404B4	m	3000	laptop
+8	4287	outrageously	Leroy	0404B4	m	5000	laptop
+8	10439	kind of	Roland	31B404	m	200	watch
+8	8408		Carter	DF0101	m	300	coffee maker
+8	4304	totally	Gilbert	0404B4	m	3000	laptop
+8	4704	ever so	Jerome	0404B4	m	4000	laptop
+8	4072	hugely	Luis	0404B4	m	5000	laptop
+8	3982	supremely	Julius	0404B4	m	6000	laptop
+8	8480	extremely	Marshall	0404B4	m	3000	laptop
+8	6718	insanely	Quentin	0404B4	m	10000	laptop
+8	12088	outrageously	Tyler	31B404	m	4500	watch
+8	10800	kind of	Carl	0404B4	m	900	laptop
+8	6958	reasonably	Darren	0404B4	m	750	laptop
+9	98840	ridiculously	Josiah	DF0101	m	100	watch
+9	15403	sorta	Ted	31B404	m	99	coffee maker
+9	135011	enormously	Charlie	0404B4	m	2500	laptop
+9	8812	highly	Carl	31B404	m	100	coffee maker
+9	5068	astoundingly	Austin	31B404	m	150	coffee maker
+9	6114	stupidly	Gene	DF0101	m	200	watch
+9	7769	relatively	Zachary	0404B4	m	150	laptop
+9	5171	wildly	Brett	31B404	m	99	coffee maker
+9	9855	reasonably	Cody	31B404	m	20	coffee maker
+9	7064	somewhat	Eugene	31B404	m	50	coffee maker
+9	7759	highly	Greg	DF0101	m	100	watch
+9	9122		Wyatt	0404B4	m	1500	laptop
+9	18271	fairly	Ken	31B404	m	50	coffee maker
+9	5547	really	Oliver	DF0101	m	100	watch
+9	7143	amazingly	Harry	0404B4	m	1500	laptop
+9	5356	sorta	Roland	DF0101	m	150	watch
+9	5367	highly	Russell	0404B4	m	1500	laptop
+9	7890	excessively	Peter	DF0101	m	100	watch
+9	9011	exceedingly	Jerome	DF0101	m	200	watch
+9	9005	barely	Max	0404B4	m	1000	laptop
+9	7036	stupidly	Xavier	31B404	m	100	coffee maker
+9	6600	kind of	Jared	0404B4	m	2500	laptop
+9	6322	a tad	Marshall	0404B4	m	2500	laptop
+9	6088	wildly	Nolan	DF0101	m	150	watch
+9	13505	kinda	Nathaniel	DF0101	m	100	watch
+9	9593	enormously	Quentin	31B404	m	150	coffee maker
+9	8088	hugely	Ryder	0404B4	m	1500	laptop
+9	5427	a little	Brandon	31B404	m	100	coffee maker
+9	5062	rather	Stanley	31B404	m	100	coffee maker
+9	4076	a little	John	DF0101	m	100	watch
+9	4986	extremely	Darren	0404B4	m	2500	laptop
+9	14844	rather	Bentley	DF0101	m	250	watch
+9	7199	fairly	Hector	DF0101	m	150	watch
+9	15071	real	Bruce	DF0101	m	100	watch
+9	6966	kinda	Calvin	31B404	m	150	coffee maker
+9	46671	amazingly	Jayden	DF0101	m	150	watch
+9	29118	truly	Albert	31B404	m	100	coffee maker
+9	6428	super	Ivan	DF0101	m	100	watch
+9	5506	outrageously	Bernard	0404B4	m	1500	laptop
+9	7894	supremely	Donald	31B404	m	100	coffee maker
+9	5773	slightly	Parker	DF0101	m	200	watch
+9	7743		Aaron	31B404	m	100	coffee maker
+9	11540	fairly	Jim	0404B4	m	2500	laptop
+9	38603	moderately	Vincent	DF0101	m	100	watch
+9	324624	ever so	Dustin	DF0101	m	200	watch
+9	7663	fantastically	Brian	DF0101	m	250	watch
+9	5294	relatively	Neil	DF0101	m	100	watch
+9	4499	relatively	Brody	31B404	m	100	coffee maker
+9	6735	uber	Ray	31B404	m	150	coffee maker
+9	4582	kind of	Lee	DF0101	m	100	watch
+9	6852	super	Gilbert	0404B4	m	1200	laptop
+9	7278	decidedly	Yakov	DF0101	m	150	watch
+9	15792	slightly	Joel	0404B4	m	2500	laptop
+9	6460	stupidly	Arnold	0404B4	m	2500	laptop
+9	5550	excessively	Samuel	0404B4	m	1500	laptop
+9	7593	really	Arthur	0404B4	m	2500	laptop
+9	7100	reasonably	Leon	0404B4	m	1500	laptop
+9	6499	uncommonly	Daryl	0404B4	m	2900	laptop
+9	9160	astoundingly	Rodney	0404B4	m	1500	laptop
+9	6847	extraordinarily	Joe	DF0101	m	150	watch
+9	8716	radically	Cameron	DF0101	m	125	watch
+9	6834	sort of	Ross	0404B4	m	1500	laptop
+9	6618	super	Hunter	31B404	m	100	coffee maker
+9	7387	crazily	Lloyd	DF0101	m	250	watch
+9	9453	ridiculously	Joseph	31B404	m	150	coffee maker
+9	6850	somewhat	Ethan	0404B4	m	2500	laptop
+9	6091	enormously	Derrick	DF0101	m	100	watch
+9	6154	crazy	Willie	31B404	m	100	coffee maker
+9	6454	horribly	Alvin	31B404	m	100	coffee maker
+9	7190	radically	Jacob	0404B4	m	1500	laptop
+9	6749	outrageously	Leroy	DF0101	m	100	watch
+9	7863	very	Bradley	DF0101	m	250	watch
+9	7016	a tad	Herman	DF0101	m	250	watch
+9	5970	excessively	Craig	31B404	m	100	coffee maker
+9	7058	greatly	Chad	31B404	m	50	coffee maker
+9	6273	pretty	Tim	31B404	m	150	coffee maker
+9	6514	real	Gavin	0404B4	m	2500	laptop
+9	112183	somewhat	Colton	DF0101	m	100	watch
+9	7186	quite	Adam	31B404	m	100	coffee maker
+9	41129	totally	Ron	DF0101	m	100	watch
+9	6986	a bit	Jace	DF0101	m	100	watch
+9	5116	uber	Martin	DF0101	m	500	watch
+9	29739	kinda	Howard	0404B4	m	1500	laptop
+9	6655	kind of	Liam	31B404	m	100	coffee maker
+9	5265	crazy	Gary	0404B4	m	150	laptop
+9	9158	vastly	Ruben	31B404	m	100	coffee maker
+9	5137	quite	Byron	DF0101	m	150	watch
+9	7653	intensely	Terrence	31B404	m	150	coffee maker
+9	7896	a little	Randy	0404B4	m	2500	laptop
+9	5153	barely	Paul	31B404	m	50	coffee maker
+9	4673	fantastically	Jose	31B404	m	150	coffee maker
+9	4779	pretty	Easton	0404B4	m	2500	laptop
+9	5651	fantastically	Ralph	0404B4	m	2500	laptop
+9	10864	insanely	Lucas	0404B4	m	1500	laptop
+9	8682	a bit	Tony	0404B4	m	2500	laptop
+9	6735	pretty	Dennis	DF0101	m	200	watch
+9	106768	reasonably	Fred	DF0101	m	150	watch
+9	9576	decidedly	Carter	0404B4	m	1500	laptop
+9	6761	supremely	Keith	0404B4	m	1500	laptop
+9	5191	astoundingly	Jordan	DF0101	m	200	watch
+9	8425	ever so	Nicholas	0404B4	m	2500	laptop
+9	4498	hugely	Colin	31B404	m	100	coffee maker
+9	4906	a bit	Cooper	31B404	m	100	coffee maker
+9	6918	greatly	Victor	DF0101	m	150	watch
+9	5685	barely	Clyde	DF0101	m	100	watch
+9	5185	wildly	Shane	0404B4	m	1500	laptop
+9	5715	very	Oscar	31B404	m	150	coffee maker
+9	6252	sorta	Roy	0404B4	m	2500	laptop
+9	5665	terribly	Jesse	DF0101	m	100	watch
+9	8501	really	Uri	31B404	m	150	coffee maker
+9	31829	phenomenally	Justin	DF0101	m	200	watch
+9	6448	intensely	Isaac	0404B4	m	2500	laptop
+9	4799	quite	Wade	0404B4	m	2500	laptop
+9	4827	uncommonly	Kyle	31B404	m	200	coffee maker
+9	5869	extremely	Jeremiah	DF0101	m	200	watch
+9	5142	ever so	Dale	31B404	m	150	coffee maker
+9	5890	very	Dwight	0404B4	m	2500	laptop
+9	4183	greatly	Tyler	0404B4	m	2500	laptop
+9	6722	extremely	Steven	31B404	m	150	coffee maker
+9	7306	amazingly	Aiden	31B404	m	150	coffee maker
+9	11255	uber	Logan	0404B4	m	2999	laptop
+9	5716	vastly	Herbert	DF0101	m	150	watch
+9	3766	real	Juan	31B404	m	150	coffee maker
+9	4824	crazy	Elliott	DF0101	m	500	watch
+9	6147	moderately	Robert	0404B4	m	2000	laptop
+9	6660	truly	Dave	DF0101	m	1000	watch
+9	6985	slightly	Vernon	31B404	m	125	coffee maker
+9	4275	phenomenally	Thomas	31B404	m	150	coffee maker
+9	8305	extraordinarily	Cory	0404B4	m	1500	laptop
+9	5551	insanely	Clarence	DF0101	m	500	watch
+9	10928	phenomenally	Chester	0404B4	m	2500	laptop
+9	14516	extraordinarily	Scott	31B404	m	150	coffee maker
+9	5014	horribly	Clayton	DF0101	m	150	watch
+9	6441	hugely	Casey	DF0101	m	250	watch
+9	9037	supremely	Dylan	DF0101	m	550	watch
+9	4628	ridiculously	Damian	0404B4	m	1500	laptop
+9	4041	truly	Connor	0404B4	m	2500	laptop
+9	4901	totally	Clifford	0404B4	m	2500	laptop
+9	7501		Brent	DF0101	m	1000	watch
+9	5721	radically	Lance	31B404	m	150	coffee maker
+9	5110	horribly	Claude	0404B4	m	1000	laptop
+9	5343	sort of	Bill	DF0101	m	250	watch
+9	5362	terribly	Everett	31B404	m	100	coffee maker
+9	5744	terribly	Kent	0404B4	m	1000	laptop
+9	6002	a tad	Clinton	31B404	m	150	coffee maker
+9	5668	crazily	Sebastian	0404B4	m	1500	laptop
+9	4401	totally	Jeff	31B404	m	150	coffee maker
+9	5601	vastly	Elijah	0404B4	m	2500	laptop
+9	4156	rather	Edgar	0404B4	m	2500	laptop
+9	4351	crazily	Larry	31B404	m	150	coffee maker
+9	5418	insanely	Edwin	31B404	m	150	coffee maker
+9	4501	decidedly	Roger	31B404	m	100	coffee maker
+9	6296	uncommonly	Matthew	DF0101	m	1500	watch
+9	8050	outrageously	Rick	31B404	m	150	coffee maker
+9	4703	exceedingly	Chase	31B404	m	100	coffee maker
+9	3851	sort of	Jay	31B404	m	150	coffee maker
+9	3882	moderately	Josh	31B404	m	100	coffee maker
+9	5394	intensely	Hugh	DF0101	m	500	watch
+9	7301	exceedingly	Harvey	0404B4	m	1500	laptop
