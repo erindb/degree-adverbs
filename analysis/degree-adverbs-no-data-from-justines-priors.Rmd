@@ -221,29 +221,19 @@ I found no evidence for the competing hypothesis (that stronger deintensifying a
 zzfit = lm(data=deintensifiers, zzprice~surprisal * syllables)
 print(summary(zzfit))
 
-deintensifiers_summary = bootsSummary(data=deintensifiers, measurevar="zzprice", groupvars=c("item", "intensifier", "syllables", "surprisal"))
+#
+
+deintensifiers_summary = bootsSummary(data=deintensifiers, measurevar="zzprice", groupvars=c( "intensifier", "syllables", "surprisal"))
 p = ggplot(deintensifiers_summary, aes(x=surprisal, y=zzprice, colour=syllables)) +
   geom_point() +
   geom_smooth(method="lm", se=T,colour="black") +
   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal)) +
-  facet_wrap(~ item) +
+  #facet_wrap(~ item) +
   #scale_colour_grey() +
   scale_colour_gradient(low="black", high="gray") +
   theme_bw(22)
 print(p)
 ggsave("exp2-zz.png", width=10, height=4.5)
-
-deintensifiers_summary = bootsSummary(data=deintensifiers, measurevar="zzprice", groupvars=c("item", "intensifier", "syllables", "surprisal"))
-p = ggplot(deintensifiers_summary, aes(x=syllables, y=zzprice, colour=surprisal)) +
-  geom_point() +
-  geom_smooth(method="lm", se=T,colour="black") +
-  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=syllables)) +
-  facet_wrap(~ item) +
-  #scale_colour_grey() +
-  scale_colour_gradient(low="black", high="gray") +
-  theme_bw(22)
-print(p)
-ggsave("exp2-zz-syllables.png", width=10, height=4.5)
 ```
 
 ### Conclusion

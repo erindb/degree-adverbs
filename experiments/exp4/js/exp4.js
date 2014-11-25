@@ -8,18 +8,25 @@ function make_slides(f) {
      }
   });
 
-  slides.numberline = slide({
-    name : "numberline",
+  slides.ordering = slide({
+    name : "ordering",
     start : function() {
-      var adverbs = "";
-      for (var i=0; i<exp.adverbs.length; i++) {
-        var adverb = exp.adverbs[i];
-        adverbs += ("<div class='adverb'>" + adverb + "</div>");
-      }
-      $("#words").html(adverbs);
+      $(".err").hide();
     },
     button : function() {
-      exp.go(); //use exp.go() if and only if there is no "present" data.
+      if ($("#response li").length == exp.adverbs.length) {
+        for (var i=0; i<exp.adverbs.length; i++) {
+          var adverb = $($("#response li")[i]).html();
+          exp.data_trials.push({
+            "adverb": adverb,
+            "ranking": i.toString()
+          })
+          console.log(adverb);
+        }
+        exp.go(); //use exp.go() if and only if there is no "present" data.
+      } else {
+        $(".err").show();
+      }
     }
   });
 
@@ -60,6 +67,7 @@ function make_slides(f) {
 
 /// init ///
 function init() {
+
   exp.adverbs = _.shuffle([
     "surpassingly", "colossally", "immoderately",
     "terrifically", "frightfully", "astoundingly", "inordinately",
@@ -72,7 +80,23 @@ function init() {
     "seriously", "truly", "significantly", "totally", "extremely",
     "highly", "particularly", "quite", "especially", "very"
   ]);
-  exp.object = _.sample(["watch", "coffee maker", "laptop"]);
+  for (var i=0; i<(exp.adverbs.length); i++) {
+    var adverb = exp.adverbs[i];
+    $("#wordbank").append(
+      "<li class='adverb ui-state-default'>" + adverb + " expensive</li>"
+    );
+  }
+  $(function() {
+    $( "#wordbank" ).sortable();
+    $( "#wordbank" ).disableSelection();
+  });
+
+  $( "ul.droptrue" ).sortable({
+    connectWith: "ul"
+  });
+  $( "#wordbank, #response").disableSelection();
+
+
   exp.catch_trials = [];
   exp.condition = {}; //can randomize between subject conditions here
   exp.system = {
@@ -84,7 +108,7 @@ function init() {
       screenUW: exp.width
     };
   //blocks of the experiment:
-  exp.structure=["i0", "numberline", 'subj_info', 'thanks'];
+  exp.structure=["i0", "ordering", 'subj_info', 'thanks'];
   
   exp.data_trials = [];
   //make corresponding slides:

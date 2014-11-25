@@ -20,6 +20,8 @@
     <script src="../_shared/js/mmturkey.js "></script>
     <script src="../_shared/js/browserCheck.js"></script>
     <script src="../_shared/js/utils.js"></script>
+
+    <script src="js/script.js"></script>
     <!-- if you want to draw cute creatures (depends on raphael): -->
     <!-- <script src="../_shared/js/ecosystem.js"></script> -->
 
@@ -47,23 +49,15 @@
     <p id="legal">Legal information: By answering the following questions, you are participating in a study being performed by cognitive scientists in the Stanford Department of Psychology. If you have questions about this research, please contact Erin Bennett at <a href="mailto://erindb@stanford.edu">erindb@stanford.edu</a> or Noah Goodman, at ngoodman@stanford.edu. You must be  at least 18 years old to participate. Your participation in this research is voluntary. You may decline to answer any or all of the following questions. You may decline further participation, at any time, without adverse consequences. Your anonymity is assured; the researchers who have requested your participation will not receive any personal information about you.</p>
   </div>
 
-  <div class="slide" id="numberline">
-    <p>There are 48 blue word boxes on this page. Please place them on the numberline below (by dragging them with your mouse).</p>
-    <div id="words"/>
+  <div class="slide" id="ordering">
+    <p id="instructions">Please move the phrases from the left to the right. Order the phrases so that the phrase corresponding to the <b>highest price is on top</b> and the phrase corresponding to the <b>lowest price is on the bottom</b>. Guessing is OK, but please give us your best guess! Please move all of the phrases, and then click the continue button at the bottom of the screen.</p>
+    <p>Thanks!</p>
+    <ul id="wordbank" class="droptrue"></ul>
+    -->
+    <ul id="response" class="droptrue"></ul>
+    <br style="clear:both">
+    <p class="err">Please move <b>all</b> of the phrases to the table on the <b>right</b>!</p>
     <button onclick="_s.button()">Continue</button>
-  </div>
-
-  <div class="slide" id="trial">
-    <p>Your friend <span class="friend">{{}}</span> says, "I just bought
-      <span class="object_article">{{}}</span>
-      <span class="object">{{}}</span>.
-      <span class="description_intro">{{}}</span>
-      <span class="description_article">{{}}</span>
-      <span class="description">{{}}</span>."</p>
-    <p>How much do you think the <span class="plain_object">{{}}</span> cost?</p>
-    <p>$<input id="response" type="text"></input></p>
-    <button onclick="_s.button()">Continue</button>
-    <p class="err">Please give a valid price. That means an integer, or a number with a decimal point and two decimal places. Please no words. The only charcters in your response should be the digits 0-9 and (optionally) one decimal point (.) followed by two digits.</p>
   </div>
 
   <div class="slide"  id="subj_info">

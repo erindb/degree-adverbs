@@ -10,3 +10,7 @@ CogSci_Template*
 */*/mturk
 */*/*/mturk
 *.results
+*.RData
+*.Rhistory
+*.RData
+*.Rhistory
