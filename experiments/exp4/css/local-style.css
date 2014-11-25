@@ -41,8 +41,14 @@
 
 #response {
 	list-style-type: decimal;
-	float: right;
+	/*float: right;
+	width: 40%;*/
+	width: 100%;
+}
+
+#response_wrapper {
 	width: 40%;
+	float: right;
 }
 
 #wordbank li {
