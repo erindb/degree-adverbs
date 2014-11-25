@@ -8,13 +8,6 @@
 	border: none;
 }
 
-.droptrue {
-	/*list-style-type: none;*/
-	margin: 0;
-	padding: 0;
-	width: 40%;
-}
-
 .droptrue li {
 	margin: 0 3px 3px 3px;
 	padding: 0.4em;
@@ -28,7 +21,7 @@
 	/*list-style-type: none;*/
 	margin: 0;
 	padding: 0;
-	margin-right: 10px;
+	/*margin-right: 10px;*/
 	background: #eee;
 	padding: 5px;
 }
@@ -37,6 +30,8 @@
 	list-style-type: none;
 	float: left;
 	width: 40%;
+	margin-top: 3em;
+	margin-bottom: 1em;
 }
 
 #response {
@@ -49,6 +44,7 @@
 #response_wrapper {
 	width: 40%;
 	float: right;
+	margin-bottom: 1em;
 }
 
 #wordbank li {
@@ -62,4 +58,10 @@
 	padding: 5px;
 	width: 90%;
 	text-align: left;
+}
+
+#mid_words {
+	padding-top: 7em;
+	float: left;
+	width: 12%;
 }

@@ -1,3 +1,11 @@
+if (typeof JSON.clone !== "function")
+{
+    JSON.clone = function(obj)
+    {
+        return JSON.parse(JSON.stringify(obj));
+    };
+}
+
 function make_slides(f) {
   var   slides = {};
 
@@ -10,20 +18,45 @@ function make_slides(f) {
 
   slides.ordering = slide({
     name : "ordering",
-    start : function() {
+    present : exp.adverb_lists,
+    present_handle : function(stim) {
+      $("#response").empty();
+      this.stim = JSON.clone(stim);
       $(".err").hide();
+      var adverbs = stim.adverbs;
+      var adjective = stim.adjective;
+      $(".most").html(adjective.most);
+      $(".least").html(adjective.least);
+      for (var i=0; i<(adverbs.length); i++) {
+        var adverb = adverbs[i];
+        $("#wordbank").append(
+          "<li class='adverb ui-state-default'>" + adverb + " " +
+          adjective.adjective + "</li>"
+        );
+      }
+      $(function() {
+        $( "#wordbank" ).sortable();
+        $( "#wordbank" ).disableSelection();
+      });
+
+      $( "ul.droptrue" ).sortable({
+        connectWith: "ul"
+      });
+      $( "#wordbank, #response").disableSelection();
     },
     button : function() {
-      if ($("#response li").length == exp.adverbs.length) {
-        for (var i=0; i<exp.adverbs.length; i++) {
+      var num_adverbs = this.stim.adverbs.length;
+      if ($("#response li").length == num_adverbs) {
+        for (var i=0; i<num_adverbs; i++) {
           var adverb = $($("#response li")[i]).html();
           exp.data_trials.push({
-            "adverb": adverb,
-            "ranking": i.toString()
+            "trial" : this.stim.trial.toString(),
+            "adverb" : adverb,
+            "ranking" : i.toString()
           })
           console.log(adverb);
         }
-        exp.go(); //use exp.go() if and only if there is no "present" data.
+        _stream.apply(_s); //use exp.go() if and only if there is no "present" data.
       } else {
         $(".err").show();
       }
@@ -56,6 +89,7 @@ function make_slides(f) {
           "system" : exp.system,
           "condition" : exp.condition,
           "subject_information" : exp.subj_data,
+          "clicks" : exp.clicks,
           "time_in_minutes" : (Date.now() - exp.startT)/60000
       };
       setTimeout(function() {turk.submit(exp.data);}, 1000);
@@ -65,37 +99,62 @@ function make_slides(f) {
   return slides;
 }
 
-/// init ///
-function init() {
-
-  exp.adverbs = _.shuffle([
-    "surpassingly", "colossally", "immoderately",
-    "terrifically", "frightfully", "astoundingly", "inordinately",
+function make_adverb_lists() {
+  var adjectives = _.shuffle([
+    {
+      "adjective": "expensive",
+      "most" : "highest price",
+      "least" : "lowest price"
+    },
+    {
+      "adjective": "tall",
+      "most" : "highest height",
+      "least" : "lowest height"
+    },
+    {
+      "adjective": "beautiful",
+      "most" : "most beautiful",
+      "least" : "least beautiful"
+    },
+    {
+      "adjective": "old",
+      "most" : "oldest",
+      "least" : "least old"
+    },
+    {
+      "adjective": "sad",
+      "most" : "most sad",
+      "least" : "least sad"
+    }
+  ])
+  var adverbs = _.shuffle([
+    "surpassingly", "colossally", /*"immoderately",*/
+    "terrifically", "frightfully", "astoundingly", /*"inordinately",*/
     "phenomenally", "uncommonly", "outrageously", "fantastically",
     "mightily", "supremely", "insanely", "strikingly", "acutely",
-    "awfully", "unduly", "decidedly", "excessively", "extraordinarily",
-    "exceedingly", "immensely", "intensely", "markedly", "amazingly",
-    "radically", "unusually", "cracking", "remarkably", "terribly",
+    "awfully", /*"unduly",*/ "decidedly", "excessively", "extraordinarily",
+    "exceedingly", /*"immensely",*/ "intensely", "markedly", "amazingly",
+    "radically", "unusually", /*"cracking",*/ "remarkably", "terribly",
     "exceptionally", "desperately", "utterly", "notably", "incredibly",
     "seriously", "truly", "significantly", "totally", "extremely",
-    "highly", "particularly", "quite", "especially", "very"
+    /*"highly",*/ "particularly", "quite", "especially", "very"
   ]);
-  for (var i=0; i<(exp.adverbs.length); i++) {
-    var adverb = exp.adverbs[i];
-    $("#wordbank").append(
-      "<li class='adverb ui-state-default'>" + adverb + " expensive</li>"
-    );
+  var adverb_lists = [];
+  var num_lists = Math.ceil(adverbs.length / 10)
+  for (var i=0; i<num_lists; i++) {
+    adverb_lists.push({
+      "trial" : i,
+      "adverbs" : adverbs.splice(0, 10),
+      "adjective": adjectives.shift()
+    });
   }
-  $(function() {
-    $( "#wordbank" ).sortable();
-    $( "#wordbank" ).disableSelection();
-  });
+  return adverb_lists;
+}
 
-  $( "ul.droptrue" ).sortable({
-    connectWith: "ul"
-  });
-  $( "#wordbank, #response").disableSelection();
-
+/// init ///
+function init() {
+  exp.clicks = [];
+  exp.adverb_lists = make_adverb_lists();
 
   exp.catch_trials = [];
   exp.condition = {}; //can randomize between subject conditions here

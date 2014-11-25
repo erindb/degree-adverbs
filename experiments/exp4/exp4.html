@@ -50,14 +50,16 @@
   </div>
 
   <div class="slide" id="ordering">
-    <p id="instructions">Please move the phrases from the left to the right. Order the phrases so that the phrase corresponding to the <b>highest price is on top</b> and the phrase corresponding to the <b>lowest price is on the bottom</b>. Guessing is OK, but please give us your best guess! Please move all of the phrases, and then click the continue button at the bottom of the screen.</p>
+    <p id="instructions">Please move the phrases from the left to the right. Order the phrases so that the phrase corresponding to the <b><span class="most">{{}}</span> is on top</b> and the phrase corresponding to the <b><span class="least">{{}}</span> is on the bottom</b>. Guessing is OK, but please give us your best guess! Please move all of the phrases, and then click the continue button at the bottom of the screen.</p>
     <p>Thanks!</p>
     <ul id="wordbank" class="droptrue"></ul>
-    -->
+    <div id="mid_words">
+      -->
+    </div>
     <div id="response_wrapper">
-    <p>&uarr; highest price</p>
-    <ul id="response" class="droptrue"></ul>
-    <p>&darr; lowest price</p>
+      <p>&uarr; <span class="most">{{}}</span></p>
+      <ul id="response" class="droptrue"></ul>
+      <p>&darr; <span class="least">{{}}</span></p>
     </div>
     <br style="clear:both">
     <p class="err">Please move <b>all</b> of the phrases to the table on the <b>right</b>!</p>
