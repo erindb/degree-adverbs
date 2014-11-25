@@ -20,6 +20,7 @@ function make_slides(f) {
     name : "ordering",
     present : exp.adverb_lists,
     present_handle : function(stim) {
+      this.startTime = Date.now();
       $("#response").empty();
       this.stim = JSON.clone(stim);
       $(".err").hide();
@@ -43,6 +44,25 @@ function make_slides(f) {
         connectWith: "ul"
       });
       $( "#wordbank, #response").disableSelection();
+
+      $(".adverb").mousedown(function(e) {
+        exp.clicks.push({
+          "type":"mousedown",
+          "time": Date.now(),
+          "x" : e.pageX,
+          "y" : e.pageY,
+          "adverb" : $(this).html()
+        })
+      })
+      $(".adverb").click(function(e) {
+        exp.clicks.push({
+          "type": "click",
+          "time": Date.now(),
+          "x" : e.pageX,
+          "y" : e.pageY,
+          "adverb" : $(this).html()
+        })
+      });
     },
     button : function() {
       var num_adverbs = this.stim.adverbs.length;
@@ -52,7 +72,8 @@ function make_slides(f) {
           exp.data_trials.push({
             "trial" : this.stim.trial.toString(),
             "adverb" : adverb,
-            "ranking" : i.toString()
+            "ranking" : i.toString(),
+            "trial_time" : (Date.now() - this.startTime)
           })
           console.log(adverb);
         }
@@ -100,7 +121,7 @@ function make_slides(f) {
 }
 
 function make_adverb_lists() {
-  var adjectives = _.shuffle([
+  var adjs = _.shuffle([
     {
       "adjective": "expensive",
       "most" : "highest price",
@@ -120,33 +141,81 @@ function make_adverb_lists() {
       "adjective": "old",
       "most" : "oldest",
       "least" : "least old"
-    },
+    }/*,
     {
       "adjective": "sad",
       "most" : "most sad",
       "least" : "least sad"
+    }*/
+  ])
+  adverb_lists = _.shuffle([
+    {
+      "list" : "A",
+      "adjective": adjs.shift(),
+      "adverbs": [
+        "surpassingly",
+        "astoundingly",
+        "fantastically",
+        "strikingly",
+        "excessively",
+        "markedly",
+        "remarkably",
+        "utterly",
+        "truly",
+        "particularly",
+      ]
+    },
+    {
+      "list" : "B",
+      "adjective": adjs.shift(),
+      "adverbs": [
+        "colossally",
+        "phenomenally",
+        "mightily",
+        "acutely",
+        "extraordinarily",
+        "amazingly",
+        "terribly",
+        "notably",
+        "significantly",
+        "quite",
+      ]
+    },
+    {
+      "list" : "C",
+      "adjective": adjs.shift(),
+      "adverbs": [
+        "terrifically",
+        "uncommonly",
+        "supremely",
+        "awfully",
+        "exceedingly",
+        "radically",
+        "exceptionally",
+        "incredibly",
+        "totally",
+        "especially",
+      ]
+    },
+    {
+      "list" : "D",
+      "adjective": adjs.shift(),
+      "adverbs": [
+        "frightfully",
+        "outrageously",
+        "insanely",
+        "decidedly",
+        "intensely",
+        "unusually",
+        "desperately",
+        "seriously",
+        "extremely",
+        "very"
+      ]
     }
   ])
-  var adverbs = _.shuffle([
-    "surpassingly", "colossally", /*"immoderately",*/
-    "terrifically", "frightfully", "astoundingly", /*"inordinately",*/
-    "phenomenally", "uncommonly", "outrageously", "fantastically",
-    "mightily", "supremely", "insanely", "strikingly", "acutely",
-    "awfully", /*"unduly",*/ "decidedly", "excessively", "extraordinarily",
-    "exceedingly", /*"immensely",*/ "intensely", "markedly", "amazingly",
-    "radically", "unusually", /*"cracking",*/ "remarkably", "terribly",
-    "exceptionally", "desperately", "utterly", "notably", "incredibly",
-    "seriously", "truly", "significantly", "totally", "extremely",
-    /*"highly",*/ "particularly", "quite", "especially", "very"
-  ]);
-  var adverb_lists = [];
-  var num_lists = Math.ceil(adverbs.length / 10)
-  for (var i=0; i<num_lists; i++) {
-    adverb_lists.push({
-      "trial" : i,
-      "adverbs" : adverbs.splice(0, 10),
-      "adjective": adjectives.shift()
-    });
+  for (var i=0; i<adverb_lists.length; i++) {
+    adverb_lists[i].trial = i.toString();
   }
   return adverb_lists;
 }
