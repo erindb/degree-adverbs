@@ -1,0 +1,160 @@
+---
+title: "exp4-analysis"
+author: "erin"
+output: html_document
+---
+
+```{r echo=F}
+### load required packages
+library(lme4, quietly=T)
+library(ggplot2, quietly=T)
+library(plyr, quietly=T)
+source("~/opt/r_helper_scripts/bootsSummary.r")
+```
+
+We had 4 adjectives: expensive, beautiful, old, tall.
+
+We had 4 sets of degree adverbs:
+
+```{r echo=F}
+### define different adjective sets
+list_a = c(
+  "surpassingly",
+  "astoundingly",
+  "fantastically",
+  "strikingly",
+  "excessively",
+  "markedly",
+  "remarkably",
+  "utterly",
+  "truly",
+  "particularly"
+)
+list_b = c(
+  "colossally",
+  "phenomenally",
+  "mightily",
+  "acutely",
+  "extraordinarily",
+  "amazingly",
+  "terribly",
+  "notably",
+  "significantly",
+  "quite"
+)
+list_c = c(
+  "terrifically",
+  "uncommonly",
+  "supremely",
+  "awfully",
+  "exceedingly",
+  "radically",
+  "exceptionally",
+  "incredibly",
+  "totally",
+  "especially"
+)
+list_d = c(
+  "frightfully",
+  "outrageously",
+  "insanely",
+  "decidedly",
+  "intensely",
+  "unusually",
+  "desperately",
+  "seriously",
+  "extremely",
+  "very"
+)
+```
+
+|    List A     |     List B       |     List C    |     List D    |
+|:--------------|:-----------------|:--------------|:--------------|
+| surpassingly  | colossally       | terrifically  | frightfully   |
+| astoundingly  | phenomenally     | uncommonly    | outrageously  |
+| fantastically | mightily         | supremely     | insanely      |
+| strikingly    | acutely          | awfully       | decidedly     |
+| excessively   | extraordinarily  | exceedingly   | intensely     |
+| markedly      | amazingly        | radically     | unusually     |
+| remarkably    | terribly         | exceptionally | desperately   |
+| utterly       | notably          | incredibly    | seriously     |
+| truly         | significantly    | totally       | extremely     |
+| particularly  | quite            | especially    | very          |
+
+For each adjective and list of degree adverbs, we asked participants to arrange adjective phrases in order from most to least strong.
+
+![exp4-trial.png](exp4-trial.png)
+
+```{r echo=F}
+### load data
+d = read.table("degree-adverbs-exp4.tsv", header=T, sep="\t")
+d = d[,c("workerid", "trial", "adverb", "ranking", "asses")]
+d$adjective_phrase = d$adverb
+d$adverb = sapply(strsplit(as.character(d$adjective_phrase), " "), function(lst) {return(lst[[1]])})
+d$adjective = sapply(strsplit(as.character(d$adjective_phrase), " "), function(lst) {return(lst[[2]])})
+d$adverb_list = rep("A", nrow(d))
+d$adverb_list[d$adverb %in% list_b] = "B"
+d$adverb_list[d$adverb %in% list_c] = "C"
+d$adverb_list[d$adverb %in% list_d] = "D"
+ngrams = read.table("ngrams-exp4.csv", header=T, sep=",")
+frequencies = ngrams$frequency
+names(frequencies) = ngrams$ngram
+syllables = ngrams$syllables
+names(syllables) = ngrams$ngram
+d$frequency = sapply(d$adverb, function(adverb) {return(frequencies[adverb])})
+d$syllables = sapply(d$adverb, function(adverb) {return(syllables[adverb])})
+total_1grams = 1024908267229
+d$surprisal = log(total_1grams)-log(d$frequency)
+d = ddply(d, .(workerid, adverb_list), transform, rank_order = rank(frequency))
+```
+
+We found surprisal (from Web1T5grams corpus) and syllable length for each of these adverbs.
+
+```{r echo=F}
+print(ngrams)
+```
+
+```{r echo=F, fig.width=10, fig.height=6}
+with(d, cor(ranking, rank_order))
+with(d, cor(ranking, surprisal))
+
+p = ggplot(d, aes(x=surprisal, y=ranking,
+                  #colour=syllables)) +
+                  colour=factor(syllables, ordered=T))) +
+  geom_jitter() +
+  theme(
+    plot.background =  element_rect(fill = "black"),
+    axis.text = element_text(colour="white"),
+    strip.background = element_rect(fill="gray24"),
+    legend.background = element_rect(fill="gray14"),
+    legend.key =  element_rect(fill = NA),
+    text = element_text(colour="white"),
+    panel.background =  element_rect(fill = NA),
+    panel.grid = element_blank()
+  ) +
+  #theme_blackDisplay()+
+  geom_smooth(method="lm", se=T, colour="white") +
+  facet_wrap(~ adverb_list)
+print(p)
+
+d_summary = bootsSummary(data=d, measurevar="ranking", groupvars=c("surprisal", "adverb_list", "syllables"))
+p = ggplot(d_summary, aes(x=surprisal, y=ranking,
+                  #colour=syllables)) +
+                  colour=factor(syllables, ordered=T))) +
+  geom_point() +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal)) +
+  theme(
+    plot.background =  element_rect(fill = "black"),
+    axis.text = element_text(colour="white"),
+    strip.background = element_rect(fill="gray24"),
+    legend.background = element_rect(fill="gray14"),
+    legend.key =  element_rect(fill = NA),
+    text = element_text(colour="white"),
+    panel.background =  element_rect(fill = NA),
+    panel.grid = element_blank()
+  ) +
+  #theme_blackDisplay()+
+  geom_smooth(method="lm", se=T, colour="white") +
+  facet_wrap(~ adverb_list)
+print(p)
+```
