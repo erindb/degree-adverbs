@@ -171,7 +171,7 @@ function make_slides(f) {
           "system" : exp.system,
           "condition" : exp.condition,
           "subject_information" : exp.subj_data,
-          "time_in_minutes" : (Date.now() - exp.startT)/60000
+          "time_in_minutes" : (Date.now() - exp.startT)/60000,
       };
       setTimeout(function() {turk.submit(exp.data);}, 1000);
     }
@@ -184,9 +184,9 @@ function make_slides(f) {
 function init() {
   exp.catch_trials = [];
   exp.condition = {
-    "condition" : _.sample([/*"repeat_target", "variety_of_adverbs",*/ "no_adverbs"]),
-    "target" : "astoundingly",
-    "context" : _.shuffle(["insanely", "colossally", "outrageously"])
+    "condition" : _.sample(["repeat_target", /*"variety_of_adverbs",*/ "no_adverbs"]),
+    "target" : "insanely",
+    "context" : _.shuffle(["astoundingly", "colossally", "outrageously"])
   }; //can randomize between subject conditions here
   exp.system = {
       Browser : BrowserDetect.browser,
