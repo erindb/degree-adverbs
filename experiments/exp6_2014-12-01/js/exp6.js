@@ -184,7 +184,7 @@ function make_slides(f) {
 function init() {
   exp.catch_trials = [];
   exp.condition = {
-    "condition" : _.sample(["repeat_target", "variety_of_adverbs"/*, "no_adverbs"*/]),
+    "condition" : _.sample([/*"repeat_target", "variety_of_adverbs",*/ "no_adverbs"]),
     "target" : "astoundingly",
     "context" : _.shuffle(["insanely", "colossally", "outrageously"])
   }; //can randomize between subject conditions here
