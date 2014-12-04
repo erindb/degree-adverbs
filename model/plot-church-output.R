@@ -1,0 +1,64 @@
+library(ggplot2)
+source("~/opt/r_helper_scripts/gg_themes.R")
+
+toplot = function(utt, dist, vals) {
+  if (utt == "no utterance" | utt=="prior" | utt == "no utterance (cost=0)") {
+    values = c(0, 1, 0.2,  0.4, 0.6, 0.8)
+  } else {
+    values = c(1, 0.2, 0.4, 0.6, 0.8)
+  }
+  return(data.frame(
+    values = values,
+    utterance=rep(utt, length(values)),
+    prior=rep(dist,  length(values)),
+    weights = as.numeric(unlist(strsplit(vals, " ")))))
+}
+
+# #close together costs
+# distributions = rbind(
+#   #"peaked mid is gaussian w/ mean 0.5 sd 0.2"
+#   toplot("prior", "peaked up", "0.00000000 0.63840654 0.00102145 0.01634321 0.08273749 0.26149132"),
+#   toplot("no utterance (cost=0)", "peaked up", "0.0000014855237646287727 0.6102094480278955 0.0014014557585826657 0.020700404437453815 0.0967150132416995 0.27097219301060393"),
+#   toplot("feppy (cost=1)", "peaked up", "0.700378247975209 0.00022579609447591492 0.00706163268184598 0.052402125664479 0.23993219758399006"),
+#   toplot("very feppy (cost=2)", "peaked up", "0.6898360985359357 0.00026000239448419456 0.00787822953156022 0.056548366377799746 0.2454773031602201"),
+#   toplot("extremely feppy (cost=3)", "peaked up", "0.6862233297176775 0.00027536543197055667 0.008216966849444963 0.05811665670539791 0.24716768129550912")
+# )
+
+# #farther apart costs
+# distributions = rbind(
+#   #"peaked mid is gaussian w/ mean 0.5 sd 0.2"
+#   toplot("prior", "peaked up", "0.00000000 0.63840654 0.00102145 0.01634321 0.08273749 0.26149132"),
+#   toplot("no utterance (cost=0)", "peaked up", "0.0000011395703494535512 0.6290832869274563 0.001134634786509431 0.017689798046031876 0.08723248322228903 0.2648586574473639"),
+#   toplot("feppy (cost=2)", "peaked up", "0.7059782469836116 0.00020807122215987773 0.006636399623294758 0.0502292049795937 0.2369480771913403"),
+#   toplot("very feppy (cost=4)", "peaked up", "0.7002671480299072 0.0002258399944988611 0.007066444074683725 0.052444447760569425 0.23999612014034083"),
+#   toplot("extremely feppy (cost=6)", "peaked up", "0.6995326297016955 0.00022846342131762026 0.007127223025052424 0.05274304479214015 0.2403686390597943")
+# )
+
+# #even farther apart costs
+# distributions = rbind(
+#   #"peaked mid is gaussian w/ mean 0.5 sd 0.2"
+#   toplot("prior", "peaked up", "0.00000000 0.63840654 0.00102145 0.01634321 0.08273749 0.26149132"),
+#   toplot("no utterance (cost=0)", "peaked up", "0.0000018740434907566818 0.5857800210326825 0.0017127520945761547 0.024351156739499703 0.10868779183905129 0.2794664042506996"),
+#   toplot("feppy (cost=0.1)", "peaked up", "0.7032162519941356 0.00021624497853971772 0.006835336195486411 0.05126411079280039 0.23846805603903787"),
+#   toplot("very feppy (cost=2)", "peaked up", "0.6693483059115942 0.000321362352993985 0.009381558792410311 0.06439147151841755 0.25655730142458383"),
+#   toplot("extremely feppy (cost=10)", "peaked up", "0.6639546949436667 0.00035221195755399254 0.010015288902416455 0.0670532379898737 0.2586245662064891")
+# )
+
+#*even* farther apart costs
+distributions = rbind(
+  #"peaked mid is gaussian w/ mean 0.5 sd 0.2"
+  toplot("prior", "peaked up", "0.00000000 0.63840654 0.00102145 0.01634321 0.08273749 0.26149132"),
+  toplot("no utterance (cost=0)", "peaked up", "0.000001874002542267923 0.5857802701956892 0.0017127278440626993 0.02435096848480312 0.10868748556115403 0.2794666739117486"),
+  toplot("feppy (cost=0.1)", "peaked up", "0.7032173125393182 0.0002162414140665001 0.0068352521154329835 0.051263689243872874 0.23846750468730948"),
+  toplot("very feppy (cost=2)", "peaked up", "0.6693485422069632 0.00032135753020558075 0.00938147493913271 0.06439121491684784 0.2565574104068508"),
+  toplot("extremely feppy (cost=100)", "peaked up", "0.6639530552668438 0.00035221814210997766 0.01001542995640369 0.06705391841388242 0.2586253782207601")
+)
+
+p = ggplot(distributions, aes(x=values, y=weights)) +
+  geom_line(stat="identity", aes(colour=factor(utterance))) +
+  #facet_wrap(~ prior) +
+  ylab("") +
+  xlab("heights") +
+  theme_blackDisplay() +
+  xlim(0, 1)
+print(p)

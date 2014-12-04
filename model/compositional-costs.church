@@ -1,0 +1,88 @@
+(define alpha 5)
+
+(define distribution 'monotonic)
+
+(define (power lst alpha) (map (lambda (x) (expt x alpha)) lst))
+
+(define (seq start distance end)
+  (if (> (+ start distance) end) (list start)
+      (append (list start) (seq (+ start distance) distance end))))
+
+(define (theta-prior)
+  (uniform-draw (seq 0 0.1 1)))
+
+(define (eps-prior)
+  (multinomaial))
+
+(define (feppiness-prior)
+  (multinomial
+   '(0 1 0.2 0.4 0.6 0.8)
+   (case distribution
+         (('uniform) '(.1 .1 .1 .1 .1 .1))
+          (('peaked-down) '())
+          (('monotonic) '(0.04761905 0.28571429 0.09523810 0.14285714 0.19047619 0.23809524))
+          (('peaked-both) '(25.4449863 25.4449863  0.2639388  0.1832403  0.1832403  0.2639388))
+          (('peaked-mid) '(0.00876415 0.00876415 0.06475880 0.17603266 0.17603266 0.06475880))
+          (('peaked-up) '(0.000001 0.63840654 0.00102145 0.01634321 0.08273749 0.26149132))
+          (else (lambda () (display "error 0: that's not a valid distribution"))))))
+
+(define (meaning utterance)
+  (case utterance
+        (('none) #t)
+        (('very) '(> feppiness th-v))
+        (('extremely) '(> feppiness th-e))
+        ;(('extraordinarily) '(> feppiness th-x))
+        (('feppy) '(> feppiness theta))))
+
+(define utterances '(none feppy very extremely ;extraordinarily
+  ))
+(define costs '(0 .1 2 100 ;4
+  ))
+
+(define (utterance-prior)
+  (multinomial utterances
+               (map (lambda (utterance-cost) (exp (- utterance-cost)))
+                    costs)))
+
+(define literal-listener
+  (mem
+   (lambda (utterance theta ;th-x 
+    th-v th-e)
+     (enumeration-query
+      (define feppiness (feppiness-prior))
+      feppiness
+      (eval (meaning utterance))))))
+
+(define speaker
+  (mem
+   (lambda (knowledge theta ;th-x 
+    th-v th-e)
+     (enumeration-query
+      (define utterance (utterance-prior))
+      (define interpretation
+        (apply multinomial
+               (list (first (literal-listener utterance theta ;th-x 
+                th-v th-e))
+                     (power (second (literal-listener utterance theta ;th-x 
+                      th-v th-e)) alpha))))
+      utterance
+      (equal? interpretation knowledge)))))
+
+(define pragmatic-listener
+  (mem
+   (lambda (utterance)
+     (enumeration-query
+      (define theta (theta-prior))
+      ;(define th-x (theta-prior))
+      (define th-v (theta-prior))
+      (define th-e (theta-prior))
+      (define feppiness (feppiness-prior))
+      feppiness
+      (equal? (apply multinomial (speaker feppiness theta ;th-x 
+        th-v th-e)) utterance)))))
+
+(display (pragmatic-listener 'none))
+(display (pragmatic-listener 'feppy))
+(display (pragmatic-listener 'very))
+(display (pragmatic-listener 'extremely))
+;(display (pragmatic-listener 'extraordinarily))

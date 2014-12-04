@@ -1,0 +1,68 @@
+---
+title: "Degree Adverbs: Experiment 6: Repetition"
+author: "erin"
+date: "12/01/2014"
+output: html_document
+---
+
+```{r echo=F}
+### load required packages
+
+library(lme4, quietly=T)
+library(lmerTest, quietly=T)
+library(ggplot2, quietly=T)
+library(plyr, quietly=T)
+library(rjson, quietly=T)
+source("~/opt/r_helper_scripts/bootsSummary.r")
+```
+
+I asked people to read a passage about a baseball player helping kids. I had three conditions, one where a target adverb ("astoundingly") was repeated four times, one where the only adverb was the target adverb, and one where four different adverbs (including the target) were used.
+
+I was expecting overuse of the word "astoundingly" to result in lower numerical interpretations of the phrase "astoundingly large percentage of the time", but it appears to have done the complete opposite.
+
+```{r echo=F, fig.width=6, fig.height=3}
+### load data
+
+fix_json = function(cond) {
+  cond = gsub("\\{([a-z])", "{\"\\1", cond)
+  cond = gsub("\\[([a-z])", "[\"\\1", cond)
+  cond = gsub("([a-z])\\}", "\\1\"}", cond)
+  cond = gsub("([a-z])\\]", "\\1\"]", cond)
+  cond = gsub(":([a-z])", ":\"\\1", cond)
+  cond = gsub("([a-z]):", "\\1\":", cond)
+  cond = gsub(",([a-z])", ",\"\\1", cond)
+  cond = gsub("([a-z]),", "\\1\",", cond)
+  return(cond)
+}
+
+d = read.table("degree-adverbs-exp6.tsv", header=T, sep="\t")
+
+## i logged condition badly, and this is what I get. :(
+d$target = sapply(as.character(d$Answer.condition), function(cond) {
+  cond = fix_json(cond)
+  return(fromJSON(cond)$target)
+})
+
+## i logged condition badly, and this is what I get. :(
+d$condition = sapply(as.character(d$Answer.condition), function(cond) {
+  cond = fix_json(cond)
+  return(fromJSON(cond)$condition)
+})
+
+d = d[,c("workerid", "type", "response", "correct", "condition")]
+
+adverbs = d[d$type == "amount",]
+adverbs$response = as.numeric(as.character(adverbs$response))
+adverbs_summary = bootsSummary(data=adverbs, measurevar="response", groupvars=c("condition"))
+
+p = ggplot(data=adverbs_summary, aes(x=condition, y=response, colour=condition)) +
+  geom_point() +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=condition))
+print(p)
+```
+
+I'm not sure how robust this is.
+
+Maybe it's a function of the particular story I used. Overuse of adverbs is characteristic of childrens' writing, and a child would actually be a more credible source than an adult on how much time this baseball player spent with kids.
+
+It might also be specific to "astoundingly", or particular features that "astoundingly" has.

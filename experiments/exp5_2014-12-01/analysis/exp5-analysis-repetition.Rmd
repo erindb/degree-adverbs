@@ -1,0 +1,144 @@
+---
+title: "Degree Adverbs: Experiment 5: Replication"
+author: "erin"
+date: "12/01/2014"
+output: html_document
+---
+
+```{r echo=F}
+### load required packages
+
+library(lme4, quietly=T)
+library(lmerTest, quietly=T)
+library(ggplot2, quietly=T)
+library(plyr, quietly=T)
+library(rjson, quietly=T)
+source("~/opt/r_helper_scripts/bootsSummary.r")
+source("~/opt/r_helper_scripts/gg_themes.R")
+```
+
+Procedure is exactly the same as Experiment 1.
+
+```{r echo=F}
+### load data
+
+d = read.table("degree-adverbs-exp5.tsv", header=T, sep="\t")
+d = d[,c("workerid", "adverb", "object", "response", "gender")]
+d$workerid = as.factor(d$workerid)
+d$logprice = log(d$response)
+d = ddply(d, .(workerid), transform, zlogprice=scale(logprice))
+d$adverb = as.character(d$adverb)
+
+# for clean data visualization, but not for analysis
+d = ddply(d, .(workerid, object), transform, zzlogprice=scale(logprice))
+d = ddply(d, .(workerid, object), transform, zzprice=scale(response))
+
+# one participant gave all of the same object the same price, regardless of intensifier
+d = d[!is.na(d$zzlogprice),]
+d = d[!is.nan(d$zzlogprice),]
+
+ngrams = read.table("ngrams-exp4.csv", header=T, sep=",")
+frequencies = ngrams$frequency
+names(frequencies) = as.character(ngrams$ngram)
+syllables = ngrams$syllables
+names(syllables) = ngrams$ngram
+d$frequency = sapply(d$adverb, function(adverb) {return(frequencies[adverb])})
+d$syllables = sapply(d$adverb, function(adverb) {return(syllables[adverb])})
+total_1grams = 1024908267229
+d$surprisal = log(total_1grams) - log(d$frequency)
+```
+
+We used a slightly different set of ngrams from experiment 1 (but the same as in experiments 4 and 6) and there were 30 participants.
+
+```{r echo=F}
+print(ngrams)
+```
+
+We find that surprisal and syllable length both predict the numeric value that participants give us.
+
+
+```{r echo=F, fig.width=10, fig.height=6}
+d_summary = bootsSummary(data=d, measurevar="logprice", groupvars=c("adverb", "surprisal", "syllables"))
+p = ggplot(data=d_summary, aes(x=surprisal, y=logprice, colour=factor(syllables))) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  theme_black() +
+  scale_colour_manual(values=rev(gg_color_hue(7)[1:6])) +
+  geom_text(aes(label=adverb)) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0))
+print(p)
+ggsave("exp5-surprisal-raw.png", width=10, height=6)
+p = ggplot(data=d_summary, aes(x=syllables, y=logprice, colour=surprisal)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  theme_black() +
+  scale_colour_gradientn(colours=rev(gg_color_hue(7)[1:6])) +
+  geom_text(aes(label=adverb)) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=syllables, width=0))
+print(p)
+ggsave("exp5-syllables-raw.png", width=10, height=6)
+
+d_summary = bootsSummary(data=d, measurevar="logprice", groupvars=c("adverb", "surprisal", "syllables", "object"))
+p = ggplot(data=d_summary, aes(x=surprisal, y=logprice, colour=factor(syllables))) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  facet_wrap(~object) +
+  theme_black() +
+  scale_colour_manual(values=rev(gg_color_hue(7)[1:6])) +
+  geom_text(aes(label=adverb)) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0))
+print(p)
+ggsave("exp5-surprisal-raw-facet.png", width=10, height=6)
+p = ggplot(data=d_summary, aes(x=syllables, y=logprice, colour=surprisal)) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  facet_wrap(~object) +
+  theme_black() +
+  scale_colour_gradientn(colours=rev(gg_color_hue(7)[1:6])) +
+  geom_text(aes(label=adverb)) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=syllables, width=0))
+print(p)
+ggsave("exp5-syllables-raw-facet.png", width=10, height=6)
+
+d_summary = bootsSummary(data=d, measurevar="zzlogprice", groupvars=c("adverb", "surprisal", "syllables"))
+p = ggplot(data=d_summary, aes(x=surprisal, y=zzlogprice, colour=factor(syllables))) +
+  geom_point() +
+  geom_smooth(method="lm", se=T, colour="black") +
+  theme_black() +
+  scale_colour_manual(values=rev(gg_color_hue(7)[1:6])) +
+  geom_text(aes(label=adverb)) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0))
+print(p)
+ggsave("exp5-surprisal.png", width=10, height=6)
+# d_summary = bootsSummary(data=d, measurevar="zzlogprice", groupvars=c("adverb", "surprisal", "syllables"))
+# p = ggplot(data=d_summary, aes(x=surprisal, y=zzlogprice, colour=factor(syllables))) +
+#   geom_point() +
+#   geom_smooth(method="lm", se=T, colour="black") +
+#   #facet_wrap(~object) +
+#   theme_blackDisplay() +
+#   scale_colour_manual(values=rev(gg_color_hue(7)[1:6])) +
+#   geom_text(aes(label=adverb)) +
+#   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0))
+# print(p)
+# ggsave("exp5-surprisal.png", width=10, height=6)
+# p = ggplot(data=d_summary, aes(x=syllables, y=zzlogprice, colour=surprisal)) +
+#   geom_point() +
+#   geom_smooth(method="lm", se=T, colour="black") +
+#   #facet_wrap(~object) +
+#   theme_blackDisplay() +
+#   scale_colour_gradientn(colours=rev(gg_color_hue(7)[1:6])) +
+#   geom_text(aes(label=adverb)) +
+#   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=syllables, width=0))
+# print(p)
+# ggsave("exp5-syllables.png", width=10, height=6)
+```
+
+Here's a mixed effects model that shows this:
+
+```{r echo=F}
+fit = lmer(logprice ~ 1 + surprisal + syllables +
+             (1 + surprisal + syllables | workerid/object), data=d)
+print(summary(fit))
+```
+
+
