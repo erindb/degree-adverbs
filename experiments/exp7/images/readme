@@ -1,0 +1,18 @@
+I picked some pairs of intensifiers that seem to have similar surprisal in google web ngrams and also get similar prices in Experiment 5.
+
+strongest:
+* insanely
+* outrageously
+
+mid-strength:
+* exceedingly
+* amazingly
+
+lowish-strength:
+* terribly
+* utterly
+
+outrageously_story is the story with "outrageously" as the target word
+outrageously1 is a question panel where Jim says "outrageously expensive" for the first person's laptop
+outrageously2 is a question panel where Jim says "outrageously expensive" for the second person's laptop
+outrageously3 is a question panel where Jim says "outrageously expensive" for the third person's laptop
