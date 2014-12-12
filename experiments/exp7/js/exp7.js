@@ -118,18 +118,18 @@ function make_slides(f) {
 function init() {
   exp.catch_trials = [];
   exp.condition = _.sample([
-    {target: "outrageously", control: "insanely", questions: ["outrageously1", "insanely2", "expensive3"]},
-    {target: "outrageously", control: "insanely", questions: ["outrageously1", "expensive2", "insanely3"]},
-    {target: "outrageously", control: "insanely", questions: ["insanely1", "outrageously2", "expensive3"]},
-    {target: "outrageously", control: "insanely", questions: ["insanely1", "expensive2", "outrageously3"]},
-    {target: "outrageously", control: "insanely", questions: ["expensive1", "insanely2", "outrageously3"]},
-    {target: "outrageously", control: "insanely", questions: ["expensive1", "outrageously2", "insanely3"]},
-    {target: "insanely", control: "outrageously", questions: ["outrageously1", "insanely2", "expensive3"]},
-    {target: "insanely", control: "outrageously", questions: ["outrageously1", "expensive2", "insanely3"]},
-    {target: "insanely", control: "outrageously", questions: ["insanely1", "outrageously2", "expensive3"]},
-    {target: "insanely", control: "outrageously", questions: ["insanely1", "expensive2", "outrageously3"]},
-    {target: "insanely", control: "outrageously", questions: ["expensive1", "insanely2", "outrageously3"]},
-    {target: "insanely", control: "outrageously", questions: ["expensive1", "outrageously2", "insanely3"]},
+    {target: "very", control: "quite", questions: ["very1", "quite2", "expensive3"]},
+    {target: "very", control: "quite", questions: ["very1", "expensive2", "quite3"]},
+    {target: "very", control: "quite", questions: ["quite1", "very2", "expensive3"]},
+    {target: "very", control: "quite", questions: ["quite1", "expensive2", "very3"]},
+    {target: "very", control: "quite", questions: ["expensive1", "quite2", "very3"]},
+    {target: "very", control: "quite", questions: ["expensive1", "very2", "quite3"]},
+    {target: "quite", control: "very", questions: ["very1", "quite2", "expensive3"]},
+    {target: "quite", control: "very", questions: ["very1", "expensive2", "quite3"]},
+    {target: "quite", control: "very", questions: ["quite1", "very2", "expensive3"]},
+    {target: "quite", control: "very", questions: ["quite1", "expensive2", "very3"]},
+    {target: "quite", control: "very", questions: ["expensive1", "quite2", "very3"]},
+    {target: "quite", control: "very", questions: ["expensive1", "very2", "quite3"]},
   ]);
   exp.system = {
       Browser : BrowserDetect.browser,
