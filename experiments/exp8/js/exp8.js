@@ -30,7 +30,7 @@ function make_slides(f) {
     },
     button : function() {
       var rt = Date.now() - _s.trial_start;
-      if (rt < 1) {
+      if (rt < 10000) {
         $(".err").show();
         _s.impatient = true;
       } else {
