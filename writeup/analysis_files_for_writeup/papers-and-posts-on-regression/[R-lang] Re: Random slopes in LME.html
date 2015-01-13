@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head>
+   <title> [R-lang] Re: Random slopes in LME
+   </title>
+   <link rel="Index" href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/index.html">
+   <link rel="made" href="mailto:tiflo%40csli.stanford.edu?Subject=Re:%20%5BR-lang%5D%20Re%3A%20Random%20slopes%20in%20LME&amp;In-Reply-To=%3CAANLkTin-6wPY2fq40o%2BeAZsSq3iqBzKQjJjjKw-P1Gnn%40mail.gmail.com%3E">
+   <meta name="robots" content="index,nofollow">
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <link rel="Previous" href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/000224.html">
+   <link rel="Next" href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/000226.html">
+ </head>
+ <body bgcolor="#ffffff">
+   <h1>[R-lang] Re: Random slopes in LME</h1>
+    <b>T. Florian Jaeger</b> 
+    <a href="mailto:tiflo%40csli.stanford.edu?Subject=Re:%20%5BR-lang%5D%20Re%3A%20Random%20slopes%20in%20LME&amp;In-Reply-To=%3CAANLkTin-6wPY2fq40o%2BeAZsSq3iqBzKQjJjjKw-P1Gnn%40mail.gmail.com%3E" title="[R-lang] Re: Random slopes in LME">tiflo@csli.stanford.edu
+       </a><br>
+    <i>Sun Feb 20 12:28:14 PST 2011</i>
+    <p></p><ul>
+        <li>Previous message: <a href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/000224.html">[R-lang] Re: Random slopes in LME
+</a></li>
+        <li>Next message: <a href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/000226.html">[R-lang] Re: Random slopes in LME
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/date.html#225">[ date ]</a>
+              <a href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/thread.html#225">[ thread ]</a>
+              <a href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/subject.html#225">[ subject ]</a>
+              <a href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/author.html#225">[ author ]</a>
+         </li>
+       </ul>
+    <hr>  
+<!--beginarticle-->
+<pre>Hi R-lang,
+
+maybe this is a good time to comment on a more general issue that Roger also
+brought up. As more and more people employ mixed models to analyze their
+data, we will need some conventions in terms of the procedures employed and
+the aspects of the analysis that are reported. While that is probably
+unattainable for the most general case, I think it's a reasonably achievable
+goal for standard 2 x 2 (or, by extensions, factorial) psycholinguistic
+experiments with more or less balanced data.
+
+In the meantime, I have some comments on the specific issue of random
+slopes. For a factorial design, I would submit that it should be the norm
+that we test the full factorial random effect structure with cross subject
+and item random effects. The goal of this procedure should be what I have
+called the "maximal random effect structure justified by the data" (which,
+of course, is a bit of a shorthand, since it's really the maximal random
+effect structure justified by the data under a set of assumptions, such as
+that the assumptions of the generalized linear mixed model and the
+particular family of distributions are met to a sufficient extent, that
+there is sufficient data to justify model comparison using a chisq over
+differences in deviances, that there is no overfitting issue, etc.).
+
+To see why we should test whether random slopes are required (and include
+them in the mode, if they are required), it might be helpful to recall what
+random effect structure in a linear mixed model would most closely
+correspond to our good old friends, the F1 and F2 (by-subject and by-item)
+ANOVA. For example, the F1 ANOVA is intended to not just capture
+between-subject differences in terms of the intercept (e.g. overall reading
+time differences, if we assume sum-coding). It's also meant to account for
+between-subject differences in the sensitivity to *all* of the design
+conditions (e.g. the two main effects and the interaction of a 2x2 design).
+So, the linear mixed model that most closely corresponds to the F1 ANOVA has
+the following random effect structure:
+
+(1 + Condition1 + Condition2 + Condition1:Condition2 | Participant)
+
+or shorter
+
+(1 + Condition1*Condition2 | Participant)
+
+and, similarly, the closest thing to an F2 analysis would be
+
+(1 + Condition1*Condition2 | Item)
+
+hence, to take maximal advantage of the fact that linear mixed models allow
+us to combine both analyses into one (reducing, among other things, the
+conservativity of minF analyses), the starting model should probably have
+both of these as crossed random effects, plus, obviously, the fixed effects
+for the design:
+
+1 + Condition1*Condition2 + (1 + Condition1*Condition2 | Participant) + (1 +
+Condition1*Condition2 | Item)
+
+I'll call this the full model (not the same as the model with "the maximal
+random effect structure justified by the data"!). Now, not all of the random
+effects may be justified, as we can test by model comparison. For example,
+the model might not even converge. So, we can simplify the model stepwise,
+starting with the higher order random effect terms (the highest
+interaction). I am assuming that we will leave the fixed effect structure
+untouched since it's directly justified by the theoretical interests that
+led us to create the 2x2 design.
+
+As we simplify the random effect structure stepwise, there are some tips
+that I find useful (see also
+<a href="http://hlplab.wordpress.com/2009/05/14/random-effect-structure/">http://hlplab.wordpress.com/2009/05/14/random-effect-structure/</a> for a simple
+recipe):
+
+1) Let's start by comparing the full model with a model with just the random
+intercepts:
+
+1 + Condition1*Condition2 + (1 | Participant) + (1 | Item)
+
+Let's call this the intercept-only model.  I'll assume that we have enough
+data to justify model comparison using a chisq over differences in deviances
+(that will usually be the case for a reasonably sizes psycholinguistic
+experiment). I'll also assume ML-fitted models. If the difference in
+deviance between the full model and intercept-only model is small, i.e. if
+the chisq of the model comparison has a value of less than 3 (or 2, if you
+want to be conservative; if I recall correctly even a chisq(1)&lt; 3.8 is
+technically no significant), we don't really need to look further. There is
+no way then that any of the intermediate models could be significant. That's
+because difference in deviance between nested models are additive. I.e. if
+model A is nested in B and B is nested in C (and hence A is nested in C),
+then the difference in deviance between A and B plus the difference between
+B and C = the difference between A and C.
+
+Even if the chisq between the full and the intercept-only model is larger,
+you'll immediately get an idea of how whether a lot or just a little of
+model improvement will be achieved by adding random slopes. So, even if you
+need to continue your comparisons to find the best model, you've learned
+something valuable at that moment.
+
+2) In our typical psycholinguistic experiment, participants are exposed to a
+barrage of lexically and structurally rather homogeneous stimuli.
+Researchers and paradigms, of course, differ in how a typical set of stimuli
+looks, but if you live in the "The plumber that the janitor knew is from New
+York." stimulus world and you 'successfully' created a stimulus set that
+seeks its match in terms of homogeneity (a match it most certainly won't
+find in actual language use ;), then, in my experience, you can expect your
+item random effects to be rather small. I don't necessarily think that's a
+great thing, but it's convenient with regard to the statistical issues at
+hand. If you work with such stimuli, I recommend starting by comparing the
+full model to a model with only random subject effects:
+
+1 + Condition1*Condition2 + (1 + Condition1*Condition2 | Participant)
+
+Again, if the chisq is really small, you don't need to look into item
+effects any further.
+
+
+3) Hal Tily has developed a function (which he posted a while ago to this
+list) that automatically performs stepwise model comparison. While I am
+*not* advocating to blindly rely on automatic model simplification, I think
+this procedure -if restricted to random effects- could be acceptable for
+balanced designs. I think Roger Levy and Hal are working on a new an
+improved implementation, which hopefully will soon be available to this list
+(yippie!).
+
+Ok, sorry, for the unsolicited, long and perhaps trivial (?) email. Also, I
+am sure I've screwed up somewhere, so feel free to correct, expand. I just
+had the feeling that the general procedure outlined above wasn't clear to
+some (many?) readers of this list.
+
+Florian
+
+
+
+On Sun, Feb 20, 2011 at 8:08 AM, Zhenguang Garry Cai &lt;<a href="mailto:z.cai@ed.ac.uk">z.cai@ed.ac.uk</a>&gt; wrote:
+
+&gt;<i> Hi Ariel,
+</i>&gt;<i>
+</i>&gt;<i> Sorry for the somewhat misleading information. I do not recall any formal
+</i>&gt;<i> requirement from JML for random slopes, but in a recent submission to JML, I
+</i>&gt;<i> was required to include random slopes. Also, as Roger Levy said, including
+</i>&gt;<i> random slopes is a sensible thing to do.
+</i>&gt;<i>
+</i>&gt;<i>
+</i>&gt;<i> Garry
+</i>&gt;<i>
+</i>&gt;<i>
+</i>&gt;<i> On 20/02/2011 12:37, Ariel M. Goldberg wrote:
+</i>&gt;<i>
+</i>&gt;&gt;<i> Garry,
+</i>&gt;&gt;<i>
+</i>&gt;&gt;<i> Does JML have a set of specific requirements for mixed-effects analyses?
+</i>&gt;&gt;<i>  I wasn't able to find anything in their author instructions.
+</i>&gt;&gt;<i>
+</i>&gt;&gt;<i> Thanks,
+</i>&gt;&gt;<i> AG
+</i>&gt;&gt;<i>
+</i>&gt;&gt;<i> On Feb 13, 2011, at 1:17 PM, Zhenguang Cai wrote:
+</i>&gt;&gt;<i>
+</i>&gt;&gt;<i>  Hi all,
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> I have a question concerning random slopes in mixed effects modeling. So
+</i>&gt;&gt;&gt;<i> I ran a structural priming experiment with a 4-level variable (prime type,
+</i>&gt;&gt;&gt;<i> A, B, D and D). The dependent variable is response construction (DO dative
+</i>&gt;&gt;&gt;<i> vs. PO dative).  The following is a summary of the experiment results.
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> Prime           A       B       C       D
+</i>&gt;&gt;&gt;<i> DOs             85      24      38      59
+</i>&gt;&gt;&gt;<i> POs             82      144     128     109
+</i>&gt;&gt;&gt;<i> % of DOs        .51     .14     .23     .35
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> I am interested in whether different prime types induced different
+</i>&gt;&gt;&gt;<i> priming, e.g., whether A led to more DO responses than B, C or D. Initially,
+</i>&gt;&gt;&gt;<i> I ran LME analyses with random intercepts only. For instance, I did the
+</i>&gt;&gt;&gt;<i> following to see whether there was a main effect of prime type.
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> fit.0 = lmer(Response~1+(1|Subject)+(1|Item), family=binomial)
+</i>&gt;&gt;&gt;<i> fit.p = lmer(Response~Prime+(1|Subject)+(1|Item), family=binomial)
+</i>&gt;&gt;&gt;<i> anova (fit.0, fit.p)
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> Then, I did pairwise comparison by changing the reference level for
+</i>&gt;&gt;&gt;<i> Prime, e.g.,
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> fit.p = lmer(Response~relevel(Prime,ref="B")+(1|Subject)+(1|Item),
+</i>&gt;&gt;&gt;<i> family=binomial)
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> It seems that all the levels differed from each other. In particular, the
+</i>&gt;&gt;&gt;<i> comparison between C and D results in Estimate = -1.02, SE = .32, Z
+</i>&gt;&gt;&gt;<i> = -3.21, p&lt;  .01.
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> But it seems I have to consider whether the slope for Prime differs
+</i>&gt;&gt;&gt;<i> across subjects or item (at least this is a requirement from JML). So the
+</i>&gt;&gt;&gt;<i> following is the way I considered whether a random slope should be included
+</i>&gt;&gt;&gt;<i> in a model. I wonder whether I did the correct thing. I first determined
+</i>&gt;&gt;&gt;<i> whether subject random slope should be included by comparing the following
+</i>&gt;&gt;&gt;<i> two models.
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> fit.p = lmer(Response~Prime+(1|Subject)+(1|Item), family=binomial)
+</i>&gt;&gt;&gt;<i> fit.ps = lmer(Response~Prime+(Prime+1|Subject)+(1|Item),
+</i>&gt;&gt;&gt;<i> family=binomial)
+</i>&gt;&gt;&gt;<i> anova (fit.p, fit.ps)
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> I did the same thing about item random slopes.
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> fit.p = lmer(Response~Prime+(1|Subject)+(1|Item), family=binomial)
+</i>&gt;&gt;&gt;<i> fit.pi = lmer(Response~Prime+(1|Subject)+(Prime+1|Item), family=binomial)
+</i>&gt;&gt;&gt;<i> anova (fit.p, fit.pi)
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> The subject random slope had a significant effect, so I included it in
+</i>&gt;&gt;&gt;<i> the final model (e.g., fit.ps). But pairwise comparison returned
+</i>&gt;&gt;&gt;<i> something that is different from my initial analyses (when random slope was
+</i>&gt;&gt;&gt;<i> not considered). That is, the comparison between C and D became only
+</i>&gt;&gt;&gt;<i> marginally significant (Estimate = -.85, SE = .47, z = -1.79, p = .07). It
+</i>&gt;&gt;&gt;<i> is a bit strange because the 9% difference between B and C turned out to be
+</i>&gt;&gt;&gt;<i> significant, but the 12% difference between C and D was not.
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> Or did I do anything wrong in the analyses?
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> Thanks,
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i> Garry
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;&gt;<i>
+</i>&gt;&gt;<i>
+</i>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <a href="http://mailman.ucsd.edu/pipermail/ling-r-lang-l/attachments/20110220/f35f962a/attachment-0001.html">http://mailman.ucsd.edu/pipermail/ling-r-lang-l/attachments/20110220/f35f962a/attachment-0001.html</a> 
+</pre>
+
+
+<!--endarticle-->
+    <hr>
+    <p></p><ul>
+        <!--threads-->
+	<li>Previous message: <a href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/000224.html">[R-lang] Re: Random slopes in LME
+</a></li>
+	<li>Next message: <a href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/000226.html">[R-lang] Re: Random slopes in LME
+</a></li>
+         <li> <b>Messages sorted by:</b> 
+              <a href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/date.html#225">[ date ]</a>
+              <a href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/thread.html#225">[ thread ]</a>
+              <a href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/subject.html#225">[ subject ]</a>
+              <a href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/author.html#225">[ author ]</a>
+         </li>
+       </ul>
+
+<hr>
+<a href="https://mailman.ucsd.edu/mailman/listinfo/ling-r-lang-l">More information about the ling-r-lang-L
+mailing list</a><br>
+
+</body></html>
