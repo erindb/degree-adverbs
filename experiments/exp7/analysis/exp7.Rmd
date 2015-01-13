@@ -1,0 +1,83 @@
+---
+title: "Intensify of degree adverbs: Experiment 1"
+author: "erin"
+output: html_document
+---
+
+```{r echo=F}
+### load required packages
+
+library(lme4, quietly=T)
+#library(lmerTest, quietly=T)
+library(ggplot2, quietly=T)
+library(plyr, quietly=T)
+library(rjson, quietly=T)
+#library(xkcd, quietly=T)
+source("~/opt/r_helper_scripts/bootsSummary.r")
+source("~/opt/r_helper_scripts/gg_themes.R")
+
+#library(sysfonts)
+#download.file("http://simonsoftware.se/other/xkcd.ttf", dest="~/.fonts/xkcd.ttf", mode="wb")
+#font.add("xkcd", regular = "xkcd.ttf")
+```
+
+Do degree adverbs with higher costs have stronger meanings?
+
+```{r echo=F}
+### load data
+
+d = read.table("exp7.tsv", header=T, sep="\t")
+d$nummber = d$word
+d$word = d$number
+d$number = d$nummber
+d$target = sapply(as.character(d$Answer.condition),function(condition) {
+  strsplit(strsplit(condition, ",")[[1]][[1]], ":")[[1]][[2]]
+})
+d = d[,c("workerid", "target", "response", "number", "word")]
+d$workerid = as.factor(d$workerid)
+#d = d[d$number == "1",]
+d$logprice = log(d$response)
+d$type = rep("control", nrow(d))
+d$type[d$word == d$target] = "target"
+d$type[d$word == "expensive"] = "bare"
+d$type[is.na(d$word)] = "reading"
+d = d[d$type != "reading",]
+d = d[,c("workerid", "target", "response", "number", "type", "logprice")]
+wide_d = reshape(data=d, direction = "wide", idvar = "workerid", timevar = "type", v.names = c("response", "number", "logprice"))
+wide_d$diff.target = wide_d$logprice.target - wide_d$logprice.bare
+wide_d$diff.control = wide_d$logprice.control - wide_d$logprice.bare
+df = reshape(
+  wide_d[,c("workerid", "target", "diff.target", "diff.control")],
+  varying=c("diff.target", "diff.control"),
+  direction = "long")
+df$type = df$time
+```
+
+```{r echo=F, fig.width=10, fig.height=6}
+df_summary = bootsSummary(data=df, measurevar="diff", groupvars=c("type", "target"))
+p = ggplot(data=df_summary, aes(x=type, y=diff, colour=target)) +
+  geom_point() +
+  theme_black() +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=type, width=0))
+print(p)
+ggsave("exp7.png", width=10, height=6)
+```
+
+```{r echo=F, fig.width=10, fig.height=6}
+d_summary = bootsSummary(data=d, measurevar="logprice", groupvars=c("type"))
+p = ggplot(data=d_summary, aes(x=type, y=logprice)) +
+  geom_point(colour="white") +
+  theme_black() +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=type, width=0), colour="white")
+print(p)
+ggsave("exp7.png", width=10, height=6)
+```
+
+```{r echo=F}
+fit = lmer(logprice ~ 1 + surprisal + syllables +
+             (1 + surprisal + syllables | workerid) +
+             (1 + surprisal + syllables | workerid:object), data=d)
+print(summary(fit))
+```
+
+

@@ -1,0 +1,116 @@
+---
+title: "Intensify of degree adverbs: Experiment 1"
+author: "erin"
+output: html_document
+---
+
+```{r echo=F}
+### load required packages
+
+library(lme4, quietly=T)
+#library(lmerTest, quietly=T)
+library(ggplot2, quietly=T)
+library(plyr, quietly=T)
+library(rjson, quietly=T)
+#library(xkcd, quietly=T)
+source("~/opt/r_helper_scripts/bootsSummary.r")
+source("~/opt/r_helper_scripts/gg_themes.R")
+
+#library(sysfonts)
+#download.file("http://simonsoftware.se/other/xkcd.ttf", dest="~/.fonts/xkcd.ttf", mode="wb")
+#font.add("xkcd", regular = "xkcd.ttf")
+```
+
+Do degree adverbs with higher costs have stronger meanings?
+
+```{r echo=F}
+### load data
+
+d = read.table("degree-adverbs-exp5.tsv", header=T, sep="\t")
+d = d[,c("workerid", "adverb", "object", "response", "gender")]
+d$workerid = as.factor(d$workerid)
+d$logprice = log(d$response)
+d = ddply(d, .(workerid), transform, zlogprice=scale(logprice))
+d$adverb = as.character(d$adverb)
+
+# for clean data visualization, but not for analysis
+d = ddply(d, .(workerid, object), transform, zzlogprice=scale(logprice))
+d = ddply(d, .(workerid, object), transform, zzprice=scale(response))
+
+# one participant gave all of the same object the same price, regardless of intensifier
+d = d[!is.na(d$zzlogprice),]
+d = d[!is.nan(d$zzlogprice),]
+
+ngrams = read.table("ngrams-exp4.csv", header=T, sep=",")
+frequencies = ngrams$frequency
+names(frequencies) = as.character(ngrams$ngram)
+syllables = ngrams$syllables
+names(syllables) = ngrams$ngram
+d$frequency = sapply(d$adverb, function(adverb) {return(frequencies[adverb])})
+d$syllables = sapply(d$adverb, function(adverb) {return(syllables[adverb])})
+total_1grams = 1024908267229
+d$surprisal = log(total_1grams) - log(d$frequency)
+```
+
+Questions looked like this:
+
+![screenshot.png](screenshot.png)
+
+We used `r length(unique(d$adverb))` intensifying degree adverbs.
+
+```{r echo=F}
+print(ngrams)
+```
+
+There were `r length(unique(d$workerid))` participants.
+
+We find that surprisal (from Google Web1T5grams corpus) and syllable length both predict the numeric value that participants give us.
+
+```{r echo=F, fig.width=10, fig.height=6}
+d_summary = bootsSummary(data=d, measurevar="logprice", groupvars=c("adverb", "surprisal", "syllables"))
+d_summary$syllables = as.factor(d_summary$syllables)
+p = ggplot(data=d_summary, aes(x=surprisal, y=logprice, colour=syllables)) +
+  geom_point() +
+  geom_smooth(method="lm", #position="jitter",
+              se=T, colour="white") +
+  #scale_colour_manual(values=rev(gg_color_hue(7)[1:6])) +
+  geom_text(aes(label=adverb)#, family="xkcd"
+            ) +
+  theme_black() +
+  #theme_xkcd() +
+  ggtitle("how much does a ___ expensive laptop cost?") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0))
+print(p)
+ggsave("exp5-surprisal-raw.png", width=10, height=6)
+```
+
+The same pattern shows up across each of the different items.
+
+```{r echo=F, fig.width=10, fig.height=6}
+d_summary = bootsSummary(data=d, measurevar="logprice", groupvars=c("adverb", "object", "surprisal", "syllables"))
+d_summary$syllables = as.factor(d_summary$syllables)
+p = ggplot(data=d_summary, aes(x=surprisal, y=logprice, colour=syllables)) +
+  geom_point() +
+  facet_wrap(~ object) +
+  geom_smooth(method="lm", #position="jitter",
+              se=T, colour="white") +
+  #scale_colour_manual(values=rev(gg_color_hue(7)[1:6])) +
+  geom_text(aes(label=adverb)#, family="xkcd"
+            ) +
+  theme_black() +
+  #theme_xkcd() +
+  ggtitle("how much does a ___ expensive laptop cost?") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0))
+print(p)
+ggsave("exp5-surprisal-raw.png", width=10, height=6)
+```
+
+```{r echo=F}
+fit = lmer(logprice ~ 1 + surprisal + syllables +
+             (1 + surprisal + syllables | workerid) +
+             (1 + surprisal + syllables | object) +
+             (1 + surprisal + syllables | workerid:object), data=d)
+print(summary(fit))
+```
+
+
