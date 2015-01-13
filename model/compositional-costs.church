@@ -1,6 +1,6 @@
 (define alpha 5)
 
-(define distribution 'monotonic)
+(define distribution 'peaked-mid)
 
 (define (power lst alpha) (map (lambda (x) (expt x alpha)) lst))
 
@@ -9,34 +9,38 @@
       (append (list start) (seq (+ start distance) distance end))))
 
 (define (theta-prior)
-  (uniform-draw (seq 0 0.1 1)))
+  (uniform-draw (seq 0 0.25 1)))
 
-(define (eps-prior)
-  (multinomaial))
+(define (extr-prior)
+  (uniform-draw '(0 0.25 0.5)))
 
-(define (feppiness-prior)
+(define (height-prior)
   (multinomial
-   '(0 1 0.2 0.4 0.6 0.8)
+   '(0.00 1.00 0.25 0.50 0.75)
    (case distribution
-         (('uniform) '(.1 .1 .1 .1 .1 .1))
-          (('peaked-down) '())
-          (('monotonic) '(0.04761905 0.28571429 0.09523810 0.14285714 0.19047619 0.23809524))
-          (('peaked-both) '(25.4449863 25.4449863  0.2639388  0.1832403  0.1832403  0.2639388))
-          (('peaked-mid) '(0.00876415 0.00876415 0.06475880 0.17603266 0.17603266 0.06475880))
-          (('peaked-up) '(0.000001 0.63840654 0.00102145 0.01634321 0.08273749 0.26149132))
+          (('peaked-both) '(0.27272727 0.27272727 0.18181818 0.09090909 0.18181818))
+          (('peaked-mid) '(0.02192964 0.02192964 0.22851215 0.49911642 0.22851215))
           (else (lambda () (display "error 0: that's not a valid distribution"))))))
 
 (define (meaning utterance)
   (case utterance
         (('none) #t)
-        (('very) '(> feppiness th-v))
-        (('extremely) '(> feppiness th-e))
-        ;(('extraordinarily) '(> feppiness th-x))
-        (('feppy) '(> feppiness theta))))
+        (('tall) '(scalar height theta-tall 'above eps-default))
+        (('short) '(scalar height theta-short 'below eps-default))
+        (('very-tall) '(scalar height theta-tall 'above theta-very))
+        (('very-short) '(scalar height theta-short 'below theta-very))
+        (('extremely-tall) '(scalar height theta-tall 'above theta-extremely))
+        (('extremely-short) '(scalar height theta-short 'below theta-extremely))
+        ))
 
-(define utterances '(none feppy very extremely ;extraordinarily
+(define (scalar value theta direction amount)
+  (if (equal? direction 'above)
+    (>= (- value theta) amount)
+    (>= (- theta value) amount)))
+
+(define utterances '(none tall short very-tall very-short extremely-tall extremely-short
   ))
-(define costs '(0 .1 2 100 ;4
+(define costs '(0 1 1 2 2 10 10
   ))
 
 (define (utterance-prior)
@@ -46,25 +50,25 @@
 
 (define literal-listener
   (mem
-   (lambda (utterance theta ;th-x 
-    th-v th-e)
+   (lambda (utterance theta-tall theta-short theta-very theta-extremely eps-default
+     )
      (enumeration-query
-      (define feppiness (feppiness-prior))
-      feppiness
+      (define height (height-prior))
+      height
       (eval (meaning utterance))))))
 
 (define speaker
   (mem
-   (lambda (knowledge theta ;th-x 
-    th-v th-e)
+   (lambda (knowledge theta-tall theta-short theta-very theta-extremely eps-default
+           )
      (enumeration-query
       (define utterance (utterance-prior))
       (define interpretation
         (apply multinomial
-               (list (first (literal-listener utterance theta ;th-x 
-                th-v th-e))
-                     (power (second (literal-listener utterance theta ;th-x 
-                      th-v th-e)) alpha))))
+               (list (first (literal-listener utterance theta-tall theta-short theta-very theta-extremely eps-default
+                            ))
+                     (power (second (literal-listener utterance theta-tall theta-short theta-very theta-extremely eps-default
+                                    )) alpha))))
       utterance
       (equal? interpretation knowledge)))))
 
@@ -72,17 +76,20 @@
   (mem
    (lambda (utterance)
      (enumeration-query
-      (define theta (theta-prior))
-      ;(define th-x (theta-prior))
-      (define th-v (theta-prior))
-      (define th-e (theta-prior))
-      (define feppiness (feppiness-prior))
-      feppiness
-      (equal? (apply multinomial (speaker feppiness theta ;th-x 
-        th-v th-e)) utterance)))))
+      (define theta-tall (theta-prior))
+      (define theta-short (theta-prior))
+      (define eps-default (extr-prior))
+      (define theta-very (extr-prior))
+      (define theta-extremely (extr-prior))
+      (define height (height-prior))
+      height
+      (equal? (apply multinomial (speaker height theta-tall theta-short theta-very theta-extremely eps-default
+                                 )) utterance)))))
 
 (display (pragmatic-listener 'none))
-(display (pragmatic-listener 'feppy))
-(display (pragmatic-listener 'very))
-(display (pragmatic-listener 'extremely))
-;(display (pragmatic-listener 'extraordinarily))
+(display (pragmatic-listener 'tall))
+(display (pragmatic-listener 'short))
+(display (pragmatic-listener 'very-tall))
+(display (pragmatic-listener 'very-short))
+(display (pragmatic-listener 'extremely-tall))
+(display (pragmatic-listener 'extremely-short))
