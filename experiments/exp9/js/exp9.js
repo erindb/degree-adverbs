@@ -241,7 +241,7 @@ function make_slides(f) {
 
 /// init ///
 function init() {
-  /*exp.word_types = _.shuffle([
+  exp.word_types = _.shuffle([
     {
       "truly": "target",
       "very": "control"
@@ -250,13 +250,8 @@ function init() {
       "truly": "control",
       "very": "target"
     }
-  ])[0]*/
-  exp.word_types = {
-    "truly": "target",
-    "very": "control"
-  };
-  //exp.dialect = _.shuffle(["english", "other"])[0];
-  exp.dialect = "other";
+  ])[0]
+  exp.dialect = _.shuffle(["english", "other"])[0];
   exp.target = exp.word_types["truly"] == "target" ? "truly" : "very";
   exp.control = exp.word_types["truly"] == "target" ? "very" : "truly";
 
