@@ -192,7 +192,7 @@ function make_slides(f) {
         });
         exp.data_trials.push({
           "rt": rt,
-          "response": response,
+          "response": response_excitable,
           "qtype": "excitable"
         });
         exp.go();
