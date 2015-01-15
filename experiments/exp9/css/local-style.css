@@ -1,0 +1,33 @@
+.slider {
+  /* default is width 400 and margin 10 */
+	width: 400;
+	margin: 20px auto;
+}
+
+.adverb {
+	background-color: #54ADE5;/*#04abe3;*/
+	border: 1px solid black;
+	margin: 2px;
+	padding: 2px;
+	display: inline-block;
+}
+
+#words {
+	width: 500px;
+	height: 300px;
+}
+
+.wide_comic {
+	width: 700px;
+	margin: 20px;
+}
+
+.single_comic {
+	width: 230px;
+	margin-top: 20px;
+}
+
+.prompt {
+	padding-right: 30px;
+	text-align: right;
+}
