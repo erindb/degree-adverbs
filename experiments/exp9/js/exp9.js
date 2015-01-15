@@ -183,11 +183,17 @@ function make_slides(f) {
     button : function() {
       var rt = Date.now() - _s.trial_start;
       var response = $("#dialect_response").val();
-      if (response != "NA") {
+      var response_excitable = $('input[name="excitable"]:checked').val();
+      if (response != "NA" & response_excitable != "NA") {
         exp.data_trials.push({
           "rt": rt,
           "response": response,
           "qtype": "dialect"
+        });
+        exp.data_trials.push({
+          "rt": rt,
+          "response": response,
+          "qtype": "excitable"
         });
         exp.go();
       } else {
