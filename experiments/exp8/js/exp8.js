@@ -96,9 +96,9 @@ function make_slides(f) {
       $(".err").hide();
 
       var lines = [
-        '<tr><td class="prompt">truly</td><td>$<input class="response" id="truly_freq" type="text"></input></td></tr>',
-        '<tr><td class="prompt">very</td><td>$<input class="response" id="very_freq" type="text"></input></td></tr>',
-        '<tr><td class="prompt">yep</td><td>$<input class="response" id="yep_freq" type="text"></input></td></tr>'
+        '<tr><td class="prompt">truly</td><td><input class="response" id="truly_freq" type="text"></input></td></tr>',
+        '<tr><td class="prompt">very</td><td><input class="response" id="very_freq" type="text"></input></td></tr>',
+        '<tr><td class="prompt">yep</td><td><input class="response" id="yep_freq" type="text"></input></td></tr>'
       ]
       $("#frequency_question_responses").html(_.shuffle(lines).join(""));
 
