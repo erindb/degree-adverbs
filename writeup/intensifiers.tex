@@ -102,6 +102,7 @@ Some intensifiers seem to change this threshold more than others, and the extent
 \section{Experiment 1}
 
 To explore the hypothesis that the interpretations of intensifiers are a function of their cost, we first wanted to see whether two possible ways of measuring the cost of a word, frequency (rarer words are probably more costly) and syllable length, were related to the interpretations of intensifiers.
+\todo{need to say why we think frequency and syllable number should be aspects of ``cost''. point out that this leaves open their relative importance, how they combine, and what other factors might enter into cost.}
 
 \subsection{Method\footnote{The full experiment can be found at \url{http://web.stanford.edu/~erindb/degree-adverbs/experiments/exp5_2014-12-01/exp5.html}}}
 
@@ -183,7 +184,7 @@ We also ran the same analyses on frequency information collected from the Google
 
 In addition, we did the same using the bigram frequencies of ``\emph{[intensifer]} expensive'' rather than the unigram frequencies of the intensifiers alone. These data were much more sparse. For bigrams, we found no significant effects of surprisal using the books database and a negative effect using the web database.
 }
-The syllable lenths of our intensifiers and the surprisals were correlated, but not strongly so (r = 0.2648144).
+The syllable lenths of our intensifiers and the surprisals \todo{say what surprisal is and why we care before using it.} were correlated, but not strongly so (r = 0.2648144).
 
 \subsection{Results and Discussion}
 
@@ -208,19 +209,20 @@ So intensifiers that are more surprising and longer (and therefore are more cost
 
 \section{Experiment 2}
 
-In Experiment 2, we replicated our finding from Experiment 1 using a different dependent measure which we expect to be more sensitive to small differences in meaning and an extension to other adjectival scales.
+In Experiment 2, we extend our finding from Experiment 1 to other adjectival scales (in addition to ``expensive''). We use a ranking dependent measure which is more appropriate to non-quantitative scales and which we expect to be more sensitive to small differences in meaning.
 
 \subsection{Method\footnote{The full experiment can be found at \url{http://web.stanford.edu/~erindb/degree-adverbs/experiments/exp4/exp4.html}}}
 
 30 participants with US IP addresses participated in our Experiment 2 on Amazon's Mechanical Turk.
 
+\todo[inline]{introduce the idea of the ranking measure first.}
 Because arranging all 40 intensifiers on a computer screen would be difficult for participants, we divided the 40 intensifiers from Experiment 1 into four lists of 10 intensifiers each (Table~\ref{exp2-intensifiers}).
 Each list was randomly paired with one of four adjectives (``old'', ``expensive'', ``beautiful'', and ``tall'').
 For each adjective-list pairing, participants were shown every combination of the 10 intensifiers and the one adjective on the left side of the screen.
 They were asked to move the adjective phrases from the left to the right side of the screen, reordering the phrases from the lowest to the highest degree (Figure~\ref{exp2-q}).
 Each participant did four trials of this process, seeing all four lists and all four adjectives.
 The pairings between list and adjective were randomized between participants.
-The division of the intensifiers into lists of 10 was constant, i.e. the same 10 intensifiers were always shown together.
+The division of the intensifiers into lists of 10 was constant, i.e. the same 10 intensifiers were always shown together to ease data analysis.
 
 \begin{figure}[ht]
 \begin{center}
@@ -256,6 +258,7 @@ particularly & quite & especially & very
 \subsection{Results and Discussion}
 
 Within each intensifier list, we ran a regression using centered syllable length and surprisal to predict the ranking that participants gave the adjective phrase (the highest ranked adjective phrase in a trial got a ranking of 10, the lowest ranked adjective phrase got a ranking of 1).
+See Figure~\ref{exp2-plot}.
 For the two lists with a large enough range of syllable lengths, we fully replicated our results from Experiment 1.
 For the two lists with smaller syllable ranges, we replicated the main effect of surprisal, but found different effects of syllable length.
 Results were very similar across the four different adjectives.
@@ -267,6 +270,8 @@ Results were very similar across the four different adjectives.
 \caption{Results of Experiment 2. As surprisal and length in syllables increase, participants' rankings increased.} 
 \label{exp2-plot}
 \end{figure}
+
+\todo[inline]{can we do a combined regression where list is a factor (and/or random effect)? rank-within-list would still be the DV. this would allow a common estimate of effect of surprisal across the expt?}
 
 For the lists A and B, which each contained five different lengths of syllables, we found significant main effects of surprisal (list A: estimate=0.45, p=1.1e-7; list B: estimate=0.45, p=1.9e-15) and syllable length (list A: estimate=0.87, p=0.0051; list B: estimate=1.3, p=2e-16) and a significant interaction (list A: estimate=0.25, p=0.034; list B: estimate=0.20, p=1.0e-6), as in Experiment 1.
 For lists C and D, which had only three different syllable lengths, we found main effects of surprisal (list C: estimate=0.36, p=3.3e-5; list D: estimate=0.46, p=9.6e-6), but no positive effect of syllable length and no positive interaction.
@@ -280,12 +285,13 @@ The relationship between frequency and interpretation might be causal, and the c
 However, the causal direction could also be the opposite.
 Perhaps the fact that an intensifier has a stronger meaning (which it may have gotten completely arbitrarily) causes it to be used only in extreme and unusual circumstances.
 Since these circumstances rarely occur, the strong intensifier will rarely be said\footnote{This assumes that people talk about things about as frequently as they happen, which might not be the case... Isn't someone here working on how representative the internet is of what actually happens, and super rare things have an inflated presence on the web? Which is kind of evidence that people talk about extreme things more than they actually happen.}.
-This story seems possible, but would not be able to account for why syllable length above and beyond surprisal would predict stronger meanings in most of our experimental conditions.
+This seems possible, but it would not account for syllable length contributing to intensifier meaning above and beyond surprisal,  which was the case overall in Experiments 1 and 2. 
+We explore this issue further in the next experiment.
 
 \section{Experiment 3}
 
-We test the direction of this relationship more directly in Experiment 3 by exposing participants to an imaginary dialect and manipulating the frequency with which intensifiers occur.
-If people use the frequency of an intensifier in order to interpret it, and the rarity of an intensifier causes its interpreation to be stronger, then changing and intensifier's frequency should change its interpretation. b
+To test the direction of influence between intensifier frequency and meaning, we expose participants to an imaginary dialect and manipulate the frequency with which intensifiers occur.
+If people use the frequency of an intensifier in order to interpret it, and the rarity of an intensifier causes its interpreation to be stronger, then changing and intensifier's frequency should change its interpretation. 
 
 \subsection{Method\footnote{The full experiment can be found at \url{http://web.stanford.edu/~erindb/degree-adverbs/experiments/exp8/exp8.html}}}
 
@@ -383,6 +389,14 @@ In a linear regression with word type (target or control) as a fixed effect and 
 \section{Discussion}
 
 %in general discussion / conclusion should address again the thing from the intro, also talk about other aspects of meaning (eg affect), issues with our results, and some future directions.
+
+\todo[inline]{revisit our point and summarize briefly our results.}
+
+\todo[inline]{discuss other probable contributions to intensifier meaning: polarity, affect, others?}
+
+\todo[inline]{if room could say something about next steps. also relation to other's work on meaning.}
+
+\todo[inline]{close by restating our big picture point, that effective meaning is a combination of both arbitrary convention and non-arbitrary factors mediated by pragmatic inference.}
 
 \todo[inline]{conclusion}
 
