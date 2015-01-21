@@ -51,7 +51,7 @@ function make_slides(f) {
 
       var lines = [
         '<tr><td class="prompt">truly expensive</td><td>$<input class="response" id="truly_price" type="text"></input></td></tr>',
-        '<tr><td class="prompt">very expensive</td><td>$<input class="response" id="very_price" type="text"></input></td></tr>',
+        '<tr><td class="prompt">madly expensive</td><td>$<input class="response" id="madly_price" type="text"></input></td></tr>',
         '<tr><td class="prompt">expensive</td><td>$<input class="response" id="bare_price" type="text"></input></td></tr>'
       ]
 
@@ -63,7 +63,7 @@ function make_slides(f) {
     button : function() {
       var rt = Date.now() - _s.trial_start;
       var complete = true;
-      var words = ["truly", "very", "bare"];
+      var words = ["truly", "madly", "bare"];
       for (var i=0; i<words.length; i++) {
         var response = $("#" + words[i] + "_price").val();
         if (response.match(/^[0-9]*(\.[0-9][0-9])?$/) == null || response.length == 0) {
@@ -97,7 +97,7 @@ function make_slides(f) {
 
       var lines = [
         '<tr><td class="prompt">truly</td><td><input class="response" id="truly_freq" type="text"></input></td></tr>',
-        '<tr><td class="prompt">very</td><td><input class="response" id="very_freq" type="text"></input></td></tr>',
+        '<tr><td class="prompt">madly</td><td><input class="response" id="madly_freq" type="text"></input></td></tr>',
         '<tr><td class="prompt">yep</td><td><input class="response" id="yep_freq" type="text"></input></td></tr>'
       ]
       $("#frequency_question_responses").html(_.shuffle(lines).join(""));
@@ -108,7 +108,7 @@ function make_slides(f) {
     button : function() {
       var rt = Date.now() - _s.trial_start;
       var complete = true;
-      var words = ["truly", "very", "yep"];
+      var words = ["truly", "madly", "yep"];
       for (var i=0; i<words.length; i++) {
         var response = $("#" + words[i] + "_freq").val();
         if (response.match(/^[0-9]*(\.[0-9][0-9])?$/) == null || response.length == 0) {
@@ -198,15 +198,15 @@ function init() {
   exp.word_types = _.shuffle([
     {
       "truly": "target",
-      "very": "control"
+      "madly": "control"
     },
     {
       "truly": "control",
-      "very": "target"
+      "madly": "target"
     }
   ])[0]
-  exp.target = exp.word_types["truly"] == "target" ? "truly" : "very";
-  exp.control = exp.word_types["truly"] == "target" ? "very" : "truly";
+  exp.target = exp.word_types["truly"] == "target" ? "truly" : "madly";
+  exp.control = exp.word_types["truly"] == "target" ? "madly" : "truly";
 
   exp.system = {
       Browser : BrowserDetect.browser,
