@@ -27,7 +27,7 @@
 %We show that surprisal and syllable length, two different construals of the cost of an intensifier, both independently predict estimates of degree.
 %We further show that when an intensifier is frequently repeated within a ``non-standard dialect of English'' (i.e. when we manipulate the surprisal of an intensifier), its inferred degree is consequently lower.
 
-\todo[inline]{abstract}
+%\todo[inline]{abstract}
 
 \textbf{Keywords:} 
 intensifiers; degree adverbs; scalar adjectives; pragmatics; m-implicature
@@ -36,30 +36,56 @@ intensifiers; degree adverbs; scalar adjectives; pragmatics; m-implicature
 
 \section{Introduction}
 
-\todo[inline]{is there a nice saussure quote to summarize the arbitrariness position?}
-
 Where do words get their meanings? For instance, why is an ``extremely good paper'' better than a ``quite good paper''? The traditional answer \cite{saussure} is that different meanings have been arbitrarily and conventionally assigned to the different word forms.
 In this paper we explore adjectival intensifiers, like ``extremely'' and ``quite'', as a case study in which to empirically explore the relationship of meaning to form.
 Based on a previous theory of the semantics of scalar adjectives we hypothesize that the interpreted meanings of intensifiers are (at least partly) non-arbitrary, and instead are determined by their production (or comprehension) cost. 
 We show in three experiments that the meanings of english intensifiers are predictable from their costs, and are sensitive to manipulation of cost.
 These results are consistent with the small but growing literature arguing that word meanings are not fully arbitrary, but instead are constrained by non-semantic features of the word. 
 
-\todo[inline]{a paragraph here unpacking the question of word-meaning mapping. start with what saussure said about signs. this suggests that meaning is purely the result of historical accident. certainly a lot of meaning for a lot of words must be arbitrary -- without convention there is no language. mention the recent work on modeling language evolution. however, there is some evidence that meaning is not entirely arbitrary: kiki-boba stuff, and maybe molly's results. to resolve this tension we will need more, and more quantitative case-studies where we can explore the extent of non-arbitrary factors.}
+%\todo[inline]{saussure}
 
-\todo[inline]{next a paragraph talking about adjectives and intensifiers. scalar adjs probably have a threshold semantics (cite kennedy) and the threshold is set in a pragmatic way that depends on context. lassiter and goodman give a formal model of setting the threshold. given this story about adjectives, what could intensifiers do? it's possible to posit a complex semantic mechanism by which they grab and alter the threshold which has been set for the adjective (as if they weren't there). however a more parsimonious hypothesis is that they don't have any semantic effect--instead their ``meaning'' is a result of their cost and the impact this has on pragmatic inference. possibly stick in the model result (without model details) to show that this really would be expected to happen?}
+\citeA{saussure} identifies as a principal of language that the mapping from word form to that which it signifies ``is unmotivated, i.e. arbitrary in that it actually has no natural connection with the signified,'' This suggests that meaning is purely the result of historical accident. And indeed, most of meanings for for most words must be arbitrary -- many different languages exist, each with their own mapping from word forms to referents in the world, over time words change their meanings, sometimes to the complete opposite of their original meaning (e.g. ``literally'' has grown to mean ``figuratively'' in some dialects), and there are no hard constraints on what a particular word form could refer to.
+%without convention there is no language.
+%\todo[inline]{mention the recent work on modeling language evolution.}
 
-\todo[inline]{perhaps a short paragraph drawing out the implication of this story: asking whether the word-form to lexical-semantics mapping is arbitrary is not the right question, because pragmatics is inextricably part of the process of interpretation, and pragmatics is sensitive to additional factors which are not purely phonetic or lexical semantic.}
+However, there is some evidence that meaning is not entirely arbitrary: people across cultures almost unanimously prefer to pair round vowels and voiced consonants (e.g. bouba) with round shapes and unrounded vowels and voiceless stops (e.g. ``kiki'') with pointy shapes \cite{maluma-takete, bouba-kiki, bouba-kiki2, takete-uloomo}, and across languages longer words refer to more complex meanings \cite{lewis}. To resolve this tension between arbitrary versus systematic mappings between words and meanings, we will need more evidence, and more quantitative case-studies where we can explore the extent of non-arbitrary factors.
 
-\todo[inline]{note: can we explain why bad can be used to mean very good?}
+In this paper, we look at the interpretations of intensifiers, degree adverbs that modify scalar adjectives to increase their degree. Scalar adjectives have been described as having a threshold semantics \cite{kennedy}, where for example ``tall'' means ``having a height greater than $\theta$'' and $\theta$ is a semantic variable inferred from context. \citeA{lassiter} give a formal model of how this threshold might be inferred.
 
-\todo[inline]{finally a very brief paragraph giving the roadmap of our experiments.}
+Given this story about adjectives, what could intensifiers do? It is possible to posit a complex semantic mechanism by which they grab and alter the threshold which has been set for the adjective (as if they weren't there). However a more parsimonious hypothesis is that they don't have any semantic effect--instead their ``meaning'' is a result of their cost and the impact this has on pragmatic inference. This inference could be an instance of M-implicature, where the more marked (costly) intensifiers correspond to more extreme, unusual meanings. And indeed, in a simple extension of Lassiter and Goodman's model where different intensifiers are associated with different thresholds, over a symmetric prior distribution peaked at 0, the more costly intensifiers are inferred to correspond to more extreme thresholds and therefore more extreme degrees (Figure~\ref{model}).
+%Given most prior distributions, the resulting M-implicature would cause more 
+%possibly stick in the model result (without model details) to show that this really would be expected to happen?}
 
-Intensifiers, like ``extremely'' and ``quite'', are adverbs that modify scalar adjectives to change the degree of the resulting adjective phrase.
-Scalar adjectives have been modeled as having implicit thresholds that need to be inferred from the context, and intensifiers seem to raise that threshold, e.g. the threshold above which people are ``extremely tall'' is higher than the threshold above which people are ``tall''.
-Some intensifiers seem to change this threshold more than others, and the extent to which they do might be influenced by online or conventionalized M-implicature.
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=0.48\textwidth]{analysis_files_for_writeup/images/model_results.png}
+\end{center}
+\caption{Modeling intensifiers as M-implicature: more costly intensifiers correspond to more extreme meanings.} 
+\label{model}
+\end{figure}
+
+It is possible that such an inference is always computed on-line whenever an intensifier is used. In this case, the mapping from word-form to lexical-semantics might indeed be arbitrary, but to the extent that different word-forms correspond to different costs, the mapping from form to interpretation would not be arbitrary.
+
+%Because pragmatics is inextricably part of the process of interpretation and pragmatics is sensitive to properties of the word-form and also additional factors which are not purely phonetic or lexical semantic.
+It is also possible that these inferences might be cached and conventionalized, so that the comparitive degrees become part of an intensifier's lexical semantics. In this case, the word-forms to lexical semantics mapping would be systematic.
+
+Pragmatics is inextricably part of the process of interpretation and pragmatics is sensitive to properties of the word-form and also additional factors which are not purely phonetic or lexical semantic.
+
+%So to the extent that different word-forms correspond to different costs, the mapping from forms to meaning will not be arbitrary. However, 
+%In fact, asking whether the word-form to lexical-semantics mapping is arbitrary may not the right question, because 
+%So to the extent that different word forms correspond to different costs, the mapping from forms to meaning will not be arbitrary.
+%Pragmatics is inextricably part of the process of interpretation, and pragmatics can be sensitive to phonetic features and other features that are not purely phonetic or lexical semantic.
+%\todo[inline]{perhaps a short paragraph drawing out the implication of this story: asking whether the word-form to lexical-semantics mapping is arbitrary is not the right question, because pragmatics is inextricably part of the process of interpretation, and pragmatics is sensitive to additional factors which are not purely phonetic or lexical semantic.}
+%\todo[inline]{note: can we explain why bad can be used to mean very good?}
+%probably...
+%\todo[inline]{finally a very brief paragraph giving the roadmap of our experiments.}
+
+We present three experiments investigating the connection between cost and meaning for intensifiers. The first two experiments are correlational, ascertaining that there exists a relationship between the degrees that people interpret for various intensifiers and estimates of those intensifiers' costs. In the third experiment, we directly manipulate one possible measure of cost and show that this changes people's interpretations.
 
 
-
+%Intensifiers, like ``extremely'' and ``quite'', are adverbs that modify scalar adjectives to change the degree of the resulting adjective phrase.
+%Scalar adjectives have been modeled as having implicit thresholds that need to be inferred from the context, and intensifiers seem to raise that threshold, e.g. the threshold above which people are ``extremely tall'' is higher than the threshold above which people are ``tall''.
+%Some intensifiers seem to change this threshold more than others, and the extent to which they do might be influenced by online or conventionalized M-implicature.
 
 %then unpack this argument in a couple paragraphs (including the fancy saussure mention) and motivate the experiments. connect briefly to the few other cases of non-arbitrary meanings.
 
@@ -101,8 +127,11 @@ Some intensifiers seem to change this threshold more than others, and the extent
 
 \section{Experiment 1}
 
-To explore the hypothesis that the interpretations of intensifiers are a function of their cost, we first wanted to see whether two possible ways of measuring the cost of a word, frequency (rarer words are probably more costly) and syllable length, were related to the interpretations of intensifiers.
-\todo{need to say why we think frequency and syllable number should be aspects of ``cost''. point out that this leaves open their relative importance, how they combine, and what other factors might enter into cost.}
+To explore the hypothesis that the interpretations of intensifiers are a function of their cost, we first wanted to see whether two possible ways of measuring the cost of a word, frequency and syllable length, were related to the interpretations of intensifiers.
+
+%%!!!!!!!!!!!!!!!!!!!!!1
+%Longer words take longer to say, so 
+%\todo[inline]{need to say why we think frequency and syllable number should be aspects of ``cost''. point out that this leaves open their relative importance, how they combine, and what other factors might enter into cost.}
 
 \subsection{Method\footnote{The full experiment can be found at \url{http://web.stanford.edu/~erindb/degree-adverbs/experiments/exp5_2014-12-01/exp5.html}}}
 
@@ -184,7 +213,8 @@ We also ran the same analyses on frequency information collected from the Google
 
 In addition, we did the same using the bigram frequencies of ``\emph{[intensifer]} expensive'' rather than the unigram frequencies of the intensifiers alone. These data were much more sparse. For bigrams, we found no significant effects of surprisal using the books database and a negative effect using the web database.
 }
-The syllable lenths of our intensifiers and the surprisals \todo{say what surprisal is and why we care before using it.} were correlated, but not strongly so (r = 0.2648144).
+The syllable lenths of our intensifiers and the surprisals %\todo[inline]{say what surprisal is and why we care before using it.} 
+were correlated, but not strongly so (r = 0.2648144).
 
 \subsection{Results and Discussion}
 
@@ -205,7 +235,7 @@ The interaction suggests that the function from surprisal and frequencies to cos
 
 So intensifiers that are more surprising and longer (and therefore are more costly to utter) also tend to be interpreted as having stronger meanings.
 
-\todo[inline]{make a big deal}
+%\todo[inline]{make a big deal}
 
 \section{Experiment 2}
 
@@ -215,7 +245,7 @@ In Experiment 2, we extend our finding from Experiment 1 to other adjectival sca
 
 30 participants with US IP addresses participated in our Experiment 2 on Amazon's Mechanical Turk.
 
-\todo[inline]{introduce the idea of the ranking measure first.}
+%\todo[inline]{introduce the idea of the ranking measure first.}
 Because arranging all 40 intensifiers on a computer screen would be difficult for participants, we divided the 40 intensifiers from Experiment 1 into four lists of 10 intensifiers each (Table~\ref{exp2-intensifiers}).
 Each list was randomly paired with one of four adjectives (``old'', ``expensive'', ``beautiful'', and ``tall'').
 For each adjective-list pairing, participants were shown every combination of the 10 intensifiers and the one adjective on the left side of the screen.
@@ -257,11 +287,7 @@ particularly & quite & especially & very
 
 \subsection{Results and Discussion}
 
-Within each intensifier list, we ran a regression using centered syllable length and surprisal to predict the ranking that participants gave the adjective phrase (the highest ranked adjective phrase in a trial got a ranking of 10, the lowest ranked adjective phrase got a ranking of 1).
-See Figure~\ref{exp2-plot}.
-For the two lists with a large enough range of syllable lengths, we fully replicated our results from Experiment 1.
-For the two lists with smaller syllable ranges, we replicated the main effect of surprisal, but found different effects of syllable length.
-Results were very similar across the four different adjectives.
+We ran a linear mixed effects regression with centered surprisal and syllable lengths and their interaction as fixed effects and random intercepts of intensifier list\footnote{The random intercept for intensifier list does something to standardize the rankings across the different intensifier lists. If the spacing between predictors were roughly the same across the different lists, then adding a constant value to the rankings for every element in a particular list would allow us to compare that list to another. Our predictors are not evenly spaced, so we are loosing some information in our regression, but a mixed effects model with random slopes as well as intercepts did not converge.} and adjective and random slopes for adjective to predict the ranking that participants gave the adjective phrase (the highest ranked adjective phrase in a trial got a ranking of 10, the lowest ranked adjective phrase got a ranking of 1). We found main effects of surprisal (estimate=0.46, p=4.8e-8) and syllable length (estimate=0.68, p=3.6e-10) and a significant interaction (estimate=0.079, p=0.025). Regressions on subsets of the data for each intensifier list were mostly similar, except that for intensifier lists C and D, which had smaller syllable ranges, the effects of syllable length and its interaction with surprisal were sometimes insignificant or in the opposite direction. Results were very similar across the four different adjectives.
 
 \begin{figure}[ht]
 \begin{center}
@@ -271,15 +297,7 @@ Results were very similar across the four different adjectives.
 \label{exp2-plot}
 \end{figure}
 
-\todo[inline]{can we do a combined regression where list is a factor (and/or random effect)? rank-within-list would still be the DV. this would allow a common estimate of effect of surprisal across the expt?}
-
-For the lists A and B, which each contained five different lengths of syllables, we found significant main effects of surprisal (list A: estimate=0.45, p=1.1e-7; list B: estimate=0.45, p=1.9e-15) and syllable length (list A: estimate=0.87, p=0.0051; list B: estimate=1.3, p=2e-16) and a significant interaction (list A: estimate=0.25, p=0.034; list B: estimate=0.20, p=1.0e-6), as in Experiment 1.
-For lists C and D, which had only three different syllable lengths, we found main effects of surprisal (list C: estimate=0.36, p=3.3e-5; list D: estimate=0.46, p=9.6e-6), but no positive effect of syllable length and no positive interaction.
-For list C, there was no main effect of syllable length (p=0.49) and a negative interaction (estimate=-0.52, p=0.0045). For list D, there was a negative main effect of syllable length (estimate=-1.4, p=4.5e-6) and a negative interaction (estimate=-0.23, p=0.024).
-
 Overall, we again found that participants assign stronger interpretations to intensifiers with lower frequencies and higher syllable lengths.
-
-\todo[inline]{more about this?}
 
 The relationship between frequency and interpretation might be causal, and the causal direction might be that the rarity of the word causes it to be costly to use and therefore to correspond to a stronger meaning, as in our hypothesis.
 However, the causal direction could also be the opposite.
@@ -364,7 +382,7 @@ In a linear gregression with word type as a fixed effect and random intercepts f
 
 In a linear regression with word type (target or control) as a fixed effect and random intercepts for word and participant, word type was a significant predictor of frequency (estimate=34.06, p=0.0405).
 
-\todo[inline]{this is cool because we manipulated the frequency and the price estimate consequently dropped.}
+%\todo[inline]{this is cool because we manipulated the frequency and the price estimate consequently dropped.}
 
 %% gonna avoid this until i figure out about the dollar signs
 % Individuals' estimates of frequency correlate with their estimates of price (Fig~\ref{exp3-scatterplot}, r=0.396, p=0.0169).
@@ -390,20 +408,23 @@ In a linear regression with word type (target or control) as a fixed effect and 
 
 %in general discussion / conclusion should address again the thing from the intro, also talk about other aspects of meaning (eg affect), issues with our results, and some future directions.
 
-\todo[inline]{revisit our point and summarize briefly our results.}
+In conclusion, we found that frequency and syllable length can predict the interpretations of adverbs, and manipulating frequency in turn changes the interpretation, providing evidence that effective meaning is a combination of both arbitrary convention and non-arbitrary factors mediated by pragmatic inference.
 
-\todo[inline]{discuss other probable contributions to intensifier meaning: polarity, affect, others?}
+%\todo[inline]{revisit our point and summarize briefly our results.}
 
-\todo[inline]{if room could say something about next steps. also relation to other's work on meaning.}
+%\todo[inline]{discuss other probable contributions to intensifier meaning: polarity, affect, others?}
 
-\todo[inline]{close by restating our big picture point, that effective meaning is a combination of both arbitrary convention and non-arbitrary factors mediated by pragmatic inference.}
+%\todo[inline]{if room could say something about next steps. also relation to other's work on meaning.}
 
-\todo[inline]{conclusion}
+%\todo[inline]{close by restating our big picture point, that effective meaning is a combination of both arbitrary convention and non-arbitrary factors mediated by pragmatic inference.}
+
+%\todo[inline]{conclusion}
 
 \section{Acknowledgments}
 
 \nocite{web1t5gram}
 \nocite{lewis}
+\nocite{saussure}
 
 \bibliographystyle{apacite}
 

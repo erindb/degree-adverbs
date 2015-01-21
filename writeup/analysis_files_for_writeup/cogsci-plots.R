@@ -21,7 +21,8 @@ frequencies = ngrams$frequency
 names(frequencies) = as.character(ngrams$ngram)
 d$frequency = sapply(d$intensifier, function(adverb) {return(frequencies[adverb])})
 d$syllables = sapply(d$intensifier, function(adverb) {return(syllables[adverb])})
-d$surprisal = - log(d$frequency)
+total_ngrams = 1024908267229
+d$surprisal = log(total_ngrams) - log(d$frequency)
 d = d[d$surprisal != 0,]
 d$c.surprisal = d$surprisal - mean(d$surprisal)
 d$c.syllables = d$syllables - mean(d$syllables)
@@ -118,10 +119,56 @@ frequencies = ngrams$frequency
 names(frequencies) = ngrams$ngram
 d$frequency = sapply(d$adverb, function(adverb) {return(frequencies[adverb])})
 d$syllables = sapply(d$adverb, function(adverb) {return(syllables[adverb])})
-#d$surprisal = log(total_ngrams)-log(d$frequency)
-d$surprisal = -log(d$frequency)
+d$surprisal = log(total_ngrams)-log(d$frequency)
+#d$surprisal = -log(d$frequency)
 d = ddply(d, .(workerid, adverb_list), transform, rank_order = rank(frequency))
-d$height_in_list = 1-d$ranking
+d$ranking = 1-d$ranking+10
+d$c.surprisal = d$surprisal - mean(d$surprisal)
+d$c.syllables = d$syllables - mean(d$syllables)
+# d_ranks = ddply(d, .(adverb_list, workerid), transform, surprisal_rank = rank(surprisal))
+# d_ranks = ddply(d_ranks, .(adverb_list, workerid), transform, syllables_rank = rank(syllables))
+# d_ranks$intensifier = d_ranks$adverb
+# d_ranks$list = d_ranks$adverb_list
+# d_ranks = d_ranks[,c("workerid", "intensifier", "ranking", "adjective", "list", "syllables", "syllables_rank", "surprisal", "surprisal_rank")]
+# d = ddply(d, .(adverb_list), transform, surp.range = max(surprisal) - min(surprisal))
+# d$surprisal_scaled = (d$surprisal / d$surp.range)
+# d = ddply(d, .(adverb_list), transform, syll.range = max(syllables) - min(syllables))
+# d$syllables_scaled = (d$syllables / d$syll.range)
+
+d_summary = bootsSummary(data=d, measurevar="ranking",
+                         groupvars=c("surprisal", "adjective", "syllables", "adverb_list"))
+d_summary$syllables = as.factor(d_summary$syllables)
+d_summary = ddply(d_summary, .(adverb_list, adjective), transform, adv_adj_N = sum(N))
+d_summary$adjsyll = paste(d_summary$adjective, d_summary$syllables)
+p = ggplot(data=d_summary, aes(x=surprisal, y=ranking, colour=syllables)) +
+  geom_smooth(method="lm", colour="grey", alpha=1/10) +
+  geom_point(size=4) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5) +
+  theme_bw(22) +
+  scale_colour_grey() +
+  facet_grid(adverb_list ~ adjective) +
+  geom_text(aes(label=adv_adj_N), x=10, y=1) +
+  geom_text(label="N=", x=9, y=1) +
+  theme(panel.grid=element_blank()) +
+  xlab("surprisal") +
+  ylab("ranking") +
+  ggtitle("Experiment 2")
+print(p)
+ggsave("images/exp2-plot.png", width=16, height=10)
+
+# d_summary = bootsSummary(data=d, measurevar="ranking",
+#                          groupvars=c("c.surprisal", "adjective", "c.syllables", "adverb_list"))
+# d_summary$c.syllables = as.factor(d_summary$c.syllables)
+# p = ggplot(data=d_summary, aes(x=c.surprisal, y=ranking, colour=c.syllables)) +
+#   geom_point(size=4) +
+#   geom_smooth(method="lm", se=F) +
+#   theme_bw(22) +
+#   facet_grid(adverb_list ~ adjective) +
+#   theme(panel.grid=element_blank()) +
+#   xlab("surprisal") +
+#   ylab("ranking")
+# print(p)
+
 # 
 # d_summary = bootsSummary(data=d, measurevar="height_in_list", groupvars=c("surprisal", "adjective", "adverb", "adverb_list", "syllables"))
 # d_summary$syllables = as.factor(d_summary$syllables)
@@ -155,27 +202,52 @@ d$height_in_list = 1-d$ranking
 # There were main effects of surprisal and syllable length, and a signficant interaction.
 # 
 # ```{r}
-print("overall")
-d$c.surprisal = d$surprisal - mean(d$surprisal)
-d$c.syllables = d$syllables - mean(d$syllables)
-full_model = lm(height_in_list ~ c.surprisal * c.syllables, data=d)
-print(summary(full_model))
 
 
-print("overall")
-d$c.surprisal = d$surprisal - mean(d$surprisal)
-d$c.syllables = d$syllables - mean(d$syllables)
-full_model = lm(height_in_list ~ c.surprisal * c.syllables * adjective, data=d)
-print(summary(full_model))
+# print("overall")
+# full_model = lm(height_in_list ~ c.surprisal * c.syllables, data=d)
+# print(summary(full_model))
+# 
+# 
+# print("overall")
+# d$c.surprisal = d$surprisal - mean(d$surprisal)
+# d$c.syllables = d$syllables - mean(d$syllables)
+# full_model = lm(height_in_list ~ c.surprisal * c.syllables * adjective, data=d)
+# print(summary(full_model))
+# 
+# for (adverb_list in unique(as.character(d$adverb_list))) {
+#   print(adverb_list)
+#   subd = d[d$adverb_list == adverb_list,]
+#   subd$c.surprisal = subd$surprisal - mean(subd$surprisal)
+#   subd$c.syllables = subd$syllables - mean(subd$syllables)
+#   full_model = lm(ranking ~ c.surprisal * c.syllables, data=subd)
+#   print(summary(full_model))
+# }
 
-for (adjective in unique(as.character(d$adjective))) {
-  print(adjective)
-  subd = d[d$adjective == adjective,]
-  subd$c.surprisal = subd$surprisal - mean(subd$surprisal)
-  subd$c.syllables = subd$syllables - mean(subd$syllables)
-  full_model = lm(height_in_list ~ c.surprisal * c.syllables, data=subd)
-  print(summary(full_model))
-}
+## random adverb_list
+
+# ## this is best, since some lists have low values, some don't, and some are more compressed than others. but it doesn't converge.
+# random_list_all = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal * c.syllables | adverb_list), data=d)
+# 
+# ## other options that don't converge:
+# random_list_main = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal + c.syllables | adverb_list), data=d)
+# random_list_interaction = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal:c.syllables | adverb_list), data=d)
+# 
+# ## this converges, but doesn't account for the lowest value being very different for the different lists
+# random_list_slopes = lmer(ranking ~ c.surprisal * c.syllables + (0 + c.surprisal * c.syllables | adverb_list), data=d)
+
+# ## doesn't converge:
+# random_adj_all = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal * c.syllables | adjective), data=d)
+# 
+# ## converge:
+# random_adj_main = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal + c.syllables | adjective), data=d)
+# random_adj_interaction = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal:c.syllables | adjective), data=d)
+# random_adj_slopes = lmer(ranking ~ c.surprisal * c.syllables + (0 + c.surprisal * c.syllables | adjective), data=d)
+# random_adj_intercept = lmer(ranking ~ c.surprisal * c.syllables + (1 | adjective), data=d)
+
+fit = lmer(ranking ~ c.surprisal * c.syllables + (1 | adverb_list) + (1 + c.surprisal + c.syllables | adjective), data=d)
+print(summary(fit))
+
 # ```
 # 
 # The full model (with an interaction term) is again a better fit than the model without an interaction term.
@@ -187,39 +259,141 @@ for (adjective in unique(as.character(d$adjective))) {
 # 
 # The graph again looks like there might be a multiplicative effect.
 # 
-# ```{r}
-d_summary = bootsSummary(data=d, measurevar="height_in_list",
-                         groupvars=c("surprisal", "adjective"))
-d_summary$adjective = factor(d_summary$adjective,
-                             levels=c("tall", "expensive", "beautiful", "old"))
-p = ggplot(data=d_summary, aes(x=surprisal, y=height_in_list, colour=adjective)) +
-  geom_smooth(method="lm", alpha=1/30) +
-  theme_bw(22) +
-  #scale_colour_grey() +
-  theme(panel.grid=element_blank()) +
-  xlab("inverse log(frequency)") +
-  ylab("height in list") +
-  ggtitle("Experiment 2")
-print(p)
-ggsave("images/exp2-slopes.png", width=10, height=6)
-# 
 
-d_summary = bootsSummary(data=d, measurevar="height_in_list",
-                         groupvars=c("surprisal", "adjective", "syllables"))
-d_summary$adjective = factor(d_summary$adjective,
-                             levels=c("tall", "expensive", "beautiful", "old"))
-d_summary$syllables = as.factor(d_summary$syllables)
-d_summary$adjsyll = paste(d_summary$adjective, d_summary$syllables)
-p = ggplot(data=d_summary, aes(x=surprisal, y=height_in_list, colour=syllables)) +
-  geom_smooth(method="lm", alpha=1/30, se=F) +
+
+### tall and expensive are (slightly) steeper (closer to x=y) than beautiful and old
+# d_summary = bootsSummary(data=d, measurevar="height_in_list",
+#                          groupvars=c("surprisal", "adjective"))
+# d_summary$adjective = factor(d_summary$adjective,
+#                              levels=c("tall", "expensive", "beautiful", "old"))
+# p = ggplot(data=d_summary, aes(x=surprisal, y=height_in_list, colour=adjective)) +
+#   geom_smooth(method="lm", alpha=1/30) +
+#   theme_bw(22) +
+#   #scale_colour_grey() +
+#   theme(panel.grid=element_blank()) +
+#   xlab("inverse log(frequency)") +
+#   ylab("height in list") +
+#   ggtitle("Experiment 2")
+# print(p)
+# ggsave("images/exp2-slopes.png", width=10, height=6)
+
+# ## list-wise graphs of estimated coefficients
+# coefs = data.frame(
+#     surprisal=c(.46, .47, .30, .53),
+#     surp.se=c(.081, .053, .081, .084),
+#     syllables=c(.96, 1.3, .21, -1.3),
+#     syll.se=c(.34, .11, .25, .27),
+#     interaction=c(.25, .21, -.52, -.23),
+#     int.se=c(.12, .04, .18, .10),
+#     list=c("A", "B", "C", "D")
+#   )
+# p = ggplot(data=coefs, aes(x=list, y=surprisal, colour=list)) +
+#   geom_point(size=4) +
+#   geom_errorbar(aes(ymin=surprisal-surp.se, ymax=surprisal+surp.se, x=list, width=0), lwd=1.5) +
+#   theme_bw(22) +
+#   theme(panel.grid=element_blank()) +
+#   xlab("list") +
+#   ylab("coefficient for surprisal")
+# print(p)
+# p = ggplot(data=coefs, aes(x=list, y=syllables, colour=list)) +
+#   geom_point(size=4) +
+#   geom_errorbar(aes(ymin=syllables-syll.se, ymax=syllables+syll.se, x=list, width=0), lwd=1.5) +
+#   theme_bw(22) +
+#   theme(panel.grid=element_blank()) +
+#   xlab("list") +
+#   ylab("coefficient for syllables")
+# print(p)
+# p = ggplot(data=coefs, aes(x=list, y=interaction, colour=list)) +
+#   geom_point(size=4) +
+#   geom_errorbar(aes(ymin=interaction-int.se, ymax=interaction+int.se, x=list, width=0), lwd=1.5) +
+#   theme_bw(22) +
+#   theme(panel.grid=element_blank()) +
+#   xlab("list") +
+#   ylab("coefficient for interaction")
+# print(p)
+# ## approximate estimated model : total guess, using mostly lists A and B, which have wider ranges
+# d$prediction = .45*d$c.surprisal + 0.5*d$c.syllables + .25*d$c.surprisal*d$c.syllables
+# d = ddply(d, .(adverb_list, workerid), transform, ranking_prediction = rank(prediction))
+# p = ggplot(data=d, aes(x=ranking_prediction, y=ranking)) +
+#   geom_smooth(method="lm", colour="grey", alpha=1/10) +
+#   geom_point(size=4, alpha=1/10) +
+#   theme_bw(22) +
+#   facet_grid(adverb_list ~ adjective) +
+#   theme(panel.grid=element_blank()) +
+#   xlab("ranking_prediction") +
+#   ylab("ranking")
+# print(p)
+# ## model from intercept only mixed effects
+# d$prediction = .46*d$c.surprisal + 0.68*d$c.syllables + .078*d$c.surprisal*d$c.syllables
+# d = ddply(d, .(adverb_list, workerid), transform, ranking_prediction = rank(prediction))
+# p = ggplot(data=d, aes(x=ranking_prediction, y=ranking)) +
+#   geom_smooth(method="lm", colour="grey", alpha=1/10) +
+#   geom_point(size=4, alpha=1/10) +
+#   theme_bw(22) +
+#   facet_grid(adverb_list ~ adjective) +
+#   theme(panel.grid=element_blank()) +
+#   xlab("ranking_prediction") +
+#   ylab("ranking")
+# print(p)
+# p = ggplot(data=d, aes(x=prediction, y=ranking)) +
+#   geom_smooth(method="lm", colour="grey", alpha=1/10) +
+#   geom_point(size=4, alpha=1/10) +
+#   theme_bw(22) +
+#   facet_grid(adverb_list ~ adjective) +
+#   theme(panel.grid=element_blank()) +
+#   xlab("prediction") +
+#   ylab("ranking")
+# print(p)
+# cor(d$ranking_prediction, d$ranking)
+
+# d_summary = bootsSummary(data=d, measurevar="ranking",
+#                          groupvars=c("c.surprisal", "c.syllables", "adverb_list"))
+# d_summary = ddply(d_summary, .(adverb_list), transform, maxy=max(c.surprisal))
+# d_summary = ddply(d_summary, .(adverb_list), transform, miny=min(c.surprisal))
+# d_summary = ddply(d_summary, .(adverb_list), transform, maxx=max(c.syllables))
+# d_summary = ddply(d_summary, .(adverb_list), transform, minx=min(c.syllables))
+# p = ggplot(data=d_summary, aes(x=c.syllables, y=c.surprisal, colour=adverb_list, fill=adverb_list)) +
+#   geom_point(size=4) +
+#   theme_bw(22) +
+#   theme(panel.grid=element_blank()) +
+#   geom_rect(aes(ymax=maxy, ymin=miny, xmax=maxx, xmin=minx), alpha=1/300) +
+#   xlab("centered syllables") +
+#   ylab("centered surprisal")
+# print(p)
+d_summary = bootsSummary(data=d, measurevar="ranking",
+                         groupvars=c("c.surprisal", "c.syllables", "adverb_list"))
+#p = ggplot(data=d_summary, aes(xmin=c.syllables, xmax=c.syllables+1, ymin=c.surprisal, ymax=c.surprisal+1, colour=adverb_list, fill=adverb_list)) +
+p = ggplot(data=d_summary, aes(xmin=c.syllables, xmax=c.syllables+1, ymin=c.surprisal, ymax=c.surprisal+0.1, colour=adverb_list, fill=adverb_list)) +
+#p = ggplot(data=d_summary, aes(x=c.syllables, y=c.surprisal, colour=adverb_list)) +
   theme_bw(22) +
-  facet_wrap(~ adjective) +
+  facet_wrap(~ adverb_list) +
   theme(panel.grid=element_blank()) +
-  xlab("inverse log(frequency)") +
-  ylab("height in list") +
-  ggtitle("Experiment 2")
+  #geom_point(size=10)
+  geom_rect(alpha=1/100)
 print(p)
-ggsave("images/exp2-main.png", width=10, height=6)
+
+
+d_summary = bootsSummary(data=d, measurevar="ranking",
+                         groupvars=c("c.surprisal", "c.syllables", "adverb_list", "adverb"))
+p = ggplot(data=d_summary, aes(fill=adverb_list)) +
+  theme_bw(22) +
+  geom_text(aes(label=adverb, x=c.syllables, y=c.surprisal, colour=adverb_list)) +
+  #geom_rect(aes(xmin=c.syllables, xmax=c.syllables+1, ymin=c.surprisal, ymax=c.surprisal+0.01, fill=adverb_list), alpha=1/2) +
+  theme(panel.grid=element_blank())
+print(p)
+
+
+# d_summary = bootsSummary(data=d_ranks, measurevar="ranking",
+#                          groupvars=c("surprisal_rank", "adjective", "syllables_rank", "list"))
+# p = ggplot(data=d_summary, aes(x=syllables_rank, y=surprisal_rank, colour=ranking)) +
+#   geom_point(size=4) +
+#   theme_bw(22) +
+#   facet_grid(list ~ adjective) +
+#   theme(panel.grid=element_blank()) +
+#   xlab("syllables rank") +
+#   ylab("surprisal rank") +
+#   ggtitle("Experiment 2")
+# print(p)
 
 # d_summary = bootsSummary(data=d, measurevar="height_in_list", groupvars=c("surprisal", "syllables", "adjective"))
 # d_summary$syllables = as.factor(d_summary$syllables)
