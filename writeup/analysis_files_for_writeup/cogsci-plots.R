@@ -145,7 +145,7 @@ p = ggplot(data=d_summary, aes(x=surprisal, y=ranking, colour=syllables)) +
   geom_point(size=4) +
   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5) +
   theme_bw(22) +
-  scale_colour_grey() +
+  #scale_colour_grey() +
   facet_grid(adverb_list ~ adjective) +
   geom_text(aes(label=adv_adj_N), x=10, y=1) +
   geom_text(label="N=", x=9, y=1) +
