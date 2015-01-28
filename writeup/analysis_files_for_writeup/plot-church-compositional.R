@@ -63,7 +63,7 @@ p = ggplot(distributions, aes(x=values, y=weights)) +
   geom_line(stat="identity", aes(colour=utterance)) +
   #facet_wrap(~ prior) +
   ylab("") +
-  scale_colour_manual(values=c("black", "yellow", "cyan", "deeppink", "turquoise4", "magenta", "chartreuse4", "purple")) +
+  #scale_colour_manual(values=c("black", "yellow", "cyan", "deeppink", "turquoise4", "magenta", "chartreuse4", "purple")) +
 #   ggtitle("") +
   xlab("heights") +
   theme_bw(22) +

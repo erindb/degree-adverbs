@@ -21,11 +21,13 @@ frequencies = ngrams$frequency
 names(frequencies) = as.character(ngrams$ngram)
 d$frequency = sapply(d$intensifier, function(adverb) {return(frequencies[adverb])})
 d$syllables = sapply(d$intensifier, function(adverb) {return(syllables[adverb])})
+d$chars = sapply(d$intensifier, nchar)
 total_ngrams = 1024908267229
 d$surprisal = log(total_ngrams) - log(d$frequency)
 d = d[d$surprisal != 0,]
 d$c.surprisal = d$surprisal - mean(d$surprisal)
 d$c.syllables = d$syllables - mean(d$syllables)
+d$c.chars = d$chars - mean(d$chars)
 
 white = element_rect(fill="white")
 
@@ -36,7 +38,7 @@ p = ggplot(data=d_summary, aes(x=-log(frequency), y=logprice, colour=syllables))
   geom_point(size=4) +
   theme_bw(22) +
   facet_wrap(~ object, scale="free") +
-  scale_colour_grey() +
+  #scale_colour_grey() +
   theme(panel.grid=element_blank()) +
   xlab("inverse log(frequency)") +
   ylab("log(price)") +
@@ -46,13 +48,16 @@ p = ggplot(data=d_summary, aes(x=-log(frequency), y=logprice, colour=syllables))
 print(p)
 ggsave("images/exp1-plot.png", width=16, height=6)
 
-# library(lmerTest, quietly=T)
-# d$c.surprisal = d$surprisal - mean(d$surprisal)
-# d$c.syllables = d$syllables - mean(d$syllables)
+# # library(lmerTest, quietly=T)
 # full_model = lmer(logprice ~ c.surprisal * c.syllables +
 #                         (1 + c.surprisal + c.syllables | workerid) +
 #                         (1 + c.surprisal + c.syllables | object), data=d)
 # print(summary(full_model))
+
+full_model = lmer(logprice ~ c.surprisal * c.chars +
+                        (1 + c.surprisal + c.chars | workerid) +
+                        (1 + c.surprisal + c.chars | object), data=d)
+print(summary(full_model))
 
 # # Experiment 2
 # 
@@ -120,11 +125,13 @@ names(frequencies) = ngrams$ngram
 d$frequency = sapply(d$adverb, function(adverb) {return(frequencies[adverb])})
 d$syllables = sapply(d$adverb, function(adverb) {return(syllables[adverb])})
 d$surprisal = log(total_ngrams)-log(d$frequency)
+d$chars = sapply(d$adverb, nchar)
 #d$surprisal = -log(d$frequency)
 d = ddply(d, .(workerid, adverb_list), transform, rank_order = rank(frequency))
 d$ranking = 1-d$ranking+10
 d$c.surprisal = d$surprisal - mean(d$surprisal)
 d$c.syllables = d$syllables - mean(d$syllables)
+d$c.chars = d$chars - mean(d$chars)
 # d_ranks = ddply(d, .(adverb_list, workerid), transform, surprisal_rank = rank(surprisal))
 # d_ranks = ddply(d_ranks, .(adverb_list, workerid), transform, syllables_rank = rank(syllables))
 # d_ranks$intensifier = d_ranks$adverb
@@ -136,7 +143,8 @@ d$c.syllables = d$syllables - mean(d$syllables)
 # d$syllables_scaled = (d$syllables / d$syll.range)
 
 d_summary = bootsSummary(data=d, measurevar="ranking",
-                         groupvars=c("surprisal", "adjective", "syllables", "adverb_list"))
+                         groupvars=c("surprisal", "adjective", "syllables"#, "adverb_list"
+                                     ))
 d_summary$syllables = as.factor(d_summary$syllables)
 d_summary = ddply(d_summary, .(adverb_list, adjective), transform, adv_adj_N = sum(N))
 d_summary$adjsyll = paste(d_summary$adjective, d_summary$syllables)
@@ -146,7 +154,8 @@ p = ggplot(data=d_summary, aes(x=surprisal, y=ranking, colour=syllables)) +
   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5) +
   theme_bw(22) +
   #scale_colour_grey() +
-  facet_grid(adverb_list ~ adjective) +
+  #facet_grid(adverb_list ~ adjective) +
+  facet_wrap(~ adjective) +
   geom_text(aes(label=adv_adj_N), x=10, y=1) +
   geom_text(label="N=", x=9, y=1) +
   theme(panel.grid=element_blank()) +
@@ -155,34 +164,38 @@ p = ggplot(data=d_summary, aes(x=surprisal, y=ranking, colour=syllables)) +
   ylab("ranking") +
   ggtitle("Experiment 2")
 print(p)
-ggsave("images/exp2-plot.png", width=12, height=10)
+ggsave("images/exp2-plot.png", width=16, height=10)
 
 # ## random effect of adverb_list: what converges?
 # 
 # ## this is best, since some lists have low values, some don't, and some are more compressed than others. but it doesn't converge.
-# random_list_all = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal * c.syllables | adverb_list), data=d)
+# random_list_all = lmer(ranking ~ c.surprisal * c.syllables +
+# (1 + c.surprisal * c.syllables | adverb_list), data=d)
 # 
-# ## other options that don't converge:
-# random_list_main = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal + c.syllables | adverb_list), data=d)
-# random_list_interaction = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal:c.syllables | adverb_list), data=d)
-# 
-# ## this converges, but doesn't account for the lowest value being very different for the different lists
-# random_list_slopes = lmer(ranking ~ c.surprisal * c.syllables + (0 + c.surprisal * c.syllables | adverb_list), data=d)
-#
-# ## random effect of adjective: what converges?
-# 
-# ## doesn't converge:
-# random_adj_all = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal * c.syllables | adjective), data=d)
-# 
-# ## converge:
-# random_adj_main = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal + c.syllables | adjective), data=d)
-# random_adj_interaction = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal:c.syllables | adjective), data=d)
-# random_adj_slopes = lmer(ranking ~ c.surprisal * c.syllables + (0 + c.surprisal * c.syllables | adjective), data=d)
-# random_adj_intercept = lmer(ranking ~ c.surprisal * c.syllables + (1 | adjective), data=d)
 
-## the maximal random effects structure that converges...
-fit = lmer(ranking ~ c.surprisal * c.syllables + (1 | adverb_list) + (1 + c.surprisal + c.syllables | adjective), data=d)
-print(summary(fit))
+library(MASS)
+d$franking = ordered(d$ranking)
+
+m <- polr(franking ~ c.surprisal * c.syllables, data=d)
+## calculate and store p values
+p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
+## combined table
+(ctable <- cbind(ctable, "p value" = p))
+
+
+m <- polr(franking ~ c.surprisal * c.chars, data=d)
+## calculate and store p values
+p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
+## combined table
+(ctable <- cbind(ctable, "p value" = p))
+
+#is this correct?
+m <- glmer(ranking ~ c.surprisal * c.syllables +
+             (1 + c.surprisal * c.syllables | adverb_list) +
+             (1 + c.surprisal * c.syllables | workerid), data = d,
+           family = poisson
+           #, control = glmerControl(optimizer = "bobyqa"), nAGQ = 10
+           )
 
 # d_summary = bootsSummary(data=d, measurevar="ranking",
 #                          groupvars=c("c.surprisal", "adjective", "c.syllables", "adverb_list"))
@@ -243,14 +256,7 @@ print(summary(fit))
 # full_model = lm(height_in_list ~ c.surprisal * c.syllables * adjective, data=d)
 # print(summary(full_model))
 # 
-# for (adverb_list in unique(as.character(d$adverb_list))) {
-#   print(adverb_list)
-#   subd = d[d$adverb_list == adverb_list,]
-#   subd$c.surprisal = subd$surprisal - mean(subd$surprisal)
-#   subd$c.syllables = subd$syllables - mean(subd$syllables)
-#   full_model = lm(ranking ~ c.surprisal * c.syllables, data=subd)
-#   print(summary(full_model))
-# }
+
 
 # ```
 # 
