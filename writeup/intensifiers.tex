@@ -25,29 +25,19 @@
 % spend more time and flesh out more detail. especially the corpus stuff
 % talking about cost, different measures of cost
 
-
-% %% conceptual change:
-% compositional version: why not adopt it.
 % bigrams!! -- discussion of experiment 1. use it to motivate compositional version where costs is for adverb, not adjective phrase.
-% finess the wording of how this relates to the adjectives model.
-% the meaning of the intensifier.
+% finesse the wording of how this relates to the adjectives model.
 
-%%% change the wording so the semantics more closely aligns with what's probably actually happening.
 %%% talk more about the bigrams
 %%% finish paper.
 
-%%% price VS cost!!!! (lol!)
-
 %%% before going into the model, situate people in bayesian RSA
-%%% more extreme : more explicit
-
-%%% character count: which like could be relevant on a reading task.
+%%% more extreme : be more explicit what you mean
 
 %%% cite molly for length ~ frequency
 
 %%% can get rid of big long table.
 
-%%% COMPARISON CLASS
 %%% it's modifying the meaning of the predicate
 %%% template for the meaning of this thing
   
@@ -57,7 +47,7 @@
 
 \begin{abstract}
 
-\todo{Abstract}
+We formalize an analaysis of intensifying degree adverbs, which predicts an implicature that more marked adverbs will correspond to stronger interpretations. We test this qualitative prediction in two correlational studies with two dependent measures and show that higher utterance costs predict stronger meanings for intensifiers.
 
 \textbf{Keywords:} 
 intensifiers; degree adverbs; scalar adjectives; pragmatics; m-implicature
@@ -65,60 +55,47 @@ intensifiers; degree adverbs; scalar adjectives; pragmatics; m-implicature
 
 \section{Introduction}
 
-% - a class of words with a similar function: intensifiers
-%         - some examples
-%         - differences in meaning
-
-% why are intensifiers a good domain to look at the arbitrariness question in? add a sentence that makes this clear
 % this suggests there's a route to word meanings which is not conventional lexicon thing or ideographic (form) features of words. this is a different things.
-% if you intend this to also encompass things like frequency of occurrence, i would suggest saying sth more like “form and distribution of usage”
 % just say that it now has the “figuratively” meaning in the dictionary, i think at least merriem-webster has it
 
 How do different words get their various meanings? For instance, why is an ``extremely good paper'' better than a ``quite good paper''? The traditional answer \cite{saussure} is that different meanings have been arbitrarily and conventionally assigned to the different word forms.
-% Based on a previous theory of the semantics of scalar adjectives we hypothesize that the interpreted meanings of intensifiers are (at least partly) non-arbitrary, and instead are determined by their production (or comprehension) cost. 
-% We show in two correlational %three
-% experiments that the meanings of english intensifiers are predictable from their costs, and are sensitive to manipulation of cost.
-% These results are consistent with the small but growing literature arguing that word meanings are not fully arbitrary, but instead are constrained by non-semantic features of the word. 
-% 
-% \citeA{saussure} identifies as a principal of language that the mapping from word form to that which it signifies ``is unmotivated, i.e. arbitrary in that it actually has no natural connection with the signified,'' This suggests that meaning is purely the result of historical accident. And indeed, most of meanings for for most words must be arbitrary -- many different languages exist, each with their own mapping from word forms to referents in the world, over time words change their meanings, sometimes to the complete opposite of their original meaning (e.g. ``literally'' has grown to mean ``figuratively'' in some dialects), and there are no hard constraints on what a particular word form could refer to.
-But word meanings can be associated with various properties that are not purely lexical or semantic. In some cases, the phonetic form of a word is systematically related to its meaning, for example rounded vowels and voiced consonants tend to refer to round objects \cite{maluma-takete, bouba-kiki, bouba-kiki2, takete-uloomo}. In other cases, orthographic form is diagnostic of meaning, for example speakers of Hebrew who have never seen Chinese characters are nonetheless able to match them to their Hebrew words above chance \cite{koriat}), and lengths of words can also predict aspects of their meanings (across languages longer words refer to more complex meanings \cite{lewis}).
+But word meanings can be associated with various properties that are not purely lexical or semantic. In some cases, the phonetic form of a word is systematically related to its meaning, for example rounded vowels and voiced consonants tend to refer to round objects \cite{maluma-takete, bouba-kiki, bouba-kiki2, takete-uloomo}. In other cases, orthographic form is diagnostic of meaning, for example speakers of Hebrew who have never seen Chinese characters are nonetheless above chance at matching them to their corresponding Hebrew words \cite{koriat}. And lengths of words can also predict aspects of their meanings: across languages longer words refer to more complex meanings \cite{lewis}.
 In this paper,
-we explore adjectival intensifiers\footnote{Intensifiers are adverbs that modify scalar adjectives to increase the degree. The word ``intensifier'' is often used to denote the full range of degree adverbs, be they ``amplifiers'', or ``downtoners'' \cite{quirk}. The ``intensifiers'' we are looking at in this paper are, according to this typology, ``amplifiers'' because they increase (rather than decrease) the degree to which a predicate applies. This typology also distinguishes between two different kinds of amplifiers, some that increase an adjective maximally (e.g. \w{completely} and \w{utterly}) and some that merely increase (e.g. \w{greatly} and \w{terribly}). We do not make this distinction. The word ``intensifier'' is also used for a completely different linguistic phenomenon, where a reflexive is used for emphasis, e.g. ``The king himself gave the command,'' which we do not analyze in this paper.}, like \w{extremely} and \w{quite},
-as a case study in which to empirically explore the relationship of meaning to form and distributional factors.
+we explore adjectival intensifiers\footnote{Intensifiers are adverbs that modify scalar adjectives to increase the degree. The word ``intensifier'' is often used to denote the full range of degree adverbs, be they ``amplifiers'', or ``downtoners'' \cite{quirk}. The ``intensifiers'' we are looking at in this paper are, according to this typology, ``amplifiers'' because they increase (rather than decrease) the threshold associated with a gradable predicate. This typology also distinguishes between two different kinds of amplifiers, some that increase an adjective maximally (e.g. \w{completely} and \w{utterly}) and some that merely increase (e.g. \w{greatly} and \w{terribly}). We do not make this distinction. The word ``intensifier'' is also used for a completely different linguistic phenomenon, where a reflexive is used for emphasis, e.g. ``The king himself gave the command,'' which we do not analyze in this paper.}, like \w{extremely} and \w{quite},
+as a case study in which to empirically explore the relationship of meaning to form and distribution of usage.
+\todo{why are intensifiers a good domain to look at the arbitrariness question in? add a sentence that makes this clear}
 
+We present a hypothesis that the varied meanings of intensifiers are influenced by their form (in length) and their distribution of usage.
+In our experiments, we identify a relationship between the frequency and length of an intensifier on the one hand and its interpretation on the other.
+\todo{say more}
 
-We present a hypothesis that the varied meanings of intensifiers are influenced by their form (in length), their distribution of usage, and, potentially, discourse factors. In our experiments, we identify a relationship between frequency and length of an intensifier on the one hand and its interpretation on the other.
-
-We first introduce a model of intensifiers which predicts an M-implicature \cite{levinson}, where more costly adjective phrases will be associated with more extreme meanings. We then confirm in two experiments that interpretations of English intensifiers in adjective phrases are indeed higher for more costly intensifiers. We conclude with a discussion of alternative explanations for this correlation and future directions.
+We first introduce a model of intensifiers which predicts an M(arkedness)-implicature \cite{levinson}, where more marked (costly to utter) intensifiers will be interpreted as referring to higher degrees (e.g. \w{phenomenally tall} will probably refer to a much greater height than \w{quite tall} since the former is longer and more surprising and so more costly to produce or comprehend).
+We then confirm, in two experiments, that interpretations of English intensifiers in adjective phrases will indeed refer to much higher degrees (e.g. in the case of \w{tall}, greater heights) for more marked (longer and less frequent) intensifiers. We conclude with a discussion of alternative explanations for this correlation and future directions.
+\todo{more?}
 
 
 \section{Motivation: possible semantics of intensifying degree adverbs}
 
-%\subsection{Semantics of adjectives and intensifiers}
-% - semantics background
-%         - adjectives and thresholds
-Our paper focuses on intensifying degree adverbs applied to scalar adjectives\footnote{Some of these intensifiers can also apply to verbal and nominal predicates, and different restrictions apply for different intensifiers, e.g. \w{I truly like carrots} is an acceptable utterance, whereas \w{I very like carrots} is not. See \cite{bolinger} for a discussion.}. Scalar adjectives have been described as having a threshold semantics \cite{kennedy}, where for example \w{tall} means ``having a height greater than $\theta$'' and $\theta$ is a \emph{relative} semantic variable inferred from context.
-%         - lassiter & goodman: rational inference
+Our paper focuses on intensifying degree adverbs applied to scalar adjectives\footnote{Some of these intensifiers can also apply to verbal and nominal predicates, and different restrictions apply for different intensifiers, e.g. \w{I truly like carrots} is an acceptable utterance, whereas \w{I very like carrots} is not. See \citeA{bolinger} for a discussion.}. Scalar adjectives have been described as having a threshold semantics \cite{kennedy}, where, for example, \w{tall} means ``having a height greater than \$$\theta$'' and $\theta$ is a %\emph{relative}
+semantic variable inferred from context. Above the threshold degree $\theta$, the adjective is true of an object, and below the adjective is false.
 \citeA{lassiter} give a formal model of how this threshold might be inferred, which we extend to intensifiers.
 
-%         - intensifiers
-%                 - previous proposals: restricted domain
 \subsection{Background}
-Previous researchers have proposed that adjective phrases modified by intensifiers have the same semantics as unmodified adjective phrases, except with new, higher thresholds. These thresholds might be transformations of the original threshold \cite{kennedyMcnally1999}, e.g. the threshold for \w{very expensive} is some amount higher than the threshold for \w{expensive}.
+Previous researchers have proposed that adjective phrases modified by intensifiers have the same semantics as unmodified adjective phrases, except with new, higher thresholds. That is, some threshold, inferred from context exists above which objects are \w{tall}, and the intensifier \w{very} changes this to determine a new, higher threshold for \w{very tall}. These new thresholds might be transformations of the original threshold \cite{kennedyMcnally1999}, e.g. the threshold for \w{very tall} is some amount higher than the threshold for \w{tall}.
 Alternatively, the new thresholds might be inferred by changing the comparison class to only those objects for which
-%analysis, bare adjectives determine a scale and direction and intensifiers provide the threshold. They suggest that the intensified thresholds are determined by first collecting the set of objects in the comparison class for which
-the bare adjective is true, %, and then using that as the comparison class to infer a new threshold,
-e.g. \w{very expensive laptop} means ``expensive, even among expensive laptops'' \cite{klein, kennedyMcnally, wheeler}.
-%                         - pros: domain sensitivity and increase in theta
-The latter analysis results in the expected intensification of adjectives and is appropriately sensitive to different domains,
-%                         - cons: lexical differences?
-but does not in and of itself distinguish between the strengths of different intensifiers, for example, \w{very expensive} and \w{phenomenally expensive}.
+the bare adjective is true,
+so that, for example, \w{very tall basketball player} means ``tall, even among tall basketball players'' \cite{klein, kennedyMcnally, wheeler}.
+The latter analysis results in the expected intensification of adjectives (``tall, even among tall basketball players'' has a higher threshold for being true than simple ``tall for a basketball player'') and is appropriately sensitive to different domains (e.g. the absolute difference in height between thresholds for \w{tall} and \w{very tall} is much higher in the context of ``This building is very tall,'' than in the context of ``This coffee mug is very tall.'').
+but does not in and of itself distinguish between the strengths of different intensifiers, for example, \w{very tall} and \w{phenomenally tall}.
 The former analysis requires more formalization of where an intensifier's amount of boost might come from.
 
-%                 - separate meanings?
-Intuition suggests that different intensifiers do have different strengths, and we provide further evidence of this in our experiments, where participants judge the relative orderings of intensifiers. But are these differences due to learned differences in lexicon?
+
+%%greg bookmark
+
+
+Intuition suggests that different intensifiers do have different strengths, and we provide further evidence of this in our experiments, where participants judge the relative orderings of intensifiers. But are these differences due to learned differences in the lexicon?
 %                         - hard (i.e., lots) to learn
-If so, it would be tasking for a learner to learn all the different lexical entries, especially since intensifiers are considered to be so numerous and so productive
+If so, it would be taxing for a learner to learn all the different lexical entries, especially since intensifiers are considered to be so numerous and so productive
 % also borst: borst, eugen: die gradadverbien im englischen 1902
 \cite{bolinger}.
 %                         - loses within-class similarity
@@ -137,30 +114,30 @@ We formalize this idea by extending \citeA{lassiter}'s model of scalar adjective
 
 \subsection{Model}
 
-%% introduce RSA more generally
+\todo{introduce Bayesian RSA framework more generally}
 
-The basic idea of this model is that different adjective phrases have different thresholds, the adjective's standard threshold plus\footnote{Or minus, depending on the direction of the adjective on its scale (e.g. \w{extremely short} will have a lower threshold than \w{short} whereas \w{extremely tall} will have a higher threshold than \w{tall}). Other versions of this model could be imagined in which the intensifier transforms the threshold via multiplication or some other function, but would have very similar functionality.} some boosting amount which must be inferred, but otherwise mean roughly the same thing, e.g. \w{very expensive} and \w{phenomenally expensive} both mean
+The basic idea of this model is that different adjective phrases have different thresholds, the adjective's standard threshold plus\footnote{Or minus, depending on the direction of the adjective on its scale (e.g. \w{extremely short} will have a lower threshold than \w{short} whereas \w{extremely tall} will have a higher threshold than \w{tall}). Other versions of this model could be imagined in which the intensifier transforms the threshold via multiplication or some other function, but would have very similar functionality.} some boosting amount which must be inferred, but otherwise mean roughly the same thing, e.g. \w{very tall} and \w{phenomenally tall} both mean
 
-\[ \lambda x . price(x) > \theta_{expensive} + \epsilon_i \]
+\[ \lambda x . tall(x) > \theta_{tall} + \epsilon_i \]
 
-where each intensifier $i$ gets its own boosting amount $\epsilon_i \in E$ and the boosting amount for \w{expensive} is 0. 
-Given an utterance $u_i$ (e.g. \w{an expensive laptop} or \w{a very expensive laptop}) and a set of thresholds and boosting amounts, a literal listener $L_0$ will simply update their prior beliefs $P(d)$ about the object's degree $d$ (e.g. the laptop's price) given that the degree is greater than the boosted threshold for that utterance.
+where each intensifier $i$ gets its own boosting amount $\epsilon_i \in E$ and the boosting amount for \w{tall} is 0. 
+Given an utterance $u_i$ (e.g. \w{a tall girl} or \w{a very tall girl}) and a set of thresholds and boosting amounts, a literal listener $L_0$ will simply update their prior beliefs $P(d)$ about the object's degree $d$ (e.g. the girl's height in cm) given that the degree is greater than the boosted threshold for that utterance.
 
-\[ L_0(d | u_i) \propto P(d) \cdot \delta_{d > \theta + \epsilon_i } \]
+\[ L_0(d | u_i) \propto P(d) \cdot \delta_{d > \theta_{tall} + \epsilon_i } \]
 
-Given a set of thresholds, boosting amounts and alternative utterances, a speaker $S_1$ will choose utterances to have low cost $C(u_i)$\footnote{Though this model naturally incorporates production cost, speakers might also seek to minimize comprehension cost for their listeners as well, which would have a similar effect.}
+Given a set of thresholds, boosting amounts and alternative utterances, a speaker $S_1$ will choose utterances according to a softmax decision rule \cite{sutton}, preferring to have low utterance cost $C(u_i)$\footnote{Though this model naturally incorporates production cost, speakers might also seek to minimize comprehension cost for their listeners as well, which would have a similar effect.}
 and high probability of a literal listener correctly inferring the degree.
 
-\[ S_1(u_i | d) \propto L_0(d | u_i) \cdot e^{-C(u_i)} \]
+\[ S_1(u_i | d) \propto e^{\lambda \cdot ( log(L_0(d | u_i)) - C(u_i) )} \]
 
-A pragmatic listener $L_1$ can use the prior probabilities of different degrees along with their knowledge of how much effort the speaker chose to expend to guess both what the different thresholds and boosting amounts were for the different utterances and which degree the speaker intended to communicate.
+where $\lambda$ is an optimality parameter. A pragmatic listener $L_1$ can use the prior probabilities of different degrees along with their knowledge of how much effort the speaker chose to expend to guess both what the different thresholds and boosting amounts were for the different utterances and which degree the speaker intended to communicate.
 
 \[ L_1(d, \theta, E | u_i) \propto P(d) \cdot S_1(u_i | d) \]
 
 %% unclear
 As an initial exploration, we simulated such a model with three levels of utterance cost on an imaginary ``heights'' domain. The prior distribution for this domain was a gaussian peaked at 0.0.
 %rerun sim so this is true.
-We had two different adjectives, \w{tall} and \w{short}, which determined the direction on the scale. Each adjective recieved its own threshold variable and each intensifier received its own boosting amount in the simulation. This simulation shows an M-implicature, with the more costly intensifiers corresponding to less probable, more extreme parts of the scale (Figure ~\ref{model}).
+We had two different adjectives, \w{tall} and \w{short}. Each adjective recieved its own threshold variable and each intensifier received its own boosting amount. At the literal level, something is considered \w{[intensifier] tall} if its height is greater than $\theta_{tall} + \epsilon_{[intensifier]}$ and \w{short} if its height is less than $\theta_{short} - \epsilon_{[intensifier]}$.  We used an optimality parameter of $\lambda=5$ in our simulation. This simulation shows an M-implicature, with the more costly intensifiers corresponding to less probable, more extreme heights (Figure ~\ref{model}).
 %``my paper is totally done'' when you expect it to be done: might actually mean that it's almost done.
 
 % Simulation results of intensifier meanings with arbitrarily chosen ``costs'' on a discretized scale of normally distributed ``heights'' are shown in Figure~\ref{model}.
@@ -170,7 +147,6 @@ We had two different adjectives, \w{tall} and \w{short}, which determined the di
 % very short : x < theta_short - epsilon_very
 % tall : x > theta_tall + epsilon_default
 % very tall : x > theta_tall + epsilon_very
-%% need to re-run with assumptions described here. will take longer, but will probably otherwise look the same.
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.48\textwidth]{analysis_files_for_writeup/images/model_results.png}
@@ -179,7 +155,7 @@ We had two different adjectives, \w{tall} and \w{short}, which determined the di
 \label{model}
 \end{figure}
 
-This predicts that an association between intensifier meaning and anything that affects cost.
+This proposed model therefore predicts an association between intensifier meaning and utterance cost.
 
 % - meaning as a function of cost?
 %         - what is cost?
@@ -192,7 +168,7 @@ Communicative cost, or markedness,
 might be influenced by a variety of factors.
 
 %However, f
-For the purposes of this paper, we use quantities for costs that are easy to quantify: length (longer utterances are more costly)\footnote{We measure length in number of syllables, although length in characters has similar
+For the purposes of this paper, we use quantities for costs that are easy to quantify: length (longer utterances are more costly)\footnote{We measure length in number of syllables, although length in characters (which might be a relevant source of utterance cost in a written format, as our partipants experienced) has similar
 %(and in fact, slightly higher)
 predictive power to syllable length in all of our analyses.}
 %if we ran the same thing with audio, would syllables be a better predictor?
@@ -211,13 +187,15 @@ might enter into cost.
 % limitations of correlational studies in this domain
 %%%%% make this clearer
 \subsection{Limitations of these methods}
-It should be noted that, this is a correlational study, finding it would not confirm that an intensifier's cost \emph{actually causes} its meaning. This correlation is predicted by the model sketched above, but it might be predicted by a variety of other analyses of intensifiers and their meanings. Rarity in particular might be correlated with strength of meaning merely because more extreme meanings refer to less probable things in the world, are therefore talked about less, and therefore the words with those meanings will necessarily be rarer. Although it seems reasonable to suspect that word frequencies reflect the probabilities of the real-world concepts they describe, it might also be the case that improbable things are more likely to be commented on, and so to a certain extent the frequencies of words that describe rare concepts will be inflated. Even so, this confound exists only for word frequency and not for syllable length. The length of a word seems much less likely to reflect the real-word prevalence of the concept it refers to.
+It should be noted that, this is a correlational study, finding it would not confirm that an intensifier's cost \emph{actually causes} its meaning. This correlation is predicted by the model sketched above, but it might be predicted by a variety of other analyses of intensifiers and their meanings. Rarity in particular might be correlated with strength of meaning merely because more extreme meanings refer to less probable things in the world, are therefore talked about less, and therefore the words with those meanings will necessarily be rarer. Although it seems reasonable to suspect that word frequencies reflect the probabilities of the real-world concepts they describe, it might also be the case that improbable things are more likely to be commented on, and so to a certain extent the frequencies of words that describe rare concepts will be inflated. Even so, this confound exists only for word frequency and not for syllable length.
+%citation?
+The length of a word seems much less likely to reflect the real-word prevalence of the concept it refers to.
 
 % ## Expt. 1
 \section{Experiment 1}
 
 The proposal detailed above predictions an association between measures of cost and strength of interpretations. In Experiments 1, we test this qualitative prediction%, and look at whether the cost associated with different intensifiers can predict their interpretations.
-by eliciting free response prices from people and determining whether these prices are correlated with independent measures of cost.
+by eliciting free response prices from people and determining whether these prices are correlated with independent measures of utterance cost.
 
 % - design and materials
 \subsection{Method\footnote{The full experiment can be found at \url{http://web.stanford.edu/~erindb/degree-adverbs/experiments/exp5_2014-12-01/exp5.html}}}
@@ -299,9 +277,9 @@ We used word length in syllables and word frequency as proxies for a word's cost
 The frequencies were collected from the Google Web 1T 5-grams database \cite{web1t5gram}\footnote{
 We also ran the same analyses on frequency information collected from the Google Books American Ngrams Corpus \cite{books2011} as well, and found similar results.
 
-In addition, we did the same using the bigram frequencies of ``\emph{[intensifer]} expensive'' rather than the unigram frequencies of the intensifiers alone. These data were much more sparse. For bigrams, we found no significant effects of surprisal using the books database and a negative effect using the web database.
+In addition, we did the same using the bigram frequencies of ``\emph{[intensifer]} expensive'' rather than the unigram frequencies of the intensifiers alone. These data were much more sparse. For bigrams, we found no significant effects of surprisal using the books database and a negative effect using the web database. While the data for bigrams is more sparse, the fact that unigrams is a better fit might be an indication 
 }
-For all of the analyses that follow, we use \w{surprisal} or \w{self-information}, defined as the negative log probability of a word in the corpus, as the cost measure. We do this so that our correlations for both cost measures will be positive (if our findings are consistent with our hypothesis) and because \todo{reasons}. The syllable lenths of our intensifiers and the surprisals %\todo[inline]{say what surprisal is and why we care before using it.} 
+For all of the analyses that follow, we use \w{surprisal} or \w{self-information}, defined as the negative log probability of a word in the corpus, as the utterance cost measure. We do this so that our correlations for both utterance cost measures will be positive (if our findings are consistent with our hypothesis) and because \todo{reasons}. The syllable lenths of our intensifiers and the surprisals %\todo[inline]{say what surprisal is and why we care before using it.} 
 were correlated, but not strongly so (r = 0.27).
 
 % - results and discussion
@@ -468,7 +446,8 @@ Further work will provide more thorough tests of our model hypothesis, for examp
 
 %in general discussion / conclusion should address again the thing from the intro, also talk about other aspects of meaning (eg affect), issues with our results, and some future directions.
 
-In conclusion, we found that frequency and syllable length can predict the interpretations of adverbs, and manipulating frequency in turn changes the interpretation, providing evidence that effective meaning is a combination of both arbitrary convention and non-arbitrary factors mediated by pragmatic inference.
+In conclusion, we found that frequency and syllable length can predict the interpretations of adverbs, %and manipulating frequency in turn changes the interpretation,
+providing evidence that effective meaning is a combination of both arbitrary convention and non-arbitrary factors mediated by pragmatic inference.
 
 %\todo[inline]{revisit our point and summarize briefly our results.}
 
@@ -482,11 +461,9 @@ In conclusion, we found that frequency and syllable length can predict the inter
 
 \section{Acknowledgments}
 
-\nocite{web1t5gram}
-\nocite{lewis}
-\nocite{saussure}
-
 \bibliographystyle{apacite}
+
+\todo{fill in missing information for references}
 
 \setlength{\bibleftmargin}{.125in}
 \setlength{\bibindent}{-\bibleftmargin}

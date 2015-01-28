@@ -29,7 +29,7 @@ d$c.surprisal = d$surprisal - mean(d$surprisal)
 d$c.syllables = d$syllables - mean(d$syllables)
 d$c.chars = d$chars - mean(d$chars)
 
-white = element_rect(fill="white")
+# white = element_rect(fill="white")
 
 d_summary = bootsSummary(data=d, measurevar="logprice", groupvars=c("intensifier", "object", "frequency", "syllables"))
 d_summary$syllables = as.ordered(d_summary$syllables)
@@ -39,6 +39,7 @@ p = ggplot(data=d_summary, aes(x=-log(frequency), y=logprice, colour=syllables))
   theme_bw(22) +
   facet_wrap(~ object, scale="free") +
   #scale_colour_grey() +
+  scale_colour_brewer(type="div") +
   theme(panel.grid=element_blank()) +
   xlab("inverse log(frequency)") +
   ylab("log(price)") +
@@ -54,10 +55,10 @@ ggsave("images/exp1-plot.png", width=16, height=6)
 #                         (1 + c.surprisal + c.syllables | object), data=d)
 # print(summary(full_model))
 
-full_model = lmer(logprice ~ c.surprisal * c.chars +
-                        (1 + c.surprisal + c.chars | workerid) +
-                        (1 + c.surprisal + c.chars | object), data=d)
-print(summary(full_model))
+# full_model = lmer(logprice ~ c.surprisal * c.chars +
+#                         (1 + c.surprisal + c.chars | workerid) +
+#                         (1 + c.surprisal + c.chars | object), data=d)
+# print(summary(full_model))
 
 # # Experiment 2
 # 
@@ -142,6 +143,7 @@ d$c.chars = d$chars - mean(d$chars)
 # d = ddply(d, .(adverb_list), transform, syll.range = max(syllables) - min(syllables))
 # d$syllables_scaled = (d$syllables / d$syll.range)
 
+###diverging color scheme color brewer
 d_summary = bootsSummary(data=d, measurevar="ranking",
                          groupvars=c("surprisal", "adjective", "syllables"#, "adverb_list"
                                      ))
@@ -154,6 +156,7 @@ p = ggplot(data=d_summary, aes(x=surprisal, y=ranking, colour=syllables)) +
   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5) +
   theme_bw(22) +
   #scale_colour_grey() +
+  scale_colour_brewer(type="div") +
   #facet_grid(adverb_list ~ adjective) +
   facet_wrap(~ adjective) +
   geom_text(aes(label=adv_adj_N), x=10, y=1) +
@@ -173,29 +176,29 @@ ggsave("images/exp2-plot.png", width=16, height=10)
 # (1 + c.surprisal * c.syllables | adverb_list), data=d)
 # 
 
-library(MASS)
-d$franking = ordered(d$ranking)
-
-m <- polr(franking ~ c.surprisal * c.syllables, data=d)
-## calculate and store p values
-p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
-## combined table
-(ctable <- cbind(ctable, "p value" = p))
-
-
-m <- polr(franking ~ c.surprisal * c.chars, data=d)
-## calculate and store p values
-p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
-## combined table
-(ctable <- cbind(ctable, "p value" = p))
-
-#is this correct?
-m <- glmer(ranking ~ c.surprisal * c.syllables +
-             (1 + c.surprisal * c.syllables | adverb_list) +
-             (1 + c.surprisal * c.syllables | workerid), data = d,
-           family = poisson
-           #, control = glmerControl(optimizer = "bobyqa"), nAGQ = 10
-           )
+# library(MASS)
+# d$franking = ordered(d$ranking)
+# 
+# m <- polr(franking ~ c.surprisal * c.syllables, data=d)
+# ## calculate and store p values
+# p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
+# ## combined table
+# (ctable <- cbind(ctable, "p value" = p))
+# 
+# 
+# m <- polr(franking ~ c.surprisal * c.chars, data=d)
+# ## calculate and store p values
+# p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
+# ## combined table
+# (ctable <- cbind(ctable, "p value" = p))
+# 
+# #is this correct?
+# m <- glmer(ranking ~ c.surprisal * c.syllables +
+#              (1 + c.surprisal * c.syllables | adverb_list) +
+#              (1 + c.surprisal * c.syllables | workerid), data = d,
+#            family = poisson
+#            #, control = glmerControl(optimizer = "bobyqa"), nAGQ = 10
+#            )
 
 # d_summary = bootsSummary(data=d, measurevar="ranking",
 #                          groupvars=c("c.surprisal", "adjective", "c.syllables", "adverb_list"))
