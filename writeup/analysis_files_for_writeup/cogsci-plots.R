@@ -150,11 +150,39 @@ p = ggplot(data=d_summary, aes(x=surprisal, y=ranking, colour=syllables)) +
   geom_text(aes(label=adv_adj_N), x=10, y=1) +
   geom_text(label="N=", x=9, y=1) +
   theme(panel.grid=element_blank()) +
+  scale_x_continuous(breaks=c(10, 14, 18)) +
   xlab("surprisal") +
   ylab("ranking") +
   ggtitle("Experiment 2")
 print(p)
-ggsave("images/exp2-plot.png", width=16, height=10)
+ggsave("images/exp2-plot.png", width=12, height=10)
+
+# ## random effect of adverb_list: what converges?
+# 
+# ## this is best, since some lists have low values, some don't, and some are more compressed than others. but it doesn't converge.
+# random_list_all = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal * c.syllables | adverb_list), data=d)
+# 
+# ## other options that don't converge:
+# random_list_main = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal + c.syllables | adverb_list), data=d)
+# random_list_interaction = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal:c.syllables | adverb_list), data=d)
+# 
+# ## this converges, but doesn't account for the lowest value being very different for the different lists
+# random_list_slopes = lmer(ranking ~ c.surprisal * c.syllables + (0 + c.surprisal * c.syllables | adverb_list), data=d)
+#
+# ## random effect of adjective: what converges?
+# 
+# ## doesn't converge:
+# random_adj_all = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal * c.syllables | adjective), data=d)
+# 
+# ## converge:
+# random_adj_main = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal + c.syllables | adjective), data=d)
+# random_adj_interaction = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal:c.syllables | adjective), data=d)
+# random_adj_slopes = lmer(ranking ~ c.surprisal * c.syllables + (0 + c.surprisal * c.syllables | adjective), data=d)
+# random_adj_intercept = lmer(ranking ~ c.surprisal * c.syllables + (1 | adjective), data=d)
+
+## the maximal random effects structure that converges...
+fit = lmer(ranking ~ c.surprisal * c.syllables + (1 | adverb_list) + (1 + c.surprisal + c.syllables | adjective), data=d)
+print(summary(fit))
 
 # d_summary = bootsSummary(data=d, measurevar="ranking",
 #                          groupvars=c("c.surprisal", "adjective", "c.syllables", "adverb_list"))
@@ -223,30 +251,6 @@ ggsave("images/exp2-plot.png", width=16, height=10)
 #   full_model = lm(ranking ~ c.surprisal * c.syllables, data=subd)
 #   print(summary(full_model))
 # }
-
-## random adverb_list
-
-# ## this is best, since some lists have low values, some don't, and some are more compressed than others. but it doesn't converge.
-# random_list_all = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal * c.syllables | adverb_list), data=d)
-# 
-# ## other options that don't converge:
-# random_list_main = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal + c.syllables | adverb_list), data=d)
-# random_list_interaction = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal:c.syllables | adverb_list), data=d)
-# 
-# ## this converges, but doesn't account for the lowest value being very different for the different lists
-# random_list_slopes = lmer(ranking ~ c.surprisal * c.syllables + (0 + c.surprisal * c.syllables | adverb_list), data=d)
-
-# ## doesn't converge:
-# random_adj_all = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal * c.syllables | adjective), data=d)
-# 
-# ## converge:
-# random_adj_main = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal + c.syllables | adjective), data=d)
-# random_adj_interaction = lmer(ranking ~ c.surprisal * c.syllables + (1 + c.surprisal:c.syllables | adjective), data=d)
-# random_adj_slopes = lmer(ranking ~ c.surprisal * c.syllables + (0 + c.surprisal * c.syllables | adjective), data=d)
-# random_adj_intercept = lmer(ranking ~ c.surprisal * c.syllables + (1 | adjective), data=d)
-
-fit = lmer(ranking ~ c.surprisal * c.syllables + (1 | adverb_list) + (1 + c.surprisal + c.syllables | adjective), data=d)
-print(summary(fit))
 
 # ```
 # 

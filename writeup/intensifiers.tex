@@ -5,9 +5,10 @@
 \usepackage{pslatex}
 \usepackage{apacite}
 \usepackage{graphicx}
-\usepackage{todonotes}
 \usepackage{caption}
 \usepackage{subcaption}
+
+\newcommand{\w}[1]{\emph{#1}}
 
 \title{Extremely costly intensifiers are stronger than quite costly ones: a case of non-arbitrary word meanings.}
  
@@ -16,46 +17,125 @@
   \AND {\large \bf Noah Goodman (ngoodman@stanford.edu)} \\
   Department of Psychology, 450 Serra Mall , Stanford, CA 94305}
 
-
+% ## Intro
+% - a class of words with a similar function: intensifiers
+%         - some examples
+%         - differences in meaning
+% - semantics background
+%         - adjectives and thresholds
+%         - lassiter & goodman: rational inference
+%         - intensifiers
+%                 - previous proposals: restricted domain
+%                         - pros: domain sensitivity and increase in theta
+%                         - cons: lexical differences?
+%                 - separate meanings?
+%                         - loses within-class similarity
+%                         - hard (i.e., lots) to learn
+% - proposal in brief
+%         - meaning as a function of cost
+%                 - m-implicature
+%         - single intensifier semantics (increase theta)
+%         - thresholds inferred
+% 
+% ## Expt. 1
+% - meaning as a function of cost?
+%         - what is cost?
+%         - predictions
+%                 - as cost increases, meaning becomes more extreme
+%                 - (note: not clear on causal direction (yet))
+% - design and materials
+% - results and discussion
+%         - as cost increases, meaning becomes more extreme
+%         - support for m-implicature model
+%         - effect of design/dependent measure?
+% 
+% ## Expt. 2
+% - effect of design/dependent measure?
+%         - motivate new design (e.g., more adjectives)
+% - design and materials
+% - results and discussion
+%         - as cost increases, meaning becomes more extreme
+%         - (more) support for m-implicature model
+%         - causal direction?
+%                 - cost -> meaning?
+%                 - meaning -> cost?
+% 
+% ## Expt. 3
+% - causal direction?
+% - manipulate frequency and see
+%         - predictions
+% - design and materials
+% - results and discussion
+%         - cost -> meaning (?)
+% 
+% ## General Discussion
+% - m-implicature theory of intensifier interpretation
+%         - benefits
+%                 - single intensifier semantics
+%                 - works with lassiter & goodman adjectives story
+%         - model in brief?
+% - further applications
+  
 \begin{document}
 
 \maketitle
 
-
 \begin{abstract}
-%Intensifiers of scalar adjectives might derive the degree of their meaning from their cost.
-%We show that surprisal and syllable length, two different construals of the cost of an intensifier, both independently predict estimates of degree.
-%We further show that when an intensifier is frequently repeated within a ``non-standard dialect of English'' (i.e. when we manipulate the surprisal of an intensifier), its inferred degree is consequently lower.
 
-%\todo[inline]{abstract}
+Abstract
 
 \textbf{Keywords:} 
 intensifiers; degree adverbs; scalar adjectives; pragmatics; m-implicature
 \end{abstract}
 
-
 \section{Introduction}
 
-Where do words get their meanings? For instance, why is an ``extremely good paper'' better than a ``quite good paper''? The traditional answer \cite{saussure} is that different meanings have been arbitrarily and conventionally assigned to the different word forms.
-In this paper we explore adjectival intensifiers, like ``extremely'' and ``quite'', as a case study in which to empirically explore the relationship of meaning to form.
-Based on a previous theory of the semantics of scalar adjectives we hypothesize that the interpreted meanings of intensifiers are (at least partly) non-arbitrary, and instead are determined by their production (or comprehension) cost. 
-We show in three experiments that the meanings of english intensifiers are predictable from their costs, and are sensitive to manipulation of cost.
-These results are consistent with the small but growing literature arguing that word meanings are not fully arbitrary, but instead are constrained by non-semantic features of the word. 
+Introduction
 
-%\todo[inline]{saussure}
+Intensifiers are adverbs that modify scalar adjectives to increase the degree.\footnote{The word ``intensifier'' is often used to denote the full range of degree adverbs, be they ``boosters'', ``minimizers'', or ``maximizers'' \cite{quirk}. The ``intensifiers'' we are looking at in this paper are also called ``boosters'' because they increase the degree to which a predicate applies, but not maximally. Here we only look at intensifiers that modify adjectival predicates, though some of them can also apply to verbal and nominal predicates. The word ``intensifier'' is also used for a different linguistic phenomenon, where a reflexive is used for emphasis, e.g. ``The king himself gave the command,'' which we do not analyze in this paper.}
 
-\citeA{saussure} identifies as a principal of language that the mapping from word form to that which it signifies ``is unmotivated, i.e. arbitrary in that it actually has no natural connection with the signified,'' This suggests that meaning is purely the result of historical accident. And indeed, most of meanings for for most words must be arbitrary -- many different languages exist, each with their own mapping from word forms to referents in the world, over time words change their meanings, sometimes to the complete opposite of their original meaning (e.g. ``literally'' has grown to mean ``figuratively'' in some dialects), and there are no hard constraints on what a particular word form could refer to.
-%without convention there is no language.
-%\todo[inline]{mention the recent work on modeling language evolution.}
-%i think i know what you mean, but haven't found something to cite yet.
+%We first introduce a potential model of how different intensifiers might derive their meaning, not simply arbitrarily, and not simply based on intensifier 
 
-However, there is some evidence that meaning is not entirely arbitrary: people across cultures almost unanimously prefer to pair round vowels and voiced consonants (e.g. bouba) with round shapes and unrounded vowels and voiceless stops (e.g. ``kiki'') with pointy shapes \cite{maluma-takete, bouba-kiki, bouba-kiki2, takete-uloomo}, and across languages longer words refer to more complex meanings \cite{lewis}. To resolve this tension between arbitrary versus systematic mappings between words and meanings, we will need more evidence, and more quantitative case-studies where we can explore the extent of non-arbitrary factors.
+We first introduce a model of intensifiers which predicts an M-implicature, where more costly adjective phrases will be associated with more extreme meanings. We then confirm in two experiments that interpretations of English intensifiers in adjective phrases are indeed higher for more costly intensifiers. We conclude with a discussion of other possible explanations for this correlation and future directions.
 
-In this paper, we look at the interpretations of intensifiers, degree adverbs that modify scalar adjectives to increase their degree. Scalar adjectives have been described as having a threshold semantics \cite{kennedy}, where for example ``tall'' means ``having a height greater than $\theta$'' and $\theta$ is a semantic variable inferred from context. \citeA{lassiter} give a formal model of how this threshold might be inferred.
+\section{Motivation: M-implicature model of intensifier interpretation}
 
-Given this story about adjectives, what could intensifiers do? It is possible to posit a complex semantic mechanism by which they grab and alter the threshold which has been set for the adjective (as if they weren't there). However a more parsimonious hypothesis is that they don't have any semantic effect--instead their ``meaning'' is a result of their cost and the impact this has on pragmatic inference. This inference could be an instance of M-implicature, where the more marked (costly) intensifiers correspond to more extreme, unusual meanings. And indeed, in a simple extension of Lassiter and Goodman's model where different intensifiers are associated with different thresholds, over a symmetric prior distribution peaked at 0, the more costly intensifiers are inferred to correspond to more extreme thresholds and therefore more extreme degrees (Figure~\ref{model}).
-%Given most prior distributions, the resulting M-implicature would cause more 
-%possibly stick in the model result (without model details) to show that this really would be expected to happen?}
+% we could decide to have a very short section about the model.
+% we take the model of the other thing which is defined by these equations.
+% we assume there's a diff threshold for each sentence
+% this suggests there's a route to word meanings which is not conventional lexicon thing or ideographic (form) features of words. this is a different things.
+% have that as motivation. the prediction of that is that there should be an association between anything that affects costs and intensifier meaning.
+% we see that correlation
+% consistent wit this m-implicature story.
+% it's probably too early to 
+% this is a different kind of association than people have talked about.
+
+Our paper focuses on intensifying degree adverbs applied to scalar adjectives\footnote{Some of these intensifiers can also apply to verbal and nominal predicates, and different restrictions apply for different intensifiers. See \cite{bolinger} for a discussion.}. Scalar adjectives have been described as having a threshold semantics \cite{kennedy}, where for example \w{tall} means ``having a height greater than $\theta$'' and $\theta$ is a semantic variable inferred from context. \citeA{lassiter} give a formal model of how this threshold might be inferred, which we extend to intensifiers.
+
+Previous researchers have proposed that adjective phrases modified by intensifiers have the same semantics as unmodified adjectives, except with new, higher thresholds \cite{klein, kennedyMcnally, wheeler}. They suggest that the intensified thresholds are determined by first collecting the set of objects in the context class for which the bare adjective is true, and then using that as the context class to infer a new threshold, i.e. \w{very expensive laptop} means ``expensive for an expensive laptop''. This analysis results in the expected intensification of adjectives with \w{very}, but does not differentiate between the strengths of different intensifiers, e.g. \w{very expensive} and \w{phenomenally expensive}.
+
+By a slight extention of \citeA{lassiter}'s model of scalar adjectives, we show that simply having different thresholds for different adjective phrases -- and being aware of alternative utterances and their relative communicative costs -- would be sufficient to communicate the wide range of degrees designated by intensifying degree adverbs.
+
+The basic idea of this model is that different adjective phrases have different thresholds which must be inferred, but otherwise mean roughly the same thing, e.g. \w{expensive} and \w{very expensive} and \w{phenomenally expensive} all mean
+
+\[ \lambda x . price(x) > \theta_i \]
+
+where each intensifier (or lack thereof) gets its own threshold $\theta_i$.
+Given an utterance $u_i$ e.g. \w{an expensive laptop} or \w{a very expensive laptop} and a set of thresholds, a literal listener $L_0$ will simply update their prior beliefs about the object's degree $d$ given that the degree is greater than the threshold for that utterance.
+
+\[ L_0(d | u_i) \propto P(d) \cdot \delta_{d > \theta_i} \]
+
+Given a set of thresholds and alternative utterances, a speaker $S_1$ will choose the utterance that minimizes the speaker's cost $C(u)$\footnote{Though this model naturally incorporates production cost, speakers might also seek to minimize comprehension cost for their listeners as well, which would have a similar effect.}
+%justine: ``C(u) is the psychological cost of an utterance, potentially determined by factors such as the utterance's frequency, availability, and complexity.
+and maximizes the probability of a literal listener correctly guessing the degree.
+
+\[ S_1(u_i | d) \propto L_0(d | u_i) \cdot e^{-C(u_i)} \]
+
+A pragmatic listener $L_1$ can use the prior probabilities of different degrees along with their knowledge of how much effort the speaker chose to expend to guess both what the different thresholds were for the different utterances and which degree the speaker intended to communicate.
+
+\[ L_1(m | u_i) \propto P(m) \cdot S_1(u_i | m) \]
+
+This reasoning results in an M-implicature \cite{levinson}, where rarer, more extreme meanings are indicated by more marked, or costly utterances. Simulation results of intensifier meanings with arbitrarily chosen ``costs'' on a discretized scale of normally distributed ``heights'' are shown in Figure~\ref{model}.
 
 \begin{figure}[ht]
 \begin{center}
@@ -65,66 +145,12 @@ Given this story about adjectives, what could intensifiers do? It is possible to
 \label{model}
 \end{figure}
 
-It is possible that such an inference is always computed on-line whenever an intensifier is used. In this case, the mapping from word-form to lexical-semantics might indeed be arbitrary, but to the extent that different word-forms correspond to different costs, the mapping from form to interpretation would not be arbitrary.
-
-%Because pragmatics is inextricably part of the process of interpretation and pragmatics is sensitive to properties of the word-form and also additional factors which are not purely phonetic or lexical semantic.
-It is also possible that these inferences might be cached and conventionalized, so that the comparitive degrees become part of an intensifier's lexical semantics. In this case, the word-forms to lexical semantics mapping would be systematic.
-
-Pragmatics is inextricably part of the process of interpretation and pragmatics is sensitive to properties of the word-form and also additional factors which are not purely phonetic or lexical semantic.
-
-%So to the extent that different word-forms correspond to different costs, the mapping from forms to meaning will not be arbitrary. However, 
-%In fact, asking whether the word-form to lexical-semantics mapping is arbitrary may not the right question, because 
-%So to the extent that different word forms correspond to different costs, the mapping from forms to meaning will not be arbitrary.
-%Pragmatics is inextricably part of the process of interpretation, and pragmatics can be sensitive to phonetic features and other features that are not purely phonetic or lexical semantic.
-%\todo[inline]{perhaps a short paragraph drawing out the implication of this story: asking whether the word-form to lexical-semantics mapping is arbitrary is not the right question, because pragmatics is inextricably part of the process of interpretation, and pragmatics is sensitive to additional factors which are not purely phonetic or lexical semantic.}
-%\todo[inline]{note: can we explain why bad can be used to mean very good?}
-%probably...
-%\todo[inline]{finally a very brief paragraph giving the roadmap of our experiments.}
-
-We present three experiments investigating the connection between cost and meaning for intensifiers. The first two experiments are correlational, ascertaining that there exists a relationship between the degrees that people interpret for various intensifiers and estimates of those intensifiers' costs. In the third experiment, we directly manipulate one possible measure of cost and show that this changes people's interpretations.
-
-
-%Intensifiers, like ``extremely'' and ``quite'', are adverbs that modify scalar adjectives to change the degree of the resulting adjective phrase.
-%Scalar adjectives have been modeled as having implicit thresholds that need to be inferred from the context, and intensifiers seem to raise that threshold, e.g. the threshold above which people are ``extremely tall'' is higher than the threshold above which people are ``tall''.
-%Some intensifiers seem to change this threshold more than others, and the extent to which they do might be influenced by online or conventionalized M-implicature.
-
-%then unpack this argument in a couple paragraphs (including the fancy saussure mention) and motivate the experiments. connect briefly to the few other cases of non-arbitrary meanings.
-
-%part of this unpacking should set up the idea that meanings of intensifiers could depend non-arbitrarily on their cost (perhaps by mentioning M-implicature?), and the notion that cost should depend on frequency, articulation complexity, and possibly other things.
-
-
-%form / meaning / and meaning-setting information -- distinguish the three in discussion.
-
-%for the intro, i think we will want to explore a bit the question of arbitrariness of word meaning: http://en.wikipedia.org/wiki/Sign_(linguistics) . it's good to start with and example and with a big picture question. so it might be something like: why is an "extremely good paper" better than a "quite good paper"? the traditional answer is that these words simply have different meanings which have been arbitrarily and conventionally assigned to their forms. in this paper we explore the hypothesis that the meanings of intensifiers are at least partly non-arbitrary, but instead are determined by aspects of their production (or comprehension) cost. then unpack this argument in a couple paragraphs (including the fancy saussure mention) and motivate the experiments. connect briefly to the few other cases of non-arbitrary meanings.
-
-%part of this unpacking should set up the idea that meanings of intensifiers could depend non-arbitrarily on their cost (perhaps by mentioning M-implicature?), and the notion that cost should depend on frequency, articulation complexity, and possibly other things.
-
-
-%let's use "frequency" or "inverse frequency" where possible, instead of surprisal (since that is more technical).
-
-%\todo[inline]{complexity, bouba/kiki, m-implicature, ...}
-
-% Intensifiers, for example ``extremely'' or ``very'', are adverbs that modify scalar adjectives to increase their degree.
-% We argue that the meanings of intensifiers are likely not just arbitrarily paired with their words, but that some intensifiers have stronger meanings as a result of the cost it takes to utter them.
-% 
-% The specific meanings that scalar adjectives take can be inferred pragmatically from context (cite).
-% The specific meaning of an intensifier might be inferred from context in a similar way.
-% %Though many aspects of an intensifier's meaning, and its affinity to be paired with certain adjectives over others, are probably conventionalized, much of the meaning 
-% 
-% Longer and more suprising intensifiers are more costly to utter, and so in this paper we look at how suprisal and syllable length relate to the strengths of different intensifiers.
-% We find that longer, more surprising intensifiers tend to have stronger meanings.
-% 
-% The fact that the surprisal of an intensifier might influence its strength means that as the frequency and therefore the surprisal of an intensifier changes over time in a dialect, the strength will also change.
-% An interesting consequence \todo{which i think we have evidence for... cite?} is that new intensifiers might continually need to be created to replace old, faded ones.
-% We show that intensifiers are quite malleable and that people can learn that within a new ``version of English'' a particular intensifier is used much more frequently than in standard English, and they consequently infer a weaker meaning for the overused word.
-
-%The longer and more unusual a word is, the less easy it would be to say or to understand.
-%These words are numerous in English, are relatively easy to coin, and the use of one intensifier over another (e.g. ``wicked fun'' rather than ``totally fun'') often suggests membership in a particular social group or dialect.
-%We provide evidence for the claim that intensifiers' meanings are derived, at least in part, from pragmatic inference using their cost.
-%The cost of uttering an intensifier, which we approximate using syllable length and also surprisals calculated from corpus frequencies from Google Ngrams, largely predicts the degree people will ascribe to it.
-%When we create an imaginary dialect of English in which a particular intensifier is overused, we find that that intensifier is inferred to have a weeker meaning than when it is not repeated.
-%Scalar adjectives, free semantic threshold variables, and m-implicature. Language change.
-% To explore the hypothesis that the meanings of intensifiers are a function of their cost, we first wanted to see whether surprisal and syllable length (two different ways of measuring the cost of a word) were even correlated with the meanings of intensifiers. We ran two experiments: one with a free response dependent measure and one with a ranking dependent measure.
+Communicative cost, or markedness,
+% markedness == communicative cost?
+might be measured in a variety of ways. Peters (1994) notes that, since intensifiers often originate as qualitative adverbs and gradually shift to being primarily adverbs of degree, interlocuters might have to resolve ambiguity about which sense of the adverb is intended. Peters suggests that adverbs that are less established as intensifiers (i.e. that are still frequently used to communicate more qualitative information) will likely be more cognitively demanding to interpret as intensifiers. By our hypothesis, we would predict that such newer, ambiguous intensifiers would indicate higher degrees, all else being equal. %are there other measures worth mentioning?
+In our paper we will look at two measures of cost: rarity and length in syllables.
+%does everything hold if we use length in characters?
+%why should surprisal be a measure of cost?
 
 \section{Experiment 1}
 
@@ -155,6 +181,7 @@ We chose the domain of price and used only the adjective ``expensive'', because 
 
 \begin{table}[ht]
  \begin{center}
+ \footnotesize
   \caption{Intensifiers from Experiment 1, number of occurences in Google Web 1T 5grams corpus, and number of syllables.}
   \label{exp1-intensifiers}
   \begin{tabular}{ccc}
@@ -265,9 +292,11 @@ The division of the intensifiers into lists of 10 was constant, i.e. the same 10
 
 \begin{table}[ht]
 \begin{center} 
+\footnotesize
 \caption{Intensifier Lists from Experiment 2: Rankings.} 
 \label{exp2-intensifiers} 
 \vskip 0.12in
+%\scalebox{0.3}{
 \begin{tabular}{cccc} 
 \hline
 List A    &  List B & List C & List D \\
@@ -283,6 +312,7 @@ utterly & notably & incredibly & seriously \\
 truly & significantly & totally & extremely \\
 particularly & quite & especially & very
 \end{tabular}
+%}
 \end{center}
 \end{table}
 
@@ -305,105 +335,6 @@ However, the causal direction could also be the opposite.
 Perhaps the fact that an intensifier has a stronger meaning (which it may have gotten completely arbitrarily) causes it to be used only in extreme and unusual circumstances.
 Since these circumstances rarely occur, the strong intensifier will rarely be said\footnote{This assumes that people talk about things about as frequently as they happen, which might not be the case... Isn't someone here working on how representative the internet is of what actually happens, and super rare things have an inflated presence on the web? Which is kind of evidence that people talk about extreme things more than they actually happen.}.
 This seems possible, but it would not account for syllable length contributing to intensifier meaning above and beyond surprisal,  which was the case overall in Experiments 1 and 2. 
-We explore this issue further in the next experiment.
-
-\section{Experiment 3}
-
-To test the direction of influence between intensifier frequency and meaning, we expose participants to an imaginary dialect and manipulate the frequency with which intensifiers occur.
-If people use the frequency of an intensifier in order to interpret it, and the rarity of an intensifier causes its interpreation to be stronger, then changing and intensifier's frequency should change its interpretation. 
-
-\subsection{Method\footnote{The full experiment can be found at \url{http://web.stanford.edu/~erindb/degree-adverbs/experiments/exp8/exp8.html}}}
-
-%expt 3: describe the training story a bit more: length, content, etc.
-
-20 participants with US IP addresses participated in our Experiment 3 on Amazon's Mechanical Turk.
-
-We trained participants on a dialect that used one of two short intensifiers, ``truly'' and ``very'' much more frequently than in standard English.
-The speaker of this dialect, Jim, was a character in a comic who lived ``across the country'' in a town with ``a distinct way of speaking''.
-We showed participants a 9-panel comic in which Jim told his visiting cousin about a big storm that had knocked down a tree into his kitchen and about a friend's child who had taken part of the tree home with him (Figure~\ref{exp3-story}).
-Jim said 294 words in the training story, 22 of which were the target intensifier (either ``truly'' or ``very'', varied between participants).
-
-\begin{figure}
-        \centering
-        \begin{subfigure}[b]{0.45\textwidth}
-                \includegraphics[width=\textwidth]{analysis_files_for_writeup/images/story1_truly_circles.png}
-        \end{subfigure}%
-        
-        \begin{subfigure}[b]{0.45\textwidth}
-                \includegraphics[width=\textwidth]{analysis_files_for_writeup/images/story2_truly_circles.png}
-        \end{subfigure}
-        
-        \begin{subfigure}[b]{0.45\textwidth}
-                \includegraphics[width=\textwidth]{analysis_files_for_writeup/images/story3_truly_circles.png}
-        \end{subfigure}
-        \caption{Full training story comic for Experiment 3, target intensifier ``truly'' is repeated 22 times, control target ``very'' is not used.}\label{exp3-story}
-\end{figure}
-
-After the training story, participants were immediately shown a final panel, where Jim described a coffee maker he recently purchased, but part of his utterance was missing (Figure~\ref{exp3-q}).
-Participants were asked to give a price judgement for each of three different possible utterances: the two intensifiers, and the bare ``expensive'' form.
-One of these intensifiers was the target intensifier which occured in the training story, and one intensifier was the control intensifier which did not occur in the story.
-So for each of the two intensifiers, some participants gave ratings for it as a target intensifier and some participants gave ratings for it as a control intensifier.
-
-% We looked at two short intensifiers of equal length: ``truly'' and ``very''. In our two conditions (varied between participants), each intensifier was either the target or the control. In a comic-style training story, the target intensifier was repeated 22 times by a speaker who lived ``across the country'' and had ``a distinct way of speaking.'' The control intensifier was not used by the speaker in the story.
-% 
-% To guage whether participants had learned that the speaker's use of the target intensifier was unusually high, we asked participants how many times in the next 1000 words they thought the speaker would use the control word, the target word, and another word that had been frequently repeated.
-% 
-% To determine what strength participants inferred for the target and control intensifiers, we gave participants a final panel of the comic where the speaker described a new coffee maker he bought (Fig~\ref{exp3-q}). We asked participants to guess the price of the coffee maker given different possible descriptions the speaker could have used.
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.4\textwidth]{analysis_files_for_writeup/images/exp3-q.png}
-\end{center}
-\caption{Screenshot from Experiment 3 target question.} 
-\label{exp3-q}
-\end{figure}
-
-\subsection{Results and Discussion}
-
-We calculated the difference score between the each of the intensifiers and the bare adjective ``expensive''.
-We compared this difference score for each of the intensifiers when the intensifier was the target intensifier (highly frequent) and when it was the control (normal English frequency, but no occurances in the training story).
-
-If infrequency causes an intensifier to be stronger, then we would expect participants would infer that the word is more frequent in this dialect and consequently less strong.
-The difference score for the target intensifier would then be lower than for the control intensifier.
-
-% We found that participants did learn that the speaker's use of a word was much higher when it was a target than when it was a control (Fig~\ref{exp3-freq-plot}). In a linear regression with word type (target or control) as a fixed effect and random intercepts for word and participant, word type was a significant predictor of frequency (estimate=34.06, p=0.0405).
-
-%In addition,
-We found that when participants believed the speaker's use of a word was much higher, they believed the meaning the speaker intended to convey with the word was lower (Fig~\ref{exp3-price-plot}).
-The difference between ``\emph{[intensifier]} expensive'' and ``expensive'' was less for the target intensifier than for the control intensifier.
-In a linear gregression with word type as a fixed effect and random intercepts for word and participant, word type was a significant predictor of difference score (estimate=-31.39, p=0.0226).
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.48\textwidth]{analysis_files_for_writeup/images/exp3-price-plot.png}
-\end{center}
-\caption{Results of Experiment 3. Price estimate for intensifier is lower after the intensifier is repeated (target condition), showing that overuse within a dialect results in a less strong meaning.} 
-\label{exp3-price-plot}
-\end{figure}
-
-In a linear regression with word type (target or control) as a fixed effect and random intercepts for word and participant, word type was a significant predictor of frequency (estimate=34.06, p=0.0405).
-
-%\todo[inline]{this is cool because we manipulated the frequency and the price estimate consequently dropped.}
-
-%% gonna avoid this until i figure out about the dollar signs
-% Individuals' estimates of frequency correlate with their estimates of price (Fig~\ref{exp3-scatterplot}, r=0.396, p=0.0169).
-% 
-% \begin{figure}[ht]
-% \begin{center}
-% \includegraphics[width=0.48\textwidth]{analysis_files_for_writeup/images/exp3-freq-plot}
-% \end{center}
-% \caption{Results of Experiment 3. Intensifier is given a higher frequency estimate when it is target than when it is control, showing that participants learned a new frequency for that intensifier from the training.} 
-% \label{exp3-freq-plot}
-% \end{figure}
-% \begin{figure}[ht]
-% \begin{center}
-% \includegraphics[width=0.48\textwidth]{analysis_files_for_writeup/images/exp3-scatterplot.png}
-% \end{center}
-% \caption{Results of Experiment 3. As participants' frequency estimates increase, their price estimates decrease.} 
-% \label{exp3-scatterplot}
-% \end{figure}
-
-%do we have any way of estimating how much of an intensifier's meaning is determined by freq and syll? i'm not exactly sure how we would do this... maybe something like residual information not accounted for?
 
 \section{Discussion}
 

@@ -13,11 +13,11 @@ library(plyr, quietly=T)
 library(rjson, quietly=T)
 library(grid, quietly=T)
 source("~/opt/r_helper_scripts/bootsSummary.r")
-source("~/opt/r_helper_scripts/gg_themes.R")
-gg_color_hue <- function(n) {
-  hues = seq(15, 375, length=n+1)
-  hcl(h=hues, l=65, c=100)[1:n]
-}
+# source("~/opt/r_helper_scripts/gg_themes.R")
+# gg_color_hue <- function(n) {
+#   hues = seq(15, 375, length=n+1)
+#   hcl(h=hues, l=65, c=100)[1:n]
+# }
 ```
 
 # Experiment 1
@@ -360,10 +360,10 @@ print(p)
 ### load data
 
 d = read.table("exp8.tsv", header=T, sep="\t")
-d2 = read.table("exp9.csv", header=T, sep=",")
-d2$workerid = as.numeric(as.character(d2$workerid)) + 18
-d2 = d2[d2$Answer.dialect == "other",names(d)]
-d = rbind(d, d2)
+# d2 = read.table("exp9.csv", header=T, sep=",")
+# d2$workerid = as.numeric(as.character(d2$workerid)) + 18
+# d2 = d2[d2$Answer.dialect == "other",names(d)]
+# d = rbind(d, d2)
 d$workerid = as.factor(d$workerid)
 impatient_workers = unique(d$workerid[sapply(d$workerid, function(worker) {
   sum(as.logical(as.character(d$impatient[as.character(d$workerid) == worker])),

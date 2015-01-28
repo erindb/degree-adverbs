@@ -1,0 +1,103 @@
+---
+title: "truly very (non)replication"
+author: "erin"
+date: "01/26/2015"
+output: html_document
+---
+
+```{r echo=F}
+### load required packages
+library(ggplot2, quietly=T)
+library(plyr, quietly=T)
+library(rjson, quietly=T)
+source("~/opt/r_helper_scripts/bootsSummary.r")
+
+### parameters to vary in the analysis
+exclude_impatient = T
+exclude_manipulation_check = F
+
+d = read.table("~/everything-cocolab/degree-adverbs/experiments/exp11/analysis/exp11.csv", sep=",", header=T)
+```
+
+This experiment was run between `r d$assignmentsubmittime[1]` and `r d$assignmentsubmittime[length(d$assignmentsubmittime)]`.
+
+```{r echo=F, fig.width=16, fig.height=16}
+
+# #by worker frequency responses: frequency only
+# p = ggplot(d[d$qtype == "frequency" & !is.na(d$qtype),], aes(x=word_type, y=response, fill=word_type)) +
+#   geom_bar(stat="identity", position="identity") +
+#   geom_text(label=condition)
+#   facet_wrap(~ workerid, scale="free") +
+#   ylab("frequency") +
+#   ggtitle("by worker frequency responses")
+# print(p)
+
+# #by worker frequency responses: easier coloring to read, with both frequency and price
+d$wt = as.character(d$word_type)
+d$wt[d$wt %in% c("bare", "yep")] = "other"
+d$wt = as.factor(d$wt)
+dodge=position_dodge(.9)
+d$lalala = paste( d$qtype, d$word_type)
+p = ggplot(d[d$qtype %in% c("frequency", "price") & !is.na(d$qtype),], aes(x=qtype, y=response, fill=wt)) +
+  geom_bar(stat="identity", position=dodge) +
+ # geom_text(label=condition) +
+  facet_wrap(~ workerid, scale="free") +
+  ylab("frequency") +
+  ggtitle("by worker frequency responses")
+print(p)
+
+d = ddply(d, .(workerid), .fun=function(subd) {
+  subject_is_impatient = sum(as.logical(subd$impatient[is.na(subd$qtype)]))>1
+  subd$impatient = rep(subject_is_impatient, nrow(subd))
+  return(subd)
+})
+d = ddply(d, .(workerid), .fun=function(subd) {
+  target_freq = as.numeric(as.character(subd$response[subd$qtype == "frequency" & subd$word_type == "target" & !is.na(subd$response)]))
+  control_freq = as.numeric(as.character(subd$response[subd$qtype == "frequency" & subd$word_type == "control" & !is.na(subd$response)]))
+  subject_got_manipulation = target_freq > control_freq
+  subd$got_manipulation = rep(subject_got_manipulation, nrow(subd))
+  return(subd)
+})
+n_weird_freq_workers = length(unique(d$workerid[!d$got_manipulation]))
+n_impatient_workers = length(unique(d$workerid[d$impatient]))
+n_failed_both_workers = length(unique(d$workerid[d$impatient & !d$got_manipulation]))
+if (exclude_impatient) {
+  d = d[d$impatient == F,]
+}
+if (exclude_manipulation_check) {
+  n_total_workers = length(unique(d$workerid))
+  d = d[d$got_manipulation == T,]
+  n_good_workers = length(unique(d$workerid))
+  n_excluded_workers_manipulation = n_total_workers - n_good_workers
+}
+d$condition = d$Answer.target
+d = d[d$qtype %in% c("frequency", "price"),c("workerid", "word_type", "word", "response", "qtype", "condition")]
+d$response = as.numeric(as.character(d$response))
+d = ddply(d, .(workerid, qtype), .fun=function(subd) {
+  subd$diff = subd$response - subd$response[!(subd$word_type %in% c("control", "target"))]
+  return(subd)
+})
+#d$diff[d$qtype == "frequency"] = NA
+prices = d[d$qtype == "price",]
+freqs = d[d$qtype == "frequency",]
+
+if (exclude_impatient) {
+  conj1 = ""
+} else {
+  conj1 = "not"
+}
+if (exclude_manipulation_check) {
+  conj2 = ""
+} else {
+  conj2 = "not"
+}
+```
+
+`r n_impatient_workers` participants clicked continue at least two times within 10s of seeing a comic page. These participants were `r conj1` excluded.
+
+`r n_weird_freq_workers` participants thought the target (repeated) intensifier was less common than the control one. These participants were `r conj2` excluded.
+
+`r n_failed_both_workers` participants failed both checks.
+
+```{r echo=F}
+```
