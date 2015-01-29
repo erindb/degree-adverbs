@@ -142,7 +142,7 @@ Given an utterance $u_i$ (e.g. a \w{tall girl} or a \w{very tall girl}) and a se
 
 $$P_{L_0}(d|u_i, \theta_i) \propto P(d) \cdot \delta_{d > \theta_i}$$
 
-A speaker with the goal of communicating some actual degree $d$ assigns a utility $\mathbb{U}(u_i|d)$ to each utterance such that he prefers utterances which will inform the literal listener, but avoids utterance cost, $C(u_i)$\footnote{Though $C(u_{i})$ is naturally interpreted as production cost, speakers might also seek to minimize comprehension cost for their listeners, which would have a similar effect.}:
+A speaker with the goal of communicating some actual degree $d$ assigns a utility $\mathbb{U}(u_i|d)$ to each utterance such that he prefers utterances which will inform the literal listener, but avoids utterance cost, $C(u_i)$:
 
 $$\mathbb{U}(u_i | d, \vec{\theta}) =  \ln\left(P_{L_0}(d | u_i, \theta_i) \right) - C(u_i) $$
 
@@ -180,37 +180,18 @@ The model therefore predicts an association between intensifier meaning and utte
 
 % - meaning as a function of cost?
 %         - what is cost?
-\subsection{Measures of cost}
+\subsection{Factors affecting utterance cost}
 
-%%% hard to follow!!! Maybe have this before Experiment 1.
+We have identified the intensifier cost, $C(u_{i})$, as a potentially critical factor of it's interpreted meaning. To connect this to empirical facts, we still must specify (at least some of) the factors we expect to impact cost.
+%
+The most natural notion of cost is the effort a speaker incurs to produce an utterance. This could include cognitive effort to access lexical items from memory, articulatory effort to produce the sound forms, and other such ``direct'' costs. Speakers might also seek to minimize comprehension cost for their listeners, resulting in other contributions to cost. 
+For the purposes of this paper, we restrict to the most straightforward contributors to production cost and use proxies that are straightforward to quantify: length (longer utterances are more costly)
+\footnote{We measure length in number of syllables, although length in characters (which might be a relevant source of utterance cost in a written format, as our partipants experienced) has similar predictive power to syllable length in all of our analyses.}
+and frequency (rarer intensifiers are harder to access and therefore more costly).
 
-Communicative cost, or markedness,
-% markedness == communicative cost?
-might be influenced by a variety of factors.
-
-%However, f
-For the purposes of this paper, we use quantities for costs that are straightforward to quantify: length (longer utterances are more costly)\footnote{We measure length in number of syllables, although length in characters (which might be a relevant source of utterance cost in a written format, as our partipants experienced) has similar
-%(and in fact, slightly higher)
-predictive power to syllable length in all of our analyses.}
-%if we ran the same thing with audio, would syllables be a better predictor?
-and frequency (rarer intensifiers might be less accessible and therefore harder to say or process).
-
-%         - predictions
-%                 - as cost increases, meaning becomes more extreme
-We predict that as cost of an intensifier increases (i.e. as length increases and frequency decreases), its interpretation will become more extreme. This leaves open the question of their relative importance,
-%discuss
-how they combine,
-%discuss
-and what other factors %(such as discussed above)
-might enter into cost.
-
-%                 - (note: not clear on causal direction (yet))
-% limitations of correlational studies in this domain
-%%%%% make this clearer
-\subsection{Limitations of these methods}
-It should be noted that, since this is a correlational study, finding such a relationship would not confirm that an intensifier's cost \emph{actually causes} its meaning. This correlation is predicted by the model sketched above, but it might be predicted by a variety of other analyses of intensifiers and their meanings. Rarity in particular might be correlated with strength of meaning merely because more extreme meanings refer to less probable things in the world, are therefore talked about less, and therefore the words with those meanings will necessarily be rarer. Although it seems reasonable to suspect that word frequencies reflect the probabilities of the real-world concepts they describe, it might also be the case that improbable things are more likely to be commented on, and so to a certain extent the frequencies of words that describe rare concepts will be inflated. Even so, this confound exists only for word frequency and not for syllable length.
-%citation?
-The length of a word seems much less likely to reflect the real-word prevalence of the concept it refers to.
+We thus predict that longer and less frequency intensifiers will be more extreme, and that this is a quantitative relationship. 
+This leaves open the question of the relative importance of length and frequency, how they combine, and what other factors might enter into cost.
+\todo{something about log-frequency vs freq? and make the prediction stronger: linear relationship? (does the model predict a linear relationship?)}
 
 % ## Expt. 1
 \section{Experiment 1}
@@ -482,6 +463,15 @@ providing evidence that effective meaning is a combination of both arbitrary con
 %\todo[inline]{close by restating our big picture point, that effective meaning is a combination of both arbitrary convention and non-arbitrary factors mediated by pragmatic inference.}
 
 %\todo[inline]{conclusion}
+
+%                 - (note: not clear on causal direction (yet))
+% limitations of correlational studies in this domain
+%%%%% make this clearer
+\todo{include some of this stuff in conclusion? was above expt 1...}
+It should be noted that, since this is a correlational study, finding such a relationship would not confirm that an intensifier's cost \emph{actually causes} its meaning. This correlation is predicted by the model sketched above, but it might be predicted by a variety of other analyses of intensifiers and their meanings. Rarity in particular might be correlated with strength of meaning merely because more extreme meanings refer to less probable things in the world, are therefore talked about less, and therefore the words with those meanings will necessarily be rarer. Although it seems reasonable to suspect that word frequencies reflect the probabilities of the real-world concepts they describe, it might also be the case that improbable things are more likely to be commented on, and so to a certain extent the frequencies of words that describe rare concepts will be inflated. Even so, this confound exists only for word frequency and not for syllable length.
+%citation?
+The length of a word seems much less likely to reflect the real-word prevalence of the concept it refers to.
+
 
 \section{Acknowledgments}
 
