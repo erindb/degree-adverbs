@@ -92,21 +92,21 @@ The former analysis requires more formalization of where an intensifier's amount
 
 %%greg bookmark
 
-
-Intuition suggests that different intensifiers do have different strengths, and we provide further evidence of this in our experiments, where participants judge the relative orderings of intensifiers. But are these differences due to learned differences in the lexicon?
+%long, complex, and rare
+Intuition suggests that different intensifiers do have different strengths (e.g. \w{outrageously} seems stronger than \w{quite}), and we provide further evidence of this in our experiments, where participants judge the relative orderings of intensifiers. But are these differences due to learned differences in the lexicon?
 %                         - hard (i.e., lots) to learn
-If so, it would be taxing for a learner to learn all the different lexical entries, especially since intensifiers are considered to be so numerous and so productive
+If so, it would be taxing for a learner to learn all the different lexical entries, especially since intensifiers are considered to be so numerous and so productive (e.g. \w{skyscrapingly expensive} is not a phrase I have heard before, but I can easily interpret \w{skyscrapingly} as a novel intensifier).
 % also borst: borst, eugen: die gradadverbien im englischen 1902
 \cite{bolinger}.
 %                         - loses within-class similarity
 % ``a lexical theory of intensifiers would miss out'' (maybe you would have to spell that out more)
-In addition, a lexically determined semantics for different intensifiers might overlook the similarity among words of this class.
+In addition, having a lexically determined meaning for each different intensifier might overlook the similarity among words of this class.
 
 % - proposal in brief
 %         - meaning as a function of cost
 %                 - m-implicature
-We follow \citeA{kennedyMcnally1999}'s analyses and propose that each intensifier transforms the standard threshold of the adjective by some amount. We allow these amounts to be inferred from context, in the same way as the adjective's standard threshold is inferred from context \citeA{lassiter}'s scalar adjectives model.
-So each adjective phrase a speaker might say has its own threshold, composed from the adjective's standard threshold and the intensifier's boosting amount. These thresholds and boosts are systematically inferred from context via an M-implicature (more marked intensifiers tend to correspond to higher thresholds).
+We follow \citeA{kennedyMcnally1999}'s analyses and propose that each adjective has its default threshold for a context, and each intensifier transforms the default threshold of the adjective by some amount. We allow these amounts to be inferred from context, in the same way as the adjective's default threshold is inferred from context in \citeA{lassiter}'s scalar adjectives model.
+So each adjective phrase a speaker might say has its own threshold, composed from the adjective's default threshold and the intensifier's boosting amount. These thresholds and boosts are systematically inferred from context via an M-implicature (more marked intensifiers tend to correspond to higher thresholds).
 
 %         - single intensifier semantics (increase theta)
 %         - thresholds inferred
@@ -116,7 +116,7 @@ We formalize this idea by extending \citeA{lassiter}'s model of scalar adjective
 
 \todo{introduce Bayesian RSA framework more generally}
 
-The basic idea of this model is that different adjective phrases have different thresholds, the adjective's standard threshold plus\footnote{Or minus, depending on the direction of the adjective on its scale (e.g. \w{extremely short} will have a lower threshold than \w{short} whereas \w{extremely tall} will have a higher threshold than \w{tall}). Other versions of this model could be imagined in which the intensifier transforms the threshold via multiplication or some other function, but would have very similar functionality.} some boosting amount which must be inferred, but otherwise mean roughly the same thing, e.g. \w{very tall} and \w{phenomenally tall} both mean
+The basic idea of this model is that different adjective phrases have different thresholds, the adjective's default threshold plus\footnote{Or minus, depending on the direction of the adjective on its scale (e.g. \w{extremely short} will have a lower threshold than \w{short} whereas \w{extremely tall} will have a higher threshold than \w{tall}). Other versions of this model could be imagined in which the intensifier transforms the threshold via multiplication or some other function, but would have very similar functionality.} some boosting amount which must be inferred, but otherwise mean roughly the same thing, e.g. \w{very tall} and \w{phenomenally tall} both mean
 
 \[ \lambda x . tall(x) > \theta_{tall} + \epsilon_i \]
 
