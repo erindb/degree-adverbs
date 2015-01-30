@@ -1,0 +1,98 @@
+;;; this is the actual code used to generate the code in the cog sci writeup
+
+(define alpha 5)
+
+(define (power lst alpha) (map (lambda (x) (expt x alpha)) lst))
+
+(define (seq start distance end)
+  (if (> (+ start distance) end) (list start)
+      (append (list start) (seq (+ start distance) distance end))))
+
+(define (theta-prior)
+  (uniform-draw (seq (- 2) 1 2)))
+
+(define (height-prior)
+  (multinomial
+   '(-2 -1 0 1 2)
+   '(0.05448868 0.24420134 0.40261995 0.24420134 0.05448868)
+))
+
+(define (meaning utterance)
+  (case utterance
+        (('none) #t)
+        (('tall1) '(> height theta1))
+        (('tall2) '(> height theta2))
+        (('tall3) '(> height theta3))
+        (('tall4) '(> height theta4))
+        (('tall5) '(> height theta5))
+        (('tall6) '(> height theta6))
+        ; (('tall7) '(> height theta7))
+        ; (('tall8) '(> height theta8))
+        ; (('tall9) '(> height theta9))
+        ; (('tall10) '(> height theta10))
+        ;(('extremely-short) '(scalar height theta-short 'below theta-extremely))
+        ))
+
+(define utterances '(none tall1 tall2 tall3 tall4 tall5 tall6 ; tall7 tall8 tall9 tall10
+  ))
+(define costs '(0 1 2 3 4 5 6 ; 7 8 9 10
+  ))
+
+(define (utterance-prior)
+  (multinomial utterances
+               (map (lambda (utterance-cost) (exp (- utterance-cost)))
+                    costs)))
+
+(define literal-listener
+  (mem
+   (lambda (utterance theta1 theta2 theta3 theta4 theta5 theta6 ; theta7 theta8 theta9 theta10
+     )
+     (enumeration-query
+      (define height (height-prior))
+      height
+      (eval (meaning utterance))))))
+
+(define speaker
+  (mem
+   (lambda (knowledge theta1 theta2 theta3 theta4 theta5 theta6 ; theta7 theta8 theta9 theta10
+           )
+     (enumeration-query
+      (define utterance (utterance-prior))
+      (define interpretation
+        (apply multinomial
+               (list (first (literal-listener utterance theta1 theta2 theta3 theta4 theta5 theta6 ; theta7 theta8 theta9 theta10
+                            ))
+                     (power (second (literal-listener utterance theta1 theta2 theta3 theta4 theta5 theta6 ; theta7 theta8 theta9 theta10
+                                    )) alpha))))
+      utterance
+      (equal? interpretation knowledge)))))
+
+(define pragmatic-listener
+  (mem
+   (lambda (utterance)
+     (enumeration-query
+      (define theta1 (theta-prior))
+      (define theta2 (theta-prior))
+      (define theta3 (theta-prior))
+      (define theta4 (theta-prior))
+      (define theta5 (theta-prior))
+      (define theta6 (theta-prior))
+      ; (define theta7 (theta-prior))
+      ; (define theta8 (theta-prior))
+      ; (define theta9 (theta-prior))
+      ; (define theta10 (theta-prior))
+      (define height (height-prior))
+      height
+      (equal? (apply multinomial (speaker height theta1 theta2 theta3 theta4 theta5 theta6 ; theta7 theta8 theta9 theta10
+                                 )) utterance)))))
+
+(display (pragmatic-listener 'tall1))
+(display (pragmatic-listener 'tall2))
+(display (pragmatic-listener 'tall3))
+(display (pragmatic-listener 'tall4))
+(display (pragmatic-listener 'tall5))
+(display (pragmatic-listener 'tall6))
+; (display (pragmatic-listener 'tall7))
+; (display (pragmatic-listener 'tall8))
+; (display (pragmatic-listener 'tall9))
+; (display (pragmatic-listener 'tall10))
