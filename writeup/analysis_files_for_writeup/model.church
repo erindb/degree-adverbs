@@ -1,0 +1,91 @@
+;;; this is the actual code used to generate the code in the cog sci writeup
+
+(define alpha 5)
+
+(define distribution 'peaked-mid)
+
+(define (power lst alpha) (map (lambda (x) (expt x alpha)) lst))
+
+(define (seq start distance end)
+  (if (> (+ start distance) end) (list start)
+      (append (list start) (seq (+ start distance) distance end))))
+
+(define (theta-prior)
+  (uniform-draw (seq (- 2.25) 0.25 2)))
+
+(define (height-prior)
+  (multinomial
+   ; '(-2 -1 0 1 2)
+   ; '(0.05448868 0.24420134 0.40261995 0.24420134 0.05448868)))
+   ; '(-2.0 -1.5 -1.0 -0.5  0.0  0.5  1.0  1.5  2.0)
+   ; '(0.02763055 0.06628225 0.12383154 0.18017382 0.20416369 0.18017382 0.12383154 0.06628225 0.02763055)
+   '(-2.00 -1.75 -1.50 -1.25 -1.00 -0.75 -0.50 -0.25  0.00  0.25  0.50  0.75  1.00  1.25  1.50  1.75  2.00)
+   '(0.01396019 0.02230832 0.03348875 0.04722671 0.06256523 0.07786368 0.09103187 0.09997895 0.10315262
+     0.09997895 0.09103187 0.07786368 0.06256523 0.04722671 0.03348875 0.02230832 0.01396019)
+  ; (case distribution
+   ;        (('peaked-both) '(0.27272727 0.27272727 0.18181818 0.09090909 0.18181818))
+   ;        (('peaked-mid) '(0.02192964 0.02192964 0.22851215 0.49911642 0.22851215))
+   ;        (else (lambda () (display "error 0: that's not a valid distribution"))))))
+))
+
+(define (meaning utterance)
+  (case utterance
+        (('none) #t)
+        (('tall) '(> height theta-tall))
+        ;(('short) '(scalar height theta-short 'below eps-default))
+        (('very-tall) '(> height theta-very))
+        ;(('very-short) '(scalar height theta-short 'below theta-very))
+        (('extremely-tall) '(> height theta-extremely))
+        ;(('extremely-short) '(scalar height theta-short 'below theta-extremely))
+        ))
+
+(define utterances '(none tall very-tall extremely-tall
+  ))
+(define costs '(0 1 5 10
+  ))
+
+(define (utterance-prior)
+  (multinomial utterances
+               (map (lambda (utterance-cost) (exp (- utterance-cost)))
+                    costs)))
+
+(define literal-listener
+  (mem
+   (lambda (utterance theta-tall theta-very theta-extremely
+     )
+     (enumeration-query
+      (define height (height-prior))
+      height
+      (eval (meaning utterance))))))
+
+(define speaker
+  (mem
+   (lambda (knowledge theta-tall theta-very theta-extremely
+           )
+     (enumeration-query
+      (define utterance (utterance-prior))
+      (define interpretation
+        (apply multinomial
+               (list (first (literal-listener utterance theta-tall theta-very theta-extremely
+                            ))
+                     (power (second (literal-listener utterance theta-tall theta-very theta-extremely
+                                    )) alpha))))
+      utterance
+      (equal? interpretation knowledge)))))
+
+(define pragmatic-listener
+  (mem
+   (lambda (utterance)
+     (enumeration-query
+      (define theta-tall (theta-prior))
+      (define theta-very (theta-prior))
+      (define theta-extremely (theta-prior))
+      (define height (height-prior))
+      height
+      (equal? (apply multinomial (speaker height theta-tall theta-very theta-extremely
+                                 )) utterance)))))
+
+(display (pragmatic-listener 'none))
+(display (pragmatic-listener 'tall))
+(display (pragmatic-listener 'very-tall))
+(display (pragmatic-listener 'extremely-tall))
