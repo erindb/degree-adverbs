@@ -49,11 +49,11 @@ p = ggplot(data=d_summary, aes(x=-log(frequency), y=logprice, colour=syllables))
 print(p)
 ggsave("images/exp1-plot.png", width=16, height=6)
 
-library(lmerTest, quietly=T)
-full_model = lmer(logprice ~ c.surprisal * c.syllables +
-                        (1 + c.surprisal + c.syllables | workerid) +
-                        (1 + c.surprisal + c.syllables | object), data=d)
-print(summary(full_model))
+# library(lmerTest, quietly=T)
+# full_model = lmer(logprice ~ c.surprisal * c.syllables +
+#                         (1 + c.surprisal + c.syllables | workerid) +
+#                         (1 + c.surprisal + c.syllables | object), data=d)
+# print(summary(full_model))
 
 # full_model = lmer(logprice ~ c.surprisal * c.chars +
 #                         (1 + c.surprisal + c.chars | workerid) +
@@ -158,7 +158,7 @@ p = ggplot(data=d_summary, aes(x=surprisal, y=ranking, colour=syllables)) +
   #scale_colour_grey() +
   scale_colour_brewer(type="div") +
   #facet_grid(adverb_list ~ adjective) +
-  facet_wrap(~ adjective) +
+  facet_grid(~ adjective) +
   geom_text(aes(label=adv_adj_N), x=10, y=1) +
   geom_text(label="N=", x=9, y=1) +
   theme(panel.grid=element_blank()) +
@@ -167,7 +167,27 @@ p = ggplot(data=d_summary, aes(x=surprisal, y=ranking, colour=syllables)) +
   ylab("ranking") +
   ggtitle("Experiment 2")
 print(p)
-ggsave("images/exp2-plot.png", width=16, height=10)
+ggsave("images/exp2-plot.png", width=16, height=5)
+
+
+
+d_summary = bootsSummary(data=d, measurevar="ranking",
+                         groupvars=c("adverb", "adjective"#, "adverb_list"
+                         ))
+d_summary$adjective = as.factor(d_summary$adjective)
+d_summary$adverb(d_summary$adverb)
+p = ggplot(data=d_summary, aes(x=adjective, y=ranking, colour=adjective)) +
+  geom_point(size=4) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=adjective, width=0), lwd=1.5) +
+  theme_bw(22) +
+  facet_wrap(~ adverb) +
+  theme(panel.grid=element_blank()) +
+  ylab("ranking")
+print(p)
+ggsave("adverb-adjective.png", width=20, height=20)
+
+
+
 
 # ## random effect of adverb_list: what converges?
 # 
@@ -176,14 +196,19 @@ ggsave("images/exp2-plot.png", width=16, height=10)
 # (1 + c.surprisal * c.syllables | adverb_list), data=d)
 # 
 
-# library(MASS)
-# d$franking = ordered(d$ranking)
-# 
-# m <- polr(franking ~ c.surprisal * c.syllables, data=d)
+library(MASS)
+library("AER")
+d$franking = ordered(d$ranking)
+m <- polr(franking ~ c.surprisal * c.syllables, data=d)
+m <- polr(franking ~ c.surprisal * c.syllables + c.surprisal:adjective + c.syllables:adjective, data=d)
+m <- polr(franking ~ adverb + adjective:adverb, data=d)
+coeftest(m) 
+
 # ## calculate and store p values
-# p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
+ p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
 # ## combined table
 # (ctable <- cbind(ctable, "p value" = p))
+
 # 
 # 
 # m <- polr(franking ~ c.surprisal * c.chars, data=d)
@@ -607,11 +632,19 @@ toplot = function(adjective, cost, vals, version) {
     } else {
       values = c(0, 1, 2, -1.5, -1, -0.5, 0.5, 1.5)
     }
+  } else if (length(weights) %in% c(16, 17)) {
+    if (adjective == "prior") {
+      values = seq(-2, 2, 0.25)
+    } else if (adjective == "no utterance" || length(weights) == 17) {
+      values = c(0, 1, 2, -2, -1.75, -1.5, -1.25, -1, -0.75, -0.5, -0.25, 0.25, 0.5, 0.75, 1.25, 1.5, 1.75)
+    } else {
+      values = c(0, 1, 2, -1.75, -1.5, -1.25, -1, -0.75, -0.5, -0.25, 0.25, 0.5, 0.75, 1.25, 1.5, 1.75)
+    }
   }
   return(data.frame(
     values = values,
     adjective=rep(adjective, length(values)),
-    cost=rep(cost, length(values)),
+    cost=factor(rep(cost, length(values)), levels=c("prior", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10")),
     version=rep(version, length(values)),
     weights = as.numeric(unlist(strsplit(vals, " ")))))
 }
@@ -620,7 +653,7 @@ distributions = rbind(
 #   #jan 29 13:57
 #   toplot("prior", "prior", "0.05448868 0.24420134 0.40261995 0.24420134 0.05448868", "gauss [-2, 2] disc5 alpha5")
 #   , toplot("no utterance", "0", "0.43530257970609326 0.18658724171823646 0.020958804569442133 0.06948751398763028 0.2876638600185978", "gauss [-2, 2] disc5 alpha5")
-  , toplot("tall", "1", "0.3270494786280969 0.41333849144913964 0.13181887357454736 0.008998925340252845 0.11879423100796317", "gauss [-2, 2] disc5 alpha5")
+#   , toplot("tall", "1", "0.3270494786280969 0.41333849144913964 0.13181887357454736 0.008998925340252845 0.11879423100796317", "gauss [-2, 2] disc5 alpha5")
 #   , toplot("tall", "2", "0.2626387879415386 0.4478836095380146 0.18318251357119658 0.007718952755902649 0.09857613619334767", "gauss [-2, 2] disc5 alpha5")
 #   , toplot("tall", "10", "0.003191466620088624 0.008893826872849746 0.9865876811173894 0.00009888538468520658 0.001228140004987091", "gauss [-2, 2] disc5 alpha5")
 #   #jan 29 13:58
@@ -630,23 +663,44 @@ distributions = rbind(
 #   , toplot("tall", "2", "0.3528977281751636 0.3653039471553193 0.15032818315048777 0.009275850738782577 0.12219429078024681", "gauss [-2, 2] disc5 alpha1")
 #   , toplot("tall", "10", "0.3264868659608198 0.3473710618756477 0.20222836918241346 0.008946330711566483 0.11496737226955252", "gauss [-2, 2] disc5 alpha1")
   #jan 29 14:06
-  toplot("prior", "prior", "0.05448868 0.24420134 0.40261995 0.24420134 0.05448868", "gauss [-2, 2] disc5 alpha5 costs'")
+  toplot("prior", "prior", "0.05448868 0.24420134 0.40261995 0.24420134 0.05448868", "5 steps") # "gauss [-2, 2] disc5 alpha5 costs'")
   #, toplot("no utterance", "0", "0.42781611835520666 0.2060026902700605 0.023836692380713273 0.06547364599994512 0.2768708529940744", "gauss [-2, 2] disc5 alpha5 costs'")
-  , toplot("tall", "1", "0.31802024209608015 0.4257085232776957 0.13444073267093312 0.00844166473625503 0.11338883721903598", "gauss [-2, 2] disc5 alpha5 costs'")
-  , toplot("tall", "5", "0.08308256369739267 0.24910325768382513 0.6340837531373683 0.0024610258837809546 0.03126939959763289", "gauss [-2, 2] disc5 alpha5 costs'")
-  , toplot("tall", "10", "0.0029309197588193382 0.009175147972457389 0.9867023123654616 0.00008706424969266218 0.001104555653568966", "gauss [-2, 2] disc5 alpha5 costs'")
+  , toplot("tall", "1", "0.31802024209608015 0.4257085232776957 0.13444073267093312 0.00844166473625503 0.11338883721903598", "5 steps") # "gauss [-2, 2] disc5 alpha5 costs'")
+  , toplot("tall", "5", "0.08308256369739267 0.24910325768382513 0.6340837531373683 0.0024610258837809546 0.03126939959763289", "5 steps") # "gauss [-2, 2] disc5 alpha5 costs'")
+  , toplot("tall", "10", "0.0029309197588193382 0.009175147972457389 0.9867023123654616 0.00008706424969266218 0.001104555653568966", "5 steps") # "gauss [-2, 2] disc5 alpha5 costs'")
   #jan 29 14:29
-  , toplot("prior", "prior", "0.02763055 0.06628225 0.12383154 0.18017382 0.20416369 0.18017382 0.12383154 0.06628225 0.02763055", "gauss [-2,2] disc10 alpha5 cost'")
+  , toplot("prior", "prior", "0.02763055 0.06628225 0.12383154 0.18017382 0.20416369 0.18017382 0.12383154 0.06628225 0.02763055", "10 steps") # "gauss [-2,2] disc10 alpha5 cost'")
   #, toplot("no utterance", "0", "0.2151352540401715 0.10386250131232234 0.011861360061815259 0.03356084971096254 0.07801019690159379 0.1410814460277745 0.1983205647085487 0.17544932471725452 0.042718502519556965", "gauss [-2,2] disc10 alpha5 cost'")
-  , toplot("tall", "1", "0.16734023853515334 0.2161530491765571 0.07182857335779932 0.002372601549096956 0.017065530769186637 0.05313360204639666 0.10904491233061725 0.2128683893121966 0.15019310292299612", "gauss [-2,2] disc10 alpha5 cost'")
-  , toplot("tall", "5", "0.04542383356011561 0.14286417972442042 0.3131382762006483 0.0007173851754905679 0.00500695800573356 0.015114209278789394 0.03010002673393302 0.06398174510643774 0.3836533862144314", "gauss [-2,2] disc10 alpha5 cost'")
-  , toplot("tall", "10", "0.0034840463003352412 0.011840229214773616 0.8862275847419776 0.00005518279826404978 0.000384814848420239 0.0011606534158284687 0.0023096834662740553 0.004924307572764687 0.08961349764136219", "gauss [-2,2] disc10 alpha5 cost'")
+  , toplot("tall", "1", "0.16734023853515334 0.2161530491765571 0.07182857335779932 0.002372601549096956 0.017065530769186637 0.05313360204639666 0.10904491233061725 0.2128683893121966 0.15019310292299612", "10 steps") #"gauss [-2,2] disc10 alpha5 cost'")
+  , toplot("tall", "5", "0.04542383356011561 0.14286417972442042 0.3131382762006483 0.0007173851754905679 0.00500695800573356 0.015114209278789394 0.03010002673393302 0.06398174510643774 0.3836533862144314", "10 steps")#"gauss [-2,2] disc10 alpha5 cost'")
+  , toplot("tall", "10", "0.0034840463003352412 0.011840229214773616 0.8862275847419776 0.00005518279826404978 0.000384814848420239 0.0011606534158284687 0.0023096834662740553 0.004924307572764687 0.08961349764136219", "10 steps")# "gauss [-2,2] disc10 alpha5 cost'")
+#   #jan 29 18:00
+  , toplot("prior", "prior", "0.01396019 0.02230832 0.03348875 0.04722671 0.06256523 0.07786368 0.09103187 0.09997895 0.10315262 0.09997895 0.09103187 0.07786368 0.06256523 0.04722671 0.03348875 0.02230832 0.01396019", "20 steps")
+  , toplot("tall", "1", "0.08541325173409721 0.10876047796440926 0.0365927590635325 0.001200873319040462 0.0038369418777076244 0.00863775930351805 0.016239739766914733 0.02690559484865023 0.04028190000660848 0.05537329266017255 0.07082973555286536 0.09824913297959181 0.10824277070239069 0.11281836596457408 0.09542586772278708 0.07597296317050323 0.055218573362636476", "20 steps")
+  , toplot("tall", "5", "0.02582949912693236 0.08167549293861713 0.1672179370771686 0.00040250720461812575 0.001266997584580207 0.0028093571008392195 0.005201300356006562 0.008485247476693712 0.01251229419265927 0.016959902876156417 0.021459881210916597 0.030440387339488985 0.03696740375508694 0.05023648227942237 0.14190931050428257 0.19577101900038557 0.20085497997614538", "20 steps")
+  , toplot("tall", "10", "0.0028586086376081515 0.010044756432336153 0.6000649904732097 0.00004466914419372943 0.00014054702755835353 0.00031150680322479014 0.0005764882718513264 0.0009400815015195266 0.0013856966504206516 0.0018775876872904429 0.0023751171783549636 0.003371476416985411 0.004110886905794369 0.005690271839378773 0.024028579076877325 0.07550844045183262 0.26667029550156374", "20 steps")
+#   #jan 29 18:41
+  , toplot("tall", "prior", "0.05448868 0.24420134 0.40261995 0.24420134 0.05448868", "varying by 2")
+  , toplot("tall", "2", "0.235016228242437 0.5112306022299425 0.18449324246028845 0.06925992706733199", "varying by 2")
+  , toplot("tall", "4", "0.12245113323750999 0.42350916301223324 0.41727526442165824 0.03676443932859866", "varying by 2")
+  , toplot("tall", "6", "0.04323534794811911 0.16621013137083454 0.7775356707169948 0.013018849964051511", "varying by 2")
+  , toplot("tall", "8", "0.010342802433312485 0.040377664732521246 0.9461638945394263 0.003115638294739952", "varying by 2")
+  , toplot("tall", "10", "0.003308628783495237 0.012943854899158004 0.9827507792383131 0.0009967370790336554", "varying by 2")
 #   #jan 29 13:34
-#   , toplot("prior", "prior", "", "")
-#   , toplot("no utterance", "0", "", "")
-#   , toplot("tall", "1", "", "")
-#   , toplot("tall", "2", "", "")
-#   , toplot("tall", "10", "", "")
+  , toplot("prior", "prior", "0.05448868 0.24420134 0.40261995 0.24420134 0.05448868", "varying by 1")
+  , toplot("tall", "1", "0.32943994265795357 0.4520042454097056 0.11832132943056005 0.1002344825017809", "varying by 1")
+  , toplot("tall", "2", "0.26093381055396564 0.4875215511366466 0.16960592372288488 0.08193871458650288", "varying by 1")
+  , toplot("tall", "3", "0.20116248718775018 0.48128443476564875 0.2534082705122773 0.0641448075343237", "varying by 1")
+  , toplot("tall", "4", "0.15071483836800992 0.4132842527354916 0.3876403555715535 0.04836055332494483", "varying by 1")
+  , toplot("tall", "5", "0.10214303755337104 0.29721626678797197 0.567787012060194 0.0328536835984631", "varying by 1")
+  #jan 29 13:34
+  , toplot("prior", "prior", "0.05448868 0.24420134 0.40261995 0.24420134 0.05448868", "1-6")
+  , toplot("tall", "1", "0.3321617451493133 0.45496706035204326 0.1117731332765396 0.10109806122210385", "1-6")
+  , toplot("tall", "2", "0.26336616514843947 0.490988954107065 0.16290995111038623 0.08273492963410913", "1-6")
+  , toplot("tall", "3", "0.20332753467498185 0.48498629534675197 0.24682468461380094 0.06486148536446514", "1-6")
+  , toplot("tall", "4", "0.15301830394892613 0.41802870196360187 0.37983316769101905 0.04911982639645293", "1-6")
+  , toplot("tall", "5", "0.10548628316944204 0.3056813396398894 0.5548893807056846 0.033942996484983896", "1-6")
+  , toplot("tall", "6", "0.06343700126232514 0.18810700287416313 0.7280252094192676 0.02043078644424421", "1-6")
 #   #jan 29 13:34
 #   , toplot("prior", "prior", "", "")
 #   , toplot("no utterance", "0", "", "")
@@ -670,4 +724,34 @@ p = ggplot(distributions, aes(x=values, y=weights, colour=cost)) +
   theme_bw(22) +
   theme(panel.grid=element_blank())
 print(p)
-ggsave("images/model_results.png", width=10, height=6)
+# 
+# distributions$adjective = factor(distributions$adjective)
+# distributions$cost = factor(distributions$cost, levels=c("prior", "1", "5", "10"))
+# p = ggplot(distributions[distributions$version == "20 steps",], aes(x=values, y=weights, colour=cost)) +
+#   geom_line(stat="identity", lwd=1.5) +
+#   ylab("L1(height | utterance)") +
+#   ## color = tall/short
+#   ## linetype = cost
+#   xlab("normed heights") +
+#   #scale_colour_brewer(type="seq", drop=F) +
+#   #scale_colour_manual(values=c("black", "yellow", "cyan", "deeppink", "turquoise4", "magenta", "chartreuse4", "purple")) +
+#   #   ggtitle("") +
+#   xlab("\"heights\"") +
+#   theme_bw(22) +
+#   theme(panel.grid=element_blank())
+# print(p)
+# ggsave("images/model_results.png", width=10, height=6)
+# 
+# #distributions = ddply(distributions, .(adjective, cost, version), transform, E=sum(weights * values))
+expectations = ddply(distributions[distributions$version == "1-6" & distributions$cost!="prior",], .(adjective, cost, version), summarize, E=sum(weights * values))
+expectations$cost = as.numeric(as.character(expectations$cost))
+
+p = ggplot(expectations, aes(x=cost, y=E)) +
+  geom_point(size=4) +
+  geom_line(lwd=2) +
+  ylab("expected height") +
+  xlab("utterance cost") +
+  theme_bw(22) +
+  theme(panel.grid=element_blank())
+print(p)
+ggsave("images/height-by-cost.png", width=10, height=6)
