@@ -35,7 +35,7 @@
 
 \begin{abstract}
 
-\todo{revise abstract}
+\todo{ndg: revise abstract}
 We show how the wide range of strengths of intensifying degree adverbs (e.g.~\w{very} and \w{extremely}) could be explained by pragmatic inference, and predict an implicature that more marked (costly to utter), adverbs will correspond to stronger interpretations. We test this qualitative prediction in two correlational studies with two dependent measures and show that higher utterance costs predict stronger meanings for intensifiers.
 
 \textbf{Keywords:} 
@@ -43,6 +43,8 @@ intensifiers; degree adverbs; scalar adjectives; pragmatics; m-implicature
 \end{abstract}
 
 \section{Introduction}
+
+\todo{edb: fix all cites i broke}
 
 How do different words get their meanings?
 %say something about the shared semantics and nuanced differences among members of the broad class of intensifiers at the outset
@@ -113,7 +115,7 @@ $$ P_{L_1}(d, \vec{\theta} | u_i) \propto P(d) \cdot P_{S_1}(u_i | d, \vec{\thet
 
 As an initial exploration, we simulated such a model with three alternative adjective phrases (i.e.~three intensifiers) with costs of $1$, $5$, and $10$. We also included a null utterance, with trivial meaning and cost of $0$. The prior distribution for this domain (which we will discuss as ``heights'' for concreteness) was a gaussian peaked at $0$.
 %rerun sim so this is true.
-\todo{update description based on final simulation}
+\todo{edb: update description based on final simulation}
 We used an optimality parameter of $\lambda=5$ in our simulation. 
 
 Though there literal semantics are identical, the different phrases received different pragmatic interpretations: the more costly intensifiers corresponded to less probable, more extreme heights (Figure ~\ref{model}). This can be seen as an M-implicature: more costly intensifiers are assigned strong, less probable, meanings. 
@@ -148,7 +150,7 @@ and frequency (rarer intensifiers are harder to access and therefore more costly
 We thus predict that longer and less frequent intensifiers will be more extreme, and that this is a quantitative relationship. 
 % \todo{clarify this next bit}
 This leaves open the question of the relative importance of length and frequency, how they combine, and what other factors might enter into cost.
-\todo{something about log-frequency vs freq? and make the prediction stronger: linear relationship? (does the model predict a linear relationship?)}
+\todo{ndg: something about log-frequency vs freq? and make the prediction stronger: linear relationship? (does the model predict a linear relationship?)}
 
 \begin{figure}[ht]
 \begin{center}
@@ -165,13 +167,13 @@ The proposal detailed above predicts an association between measures of cost and
 by eliciting free response prices from people and determining whether these prices are correlated with independent measures of utterance cost.
 
 % - design and materials
-\subsection{Method\footnote{The full experiment can be found at \url{http://web.stanford.edu/~erindb/degree-adverbs/experiments/exp5_2014-12-01/exp5.html}. \todo{this has my name and affiliation. should probably remove this and others before submitting...?}}}
+\subsection{Method\footnote{The full experiment can be found at \url{http://web.stanford.edu/~erindb/degree-adverbs/experiments/exp5_2014-12-01/exp5.html}.}}
 
 40 participants with US IP addresses were recruited through Amazon's Mechanical Turk and paid \$0.40 for their participation.
 
 We asked participants to provide judgments of prices based on a person's description of an object. The description included an intensifier paired with \w{expensive} (Figure~\ref{exp1-q}).
 There were three categories of objects (\emph{laptop}, \emph{watch}, and \emph{coffee maker}) and 40 intensifiers (see Table~\ref{exp1-intensifiers}).
-\todo{be more explicit about how we chose these.}
+%\todo{be more explicit about how we chose these.}
 We chose intensifiers that have a wide range of frequencies and excluded intensifiers that are either more commonly used to signal affect than to signal degree (e.g. ``depressingly expensive'' might indicate a degree, but it mainly indicates affect) or are ambiguous between other parts of speech (e.g. ``super'' can be used as an intensifier, as in ``super expensive'', but it can also be used as an adjective, as in ``super hero'').
 Each particpant gave price judgments for every intensifier-category pairing in a randomized order (different for different participants), for a total of 120 price judgments.
 We chose the domain of price and used only the adjective \w{expensive} because price constitutes a quantitative scale on which to measure the different intensifers.% and because we thought participants would have similar enough experience with the distributions over prices for these objects.
@@ -247,7 +249,7 @@ We also ran the same analyses on frequency information collected from the Google
 
 We also did the same analysis using the bigram frequencies of \w{[intensifer] expensive} rather than the unigram frequencies of the intensifiers alone. These data were much more sparse. For bigrams, we found no significant effects of surprisal using the books database and a negative effect using the web database. We think the lack of replication of our finding in bigrams is probably a result of bigrams data being much more sparse.
 }
-For all of the analyses that follow, we use \w{surprisal} or \w{self-information}, defined as the negative log probability of a word in the corpus, as the utterance cost measure. We do this so that our correlations for both utterance cost measures will be positive (if our findings are consistent with our hypothesis) and because \todo{reasons}. The syllable lenths of our intensifiers and the surprisals %\todo[inline]{say what surprisal is and why we care before using it.} 
+For all of the analyses that follow, we use \w{surprisal} or \w{self-information}, defined as the negative log probability of a word in the corpus, as the utterance cost measure. We do this so that our correlations for both utterance cost measures will be positive (if our findings are consistent with our hypothesis) and because \todo{ndg: reasons}. The syllable lenths of our intensifiers and the surprisals %\todo[inline]{say what surprisal is and why we care before using it.} 
 were correlated, but not strongly so (r = 0.27).
 
 % - results and discussion
@@ -257,13 +259,13 @@ were correlated, but not strongly so (r = 0.27).
 If the meaning of an intensifier is stronger for higher cost intensifiers, we would expect to find that as frequency decreases and length in syllables increases, the prices participants give will also increase. We find that this is the case.
 %% what's the alternative hypothesis?
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \begin{center}
-\includegraphics[width=0.48\textwidth]{analysis_files_for_writeup/images/exp1-plot.png}
+\includegraphics[width=0.8\textwidth]{analysis_files_for_writeup/images/exp1-plot.png}
 \end{center}
 \caption{Results of Experiment 1. As surprisal and length in syllables increase, participants' free response prices increased.} 
 \label{exp1-plot}
-\end{figure}
+\end{figure*}
 
 %%explain the main effects and the interaction: eg “we found significant main effects of surprisal and syllable length, such that more surprising and longer words were rated as more expensive”
 %%integrate this last paragraph into the reporting of effects along the lines sketched above
@@ -276,16 +278,16 @@ We ran a linear mixed effects regression with centered fixed effects of syllable
 % c.syllables             9.311e-02  1.821e-02 5.000e+00   5.112 0.004134 ** 
 % c.surprisal:c.syllables 1.931e-02  5.149e-03 3.533e+03   3.750 0.000179 ***
 We found significant main effects of surprisal ($\beta=0.0537, SE=0.00935, t(3)=5.74, p<0.05$) and syllable length ($\beta=0.0931, SE=0.0182, t(5)=5.112, p<0.005$), such that more surprising and longer 
-\todo{(split this}) 
+\todo{edb: (split this}) 
 words were rated as more expensive. We also found a significant interaction ($\beta=0.0193, SE=0.00515, t(3.5)=3.75, p<0.0005$) between surprisal and syllable length.
-\todo{interpret}
+\todo{edb: interpret}
 %, suggesting that \todo{...}.
 
 So intensifiers that are more surprising and longer (and therefore are more costly to utter) also tend to be interpreted as having stronger meanings.
 
 %         - support for m-implicature model
 This is consistent with the M-implicature model introduced in this paper.
-\todo{explain again why, then motivate expt. 2}
+\todo{ndg: explain again why, then motivate expt. 2}
 %         - effect of design/dependent measure?
 %% what does this mean?
 
@@ -306,7 +308,7 @@ This is consistent with the M-implicature model introduced in this paper.
 %                 - cost -> meaning?
 %                 - meaning -> cost?
 
-\todo{why exp2?}
+\todo{ndg: why exp2?}
 
 %why is exp. 2 necessary? motivate in one sentence. and how does this relate to the different dependent measure?
 
@@ -362,6 +364,8 @@ particularly & quite & especially & very
 
 \subsection{Results and Discussion}
 
+\todo{ndg: fix}
+
 % fixed only:
 % c.surprisal              0.31871746 0.02471029  12.8981699  4.609137e-38
 % c.syllables              0.43704201 0.06580015   6.6419605  3.095379e-11
@@ -370,17 +374,17 @@ particularly & quite & especially & very
 We ran an ordinal
 %mixed effects
 regression with centered surprisal and syllable lengths and their interaction as fixed effects.
-\todo{random effects?}
+\todo{edb: random effects?}
 We again found main effects of surprisal ($\beta=0.319, SE=0.0247, t=12.9, p<5e-38$) and syllable length ($\beta=0.437, SE=0.0658, t=6.64, p<5e-11$), but only a trending interaction ($p=0.0825$).
 %and random intercepts of intensifier list\footnote{The random intercept for intensifier list helps to standardize the rankings across the different intensifier lists. If the spacing between predictors were roughly the same across the different lists, then adding a constant value to the rankings for every element in a particular list would allow us to compare that list to another.} and adjective and random by-participant and by-list slopes to predict the ranking that participants gave the adjective phrase (the highest ranked adjective phrase in a trial got a ranking of 10, the lowest ranked adjective phrase got a ranking of 1). We found main effects of surprisal (estimate=0.46, p=4.8e-8) and syllable length (estimate=0.68, p=3.6e-10) and a significant interaction (estimate=0.079, p=0.025). Regressions on subsets of the data for each intensifier list were mostly similar, except that for intensifier lists C and D, which had smaller syllable ranges, the effects of syllable length and its interaction with surprisal were sometimes insignificant or in the opposite direction. Results were very similar across the four different adjectives.
 
-\begin{figure}[ht]
+\begin{figure*}[ht]
 \begin{center}
-\includegraphics[width=0.48\textwidth]{analysis_files_for_writeup/images/exp2-plot.png}
+\includegraphics[width=0.8\textwidth]{analysis_files_for_writeup/images/exp2-plot.png}
 \end{center}
-\caption{Results of Experiment 2. As surprisal and length in syllables increase, participants' rankings increased.} 
+\caption{Results of Experiment 2. As surprisal and length in syllables increase, participants' rankings increased. \todo{edb: make 4x1.}} 
 \label{exp2-plot}
-\end{figure}
+\end{figure*}
 
 Overall, we again found that participants assign stronger interpretations to intensifiers with higher surprisals and/or higher syllable lengths.
 
