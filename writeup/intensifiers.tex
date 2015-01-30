@@ -247,13 +247,15 @@ We chose the domain of price and used only the adjective \w{expensive} because p
 \subsubsection{Corpus Methods}
 %maybe have this a separate section? maybe not?
 
-We used word length in syllables and word frequency as proxies for a word's cost (Table~\ref{exp1-intensifiers}).
+Table~\ref{exp1-intensifiers} shows word length in syllables and frequency for the intensifiers used in the experiment.
 The frequencies were collected from the Google Web 1T 5-grams database \cite{web1t5gram}\footnote{
 We also ran the same analyses on frequency information collected from the Google Books American Ngrams Corpus \cite{books2011} and found similar results.
 
 We also did the same analysis using the bigram frequencies of \w{[intensifer] expensive} rather than the unigram frequencies of the intensifiers alone. These data were much more sparse. For bigrams, we found no significant effects of surprisal using the books database and a negative effect using the web database. We think the lack of replication of our finding in bigrams is probably a result of bigrams data being much more sparse.
 }
-For all of the analyses that follow, we use \w{surprisal} or \w{self-information}, defined as the negative log probability of a word in the corpus, as the utterance cost measure. We do this so that our correlations for both utterance cost measures will be positive (if our findings are consistent with our hypothesis) and because \todo{ndg: reasons}. The syllable lenths of our intensifiers and the surprisals %\todo[inline]{say what surprisal is and why we care before using it.} 
+%For all of the analyses that follow, we use \w{surprisal} or \w{self-information}, defined as the negative log probability of a word in the corpus, as the utterance cost measure. We do this so that our correlations for both utterance cost measures will be positive (if our findings are consistent with our hypothesis) and because \todo{ndg: reasons}. 
+In the analysis below we use word length and word surprisal (negative log-frequency) as proxies for a word's cost, as motivated above.
+The syllable lengths of our intensifiers and the surprisals %\todo[inline]{say what surprisal is and why we care before using it.} 
 were correlated, but not strongly so (r = 0.27).
 
 % - results and discussion
@@ -287,11 +289,9 @@ words were rated as more expensive. We also found a significant interaction ($\b
 \todo{edb: interpret}
 %, suggesting that \todo{...}.
 
-So intensifiers that are more surprising and longer (and therefore are more costly to utter) also tend to be interpreted as having stronger meanings.
+Thus intensifiers that are less frequent and longer (and therefore are more costly to utter) also tend to be interpreted as having stronger meanings, at least when used to modify \emph{expensive}. Furthermore, the relationship appears to be linear in surprisal and length (though with an interaction), as predicted.
+This is consistent with the M-implicature model introduced above.
 
-%         - support for m-implicature model
-This is consistent with the M-implicature model introduced in this paper.
-\todo{ndg: explain again why, then motivate expt. 2}
 %         - effect of design/dependent measure?
 %% what does this mean?
 
@@ -312,11 +312,13 @@ This is consistent with the M-implicature model introduced in this paper.
 %                 - cost -> meaning?
 %                 - meaning -> cost?
 
-\todo{ndg: why exp2?}
 
 %why is exp. 2 necessary? motivate in one sentence. and how does this relate to the different dependent measure?
+The M-implicature account described above implies that there is no semantic interaction between the intensifier and the adjective it is applied to. Instead an intensifier should contribute similar cost, and therefore meaning, to the different adjectival phrases in which it occurs\footnote{If the bigram frequency of the modified adjective (``very tall'') deviated from that expected based on independent word frequencies our frequency-based cost account would predict an interactive effect on meaning. However, this would be a relatively small effect, which we were unable to find clean enough bigram frequency data to test.}.
+To explore this issue, we would like to extend our results to additional adjectival scales. However, most scales are not so easily quantifiable as price; we require a different dependent measure in order to probe them.
+For Experiment 2 we used a forced-ranking dependent measure, which allows us to consider additional adjectival scales. This dependent measure has the added benefit of providing a more sensitive measure of the differences in degrees between similar adjectival phrases.
 
-In Experiment 2, we replicate our finding from Experiment 1 using a novel dependent measure and extend the account to other, not objectively quantifiable scales.
+%we replicate our finding from Experiment 1 using a novel dependent measure and extend the account to other, not objectively quantifiable scales.
 %We use a ranking dependent measure which is more appropriate to non-quantitative scales and which we expect to be more sensitive to small differences in meaning.
 
 \subsection{Method\footnote{The full experiment can be found at \url{http://web.stanford.edu/~erindb/degree-adverbs/experiments/exp4/exp4.html}}}
