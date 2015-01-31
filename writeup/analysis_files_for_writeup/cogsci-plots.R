@@ -39,7 +39,13 @@ p = ggplot(data=d_summary, aes(x=-log(frequency), y=logprice, colour=syllables))
   theme_bw(22) +
   facet_wrap(~ object, scale="free") +
   #scale_colour_grey() +
-  scale_colour_brewer(type="div") +#, palette="PRGn") +
+  scale_colour_manual(values=c("#8c510a",
+                        "#bf812d",
+                        "#dfc27d",
+                        "#80cdc1",
+                        "#35978f",
+                        "#01665e")) +
+  ##scale_colour_brewer(type="div") +#, palette="PRGn") +
   #scale_colour_brewer(type="div", palette="PiYG") +
   theme(panel.grid=element_blank()) +
   xlab("inverse log(frequency)") +
@@ -157,7 +163,13 @@ p = ggplot(data=d_summary, aes(x=surprisal, y=ranking, colour=syllables)) +
   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5) +
   theme_bw(22) +
   #scale_colour_grey() +
-  scale_colour_brewer(type="div") +
+  #scale_colour_brewer(type="div") +
+  scale_colour_manual(values=c("#8c510a",
+                               "#bf812d",
+                               "#dfc27d",
+                               "#80cdc1",
+                               "#35978f",
+                               "#01665e")) +
   #facet_grid(adverb_list ~ adjective) +
   facet_grid(~ adjective) +
   geom_text(aes(label=adv_adj_N), x=10, y=1) +
@@ -197,18 +209,18 @@ ggsave("images/exp2-plot.png", width=16, height=5)
 # (1 + c.surprisal * c.syllables | adverb_list), data=d)
 # 
 
-library(MASS)
-library("AER")
-d$franking = ordered(d$ranking)
-m <- polr(franking ~ c.surprisal * c.syllables, data=d)
-m <- polr(franking ~ c.surprisal * c.syllables + c.surprisal:adjective + c.syllables:adjective, data=d)
-m <- polr(franking ~ adverb + adjective:adverb, data=d)
-coeftest(m) 
-
-# ## calculate and store p values
- p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
-# ## combined table
-# (ctable <- cbind(ctable, "p value" = p))
+# library(MASS)
+# library("AER")
+# d$franking = ordered(d$ranking)
+# m <- polr(franking ~ c.surprisal * c.syllables, data=d)
+# m <- polr(franking ~ c.surprisal * c.syllables + c.surprisal:adjective + c.syllables:adjective, data=d)
+# m <- polr(franking ~ adverb + adjective:adverb, data=d)
+# coeftest(m) 
+# 
+# # ## calculate and store p values
+#  p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
+# # ## combined table
+# # (ctable <- cbind(ctable, "p value" = p))
 
 # 
 # 
@@ -718,7 +730,7 @@ p = ggplot(distributions, aes(x=values, y=weights, colour=cost)) +
   ylab("L1(height | utterance)") +
   ## color = tall/short
   ## linetype = cost
-  scale_colour_brewer(type="qual") +
+  #scale_colour_brewer(type="qual") +
   xlab("normed heights") +
   #scale_colour_manual(values=c("black", "yellow", "cyan", "deeppink", "turquoise4", "magenta", "chartreuse4", "purple")) +
   #   ggtitle("") +
@@ -731,31 +743,33 @@ distributions$adjective = factor(distributions$adjective)
 distributions$cost = factor(distributions$cost, levels=c("prior", "1", "5", "10"))
 p = ggplot(distributions[distributions$version == "20 steps",], aes(x=values, y=weights, colour=cost)) +
   geom_line(stat="identity", lwd=1.5) +
-  ylab("L1(height | utterance)") +
+  ylab("L1(price | utterance)") +
   ## color = tall/short
   ## linetype = cost
-  xlab("normed heights") +
+  #xlab("normed heights") +
   scale_colour_brewer(type="qual", palette=6) +
   #scale_colour_brewer(type="qual", palette="Set1") +
   #scale_colour_brewer(type="seq", drop=F) +
   #scale_colour_manual(values=c("black", "yellow", "cyan", "deeppink", "turquoise4", "magenta", "chartreuse4", "purple")) +
   #   ggtitle("") +
-  xlab("\"heights\"") +
+  xlab("standardiezed \"prices\"") +
   theme_bw(22) +
   theme(panel.grid=element_blank())
 print(p)
 ggsave("images/model_results.png", width=10, height=6)
 # 
+
+dists = distributions[distributions$version == "1-6" & distributions$cost!="prior",]
 # #distributions = ddply(distributions, .(adjective, cost, version), transform, E=sum(weights * values))
-expectations = ddply(distributions[distributions$version == "1-6" & distributions$cost!="prior",], .(adjective, cost, version), summarize, E=sum(weights * values))
+expectations = ddply(dists, .(adjective, cost, version), summarize, E=sum(weights * values))
 expectations$cost = as.numeric(as.character(expectations$cost))
 
 p = ggplot(expectations, aes(x=cost, y=E)) +
   geom_point(size=4) +
   geom_line(lwd=2) +
-  ylab("expected height") +
+  ylab("expected standardized price") +
   xlab("utterance cost") +
-  scale_colour_brewer(type="qual") +
+  #scale_colour_brewer(type="qual") +
   theme_bw(22) +
   theme(panel.grid=element_blank())
 print(p)
