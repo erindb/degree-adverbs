@@ -1,4 +1,5 @@
 \begin{thebibliography}{}
+
 \small
 
 \bibitem [\protect \citeauthoryear {%
@@ -70,6 +71,30 @@ Davis, R.%
   tanganyika}.{\BBCQ}
 \newblock
 \APACjournalVolNumPages{British Journal of Psychology}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Dehaene%
+}{%
+Dehaene%
+}{%
+{\protect \APACyear {2003}}%
+}]{%
+dehaene}
+\APACinsertmetastar {%
+dehaene}%
+\begin{APACrefauthors}%
+Dehaene, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2003}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The neural basis of the {W}eber-{F}echner law: a
+  logarithmic mental number line} {The neural basis of the {W}eber-{F}echner
+  law: a logarithmic mental number line}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Trends in Cognitive Sciences}{7}{4}{145--147}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -221,7 +246,7 @@ Kennedy, C.%
   of gradable predicates} {Scale structure, degree modification, and the
   semantics of gradable predicates}.{\BBCQ}
 \newblock
-
+\APACjournalVolNumPages{Language}{}{}{}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -241,10 +266,10 @@ Klein, E.%
 \newblock
 \APACrefYearMonthDay{1980}{}{}.
 \newblock
-{\BBOQ}\APACrefatitle {Semantics for positive and comparative adjectives}
-  {Semantics for positive and comparative adjectives}.{\BBCQ}
+{\BBOQ}\APACrefatitle {A semantics for positive and comparative adjectives} {A
+  semantics for positive and comparative adjectives}.{\BBCQ}
 \newblock
-
+\APACjournalVolNumPages{Linguistics and philosophy}{}{}{}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -553,12 +578,12 @@ Sutton, R\BPBI S.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{1998}{}{}.
+\APACrefYear{1998}.
 \newblock
-{\BBOQ}\APACrefatitle {Reinforcement learning: An introduction} {Reinforcement
-  learning: An introduction}.{\BBCQ}
+\APACrefbtitle {Reinforcement learning: An introduction} {Reinforcement
+  learning: An introduction}.
 \newblock
-
+\APACaddressPublisher{}{MIT press}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

@@ -1,6 +1,6 @@
 \documentclass[10pt,letterpaper]{article}
 
-\usepackage{hyperref}
+\usepackage{hyperref, breakurl}
 \usepackage{cogsci}
 \usepackage{pslatex}
 \usepackage{apacite}
@@ -57,12 +57,12 @@ We confirm, in two experiments, that English intensifiers in adjective phrases a
 
 \section{The semantics of intensifying degree adverbs}
 
-Our paper focuses on intensifying degree adverbs applied to scalar adjectives\footnote{Some of these intensifiers can also apply to verbal and nominal predicates, and different restrictions apply for different intensifiers, e.g. \w{I truly like carrots} is an acceptable utterance, whereas \w{I very like carrots} is not. See \citeA{bolinger} for a discussion.}. Scalar adjectives have been described as having a threshold semantics \cite{kennedy}, where, for example, \w{expensive} means ``having a price greater than \$$\theta$'' and $\theta$ is a semantic variable inferred from context (e.g., \$100). Above the threshold degree $\theta$, the adjective is true of an object, and below, the adjective is false.
+Our paper focuses on intensifying degree adverbs applied to scalar adjectives\footnote{Some of these intensifiers can also apply to verbal and nominal predicates, and different restrictions apply for different intensifiers, e.g. \w{I truly like carrots} is an acceptable utterance, whereas \w{I very like carrots} is not. See \citeA{bolinger} for a discussion.}. Scalar adjectives have been described as having a threshold semantics \cite{kennedy}, where, for example, \w{expensive} means ``having a price greater than $\theta$'' and $\theta$ is a semantic variable inferred from context (e.g., \$100). Above the threshold degree $\theta$, the adjective is true of an object, and below, the adjective is false.
 \citeA{lassiter} give a formal model of how this threshold might be inferred for a particular context, which we extend to intensifiers.
 
 \subsection{Background}
 Previous researchers have proposed that adjective phrases modified by intensifiers have the same semantics as unmodified adjective phrases, except with new, higher thresholds \cite{kennedyMcnally, klein, wheeler}. That is, some threshold, inferred from context, exists above which objects are \w{expensive} and below which they are not, and the intensifier \w{very} determines a new, higher threshold for \w{very expensive}.
-They suggest that the intensified thresholds are determined by first collecting the set of objects in the comparison class class for which the bare adjective is true, and then using that as the comparison class to infer a new threshold, i.e. \w{very expensive laptop} means ``expensive for an expensive laptop''. This analysis results in the expected intensification of adjectives (``expensive, even among expensive laptops'' has a higher threshold for being true than simply ``expensive for a laptop'') and is appropriately sensitive to different domains (e.g. the absolute difference in price between thresholds for \w{expensive} and \w{very expensive} is much higher in the context of ``That space station is very expensive,'' than in the context of ``That coffee is very expensive.'').
+They suggest that the intensified thresholds are determined by first collecting the set of objects in the comparison class class for which the bare adjective is true, and then using that as the comparison class to infer a new threshold, i.e. \w{very expensive laptop} means ``expensive for an expensive laptop''. This analysis results in the expected intensification of adjectives (``expensive for an expensive laptop'' has a higher threshold for being true than simply ``expensive for a laptop'') and is appropriately sensitive to different domains (e.g. the absolute difference in price between thresholds for \w{expensive} and \w{very expensive} is much higher in the context of ``That space station is very expensive,'' than in the context of ``That coffee is very expensive.'').
 However, this account does not, in and of itself, distinguish between the graded strengths of different intensifiers, for example, \w{very expensive} and \w{phenomenally expensive}.
 
 Intuition suggests that different intensifiers do have different strengths (e.g. \w{outrageously} seems stronger than \w{quite}), and we provide further evidence of this in our experiments, where participants interperet and compare different intensifiers.
@@ -72,7 +72,7 @@ That is, having a lexically determined meaning for each different intensifier mi
 
 We propose instead that each time a scalar adjective is used, in each phrase, it introduces a free threshold variable (that is, a new token threshold is inferred for every time the lexical entry of the adjective is accessed). Further we propose that intensifiers contribute \emph{nothing} to the literal, compositional semantics\footnote{We take this strong view for rhetorical purposes. It is highly likely that some intensifiers have other aspects of meaning.}. This implies that different adjectival phrases (e.g.~``very expensive watch'' and ``extremely expensive watch'') have equivalent meanings, though with thresholds that will be separately assigned based on context. \emph{However}, the intensifiers do affect the production cost of the corresponding sentences, and it is this cost difference that results in meaning differences.
 
-We next outline and extend \citeA{lassiter}'s model of scalar adjectives to include several copies of the relevant adjectival phrase, each with its own threshold variable.
+We next outline and extend \citeauthor{lassiter}'s model of scalar adjectives to include several copies of the relevant adjectival phrase, each with its own threshold variable.
 We show that simply having different thresholds for different adjective phrases---and being aware of alternative utterances and their relative communicative costs---is sufficient to communicate the wide range of degrees designated by intensifying degree adverbs.
 
 \subsection{Model}
@@ -81,7 +81,7 @@ We show that simply having different thresholds for different adjective phrases-
 \cite{frank, goodman}. The adjective model accounts for uncertainty about the adjectival threshold by including a lifted semantic variable, which the pragmatic listener infers at the same time that she infers the speaker's intended meaning. 
 We assume every adjective phrase has its own such variable $\theta_i$\footnote{Other versions of this model could easily be imagined in which the threshold for an adjective phrase is determined by the basic threshold for the adjective and some transformation on that threshold (e.g. multiplication, addition, etc.) caused by the intensifier. If the transformation is mostly regular, with a single parameter needing to be inferred for each intensifier, and if the values of these parameters are inferred for each adjective phrase, then such a model would be functionally equivalent to the one we describe here.}, together notated $\vec{\theta}$, but to otherwise mean the same thing, so that, for example, \w{expensive}, \w{very expensive} and \w{phenomenally expensive} all denote: $\lambda x . \text{price}(x) > \theta_i$. %unpack?
 
-Given an utterance $u_i$ (e.g. a \w{expensive laptoop} or a \w{very expensive laptop}) and a set of thresholds, a literal listener $L_0$ will use Bayesian inference to update his prior beliefs $P(d)$ about the degree $d$ (e.g. the laptop's price) given that the degree is greater than the threshold for that utterance.
+Given an utterance $u_i$ (e.g. an \w{expensive laptop} or a \w{very expensive laptop}) and a set of thresholds, a literal listener $L_0$ will use Bayesian inference to update his prior beliefs $P(d)$ about the degree $d$ (e.g. the laptop's price) given that the degree is greater than the threshold for that utterance.
 
 $$P_{L_0}(d|u_i, \theta_i) \propto P(d) \cdot \delta_{d > \theta_i}$$
 
@@ -113,7 +113,7 @@ The model therefore predicts an association between intensifier meaning and utte
 
 \subsection{Factors affecting utterance cost}
 
-We have identified the intensifier's cost, $C(u_{i})$, as a potentially critical factor of its interpreted meaning. The quantitative form predicted by the model of the relationship between cost and meaning is a approximately linear, as can be read off Figure \ref{model-heights}\footnote{This second simulation was identical as the first, except run on a more discretized scale for 6 different utterance costs (or ``intensifiers'').}.
+We have identified the intensifier's cost, $C(u_{i})$, as a potentially critical factor of its interpreted meaning. The quantitative form predicted by the model of the relationship between cost and meaning is a approximately linear (Figure \ref{model-heights}).\footnote{This second simulation was identical as the first, except run on a more discretized scale for 6 different utterance costs (or ``intensifiers'').}.
 
 To connect this linear prediction to empirical facts, we still must specify (at least a subset of) the factors we expect to impact cost.
 The most natural notion of cost is the effort a speaker incurs to produce an utterance. This could include cognitive effort to access lexical items from memory, articulatory effort to produce 
@@ -143,7 +143,7 @@ This leaves open the the relative importance of length and surprisal, and potent
 The proposal detailed above predicts an association between measures of cost and strength of interpretations. In Experiment 1, we test this qualitative prediction
 by eliciting free response price estimates from people and determining whether these prices are correlated with our independent measures of utterance cost.
 
-\subsection{Method\footnote{The full experiment can be found at \url{http://web.stanford.edu/~erindb/cogsci2015/Experiment1}.}}
+\subsection{Method\footnote{The full experiment can be found at \url{http://cocolab.stanford.edu/cogsci2015/intensifiers/Experiment1}}}
 
 40 participants with US IP addresses were recruited through Amazon's Mechanical Turk and paid \$0.40 for their participation.
 
@@ -238,6 +238,10 @@ If the meaning of an intensifier is stronger for higher cost intensifiers, we wo
 \end{figure*}
 
 We ran a linear mixed effects regression with centered fixed effects of syllables, surprisal, and their interaction, and random intercepts and slopes for syllables and surprisal for both participant and object.
+We used the logarithm of participants' price estimates as the dependent variable, because of evidence that people's representation of numbers, including prices, is logarithmic \cite[e.g.]{dehaene}\footnote{I.e. the perceptual distance between two prices the same dollar amount apart is more for small numbers (e.g. \$3 and \$6) and less for large numbers (e.g. \$1,543 and \$1,546).}.
+%of evidence that people represent differences in number logarithmically
+%people's representations of numbers is logarithmic \cite{}.
+
 %anything more complicated won't converge
 % Fixed effects:
 %                          Estimate Std. Error        df t value Pr(>|t|)    
@@ -256,7 +260,7 @@ The M-implicature account described above implies that there is no semantic inte
 To explore this issue, we would like to extend our results to additional adjectival scales. However, most scales are not so easily quantifiable as price; we require a different dependent measure in order to probe them.
 For Experiment 2 we used a forced-ranking dependent measure, which allows us to consider additional adjectival scales. This dependent measure has the added benefit of providing a more sensitive measure of the differences in degrees between similar adjectival phrases.
 
-\subsection{Method\footnote{The full experiment can be found at \url{http://web.stanford.edu/~erindb/cogsci2015/Experiment2}}}
+\subsection{Method\footnote{The full experiment can be found at \url{http://cocolab.stanford.edu/cogsci2015/intensifiers/Experiment2}}}
 
 30 participants with US IP addresses were recruited through Amazon's Mechanical Turk and paid \$0.40 for  participation.
 
@@ -304,11 +308,10 @@ The division of the intensifiers into lists of 10 was constant, so that the same
 %\end{table}
 
 \subsection{Results and Discussion}
-
-% fixed only:
-% c.surprisal              0.31871746 0.02471029  12.8981699  4.609137e-38
-% c.syllables              0.43704201 0.06580015   6.6419605  3.095379e-11
-% c.surprisal:c.syllables  0.04097697 0.02360147   1.7362040  8.252777e-02
+%                          Estimate Std. Error  z value  Pr(>|z|)    
+% c.surprisal              0.318717   0.024710  12.8982 < 2.2e-16 ***
+% c.syllables              0.437042   0.065800   6.6420 3.095e-11 ***
+% c.surprisal:c.syllables  0.040977   0.023601   1.7362   0.08253 . 
 Our results for Experiment 2 are shown in Figure~\ref{exp2-plot}. We ran an ordinal
 regression with centered surprisal and syllable lengths and their interaction as fixed effects.
 As in Experiment 1, we found strong main effects of surprisal ($\beta=0.319, SE=0.0247, t=12.9, p<5e-38$) and syllable length ($\beta=0.437, SE=0.0658, t=6.64, p<5e-11$), with only a trending interaction ($p=0.0825$).

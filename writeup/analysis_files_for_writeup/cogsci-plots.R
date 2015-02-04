@@ -31,9 +31,9 @@ d$c.chars = d$chars - mean(d$chars)
 
 # white = element_rect(fill="white")
 
-d_summary = bootsSummary(data=d, measurevar="logprice", groupvars=c("intensifier", "object", "frequency", "syllables"))
+d_summary = bootsSummary(data=d, measurevar="logprice", groupvars=c("intensifier", "object", "surprisal", "syllables"))
 d_summary$syllables = as.ordered(d_summary$syllables)
-p = ggplot(data=d_summary, aes(x=-log(frequency), y=logprice, colour=syllables)) +
+p = ggplot(data=d_summary, aes(x=surprisal, y=logprice, colour=syllables)) +
   geom_smooth(method="lm", colour="grey", alpha=1/10) +
   geom_point(size=4) +
   theme_bw(22) +
@@ -48,11 +48,11 @@ p = ggplot(data=d_summary, aes(x=-log(frequency), y=logprice, colour=syllables))
   ##scale_colour_brewer(type="div") +#, palette="PRGn") +
   #scale_colour_brewer(type="div", palette="PiYG") +
   theme(panel.grid=element_blank()) +
-  xlab("inverse log(frequency)") +
+  xlab("surprisal") +
   ylab("log(price)") +
   ggtitle("Experiment 1") +
   #ggtitle("how much does a ___ expensive object cost?") +
-  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=-log(frequency), width=0), lwd=1.5)
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5)
 print(p)
 ggsave("images/exp1-plot.png", width=16, height=6)
 
@@ -739,9 +739,10 @@ p = ggplot(distributions, aes(x=values, y=weights, colour=cost)) +
   theme(panel.grid=element_blank())
 print(p)
 # 
-distributions$adjective = factor(distributions$adjective)
-distributions$cost = factor(distributions$cost, levels=c("prior", "1", "5", "10"))
-p = ggplot(distributions[distributions$version == "20 steps",], aes(x=values, y=weights, colour=cost)) +
+dists = distributions
+dists$adjective = factor(dists$adjective)
+dists$cost = factor(dists$cost, levels=c("prior", "1", "5", "10"))
+p = ggplot(dists[dists$version == "20 steps",], aes(x=values, y=weights, colour=cost)) +
   geom_line(stat="identity", lwd=1.5) +
   ylab("L1(price | utterance)") +
   ## color = tall/short
@@ -752,7 +753,7 @@ p = ggplot(distributions[distributions$version == "20 steps",], aes(x=values, y=
   #scale_colour_brewer(type="seq", drop=F) +
   #scale_colour_manual(values=c("black", "yellow", "cyan", "deeppink", "turquoise4", "magenta", "chartreuse4", "purple")) +
   #   ggtitle("") +
-  xlab("standardiezed \"prices\"") +
+  xlab("standardized \"prices\"") +
   theme_bw(22) +
   theme(panel.grid=element_blank())
 print(p)
@@ -767,7 +768,7 @@ expectations$cost = as.numeric(as.character(expectations$cost))
 p = ggplot(expectations, aes(x=cost, y=E)) +
   geom_point(size=4) +
   geom_line(lwd=2) +
-  ylab("expected standardized price") +
+  ylab("expected standardized \"price\"") +
   xlab("utterance cost") +
   #scale_colour_brewer(type="qual") +
   theme_bw(22) +
