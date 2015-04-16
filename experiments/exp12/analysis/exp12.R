@@ -63,6 +63,7 @@ total_ngrams = 1024908267229
 d$surprisal = - log( d$freq / total_ngrams)
 
 d$nonce = d$adverb %in% c("bugornly", "lopusly", "ratumly", "tupabugornly", "fepolopusly", "gaburatumly")
+d$height_in_list = 10 - d$ranking
 
 d_existing = subset(d, !nonce)
 d_nonce = subset(d, nonce)
@@ -71,16 +72,16 @@ d_nonce$root[d_nonce$adverb %in% c("tupabugornly", "bugornly")] = "bugorn"
 d_nonce$root[d_nonce$adverb %in% c("fepolopusly", "lopusly")] = "lopus"
 d_nonce$root[d_nonce$adverb %in% c("gaburatumly", "ratumly")] = "ratum"
 
-d_existing_summary = bootsSummary(data=d_existing, measurevar="ranking",
+d_existing_summary = bootsSummary(data=d_existing, measurevar="height_in_list",
                                   groupvars=c("adverb", "surprisal",
                                               "nonce", "syll", "adjective"))
-d_nonce_summary = bootsSummary(data=d_nonce, measurevar="ranking",
+d_nonce_summary = bootsSummary(data=d_nonce, measurevar="height_in_list",
                                groupvars=c("adverb", "length", "syll",
                                            "root", "adjective"))
-d_summary = bootsSummary(data=d, measurevar="ranking",
+d_summary = bootsSummary(data=d, measurevar="height_in_list",
                          groupvars=c("adverb", "nonce", "adjective"))
 
-p = ggplot(data=d_existing_summary, aes(x=surprisal, y=ranking, colour=factor(syll))) +
+p = ggplot(data=d_existing_summary, aes(x=surprisal, y=height_in_list, colour=factor(syll))) +
   geom_smooth(method="lm", colour="grey", alpha=1/10) +
   geom_point(size=3) +
   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal), width=0.3) +
@@ -90,11 +91,11 @@ p = ggplot(data=d_existing_summary, aes(x=surprisal, y=ranking, colour=factor(sy
   scale_x_continuous(breaks=c(10, 14, 18)) +
   xlab("surprisal") +
   ylab("ranking") +
-  ggtitle("Experiment 2: length and surprisal predict degree for different adjectives") +
+  ggtitle("Experiment 4: length and surprisal predict degree for different adjectives") +
   scale_colour_manual(values=rev(c("#d7191c", "#FD9934", "#FAFF41", "#6DD5E9", "#2c7bb6")),
                       name="adverb length in syllables")
 print(p)
-ggsave("exp4_replication.pdf", width=8.5, height=3)
+ggsave("exp4_replication.pdf", width=8.5, height=4)
 
 d_existing$c.surprisal = d_existing$surprisal - mean(d_existing$surprisal)
 d_existing$c.syll = d_existing$syll - mean(d_existing$syll)
@@ -104,53 +105,51 @@ d_existing$c.syll = d_existing$syll - mean(d_existing$syll)
 
 library(MASS)
 library("AER")
-d_existing$franking = ordered(d_existing$ranking)
-m <- polr(franking ~ c.surprisal * c.syll, data=d_existing)
-m <- polr(franking ~ c.surprisal * c.syllables + c.surprisal:adjective + c.syllables:adjective, data=d)
-m <- polr(franking ~ adverb + adjective:adverb, data=d)
+d_existing$fheight_in_list = ordered(d_existing$height_in_list)
+m <- polr(fheight_in_list ~ c.surprisal * c.syll, data=d_existing)
 coeftest(m)
 
+# p = ggplot(data=d, aes(x=logfreq, y=height_in_list)) +
+#   geom_point(alpha=1/10, size=3) +
+#   geom_smooth(method="lm")
+# print(p)
 
-
-p = ggplot(data=d, aes(x=logfreq, y=ranking)) +
-  geom_point(alpha=1/10, size=3) +
-  geom_smooth(method="lm")
-print(p)
-
-d = subset(d, adverb %in% c("bugornly", "lopusly", "ratumly", "tupabugornly", "fepolopusly", "gaburatumly"))
-d$adverb = as.factor(d$adverb)
-
-d$height_in_list = 10 - d$ranking
-d$ordered_height_in_list = ordered(d$height_in_list)
-d_summary = bootsSummary(data=d, measurevar="height_in_list", groupvars=c("nonce_word", "length"))
-p = ggplot(data=d_summary, aes(x=nonce_word, y=height_in_list, fill=length)) +
-  geom_bar(stat="identity") +
-  geom_errorbar(aes(x=nonce_word, ymin=bootsci_low, ymax=bootsci_high), width=0.1) +
-  geom_text(aes(x=nonce_word, y=0.5, label=paste("N=", N, sep=""))) +
-  ggtitle("nonce intensifiers") +
+d_nonce$ordered_height_in_list = ordered(d_nonce$height_in_list)
+d_nonce_summary = bootsSummary(data=d_nonce, measurevar="height_in_list",
+                               groupvars=c("adverb", "length", "root"))
+p = ggplot(data=d_nonce_summary, aes(x=root, y=height_in_list, fill=length)) +
+  geom_bar(stat="identity", position="dodge") +
+  geom_errorbar(aes(x=root, ymin=bootsci_low, ymax=bootsci_high), width=0.1,
+                position=position_dodge(width=0.9)) +
+  geom_text(aes(x=root, y=0.5, label=paste("N=", N, sep="")),
+            position=position_dodge(width=0.9)) +
+  ggtitle("Experiment 4: length of novel intensifier predicts degree") +
   ylab("height in ordered list") +
-  xlab("nonce word") +
+  xlab("nonce word root") +
   theme_bw(15) +
   theme(panel.grid=element_blank()) +
   scale_colour_brewer(type='qual', palette='Set1') +
   scale_fill_brewer(type='qual', palette='Set1')
 print(p)
-ggsave("nonce_intensifiers.pdf", width=8.5, height=4)
+ggsave("exp4.pdf", width=8.5, height=4)
 
-d_summary_length = bootsSummary(data=d, measurevar="height_in_list", groupvars=c("length"))
-p = ggplot(data=d_summary_length, aes(x=length, y=height_in_list, fill=length)) +
+m <- polr(ordered_height_in_list ~ length, data=d_nonce)
+coeftest(m)
+
+d_nonce_summary_length = bootsSummary(data=d_nonce, measurevar="height_in_list", groupvars=c("length"))
+p = ggplot(data=d_nonce_summary_length, aes(x=length, y=height_in_list, fill=length)) +
   geom_bar(stat="identity") +
   geom_errorbar(aes(x=length, ymin=bootsci_low, ymax=bootsci_high), width=0.1) +
-  geom_text(aes(x=length, y=0.5, label=paste("N=", N, sep=""))) +
-  ggtitle("nonce intensifiers") +
+  geom_text(aes(x=length, y=0.5, label=paste("N=", N, sep="")), size=8) +
+  ggtitle("Experiment 4: length of novel intensifier predicts degree") +
   ylab("height in ordered list") +
   xlab("length of nonce word") +
-  theme_bw(15) +
+  theme_bw(18) +
   theme(panel.grid=element_blank()) +
   scale_colour_brewer(type='qual', palette='Set1') +
   scale_fill_brewer(type='qual', palette='Set1')
 print(p)
-ggsave("nonce_intensifiers_length.pdf", width=8.5, height=4)
+ggsave("exp4.pdf", width=8.5, height=5)
 
 # require(foreign)
 # require(ggplot2)

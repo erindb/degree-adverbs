@@ -1,0 +1,80 @@
+(define alpha 5)
+
+(define distribution 'peaked-mid)
+
+(define (power lst alpha) (map (lambda (x) (expt x alpha)) lst))
+
+(define (seq start distance end)
+  (if (> (+ start distance) end) (list start)
+      (append (list start) (seq (+ start distance) distance end))))
+
+(define (theta-prior)
+  (uniform-draw (seq 0 0.2 1)))
+
+(define (probrain-prior)
+  (multinomial
+   '(0 1 0.2 0.4 0.6 0.8)
+   (case distribution
+         (('uniform) '(.1 .1 .1 .1 .1 .1))
+          (('more-peaked) '(0.3125 0.3125 0.1250 0.0625 0.0625 0.1250))
+          (('peaked-down) '())
+          (('monotonic) '(0.04761905 0.28571429 0.09523810 0.14285714 0.19047619 0.23809524))
+          (('peaked-both) '(3 3 2 1 1 2))
+          (('peaked-mid) '(0.00876415 0.00876415 0.06475880 0.17603266 0.17603266 0.06475880))
+          (('peaked-up) '(0.000001 0.63840654 0.00102145 0.01634321 0.08273749 0.26149132))
+          (else (lambda () (display "error 0: that's not a valid distribution"))))))
+
+(define (meaning utterance)
+  (case utterance
+        (('none) #t)
+        (('rain) '(> probrain theta-rain))
+        (('not-rain) '(< probrain theta-not-rain))        ))
+
+(define utterances '(none rain not-rain
+  ))
+(define costs '(0 1 1
+  ))
+
+(define (utterance-prior)
+  (multinomial utterances
+               (map (lambda (utterance-cost) (exp (- utterance-cost)))
+                    costs)))
+
+(define literal-listener
+  (mem
+   (lambda (utterance theta-rain theta-not-rain theta-must theta-must-not
+     )
+     (enumeration-query
+      (define probrain (probrain-prior))
+      probrain
+      (eval (meaning utterance))))))
+
+(define speaker
+  (mem
+   (lambda (knowledge theta-rain theta-not-rain theta-must theta-must-not
+           )
+     (enumeration-query
+      (define utterance (utterance-prior))
+      (define interpretation
+        (apply multinomial
+               (list (first (literal-listener utterance theta-rain theta-not-rain theta-must theta-must-not
+                            ))
+                     (power (second (literal-listener utterance theta-rain theta-not-rain theta-must theta-must-not
+                                    )) alpha))))
+      utterance
+      (equal? interpretation knowledge)))))
+
+(define pragmatic-listener
+  (mem
+   (lambda (utterance)
+     (enumeration-query
+      (define theta-rain (theta-prior))
+      (define theta-not-rain (theta-prior))
+      (define probrain (probrain-prior))
+      probrain
+      (equal? (apply multinomial (speaker probrain theta-rain theta-not-rain 1 1
+                                 )) utterance)))))
+
+(display (pragmatic-listener 'none))
+(display (pragmatic-listener 'rain))
+(display (pragmatic-listener 'not-rain))

@@ -167,7 +167,7 @@ p = ggplot(data=d_nonce_summary_length, aes(x=length, y=log.response, fill=lengt
 print(p)
 ggsave("free_response_nonce_intensifiers_length.pdf", width=8.5, height=3)
 
-# library(lme4)
+library(lme4)
 # library(lmerTest)
 d_nonce$numeric_length = 1
 d_nonce$numeric_length[d_nonce$length == "\"long\""] = 2
