@@ -1,5 +1,29 @@
 \begin{thebibliography}{}
 
+\footnotesize
+
+\bibitem [\protect \citeauthoryear {%
+Barton%
+}{%
+Barton%
+}{%
+{\protect \APACyear {2015}}%
+}]{%
+barton2014}
+\APACinsertmetastar {%
+barton2014}%
+\begin{APACrefauthors}%
+Barton, K.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2015}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Package '{M}u{M}{I}n'} {Package '{M}u{M}{I}n'}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Version}{1.13.4}{}{}.
+\PrintBackRefs{\CurrentBib}
+
 \bibitem [\protect \citeauthoryear {%
 Bolinger%
 }{%
