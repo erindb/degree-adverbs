@@ -97,25 +97,77 @@ d_summary$adjsyll = paste(d_summary$adjective, d_summary$syllables)
 p = ggplot(data=d_summary, aes(x=surprisal, y=ranking, colour=syllables)) +
   geom_smooth(method="lm", colour="grey", alpha=1/10) +
   geom_point(size=3) +
-  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal), width=0.3) +
-  theme_bw(10) +
-  scale_colour_brewer(type="div", palette=7) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal), width=0) +
+  theme_bw(14) +
+  scale_colour_manual(values=c("#8c510a",
+                               "#bf812d",
+                               "#dfc27d",
+                               "#80cdc1",
+                               "#35978f",
+                               "#01665e")) +
   facet_grid(~ adjective) +
   theme(panel.grid=element_blank()) +
   scale_x_continuous(breaks=c(10, 14, 18)) +
   xlab("surprisal") +
   ylab("ranking") +
-  ggtitle("Experiment 2: length and surprisal predict degree for different adjectives")
+  ggtitle("Experiment 2")
 print(p)
-ggsave("exp2.pdf", width=8.5, height=3)
+ggsave("exp2-plot.pdf", width=10, height=3)
 
-library(MASS)
-library("AER")
-d$franking = ordered(d$ranking)
-m <- polr(franking ~ c.surprisal * c.syllables, data=d)
-# m <- polr(franking ~ c.surprisal * c.syllables + c.surprisal:adjective + c.syllables:adjective, data=d)
-# m <- polr(franking ~ adverb + adjective:adverb, data=d)
-coeftest(m) 
+library(lme4)
+# source("~/opt/r_helper_scripts/rsquared.glmm.R")
+full_model = lmer(ordered(ranking) ~ c.surprisal * c.syllables +
+                    (1 + c.surprisal + c.syllables | workerid) +
+                    (1 + c.surprisal + c.syllables | adjective), data=d)
+# intercept_model = lmer(ordered(ranking) ~ c.surprisal + c.syllables +
+#                          (1 + c.surprisal + c.syllables | workerid) +
+#                          (1 + c.surprisal + c.syllables | adjective), data=d)
+print(rsquared.glmm(list(full_model)))
+library(MuMIn)
+r.squaredGLMM(full_model)
+
+res = data.frame(
+  residual = residuals(full_model),
+  predicted = fitted(full_model),
+  actual = getME(full_model, name=c("y")),
+  workerid = getME(full_model, name=c("flist"))$workerid,
+  intensifier = d$adverb
+)
+
+res_summary = bootsSummary(data=res, measurevar="residual",
+                           groupvars=c("intensifier"))
+res_summary$intensifier = factor(as.character(res_summary$intensifier),
+                                 levels=res_summary$intensifier[order(res_summary$residual)])
+p = ggplot(data=res_summary, aes(x=intensifier, y=residual, fill=intensifier)) +
+  geom_bar(stat="identity") +
+  geom_errorbar(aes(x=intensifier, ymin=bootsci_low, ymax=bootsci_high), width=0) +
+  theme_bw(18) +
+  theme(panel.grid=element_blank(),
+        axis.text.x=element_text(angle = 90, vjust = 0.5))
+print(p)
+ggsave("residuals.pdf", width=8.5, height=11)
+
+p = ggplot(data=res, aes(x=predicted, y=actual, colour=intensifier)) +
+  geom_point() +
+  theme_bw(18) +
+  theme(panel.grid=element_blank())
+print(p)
+
+p = ggplot(data=res, aes(x=predicted, y=actual, colour=workerid)) +
+  geom_point() +
+  theme_bw(18) +
+  theme(panel.grid=element_blank())
+print(p)
+
+# library(MASS)
+# library("AER")
+# d$franking = ordered(d$ranking)
+# m <- polr(franking ~ c.surprisal * c.syllables, data=d)
+# # m <- polr(franking ~ c.surprisal * c.syllables + c.surprisal:adjective + c.syllables:adjective, data=d)
+# # m <- polr(franking ~ adverb + adjective:adverb, data=d)
+# coeftest(m) 
+
+
 # 
 # # ## calculate and store p values
 #  p <- pnorm(abs(ctable[, "t value"]), lower.tail = FALSE) * 2
