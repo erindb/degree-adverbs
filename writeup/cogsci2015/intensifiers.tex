@@ -87,7 +87,7 @@ Our paper focuses on intensifying degree adverbs applied to scalar adjectives\fo
 
 \subsection{Background}
 Previous researchers have proposed that adjective phrases modified by intensifiers have the same semantics as unmodified adjective phrases, except with new, higher thresholds \cite{kennedyMcnally, klein, wheeler}. That is, some threshold, inferred from context, exists above which objects are \w{expensive} and below which they are not, and the intensifier \w{very} determines a new, higher threshold for \w{very expensive}.
-They suggest that the intensified thresholds are determined by first collecting the set of objects in the comparison class class for which the bare adjective is true, and then using that as the comparison class to infer a new threshold, i.e. \w{very expensive laptop} means ``expensive for an expensive laptop''. This analysis results in the expected intensification of adjectives (``expensive for an expensive laptop'' has a higher threshold for being true than simply ``expensive for a laptop'') and is appropriately sensitive to different domains (e.g. the absolute difference in price between thresholds for \w{expensive} and \w{very expensive} is much higher in the context of ``That space station is very expensive,'' than in the context of ``That coffee is very expensive.'').
+They suggest that the intensified thresholds are determined by first collecting the set of objects in the comparison class for which the bare adjective is true, and then using that as the comparison class to infer a new threshold, i.e. \w{very expensive laptop} means ``expensive for an expensive laptop''. This analysis results in the expected intensification of adjectives (``expensive for an expensive laptop'' has a higher threshold for being true than simply ``expensive for a laptop'') and is appropriately sensitive to different domains (e.g. the absolute difference in price between thresholds for \w{expensive} and \w{very expensive} is much higher in the context of ``That space station is very expensive,'' than in the context of ``That coffee is very expensive.'').
 However, this account does not, in and of itself, distinguish between the graded strengths of different intensifiers, for example, \w{very expensive} and \w{phenomenally expensive}.
 
 Intuition suggests that different intensifiers do have different strengths (e.g. \w{outrageously} seems stronger than \w{quite}), and we provide further evidence of this in our experiments, where participants interperet and compare different intensifiers.
@@ -226,12 +226,13 @@ by eliciting free response price estimates from people and determining whether t
 
 \subsection{Method\footnote{The full experiment can be found at \url{http://cocolab.stanford.edu/cogsci2015/intensifiers/Experiment1}}}
 
-40 participants with US IP addresses were recruited through Amazon's Mechanical Turk and paid \$0.40 for their participation.
+30 participants with US IP addresses were recruited through Amazon's Mechanical Turk and paid \$0.40 for their participation, of whom 1 was excluded for saying they did not follow the directions in a post-experiment survey.
 
-We asked participants to estimate the prices of different objects based on different descriptions of those objects. The descriptions included intensifiers paired with the adjective \w{expensive} (Figure~\ref{exp1-q}).
+We asked participants to estimate the prices of different objects based on %different
+descriptions of those objects. The descriptions included intensifiers paired with the adjective \w{expensive} (Figure~\ref{exp1-q}).
 There were three categories of objects (\emph{laptop}, \emph{watch}, and \emph{coffee maker}) and 40 intensifiers (see Table~\ref{exp1-intensifiers}).
 We chose intensifiers that have a wide range of frequencies and excluded intensifiers that are either more commonly used to signal affect than to signal degree (e.g. ``depressingly expensive'' might indicate a degree, but it mainly indicates affect) or are ambiguous between other parts of speech (e.g. ``super'' can be used as an intensifier, as in ``super expensive'', but it can also be used as an adjective, as in ``super hero'').
-Each particpant gave price judgments for every intensifier-category pairing in a randomized order (different for different participants), for a total of 120 price judgments per participant.
+Each particpant gave price judgments for every intensifier-category pairing in a randomized order (different for different participants).%, for a total of 120 price judgments per participant.
 We chose the domain of price and used only the adjective \w{expensive} because price constitutes a quantitative scale with standard units (dollars for our US participants) on which to measure the different intensifers.
 
 \begin{figure}[htb]
@@ -303,7 +304,7 @@ We also ran the same analyses on frequency information collected from the Google
 }
 In the analysis below we use word length and word surprisal (negative log-frequency) as proxies for a word's cost, as motivated above.
 The syllable lengths of our intensifiers and the surprisals %\todo[inline]{say what surprisal is and why we care before using it.} 
-were clearly correlated, but not strongly so (r = 0.27;, t=16;, p<5e-16).
+were clearly correlated, but not strongly so ($r = 0.27$, $t=16$, $p<5e-16$).
 % Moreover, it is well known that word frequency and word length do
 %    correlate. For example, the sample of words presented in Table 1. shows
 %    correlation between frequency and length (in syllables) r = -.32 (t =
@@ -337,7 +338,7 @@ We used the logarithm of participants' price estimates as the dependent variable
 % c.surprisal             5.365e-02  9.349e-03 3.000e+00   5.739 0.011874 *  
 % c.syllables             9.311e-02  1.821e-02 5.000e+00   5.112 0.004134 ** 
 % c.surprisal:c.syllables 1.931e-02  5.149e-03 3.533e+03   3.750 0.000179 ***
-Our results are shown in Figure~\ref{exp1-plot}. Both measures of cost play a role in predicting participants' price estimates. We found a significant main effects of surprisal ($\beta=0.0536, SE=0.00902, t(3)=5.94, p<0.05$) such that less frequent words tend to be associated with higher price estimates. We also found a significant main effect of syllable length ($\beta=0.0900, SE=0.0189, t(4)=4.76, p<0.05$), above and beyond surprisal, such that longer words predict stronger meanings. We also found a significant interaction ($\beta=0.0196, SE=0.00520, t(3.5)=3.77, p<0.0005$) between surprisal and syllable length, wich may indicate that the relationship between the two predictors of cost is not simply additive, and that having multiple sources of communicative cost (i.e. length and surprisal) might increase the implicature even more. Although these effects are significant, the marginal and conditional $R^2$ values \cite{barton2014} were $0.015$ and $0.72$ respectively, indicating that much of the variance in estimated prices is captured by the random effects rather than the fixed effects of surprisal and syllable length.
+Our results are shown in Figure~\ref{exp1-plot}. Both measures of cost play a role in predicting participants' price estimates. We found a significant main effect of surprisal ($\beta=0.0536, SE=0.00902, t(3)=5.94, p<0.05$) such that less frequent words tend to be associated with higher price estimates. We also found a significant main effect of syllable length ($\beta=0.0900, SE=0.0189, t(4)=4.76, p<0.05$), above and beyond surprisal, such that longer words predict stronger meanings. We also found a significant interaction ($\beta=0.0196, SE=0.00520, t(3.5)=3.77, p<0.0005$) between surprisal and syllable length, wich may indicate that the relationship between the two predictors of cost is not simply additive, and that having multiple sources of communicative cost (i.e. length and surprisal) might increase the implicature even more. Although these effects are significant, the marginal and conditional $R^2$ values \cite{barton2014} were $0.015$ and $0.72$ respectively, indicating that much of the variance in estimated prices is captured by the random effects rather than the fixed effects of surprisal and syllable length.
 
 Overall, intensifiers that are less frequent and longer (and therefore are more costly to utter) also tend to be interpreted as having stronger meanings, at least when used to modify \emph{expensive}. Furthermore, the relationship appears to be linear in surprisal and length (though with an interaction), as predicted.
 This is consistent with the M-implicature model introduced above.
@@ -350,16 +351,20 @@ For Experiment 2 we used a forced-ranking dependent measure, which allows us to 
 
 \subsection{Method\footnote{The full experiment can be found at \url{http://cocolab.stanford.edu/cogsci2015/intensifiers/Experiment2}}}
 
-30 participants with US IP addresses were recruited through Amazon's Mechanical Turk and paid \$0.40 for  participation.
+30 participants with US IP addresses were recruited through Amazon's Mechanical Turk and paid \$0.40 for participation. 3 said they did not follow the directions in a post-experiment survey and were excluded from the analysis.
 
-We asked participants to order (by clicking and dragging) various adjective phrases with the same adjective but different intensifiers according to strength of meaning. Because arranging these phrases required participants to be aware of the full set of adjective phrases and access all of them on the same computer screen (which might vary in size for different participants), not all of our 40 intensifiers could effectively be presented at once. We divided the 40 intensifiers from Experiment 1 into four lists of 10 intensifiers. 
+We asked participants to order (by clicking and dragging) various adjective phrases with the same adjective but different intensifiers according to strength of meaning. Because arranging these phrases required participants to be aware of the full set of adjective phrases and access all of them on the same computer screen% (which might vary in size for different participants)
+, not all of our 40 intensifiers could effectively be presented at once. We divided the 40 intensifiers from Experiment 1 into four lists of 10 intensifiers. 
 %(Table~\ref{exp2-intensifiers}).
 Each list was randomly paired with one of four adjectives (\w{old}, \w{expensive}, \w{beautiful}, and \w{tall}).
 For each adjective-list pairing, participants were shown every combination of the 10 intensifiers with one adjective.
-Participants were asked to move the adjective phrases from the left to the right side of the screen, reordering the phrases from the ``lowest'' to the ``highest'' degree (Figure~\ref{exp2-q}).
-Each participant completed four such trials, seeing all four lists and all four adjectives.
-The pairings between list and adjective were randomized between participants.
-The division of the intensifiers into lists of 10 was constant, so that the same 10 intensifiers were always shown together to simplify data analysis.
+Participants were asked to move the adjective phrases %from the left to the right side of
+across 
+the screen, reordering the phrases from the ``lowest'' to the ``highest'' degree (Figure~\ref{exp2-q}).
+Each participant completed four trials, seeing all four lists and all four adjectives.
+The list-adjective pairings were randomized between participants.%, but %pairings between list and adjective were randomized between participants.
+The division of the intensifiers into lists of 10
+was constant, so that the same 10 intensifiers were always shown together.% to simplify data analysis.
 
 \begin{figure}[htb]
 \begin{center}
@@ -433,7 +438,7 @@ While it is unlikely that this accounts for all intensifier meaning, it does sug
 
 It should be noted that, since this is a correlational study, such a relationship does not confirm that an intensifier's cost \emph{causes} it to have a given meaning. This correlation is predicted by the model sketched above, but it might be predicted by other analyses of intensifiers and their meanings. Rarity in particular might be correlated with strength of meaning merely because more extreme meanings refer to less probable things in the world, are therefore talked about less, and therefore the words with those meanings will necessarily be rarer.
 %% this next bit is sketch
-Although it seems reasonable to suspect that word frequencies reflect the probabilities of the real-world concepts they describe, it might also be the case that improbable things are more likely to be commented on, and so to a certain extent the frequencies of words that describe rare concepts will be inflated. Even so, this confound exists only for word frequency (and its effect on syllable length) and not for syllable length directly.
+Although it seems reasonable to suspect that word frequencies reflect the probabilities of the real-world concepts they describe, it might also be the case that improbable things are more likely to be commented on, and so the frequencies of words that describe rare concepts might be inflated. In addition, this confound on causal direction exists only for word frequency (and its effect on syllable length) and not for syllable length directly.
 %citation?
 %    My one point of criticism concerns the general claim that semantic
 %    properties of the intensifiers have been partialed out by this analysis.
