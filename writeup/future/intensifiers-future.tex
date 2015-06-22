@@ -1,25 +1,4 @@
-%    I think that the criticisms raised by reviewers 2 and 3 are of
-%    importance. Reviewer 2 notices that by effect of frequent usage, the
-%    meaning of high frequency intensifiers might lead to lexicalization. If
-%    this were the case, the author's claim that they have disentangled the
-%    semantic and pragmatic components of their effects is less than
-%    justified.
-%    Reviewer 3 points out that some of the assumptions made in the
-%    discussion of these results might not be correct with regard to the
-%    long-known correlation between word length and all sorts of frequency
-%    measures.
-%    cite some stuff, e.g. in a footnote, saying that we're aware of this...?
-%    ---more of this:---
-%    My one point of criticism concerns the general claim that semantic
-%    properties of the intensifiers have been partialed out by this analysis.
-%    Particularly, the authors say that "The length of a word seems much
-%    less likely to reflect the real-word prevalence of the concept
-%    it refers to." Actually, the effect relating length of words to frequency
-%    of use (and thus to frequency of experience) is quite strong (Zipf's Law;
-%    Zipf, 1936). It could still be, as the authors point out, that the
-%    frequency effects observed here are artifactual, revealing only patterns
-%    of use driven by real-world circumstance.
-%    *** clarify that i mean *meaning* rather than *use*
+%%%%%% from reviewers
 %    ---more of this:---
 %    I'd also like to point out that frequency information is thought by many
 %    to be encoded lexically. And yet the analysis provided here suggests
@@ -41,35 +20,7 @@
 %    syllables) could depend on meaning as well. Yet this seems quite
 %    appealing from the information-theoretic perspective: something that is
 %    very probable in the world should be encoded as short(er), less-costly
-%    string. Moreover, it is well known that word frequency and word length do
-%    correlate. For example, the sample of words presented in Table 1. shows
-%    correlation between frequency and length (in syllables) r = -.32 (t =
-%    -2.05; p = 0.047), and it is even higher if length is defined in number
-%    of characters (r = -.42; t = -2.83; p = 0.007). (And I would certainly
-%    trust more an indicator that is more fine grained -- i.e., length in
-%    number of characters!)
-
-% Reviewer 1 would like to see  some indication of the explained
-%    variance reported with the statistics.
-%    ``They only report stats showing that the correlations are significant.
-%    I would have liked to see how much of the variance is explained by the
-%    length and frequency predictors.''
-
-% talk about how representative our sample of degree adverbs might be
-%    2. Adverbial intensifiers which are also used as adjectives (e.g.
-%    'super') were excluded for the experiments. **Although the authors do not
-%    explain this decision, I assume it was mainly based on the fact that they
-%    could not get a frequency count for the adverbial use of the word.**
-%    (However, depending on their exact linking hypothesis about how the
-%    frequency affects "cost", this consideration could be irrelevant anyway.)
-%    My intuition is that such words, which are more common in casual than
-%    written English, are just as strong as some of the longer, fancier words
-%    in their sample. For example, the following seem pretty strong to me:
-%    crazy expensive, stupid expensive, mad expensive, damn expensive, etc.
-%    (other examples that come to mind are more vulgar!). I'm not saying these
-%    potential counter-examples are fatal to their point. **I just would have
-%    liked to see more discussion of how the particular examples they chose
-%    might be representative (or not) of the full space of alternatives.**
+%    string.
 % 
 %    - Figures 4 and 6 are not very informative. They are too compressed.
 %    Unfortunately I do not have an idea how to make them better. Perhaps one
@@ -78,7 +29,6 @@
 %% Erica noted that the length of English words more closely matches the meaning complexity than in a language like mandarin where hugely complex meanings (which can kind of be measured by number of strokes in the character) correspond to single syllables and single morphemes. maybe using character strokes as a ``complexity'' measure would be cool. And looking at intensifiers in Mandarin would be interesting.
 
 %% add citations
-%% reframe model
 
 \documentclass[10pt,letterpaper]{article}
 
@@ -92,6 +42,7 @@
 \usepackage{color}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+\usepackage[toc,page]{appendix}
 
 \newcommand{\w}[1]{\emph{#1}}
 \newcommand{\todo}[1]{{\color{red}#1}}
@@ -137,8 +88,11 @@ We confirm, in our first two experiments, that English intensifiers in adjective
 
 \section{The semantics of intensifying degree adverbs}
 
-Our paper focuses on intensifying degree adverbs applied to scalar adjectives\footnote{Some of these intensifiers can also apply to verbal and nominal predicates, and different restrictions apply for different intensifiers, e.g. \w{I truly like carrots} is an acceptable utterance, whereas \w{I very like carrots} is not. See \citeA{bolinger} for a discussion.}. Scalar adjectives have been described as having a threshold semantics \cite{kennedy}, where, for example, \w{expensive} means ``having a price greater than $\theta$'' and $\theta$ is a semantic variable inferred from context (e.g., \$100). Above the threshold degree $\theta$, the adjective is true of an object, and below, the adjective is false.
-\citeA{lassiter} give a formal probabilistic Rational Speech Acts \cite{frank,goodman} model of how this threshold might be established by pragmatic inference that takes into account statistical background knowledge (such as the distribution of prices for watches). We explore the effect of having multiple versions of the adjective that have the same meaning but different costs, and find a M(arkedness)-implicature \cite{levinson}: more marked (costly to utter) versions will be interpreted as implicating higher values.
+Our paper focuses on intensifying degree adverbs applied to scalar adjectives\footnote{Some of these intensifiers can also apply to verbal and nominal predicates, and different restrictions apply for different intensifiers, e.g. \w{I truly like carrots} is an acceptable utterance, whereas \w{I very like carrots} is not. See \citeA{bolinger} for a discussion.}. Scalar adjectives have been described as having a threshold semantics \cite{kennedy}, where, for example, \w{expensive} means ``having a price greater than $\theta$'' and $\theta$ is a semantic variable inferred from context (e.g., \$100). Above the threshold degree $\theta$, the adjective is true of an object, and below, the adjective is false. \citeA{lassiter} give a formal probabilistic Rational Speech Acts (RSA) \cite{frank,goodman} model of how this threshold might be established by pragmatic inference that takes into account statistical background knowledge (such as the distribution of prices for watches), which we extend in \ref{model}.
+
+We explore the idea that an adjective phrase with an intensifying degree adverb derives much of its meaning from a M(arkedness)-impicature \cite{levinson}: more marked (costly to utter) versions of an adjective phrase will be interpreted as implicating higher values. This hypothesis predicts the relative cost of one intensifier over another would affect the interpretation of a resulting adjective phrase.
+
+A possible model of this effect is in \ref{model}, where we extend \citeA{lassiter}'s adjectives model by assigning a seperate threshold to each intensified (or bare) adjective phrase. As in previous RSA models that include utterances with similar semantics but different costs \cite{bergen}, we find an M-implicature, such that more costly intensifiers result in stronger adjective phrases.
 
 \subsection{Background}
 
@@ -157,20 +111,11 @@ We propose instead that each time a scalar adjective is used, in each phrase, it
 
 \todo{a high-level sketch of how this M-implicature works.}
 
-As an initial exploration, we extended \citeauthor{lassiter}'s model of scalar adjectives to include several copies of the relevant adjectival phrase, each with its own threshold variable and its own cost. We simulated such a model with three alternative adjective phrases (i.e.~three intensifiers) with costs of $1$, $5$, and $10$. We also included a null utterance, with trivial meaning (always true) and cost of $0$. The prior distribution of degrees along this adjective's scale (which we will discuss as ``prices'' for concreteness and consistency with our Experiment 1) was a gaussian peaked at $0$.
-
-Though the literal semantics are identical (except that they have different threshold parameters), the different phrases received different interpretations: the more costly intensifiers corresponded to less probable, more extreme prices (Figure ~\ref{model}). This can be seen as an M-implicature: more costly intensifiers are assigned strong, less probable, meanings. 
-The model therefore predicts an association between intensifier meaning and utterance cost.
-
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.48\textwidth]{model_results.png}
-\end{center}
-\caption{Modeling intensifiers as M-implicature: more costly intensifiers correspond to more extreme meanings.} 
-\label{model}
-\end{figure}
+A possible model of this proposal is detailed in \ref{model}.
 
 \subsection{Factors affecting utterance cost}
+
+\todo{make this less model-y: can we make linear claim intuitively as opposed to with a model?}
 
 We have identified the intensifier's cost as a potentially critical factor of its interpreted meaning. The quantitative form predicted by the model of the relationship between cost and meaning is a approximately linear (Figure \ref{model-heights}).\footnote{This second simulation was identical as the first, except run on a more discretized scale for 6 different utterance costs (or ``intensifiers'').}.
 
@@ -188,10 +133,8 @@ and reading time in context \cite{smithLevy} are both logarithmic in frequency. 
 We thus predict  a linear contribution of longer and higher surprisal intensifiers to the meaning. 
 This leaves open the the relative importance of length and surprisal, and potential interactions (as well as other factors that might enter into cost), which can be explored via regression models.
 
-
 \begin{figure}[ht]
-\begin{center}
-\includegraphics[width=0.4\textwidth]{height-by-cost.png}
+\begin{center}\includegraphics[width=0.4\textwidth]{height-by-cost.png}
 \end{center}
 \caption{Model prediction of expected price as cost of intensifier increases, based on intensifiers evenly spaced in cost. The relationship is approximately linear.} 
 \label{model-heights}
@@ -516,6 +459,45 @@ For the broader question of form-meaning mapping, we have suggested a source of 
 %``my paper is totally done'' when you expect it to be done: might actually mean that it's almost done.
 
 %\section{Acknowledgments} %%NDG: add in camera ready
+
+
+\appendix
+\section{\\Appendix: Model} \label{model}
+
+ \citeA{lassiter}'s model belongs to the family of Rational Speech Act (RSA) models in which speaker and listener communicate by recursively reasoning about each other's goals and inferences. These models have been shown to account for many phenomena in pragmatics
+\cite{frank, goodman}. The adjective model accounts for uncertainty about the adjectival threshold by including a lifted semantic variable, which the pragmatic listener infers at the same time that she infers the speaker's intended meaning. 
+We assume every adjective phrase has its own such variable $\theta_i$\footnote{Other versions of this model could easily be imagined in which the threshold for an adjective phrase is determined by the basic threshold for the adjective and some transformation on that threshold (e.g. multiplication, addition, etc.) caused by the intensifier. If the transformation is mostly regular, with a single parameter needing to be inferred for each intensifier, and if the values of these parameters are inferred for each adjective phrase, then such a model would be functionally equivalent to the one we describe here.}, together notated $\vec{\theta}$, but to otherwise mean the same thing, so that, for example, \w{expensive}, \w{very expensive} and \w{phenomenally expensive} all denote: $\lambda x . \text{price}(x) > \theta_i$. %unpack?
+
+Given an utterance $u_i$ (e.g. an \w{expensive laptop} or a \w{very expensive laptop}) and a set of thresholds, a literal listener $L_0$ will use Bayesian inference to update his prior beliefs $P(d)$ about the degree $d$ (e.g. the laptop's price) given that the degree is greater than the threshold for that utterance.
+
+$$P_{L_0}(d|u_i, \theta_i) \propto P(d) \cdot \delta_{d > \theta_i}$$
+
+A speaker with the goal of communicating some actual degree $d$ assigns a utility $\mathbb{U}(u_i|d)$ to each utterance such that he prefers utterances which will inform the literal listener, but avoids utterance cost, $C(u_i)$:
+
+$$\mathbb{U}(u_i | d, \vec{\theta}) =  \ln\left(P_{L_0}(d | u_i, \theta_i) \right) - C(u_i) $$
+
+Given a set of alternative utterances (e.g. the speaker might be choosing between saying \w{very expensive} as opposed to \w{expensive} or \w{extremely expensive}, or saying nothing at all), the speaker $S_1$ will choose utterances according to a softmax decision rule \cite{sutton} with optimality parameter $\lambda$, so that:
+
+$$ P_{S_1}(u_i | d, \vec{\theta}) \propto e^{\lambda \mathbb{U}(u_i | d, \vec{\theta})} $$
+
+A pragmatic listener $L_1$ uses the prior probability, $P(d)$, of different degrees, along with knowledge of the cost of each utterance, in order to guess both the thresholds for each utterance and which degree the speaker intended to communicate\footnote{We assume a uniform prior on thresholds $\theta_i$.}:
+
+$$ P_{L_1}(d, \vec{\theta} | u_i) \propto P(d) \cdot P_{S_1}(u_i | d, \vec{\theta}) $$
+
+As an initial exploration, we simulated such a model with three alternative adjective phrases (i.e.~three intensifiers) with costs of $1$, $5$, and $10$. We also included a null utterance, with trivial meaning (always true) and cost of $0$. The prior distribution of degrees along this adjective's scale (which we will discuss as ``prices'' for concreteness and consistency with our Experiment 1) was a gaussian peaked at $0$.
+We used an optimality parameter of $\lambda=5$ in our simulation. 
+
+Though the literal semantics are identical (except that they have different threshold parameters), the different phrases received different interpretations: the more costly intensifiers corresponded to less probable, more extreme prices (Figure ~\ref{model}). This can be seen as an M-implicature: more costly intensifiers are assigned strong, less probable, meanings. 
+The model therefore predicts an association between intensifier meaning and utterance cost.
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=0.4\textwidth]{model_results.pdf}
+\end{center}
+\caption{Modeling intensifiers as M-implicature: more costly intensifiers correspond to more extreme meanings.} 
+\label{model}
+\end{figure}
+
 
 \bibliographystyle{apacite}
 

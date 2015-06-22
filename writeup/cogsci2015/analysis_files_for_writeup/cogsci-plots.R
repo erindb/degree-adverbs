@@ -180,7 +180,7 @@ p = ggplot(data=d_summary, aes(x=surprisal, y=ranking, colour=syllables)) +
   ylab("ranking") +
   ggtitle("Experiment 2")
 print(p)
-ggsave("images/exp2-plot.png", width=16, height=5)
+ggsave("images/exp2-plot.pdf", width=16, height=5)
 
 
 
@@ -754,10 +754,10 @@ p = ggplot(dists[dists$version == "20 steps",], aes(x=values, y=weights, colour=
   #scale_colour_manual(values=c("black", "yellow", "cyan", "deeppink", "turquoise4", "magenta", "chartreuse4", "purple")) +
   #   ggtitle("") +
   xlab("standardized \"prices\"") +
-  theme_bw(22) +
+  theme_bw(14) +
   theme(panel.grid=element_blank())
 print(p)
-ggsave("images/model_results.png", width=10, height=6)
+ggsave("images/model_results.pdf", width=5, height=3)
 # 
 
 dists = distributions[distributions$version == "1-6" & distributions$cost!="prior",]
@@ -766,12 +766,12 @@ expectations = ddply(dists, .(adjective, cost, version), summarize, E=sum(weight
 expectations$cost = as.numeric(as.character(expectations$cost))
 
 p = ggplot(expectations, aes(x=cost, y=E)) +
-  geom_point(size=4) +
-  geom_line(lwd=2) +
+  geom_point(size=4, colour="gray") +
+  geom_line(lwd=2, colour="gray") +
   ylab("expected standardized \"price\"") +
   xlab("utterance cost") +
   #scale_colour_brewer(type="qual") +
-  theme_bw(22) +
+  theme_bw(14) +
   theme(panel.grid=element_blank())
 print(p)
-ggsave("images/height-by-cost.png", width=10, height=6)
+ggsave("images/height-by-cost.pdf", width=5, height=3)

@@ -1,6 +1,5 @@
 *.aux
 *.log
-*.pdf
 *.backup
 cogsci_template*
 CogSci_Template*
@@ -16,13 +15,8 @@ CogSci_Template*
 *.Rhistory
 */*/analysis/*.html
 *.out
-experiments/*/*/*.png
-experiments/*/*.png
-experiments/*/*/*.jpg
-experiments/*/*.jpg
 writeup/analysis_files_for_writeup/*.html
 *.zip
 analysis/*
 old-intensifiers/*
-*.pdf
 longer-writeup
