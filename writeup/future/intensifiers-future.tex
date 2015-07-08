@@ -36,6 +36,8 @@ We discuss the implications for adverbial meaning and the more general question 
 intensifiers; degree adverbs; scalar adjectives; pragmatics; m-implicature
 \end{abstract}
 
+\todo{discuss whether residuals are systematic, what's the inferred surprisal of novel intensifiers?, am i using the correct regression for the affect of adjectives?, how consistent are rankings?, re-do analyses in webppl, cite everything}
+
 \section{Introduction}
 
 How do different words get their meanings?
@@ -222,7 +224,9 @@ We used the logarithm of participants' price estimates as the dependent variable
   I.e. the perceptual distance between two prices the same dollar amount apart is more for small numbers (e.g. \$3 and \$6) and less for large numbers (e.g. \$1,543 and \$1,546).
 }
 
-Our results are shown in Figure~\ref{exp1-plot}, in a way that highlights the surprisal predictor. Both measures of cost play a role in predicting participants' price estimates. We found a significant main effect of surprisal ($\beta=0.05, SE=0.01, t(3)=5.72, p=0.007$) such that less frequent words tend to be associated with higher price estimates. We also found a significant main effect of syllable length ($\beta=0.06, SE=0.02, t(3)=3.54, p=0.036$), above and beyond surprisal, such that longer words predict stronger meanings.
+Our results are shown in Figure~\ref{exp1-plot}, in a way that highlights the surprisal predictor. Both measures of cost play a role in predicting participants' price estimates. We found a significant main effect of surprisal ($\beta=0.05, SE=0.01, t(3)=5.72, p=0.009$) such that less frequent words tend to be associated with higher price estimates. We also found a significant main effect of syllable length ($\beta=0.06, SE=0.02, t(3)=3.54, p=0.036$), above and beyond surprisal, such that longer words predict stronger meanings.\footnote{
+Because surprisal and syllable-length are correlated, in addition to the analysis reported here we also computed length-corrected surprisals by regressing the raw surprisals onto word length in syllables using linear regression with a single main effect of word length. The residuals of this model, length-corrected surprisals, were used for the surprisal predictor in similar analyses to the ones we report, and we consistently found similar results. This suggests more strongly that surprisal and syllable length *both* independently contribute to participants' estimates.
+}
 
 %We also found a significant interaction ($\beta=0.0196, SE=0.00520, t(3.5)=3.77, p<0.0005$) between surprisal and syllable length, wich may indicate that the relationship between the two predictors of cost is not simply additive, and that having multiple sources of communicative cost (i.e. length and surprisal) might increase the implicature even more.
 
@@ -295,13 +299,9 @@ The division of the intensifiers into lists of 10 was constant, to simplify data
 
 \subsubsection{Results}
 
-Our results for Experiment 2 are shown in Figure~\ref{exp2-plot}. We ran a logistic
-regression with surprisal and syllable lengths as fixed effects and random by-participant intercept and slope.
-As in Experiment 1, we found strong main effects of surprisal ($\beta=0.44 SE=0.05, t=8.40, p<0.001$) and syllable length ($\beta=0.54, SE=0.09, t=6.29, p<0.001$).
-We ran a second logistic regression with additional fixed effect for the interaction between the adjective being modified by the intensifier and both surprisal and word length in syllables.
-\todo{should adjective be a fixed effect here? i'm not sure how to interpret that...}
-We again found significant effects of surprisal ($p<0.001$) and syllables ($p<0.001$), and also found marginally significant interactions between surprisal and adjective ($p=0.068$) and between length in syllables and adjective ($p=0.075$).
-This suggests that these factors of utterance cost might have different effects for different adjectives. \todo{this may not be the correct analysis}
+Our results for Experiment 2 are shown in Figure~\ref{exp2-plot}. We ran a rank-ordered logit model \cite{beggs1981, hausman1987, mlogit} with alternative-specific variables for surprisal and for length in syllables and no intercept. As in Experiment 1, we found strong effects of surprisal ($\beta=0.16, SE=0.02, t=10.13, p<0.001$) and syllable length ($\beta=0.24, SE=0.04, t=5.89, p<0.001$).
+We ran a second rank-ordered logit model with additional alternative-specific variables for the interaction between the adjective being modified and both surprisal and syllables. We again found significant effects of surprisal ($p=0.013$) and syllables ($p<0.001$), and also found a significant interaction between surprisal and the adjective being modified (estimates for \w{tall} and \w{expensive} were significantly higher than for \w{beautiful}, while \w{old} was not significantly different from \w{beautiful}).
+This suggests that context-specific surprisal might affect the utterance cost, or that factors of utterance cost might have different effects for different adjectives.
 
 In other words, we again found that participants assign stronger interpretations to intensifiers with higher surprisals and/or higher syllable lengths, extending now across four different adjectival scales.
 
@@ -357,7 +357,7 @@ In Experiment 3, we included as filler a subset of the intensifiers we tested in
 \end{figure}
 
 We then ran a linear mixed effects model on only the novel intensifiers, with length (``long'' or ``short'') as a fixed effect, random intercepts and slopes for objects, and random intercepts for the three different ``roots''. We found a significant effect of length condition ($\beta(\mbox{``short''})=-1.46$, $SE=0.39$, $t=-3.74$, $p<0.001$), indicating that people use the length of an intensifier in order to interpret its meaning, even for novel intensifiers with no conventional meaning (Firgure \ref{exp3_novel}).
-In a post-hoc regression with a fixed effect for novel adverb root, we found a significant effect of root on response ($p=0.160$) \ndg{is that number right? not significant..}, suggesting possible additional effects of form that we have not captured with length in syllables alone. Average responses for \w{ratumly} were lowest out of all the intensifiers used in Experiment 3, and average responses for \w{tupabugornly} were highest. The rest of the novel intensifiers had average ratings within the range of the attested intensifiers.
+In a post-hoc regression with a fixed effect for novel adverb root, we found a significant effect of root on response ($p=0.016$), suggesting possible additional effects of form that we have not captured with length in syllables alone. Average responses for \w{ratumly} were lowest out of all the intensifiers used in Experiment 3, and average responses for \w{tupabugornly} were highest. The rest of the novel intensifiers had average ratings within the range of the attested intensifiers.
 
 \begin{figure*}[hbt]
 \begin{center}
@@ -372,13 +372,14 @@ In a post-hoc regression with a fixed effect for novel adverb root, we found a s
 In Experiment 4, we replicate our findings from Experiment 2, this time with novel intensifiers ranked relative to standard English ones.
 
 \subsubsection{Method\footnote{The full experiment can be found at \url{http://cocolab.stanford.edu/cogsci2015/intensifiers/Experiment4}}}
-60 participants with US IP addresses were recruited through Amazon's Mechanical Turk and paid \$0.16 for their participation. 5 participants were excluded from the analysis for admitting that they did not think they followed the instructions in a post-experiment survey.
+60 participants with US IP addresses were recruited through Amazon's Mechanical Turk and paid \$0.16 for their participation. 3 participants were excluded from the analysis for admitting that they did not think they followed the instructions in a post-experiment survey.
 
 Experiment 4 was identical to Experiment 2, except that each participant saw exactly one of two adjectives (\w{expensive} or \w{tall}, varied between participants) and only the set of intensifiers from Experiment 3. This set included one novel intensifier, which we varied between participants. As in Experiment 2, adjective phrases for each intensifier-adjective pairing were initialized in a random order.
 
 \subsubsection{Results}
-With our filler intensifiers for Experiment 4, we replicated our findings from Experiment 2 of significant effects of both surprisal ($\beta=0.781$, $SE=0.0499$, $t=15.7$, $p<5e-16$)
-and syllable length ($\beta=1.111$, $SE=0.0974$, $t=11.4$, $p<5e-16$) on the order in the list that participants chose for the intensifiers.
+With our filler intensifiers for Experiment 4, again using a ranked order logit model (re-ranking to ignore novel intensifiers), we replicated our findings from Experiment 2 of significant effects of both surprisal ($\beta=0.45$, $SE=0.03$, $t=13.88$, $p<0.001$)
+and syllable length ($\beta=0.58$, $SE=0.05$, $t=10.74$, $p<0.001$) on the order in the list that participants chose for the intensifiers.
+% We found no significant difference between the adjectives in this experiment, which is consistent with Experiment 2 (\w{expensive} and \w{tall} were not significantly different in Experiment 2).
 In this replication, we also found a significant
 interaction ($\beta=0.189$, $SE=0.0351$, $t=5.39$, $p<5e-7$). This is consistent with the findings from all of our previous experiments.
 
@@ -394,13 +395,13 @@ For the novel intensifiers, we ran an ordinal regression on the rankings (relati
 
 \ndg{more... what were the predictors here? anything interesting to say about the order of novel words compared to fillers? point to figs in appropriate places.}
 
-\begin{figure}[hbt]
-\begin{center}
-\includegraphics[width=0.5\textwidth]{exp4.pdf}
-\end{center}
-\caption{In Experiment 4, the lengths of novel intensifiers predicted participants' rankings of that intensifier. \ndg{this fig doesn't add much... remove?}}
-\label{exp4_novel}
-\end{figure}
+% \begin{figure}[hbt]
+% \begin{center}
+% \includegraphics[width=0.5\textwidth]{exp4.pdf}
+% \end{center}
+% \caption{In Experiment 4, the lengths of novel intensifiers predicted participants' rankings of that intensifier. \ndg{this fig doesn't add much... remove?}}
+% \label{exp4_novel}
+% \end{figure}
 
 \subsection{Discussion}
 Overall, in Experiments 3 and 4 we found that word length in syllables is a significant predictor of interpretation strength for novel intensifiers. These novel intensifiers have no established meaning, so the relationship between their length and strength cannot be a direct consequence of the lexicon becoming more efficient over time. This result is consistent with the hypothesis that participants are inferring the meanings of the novel intensifiers pragmatically, as in the M-implicature account sketched above. 
