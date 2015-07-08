@@ -1,0 +1,212 @@
+[1] "model"
+Linear mixed model fit by REML ['merModLmerTest']
+Formula: logprice ~ surprisal + syllables + (1 + surprisal + syllables |      workerid) + (1 + surprisal + syllables | object)
+   Data: df
+
+REML criterion at convergence: 1728.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.2788 -0.6026 -0.0344  0.5478  6.6694 
+
+Random effects:
+ Groups   Name        Variance  Std.Dev. Corr       
+ workerid (Intercept) 0.4591956 0.67764             
+          surprisal   0.0049936 0.07067  -0.83      
+          syllables   0.0009854 0.03139   0.53  0.03
+ object   (Intercept) 1.2056468 1.09802             
+          surprisal   0.0010888 0.03300  -0.37      
+          syllables   0.0001874 0.01369  -0.62  0.96
+ Residual             0.5267266 0.72576             
+Number of obs: 729, groups:  workerid, 27; object, 3
+
+Fixed effects:
+            Estimate Std. Error      df t value Pr(>|t|)    
+(Intercept)  4.83084    0.66547 2.16200   7.259 0.014870 *  
+surprisal    0.09329    0.02627 3.76500   3.552 0.026275 *  
+syllables    0.11326    0.02304 9.11700   4.915 0.000799 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+          (Intr) srprsl
+surprisal -0.433       
+syllables -0.198  0.088
+[1] "model_resid"
+Linear mixed model fit by REML ['merModLmerTest']
+Formula: logprice ~ resid_surprisal + syllables + (1 + resid_surprisal +      syllables | workerid) + (1 + resid_surprisal + syllables |      object)
+   Data: df
+
+REML criterion at convergence: 1728.7
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.2788 -0.6026 -0.0344  0.5478  6.6694 
+
+Random effects:
+ Groups   Name            Variance Std.Dev. Corr       
+ workerid (Intercept)     0.193611 0.44001             
+          resid_surprisal 0.004994 0.07067  0.52       
+          syllables       0.003243 0.05694  0.91  0.83 
+ object   (Intercept)     1.040455 1.02003             
+          resid_surprisal 0.001089 0.03300  -0.04      
+          syllables       0.001229 0.03505  -0.15  0.99
+ Residual                 0.526726 0.72576             
+Number of obs: 729, groups:  workerid, 27; object, 3
+
+Fixed effects:
+                Estimate Std. Error      df t value Pr(>|t|)   
+(Intercept)      5.87947    0.60000 2.08200   9.799  0.00897 **
+resid_surprisal  0.09329    0.02627 3.75800   3.552  0.02636 * 
+syllables        0.17465    0.03000 3.28600   5.821  0.00781 **
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) rsd_sr
+resd_srprsl  0.012       
+syllables   -0.129  0.644
+[1] "model_with_interaction"
+Linear mixed model fit by REML ['merModLmerTest']
+Formula: logprice ~ surprisal * syllables + (1 + surprisal + syllables |      workerid) + (1 + surprisal + syllables | object)
+   Data: df
+
+REML criterion at convergence: 1724.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.3255 -0.6062 -0.0229  0.5479  6.8779 
+
+Random effects:
+ Groups   Name        Variance  Std.Dev. Corr       
+ workerid (Intercept) 0.4685741 0.68452             
+          surprisal   0.0050533 0.07109  -0.83      
+          syllables   0.0009942 0.03153   0.53  0.02
+ object   (Intercept) 1.2069847 1.09863             
+          surprisal   0.0010935 0.03307  -0.37      
+          syllables   0.0001882 0.01372  -0.62  0.96
+ Residual             0.5182522 0.71990             
+Number of obs: 729, groups:  workerid, 27; object, 3
+
+Fixed effects:
+                      Estimate Std. Error         df t value Pr(>|t|)    
+(Intercept)           6.209853   0.776099   4.000000   8.001 0.001329 ** 
+surprisal            -0.024564   0.043051  26.800000  -0.571 0.573031    
+syllables            -0.273698   0.114233 608.900000  -2.396 0.016878 *  
+surprisal:syllables   0.032003   0.009256 668.900000   3.458 0.000579 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) srprsl syllbl
+surprisal   -0.634              
+syllables   -0.538  0.787       
+srprsl:syll  0.514 -0.792 -0.980
+[1] "model_resid_with_interaction"
+Linear mixed model fit by REML ['merModLmerTest']
+Formula: logprice ~ resid_surprisal * syllables + (1 + resid_surprisal +      syllables | workerid) + (1 + resid_surprisal + syllables |      object)
+   Data: df
+
+REML criterion at convergence: 1723.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.3125 -0.6117 -0.0230  0.5528  6.9386 
+
+Random effects:
+ Groups   Name            Variance Std.Dev. Corr       
+ workerid (Intercept)     0.193874 0.44031             
+          resid_surprisal 0.005054 0.07109  0.52       
+          syllables       0.003249 0.05700  0.90  0.83 
+ object   (Intercept)     1.040565 1.02008             
+          resid_surprisal 0.001094 0.03307  -0.04      
+          syllables       0.001234 0.03513  -0.15  0.99
+ Residual                 0.518207 0.71987             
+Number of obs: 729, groups:  workerid, 27; object, 3
+
+Fixed effects:
+                           Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)                 5.61665    0.60473   2.10000   9.288 0.009010 ** 
+resid_surprisal            -0.10863    0.06392 116.90000  -1.700 0.091871 .  
+syllables                   0.24421    0.03604   6.90000   6.776 0.000282 ***
+resid_surprisal:syllables   0.05006    0.01444 668.90000   3.466 0.000562 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) rsd_sr syllbl
+resd_srprsl  0.119              
+syllables   -0.175 -0.286       
+rsd_srprsl: -0.125 -0.911  0.557
+[1] "model_with_interaction_centering"
+Linear mixed model fit by REML ['merModLmerTest']
+Formula: logprice ~ csurprisal * csyllables + (1 + csurprisal + csyllables |      workerid) + (1 + csurprisal + csyllables | object)
+   Data: centered
+
+REML criterion at convergence: 1724.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.3255 -0.6062 -0.0229  0.5479  6.8779 
+
+Random effects:
+ Groups   Name        Variance  Std.Dev. Corr       
+ workerid (Intercept) 0.4116968 0.64164             
+          csurprisal  0.0050533 0.07109  0.63       
+          csyllables  0.0009942 0.03153  0.79  0.02 
+ object   (Intercept) 1.0181894 1.00905             
+          csurprisal  0.0010935 0.03307   0.09      
+          csyllables  0.0001882 0.01372  -0.19  0.96
+ Residual             0.5182521 0.71990             
+Number of obs: 729, groups:  workerid, 27; object, 3
+
+Fixed effects:
+                       Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)           6.498e+00  5.962e-01 2.200e+00  10.899 0.006052 ** 
+csurprisal            9.634e-02  2.631e-02 3.800e+00   3.661 0.023699 *  
+csyllables            1.656e-01  2.745e-02 1.830e+01   6.032 9.87e-06 ***
+csurprisal:csyllables 3.200e-02  9.256e-03 6.689e+02   3.458 0.000579 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) csrprs csyllb
+csurprisal   0.134              
+csyllables  -0.029  0.094       
+csrprsl:csy -0.020  0.033  0.551
+[1] "model_resid_with_interaction_centering"
+Linear mixed model fit by REML ['merModLmerTest']
+Formula: logprice ~ cresid_surprisal * csyllables + (1 + cresid_surprisal +      csyllables | workerid) + (1 + cresid_surprisal + csyllables |      object)
+   Data: centered
+
+REML criterion at convergence: 1723.4
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-3.3125 -0.6117 -0.0230  0.5528  6.9386 
+
+Random effects:
+ Groups   Name             Variance Std.Dev. Corr       
+ workerid (Intercept)      0.411697 0.64164             
+          cresid_surprisal 0.005054 0.07109  0.63       
+          csyllables       0.003249 0.05700  0.96  0.83 
+ object   (Intercept)      1.018199 1.00906             
+          cresid_surprisal 0.001094 0.03307   0.09      
+          csyllables       0.001234 0.03513  -0.02  0.99
+ Residual                  0.518207 0.71987             
+Number of obs: 729, groups:  workerid, 27; object, 3
+
+Fixed effects:
+                             Estimate Std. Error        df t value Pr(>|t|)    
+(Intercept)                   6.53924    0.59612   2.20000  10.970 0.005986 ** 
+cresid_surprisal              0.08049    0.02656   3.90000   3.031 0.039651 *  
+csyllables                    0.24421    0.03604   6.90000   6.776 0.000283 ***
+cresid_surprisal:csyllables   0.05006    0.01444 668.90000   3.466 0.000562 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Correlation of Fixed Effects:
+            (Intr) crsd_s csyllb
+crsd_srprsl  0.133              
+csyllables   0.051  0.455       
+crsd_srprs:  0.000 -0.139  0.557

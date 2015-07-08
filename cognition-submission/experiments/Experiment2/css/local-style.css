@@ -1,0 +1,67 @@
+.slider {
+  /* default is width 400 and margin 10 */
+	width: 400;
+	margin: 10px;
+}
+
+.slide {
+	border: none;
+}
+
+.droptrue li {
+	margin: 0 3px 3px 3px;
+	padding: 0.4em;
+	padding-left: 1.5em;
+	height: 18px;
+	font-weight: normal;
+	/*font-size: 0.7em;*/
+}
+
+#wordbank, #response {
+	/*list-style-type: none;*/
+	margin: 0;
+	padding: 0;
+	/*margin-right: 10px;*/
+	background: #eee;
+	padding: 5px;
+}
+
+#wordbank {
+	list-style-type: none;
+	float: left;
+	width: 40%;
+	margin-top: 3em;
+	margin-bottom: 1em;
+}
+
+#response {
+	list-style-type: decimal;
+	/*float: right;
+	width: 40%;*/
+	width: 100%;
+}
+
+#response_wrapper {
+	width: 40%;
+	float: right;
+	margin-bottom: 1em;
+}
+
+#wordbank li {
+	margin: 5px;
+	padding: 5px;
+	width: 90%;
+}
+
+#response li {
+	margin: 5px;
+	padding: 5px;
+	width: 90%;
+	text-align: left;
+}
+
+#mid_words {
+	padding-top: 7em;
+	float: left;
+	width: 12%;
+}

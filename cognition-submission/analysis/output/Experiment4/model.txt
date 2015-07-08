@@ -1,0 +1,50 @@
+
+Call:
+mlogit(formula = ranking ~ surprisal + syllables | 0, data = G, 
+    method = "nr", print.level = 0)
+
+Frequencies of alternatives:
+      amazingly      colossally extraordinarily        mightily         notably    phenomenally 
+       0.122807        0.120614        0.125000        0.125000        0.098684        0.125000 
+          quite   significantly        terribly 
+       0.046053        0.118421        0.118421 
+
+nr method
+5 iterations, 0h:0m:0s 
+g'(-H)^-1g = 0.000511 
+successive function values within tolerance limits 
+
+Coefficients :
+          Estimate Std. Error t-value  Pr(>|t|)    
+surprisal 0.447123   0.032215  13.879 < 2.2e-16 ***
+syllables 0.581172   0.054125  10.738 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Log-Likelihood: -525.26
+
+Call:
+mlogit(formula = ranking ~ surprisal + syllables + surprisal:adjective + 
+    syllables:adjective | 0, data = G, method = "nr", print.level = 0)
+
+Frequencies of alternatives:
+      amazingly      colossally extraordinarily        mightily         notably    phenomenally 
+       0.122807        0.120614        0.125000        0.125000        0.098684        0.125000 
+          quite   significantly        terribly 
+       0.046053        0.118421        0.118421 
+
+nr method
+5 iterations, 0h:0m:0s 
+g'(-H)^-1g = 0.000756 
+successive function values within tolerance limits 
+
+Coefficients :
+                        Estimate Std. Error t-value  Pr(>|t|)    
+surprisal               0.420973   0.042984  9.7938 < 2.2e-16 ***
+syllables               0.575522   0.074977  7.6759 1.643e-14 ***
+surprisal:adjectivetall 0.058083   0.064950  0.8943    0.3712    
+syllables:adjectivetall 0.015419   0.108595  0.1420    0.8871    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Log-Likelihood: -524.85
