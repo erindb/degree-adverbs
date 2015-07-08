@@ -55,6 +55,7 @@ replication = function(df) {
   
   df = df[,c("workerid", "adverb", "ranking", "adjective")]
   df$adverb = as.character(df$adverb)
+  df$adjective = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][2])})
   df$adverb = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][1])})
   df$surprisal = sapply(df$adverb, function(adv) {return(ngrams$surprisal[adv == as.character(ngrams$ngram)][1])})
   df$syllables = sapply(df$adverb, function(adv) {return(ngrams$syllables[adv == as.character(ngrams$ngram)][1])})
@@ -95,21 +96,7 @@ replication = function(df) {
     #   scale_fill_brewer(type="div", palette=7) +
     theme(panel.grid=element_blank())
   print(p)
-  ggsave("output/Experiment4/scatter.pdf", width=10, height=3)
-  
-  response_order = ddply(aggdf, .(adverb), summarise, height_in_list = mean(height_in_list))
-  aggdf$adverb = factor(aggdf$adverb, levels = as.character(response_order$adverb)[order(response_order$height_in_list)])
-  
-  ordering = ggplot(aggdf, aes(y=adverb, x=height_in_list, colour=adverb)) +
-    geom_point(size=3) +
-    geom_errorbarh(aes(y=adverb, xmin=height_in_list_low, xmax=height_in_list_high)) +
-    theme_bw(14) +
-    theme(panel.grid=element_blank()) +
-    guides(colour=FALSE) +
-    facet_grid(.~adjective, scale="free") +
-    ggtitle("Experiment 4: intensifiers")
-  print(ordering)
-  ggsave("output/Experiment4/ordering.pdf", width=20, height=6)
+  ggsave("output/Experiment4/scatter.pdf", width=8.5, height=4)
   
   pdf(file="output/Experiment4/predictors.pdf", width=17, height=17)
   pairscor.fnc(df[,c("surprisal","syllables","height_in_list")])
@@ -128,72 +115,105 @@ replication = function(df) {
   sink(NULL)
 }
 
-df = d
-df = df[(df$adverb %in% c("bugornly expensive", "tupabugornly expensive",
-                          "ratumly expensive", "gaburatumly expensive",
-                          "lopusly expensive", "fepolopusly expensive",
-                          "bugornly tall", "tupabugornly tall",
-                          "ratumly tall", "gaburatumly tall",
-                          "lopusly tall", "fepolopusly tall")),
-        c("workerid", "adverb", "ranking", "adjective")]
-df$adverb = as.character(df$adverb)
-df$adverb = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][1])})
-# df$syllables = sapply(df$adverb, function(adv) {return(ngrams$syllables[adv == as.character(ngrams$ngram)][1])})
-df$height_in_list = 9 - df$ranking
-
-aggdf = ddply(df, .(adverb), function(subd) {
-  resampled = boot(subd, function(orig, indices) {
-    return( c(
-      mean(orig[indices,]$height_in_list),
-      mean(orig[indices,]$ranking) )
+novel = function(df) {
+  df = df[(df$adverb %in% c("bugornly expensive", "tupabugornly expensive",
+                            "ratumly expensive", "gaburatumly expensive",
+                            "lopusly expensive", "fepolopusly expensive",
+                            "bugornly tall", "tupabugornly tall",
+                            "ratumly tall", "gaburatumly tall",
+                            "lopusly tall", "fepolopusly tall")),
+          c("workerid", "adverb", "ranking", "adjective")]
+  
+  adverb_length = c(
+    "bugornly"= "short",
+    "tupabugornly"= "long",
+    "ratumly"= "short",
+    "lopusly"= "short",
+    "gaburatumly"= "long",
+    "fepolopusly"="long")
+  adverb_root = c(
+    "bugornly"= "bugorn",
+    "tupabugornly"= "bugorn",
+    "ratumly"= "ratum",
+    "lopusly"= "lopus",
+    "gaburatumly"= "ratum",
+    "fepolopusly"="lopus")
+  
+  df$adverb = as.character(df$adverb)
+  df$adverb = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][1])})
+  # df$syllables = sapply(df$adverb, function(adv) {return(ngrams$syllables[adv == as.character(ngrams$ngram)][1])})
+  df$height_in_list = 9 - df$ranking
+  
+  df$length = sapply(as.character(df$adverb), function(adv) {return(adverb_length[adv])})
+  df$root = sapply(as.character(df$adverb), function(adv) {return(adverb_root[adv])})
+  
+  aggdf = ddply(df, .(adverb), function(subd) {
+    resampled = boot(subd, function(orig, indices) {
+      return( c(
+        mean(orig[indices,]$height_in_list),
+        mean(orig[indices,]$ranking) )
+      )
+    }, 100)$t
+    newd = data.frame(
+      adverb = subd$adverb[[1]],
+  #     adjective = subd$adjective[[1]],
+      #     resid_surprisal = subd$resid_surprisal[[1]],
+  #     syllables = subd$syllables[[1]],
+      height_in_list = mean(subd$height_in_list),
+      height_in_list_high = quantile(resampled[,1], 0.025),
+      height_in_list_low = quantile(resampled[,1], 0.975),
+      ranking = mean(subd$ranking),
+      ranking_high = quantile(resampled[,2], 0.025),
+      ranking_low = quantile(resampled[,2], 0.975)
     )
+    return(newd)
+  })
+  ggplot(aggdf, aes(x=adverb, y=height_in_list, colour=adverb)) +
+    geom_point(size=3) +
+    geom_errorbar(aes(x=adverb, ymin=height_in_list_low, ymax=height_in_list_high))
+  
+  sink(file="output/Experiment4/novel-model.txt")
+  df$ranking = ordered(df$ranking)
+  df$height_in_list = ordered(df$height_in_list)
+  model = clm(height_in_list ~ length, data=df)
+  model_with_root = clm(height_in_list ~ length + root, data=df)
+  print(summary(model))
+  print(summary(model_with_root))
+  sink(NULL)
+}
+
+replication(d)
+novel(d)
+
+df = d
+
+df$adverb = as.character(df$adverb)
+df$adjective = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][2])})
+df$adverb = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][1])})
+
+aggdf = ddply(df, .(adverb, adjective), function(subd) {
+  resampled = boot(subd, function(orig, indices) {
+    return( mean(orig[indices,]$height_in_list) )
   }, 100)$t
   newd = data.frame(
     adverb = subd$adverb[[1]],
-#     adjective = subd$adjective[[1]],
-    #     resid_surprisal = subd$resid_surprisal[[1]],
-#     syllables = subd$syllables[[1]],
+    adjective = subd$adjective[[1]],
     height_in_list = mean(subd$height_in_list),
-    height_in_list_high = quantile(resampled[,1], 0.025),
-    height_in_list_low = quantile(resampled[,1], 0.975),
-    ranking = mean(subd$ranking),
-    ranking_high = quantile(resampled[,2], 0.025),
-    ranking_low = quantile(resampled[,2], 0.975)
+    height_in_list_high = quantile(resampled, 0.025),
+    height_in_list_low = quantile(resampled, 0.975)
   )
   return(newd)
 })
-ggplot(aggdf, aes(x=adverb, y=height_in_list, colour=adverb)) +
+
+response_order = ddply(aggdf, .(adverb), summarise, height_in_list = mean(height_in_list))
+aggdf$adverb = factor(aggdf$adverb, levels = as.character(response_order$adverb)[order(response_order$height_in_list)])
+ordering = ggplot(aggdf, aes(y=adverb, x=height_in_list, colour=adverb)) +
   geom_point(size=3) +
-  geom_errorbar(aes(x=adverb, ymin=height_in_list_low, ymax=height_in_list_high))
-
-
-
-# replication(d)
-
-# sink(file="output/Experiment4/novel-model.txt")
-# sink(NULL)
-
-# Gbeautiful <- mlogit.data(subset(df, adjective == "beautiful"), choice = "ch", shape = "long", chid.var="chid",
-#                  alt.var="adverb", ranked = TRUE)
-# Gold <- mlogit.data(subset(df, adjective == "old"), choice = "ch", shape = "long", chid.var="chid",
-#                           alt.var="adverb", ranked = TRUE)
-# Gtall <- mlogit.data(subset(df, adjective == "tall"), choice = "ch", shape = "long", chid.var="chid",
-#                     alt.var="adverb", ranked = TRUE)
-# Gexpensive <- mlogit.data(subset(df, adjective == "expensive"), choice = "ch", shape = "long", chid.var="chid",
-#                      alt.var="adverb", ranked = TRUE)
-# summary(mlogit(ch ~ surprisal + syllables | 0, Gbeautiful))
-# summary(mlogit(ch ~ surprisal + syllables | 0, Gold))
-# summary(mlogit(ch ~ surprisal + syllables | 0, Gtall))
-# summary(mlogit(ch ~ surprisal + syllables | 0, Gexpensive))
-# params = data.frame(
-#   type=c("surprisal", "syllables", "surprisal", "syllables", "surprisal", "syllables", "surprisal", "syllables"),
-#   estimate=c(0.073518, 0.318197, 0.110228, 0.225962, 0.261593, 0.215122, 0.243998, 0.217833),
-#   error=c(0.029621, 0.086995, 0.031160, 0.080922, 0.034492, 0.083455, 0.035874, 0.081535),
-#   adjective=c("beautiful", "beautiful", "old", "old", "tall", "tall", "expensive", "expensive")
-# )
-# p = ggplot(params, aes(x=adjective, y=estimate, colour=adjective)) +
-#   facet_wrap(~ type) +
-#   geom_point() +
-#   geom_errorbar(aes(x=adjective, ymin=estimate-error, ymax=estimate+error))
-# print(p)
-# ggsave("output/Experiment4/params.pdf", width=8.5, height=4)
+  geom_errorbarh(aes(y=adverb, xmin=height_in_list_low, xmax=height_in_list_high)) +
+  theme_bw(14) +
+  theme(panel.grid=element_blank()) +
+  guides(colour=FALSE) +
+  facet_grid(.~adjective, scale="free") +
+  ggtitle("Experiment 4: intensifiers")
+print(ordering)
+ggsave("output/Experiment4/ordering.pdf", width=20, height=6)

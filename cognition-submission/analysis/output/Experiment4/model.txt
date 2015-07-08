@@ -4,10 +4,8 @@ mlogit(formula = ranking ~ surprisal + syllables | 0, data = G,
     method = "nr", print.level = 0)
 
 Frequencies of alternatives:
-      amazingly      colossally extraordinarily        mightily         notably    phenomenally 
-       0.122807        0.120614        0.125000        0.125000        0.098684        0.125000 
-          quite   significantly        terribly 
-       0.046053        0.118421        0.118421 
+      amazingly      colossally extraordinarily        mightily         notably    phenomenally           quite   significantly        terribly 
+       0.122807        0.120614        0.125000        0.125000        0.098684        0.125000        0.046053        0.118421        0.118421 
 
 nr method
 5 iterations, 0h:0m:0s 
@@ -28,10 +26,8 @@ mlogit(formula = ranking ~ surprisal + syllables + surprisal:adjective +
     syllables:adjective | 0, data = G, method = "nr", print.level = 0)
 
 Frequencies of alternatives:
-      amazingly      colossally extraordinarily        mightily         notably    phenomenally 
-       0.122807        0.120614        0.125000        0.125000        0.098684        0.125000 
-          quite   significantly        terribly 
-       0.046053        0.118421        0.118421 
+      amazingly      colossally extraordinarily        mightily         notably    phenomenally           quite   significantly        terribly 
+       0.122807        0.120614        0.125000        0.125000        0.098684        0.125000        0.046053        0.118421        0.118421 
 
 nr method
 5 iterations, 0h:0m:0s 
