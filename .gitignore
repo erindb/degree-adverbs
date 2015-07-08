@@ -1,8 +1,6 @@
 *.aux
 *.log
 *.backup
-cogsci_template*
-CogSci_Template*
 *.bbl
 *.blg
 */mturk
@@ -17,6 +15,4 @@ CogSci_Template*
 *.out
 writeup/analysis_files_for_writeup/*.html
 *.zip
-analysis/*
 old-intensifiers/*
-longer-writeup
