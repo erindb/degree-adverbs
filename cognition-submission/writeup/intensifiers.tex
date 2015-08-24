@@ -81,7 +81,7 @@ Given two possible utterances a speaker could say to communicate the same meanin
 
 To realize such an M-implicature, we suggest extending \citeA{lassiter}'s probabilistic model of scalar adjective interpretation by assigning a separate threshold to each intensified (or bare) adjective phrase. That is, each time a scalar adjective is used, in each phrase, it introduces a free threshold variable---a new token threshold is inferred for each access of the lexical entry of the adjective.
 The set of thresholds, for the heard and all alternative sentences, is then established by a pragmatic inference that takes into account the differing costs of the sentences.
-This model is described in detail in the Appendix. \ndg{add appendix to this file...}
+This model is described in detail in the Appendix.
 As in previous RSA models that include utterances with similar semantics but different costs \cite{bergen}, we find an M-implicature, such that more costly intensifiers result in stronger adjective phrases.
 As illustrated in the Appendix this relationship is expected to be approximately linear, resulting in a straightforward quantitative hypothesis that we evaluate against empirical data below.
 
@@ -474,10 +474,11 @@ Some systematic aspects of meaning follow directly from the principles of langua
 
 \section{Appendix} \label{app:model}
 
- \citeA{lassiter}'s model belongs to the family of Rational Speech Act (RSA) models in which speaker and listener communicate by recursively reasoning about each other's goals and inferences. These models have been shown to account for many phenomena in pragmatics
-\cite{frank, goodman}. The adjective model accounts for uncertainty about the adjectival threshold by including a lifted semantic variable, which the pragmatic listener infers at the same time that she infers the speaker's intended meaning. 
-We assume every adjective phrase has its own such variable $\theta_i$\footnote{Other versions of this model could easily be imagined in which the threshold for an adjective phrase is determined by the basic threshold for the adjective and some transformation on that threshold (e.g. multiplication, addition, etc.) caused by the intensifier. If the transformation is mostly regular, with a single parameter needing to be inferred for each intensifier, and if the values of these parameters are inferred for each adjective phrase, then such a model would be functionally equivalent to the one we describe here.}, together notated $\vec{\theta}$, but to otherwise mean the same thing, so that, for example, \w{expensive}, \w{very expensive} and \w{phenomenally expensive} all denote: $\lambda x . \text{price}(x) > \theta_i$. %unpack?
+ \citeA{lassiter}'s model of scalar adjectives belongs to the family of Rational Speech Act (RSA) models in which speaker and listener communicate by  reasoning about each other's goals and inferences \cite{frank, goodman}. These models have been shown to account for a number of key phenomena in pragmatics. The adjective model accounts for uncertainty about the adjectival threshold by including a semantic variable, which the pragmatic listener infers at the same time that she infers the speaker's intended meaning. 
 
+RSA models begin with a literal listener, which captures the semantic denotation of sentences. 
+We assume adjectival phrases with the same scale and polarity have the same denotation. For example, \w{expensive}, \w{very expensive} and \w{phenomenally expensive} all denote: $\lambda x . \text{price}(x) > \theta_i$. %unpack?
+However, every adjective phrase has its own threshold variable $\theta_i$,\footnote{Other versions of this model could easily be imagined in which the threshold for an adjective phrase is determined by the basic threshold for the adjective and some transformation on that threshold (e.g. multiplication, addition, etc.) caused by the intensifier. If the transformation is mostly regular, with a single parameter needing to be inferred for each intensifier, and if the values of these parameters are inferred for each adjective phrase, then such a model would be functionally equivalent to the one we describe here.} together notated $\vec{\theta}$, allowing their meanings to differ.
 Given an utterance $u_i$ (e.g. an \w{expensive laptop} or a \w{very expensive laptop}) and a set of thresholds, a literal listener $L_0$ will use Bayesian inference to update his prior beliefs $P(d)$ about the degree $d$ (e.g. the laptop's price) given that the degree is greater than the threshold for that utterance.
 
 $$P_{L_0}(d|u_i, \theta_i) \propto P(d) \cdot \delta_{d > \theta_i}$$
@@ -494,13 +495,13 @@ A pragmatic listener $L_1$ uses the prior probability, $P(d)$, of different degr
 
 $$ P_{L_1}(d, \vec{\theta} | u_i) \propto P(d) \cdot P_{S_1}(u_i | d, \vec{\theta}) $$
 
-As an initial exploration, we simulated such a model with three alternative adjective phrases (i.e.~three intensifiers) with costs of $1$, $5$, and $10$. We also included a null utterance, with trivial meaning (always true) and cost of $0$. The prior distribution of degrees along this adjective's scale (which we will discuss as ``prices'' for concreteness and consistency with our Experiment 1) was a gaussian peaked at $0$.
+We simulated such a model with three alternative adjective phrases (i.e.~three intensifiers) with costs of $1$, $5$, and $10$. We also included a null utterance, with trivial meaning (always true) and cost of $0$. The prior distribution of degrees along this adjective's scale (which we will discuss as ``prices'' for concreteness and consistency with our Experiment 1) was a gaussian peaked at $0$.
 We used an optimality parameter of $\lambda=5$ in our simulation. 
 
-Though the literal semantics are identical (except that they have different threshold parameters), the different phrases received different interpretations: the more costly intensifiers corresponded to less probable, more extreme prices (Figure ~\ref{model}). This can be seen as an M-implicature: more costly intensifiers are assigned strong, less probable, meanings. 
+Though the literal semantics are identical (but permitting different threshold parameters), the different phrases received different interpretations: the more costly intensifiers corresponded to less probable, more extreme prices (Figure ~\ref{model}). This can be seen as an M-implicature: more costly intensifiers are assigned stronger, less probable, meanings. 
 The model therefore predicts an association between intensifier meaning and utterance cost.
 
-\begin{figure}[ht]
+\begin{figure}[tbh]
 \begin{center}
 \includegraphics[width=0.4\textwidth]{model_results.pdf}
 \end{center}
@@ -508,9 +509,11 @@ The model therefore predicts an association between intensifier meaning and utte
 \label{model}
 \end{figure}
 
-The quantitative form predicted by the model of the relationship between cost and meaning is a approximately linear (Figure \ref{model-heights}).\footnote{This second simulation was identical as the first, except run on a more discretized scale for 6 different utterance costs (or ``intensifiers'').}.
+Top assess the quantitative relationship between cost and meaning, we ran a second simulation, identical as the first except using 6 different utterance costs (or ``intensifiers'').
+The quantitative form predicted by the model is a approximately linear (Figure \ref{model-heights}).
+It is this simple prediction that we test in the main text.
 
-\begin{figure}[ht]
+\begin{figure}[tbh]
 \begin{center}\includegraphics[width=0.4\textwidth]{height-by-cost.pdf}
 \end{center}
 \caption{Model prediction of expected price as cost of intensifier increases, based on intensifiers evenly spaced in cost. The relationship is approximately linear.} 
