@@ -1,0 +1,301 @@
+---
+title: "Power Analysis"
+author: "Erin Bennett"
+output: 
+  html_document:
+      toc: false
+---
+
+```{r global_options, include=FALSE}
+rm(list=ls())
+knitr::opts_chunk$set(echo=F, warning=F, cache=F, message=F, sanitiz =T, fig.width = 5, fig.height = 3)
+```
+
+```{r load_settings}
+source("~/cocolab/settings/mini-startup.R")
+```
+
+## Experiment
+
+Rating experiment.
+
+## Planned analysis
+
+### 1. Reformat data
+
+We first excluded any participants who are not native speakers of English or who stated that they did not think they followed instructions.
+
+People represent prices logarithmically, so we log-transform all of the prices that participants entered.
+
+We don't care about modeling the prices of the individual objects. We think that this factor might interact with participants (different participants have different beliefs about price distributions for different objects), but we do not have enough data to fit an accurate mixed model with interacting random effects. So we z-score within each participant's ratings for each object (Thanks, Reviewer, for the suggestion!).
+
+```{r}
+## load intensifier data
+unigrams = read.csv("web_1grams.csv")
+total_ngrams = 1024908267229
+freq = unigrams$frequency
+syll = unigrams$syllables
+names(freq) = names(syll) = unigrams$ngram
+
+## load experiment data
+df = read.csv("replication2016-data.csv") %>%
+  filter(language %in% c("English", "ENGLISH", "ENG", "eng", "english") &
+           assess == "Yes") %>%
+  select(workerid, price, intensifier, object) %>%
+  mutate(workerid = factor(workerid),
+         logprice = as.numeric(log(price))) %>%
+  group_by(object) %>%
+  mutate(logprice.scaled.by.object = as.numeric(scale(logprice)),
+         logprice.scaled.by.object = ifelse(
+           is.nan(logprice.scaled.by.object), 0,
+           logprice.scaled.by.object)) %>%
+  ungroup %>%
+  group_by(object, workerid) %>%
+  mutate(logprice = as.numeric(log(price)),
+         logprice.centered = logprice - mean(logprice),
+         z = as.numeric(scale(log(price))),
+         z = ifelse(is.nan(z), 0, z),
+         logprice.scaled = z) %>%
+  ungroup %>%
+  mutate(freq = freq[as.character(intensifier)],
+         syll = syll[as.character(intensifier)],
+         syll.centered = syll - mean(syll),
+         surprisal = -log(freq),
+         surprisal.centered = surprisal - mean(surprisal),
+         syll.scaled = scale(syll),
+         surprisal.scaled = scale(surprisal),
+         word.cost = 0.18124*syll.centered + 0.10704*surprisal.centered)
+```
+
+Here's the original data. The slopes and intercepts vary by both participants and objects. In particular, watches seem to have larger slopes than laptops.
+
+```{r}
+df %>% ggplot(., aes(x=word.cost,
+                     y=logprice,
+                     group=paste(workerid, object))) +
+  geom_line(stat="smooth",method = "lm", alpha = 0.1) +
+  facet_wrap(~object) +
+  geom_point(alpha=0.1)
+
+# df %>% ggplot(., aes(x=(0.16*syll + 0.24*surprisal),
+#                      y=logprice,
+#                      group=paste(workerid, object))) +
+#   geom_line(stat="smooth",method = "lm", alpha = 0.1) +
+#   facet_grid(workerid~object) +
+#   geom_point(alpha=0.1)
+# ggsave("raw.data.png", width=5, height=20)
+```
+
+And here's what the data look like when we z-score within each participant's responses for each object. Now each participant has an intercept of zero (kind of obviously...), but the slopes vary across participants.
+
+```{r}
+df %>% ggplot(., aes(x=word.cost,
+                     y=logprice.scaled,
+                     group=paste(workerid, object))) +
+  geom_line(stat="smooth",method = "lm", alpha = 0.1) +
+  facet_wrap(~object) +
+  geom_point(alpha=0.1)
+
+# df %>% ggplot(., aes(x=(0.16*syll + 0.24*surprisal),
+#                      y=logprice.scaled,
+#                      group=paste(workerid, object))) +
+#   geom_line(stat="smooth",method = "lm", alpha = 0.1) +
+#   facet_grid(workerid~object) +
+#   geom_point(alpha=0.1)
+# ggsave("scaled.data.png", width=5, height=20)
+```
+
+### 2. Model
+
+```{r}
+# m.raw.no.object = lmer(logprice ~ 1 + syll.centered * surprisal.centered +
+#                (1 + syll.centered + surprisal.centered | workerid) +
+#                (1 | intensifier), df)
+# m.raw = lmer(logprice ~ 1 + syll.centered * surprisal.centered +
+#                (1 + syll.centered + surprisal.centered | workerid) +
+#                (1 + syll.centered + surprisal.centered | object) +
+#                (1 | intensifier), df)
+# m.scaled = lmer(logprice.scaled ~ 1 + syll.centered * surprisal.centered +
+#                   (0 + syll.centered + surprisal.centered | workerid) +
+#                   (1 | intensifier), df)
+# m.scaled.with.object = lmer(
+#   logprice.scaled ~ 1 + syll.centered * surprisal.centered +
+#     (0 + syll.centered + surprisal.centered | workerid) +
+#     (0 + syll.centered + surprisal.centered | object) +
+#     (1 | intensifier), df)
+## maybe choose model with better BIC
+
+## there's not many items (objects). so we can't really estimate the random by-object effects. one way is to z-score (thanks, reviewer!).
+```
+
+Given that preprocessing involves normalizing responses from each participant for each item, we would use the following model, which includes a random slope for participant but no random intercept. We include random intercepts for intensifier (the particular words). We center the continuous predictors by subtracting their means.
+
+```{r, echo=T}
+m = lmer(logprice.scaled ~ 1 + syll.centered * surprisal.centered +
+    (0 + syll.centered + surprisal.centered | workerid) +
+    (1 | intensifier), df)
+```
+
+### 3. Power analysis
+
+#### Median split
+
+```{r}
+split.data = df %>% mutate(
+  word.cost.contrast = ifelse(
+    word.cost < median(word.cost), -1, 1),
+  syll.contrast = ifelse(
+    syll.centered < median(syll.centered), -1, 1),
+  surprisal.contrast = ifelse(
+    surprisal.centered < median(surprisal.centered), -1, 1))
+m.split.combined = lmer(logprice.scaled ~ 0 + word.cost.contrast +
+                          (0 + word.cost.contrast | workerid) +
+                          (1 | intensifier), split.data)
+m.split.syll = lmer(logprice.scaled ~ 0 + syll.contrast +
+                      (0 + syll.contrast | workerid) +
+                      (1 | intensifier), split.data)
+m.split.surprisal = lmer(logprice.scaled ~ 0 + surprisal.contrast +
+                           (0 + surprisal.contrast | workerid) +
+                           (1 | intensifier), split.data)
+```
+
+We can approximate power by doing a median split on the data. This is just a rough approximation. And I'm probably implementing it wrong.
+
+First I did a thing which is probably wrong where I assumed a single predictor that's a linear combination of surprisal and syllables. According to this (almost certainly incorrect) calculation and using [this app](https://jakewestfall.shinyapps.io/crossedpower/), we can get really, really high powe (~.99) with 72 items and 20 participants. We can get really high power (~.98) with 50 items and 50 participants. We can get high power (~.88) with 30 stimuli and 100 participants.
+
+If syllables were our only predictor, our highest possible power with 72 items would be around .74. If we had 82 items, we could get up to .8.
+
+If surprisal were our only predictor, our highest possible power with 72 items would be around .94. With 25 participants and 72 items we could get really high power (~.9). With 50 items and 50 participants, we could get high power (~.8).
+
+Explanation/Summary: Once we z-score, the variance due to participants is greatly reduced, and so we need very few participants for high power. However, there is a lot of variance due to item, and we're not rescaling that. So to get high power we probably need at least 50 intensifiers. For a course feature like syllables, we need a lot more than that (~100 intensifiers).
+
+Conclusion: It's probably fine to use 50 intensifiers and 50 participants, though we might need more intensifiers to have adequate power for the syllables factor.
+
+Caveat: I don't really know what I'm doing. Having two continuous predictors and reducing them to a single median-split variable is kind of weird and complicated, and I'm certainly doing it wrong.
+
+#### Bootstrapping
+
+We could also assume that the two effects are there, and resample the data to see how often we pick up on the significance of both the predictors.
+
+```{r}
+## set up a list of data frames to draw from
+workers = as.character(unique(df$workerid))
+intensifiers = as.character(unique(df$intensifier))
+make.indices = function(i, w) {
+  return(apply(
+    expand.grid(i, w), 1,
+    function(v) {return(paste(v, collapse="."))}))}
+pilot.data = apply(
+  expand.grid(intensifiers, workers) %>%
+    mutate(Var1 = as.character(Var1),
+           Var2 = as.character(Var2)), 1, 
+  function(v) {
+    return(df %>% select(intensifier, workerid, logprice.scaled,
+                         object, syll.centered, surprisal.centered) %>%
+             filter(workerid==v[["Var2"]] & intensifier==v[["Var1"]]))})
+names(pilot.data) = make.indices(intensifiers, workers)
+```
+
+```{r}
+run.model = function(data) {
+  resampled.model = lmer(
+    logprice.scaled ~ 1 + syll.centered * surprisal.centered +
+      (0 + syll.centered + surprisal.centered | workerid) +
+      (1 | intensifier), data)
+  coefficients = summary(resampled.model)$coefficients
+  pvalues = c(
+    syll=coefficients[["syll.centered", "Pr(>|t|)"]],
+    surprisal=coefficients[["surprisal.centered", "Pr(>|t|)"]]
+  )
+  significance = c(
+    syll = pvalues[["syll"]]<0.05,
+    surprisal = pvalues[["surprisal"]]<0.05
+  )
+  significance["both"] = significance[["syll"]] & significance[["surprisal"]]
+  return(significance)
+}
+bootstrap.power = function(reps=1, participantsN=10, intensifiersN=10) {
+  results = sapply(1:reps, function(r) {
+    resampled.workers = sample(workers, participantsN, replace=T)
+    resampled.intensifiers = sample(intensifiers, participantsN, replace=T)
+    ## for each worker, for each intensifier, what's their data?
+    resampled.indices = paste(resampled.intensifiers, resampled.workers, sep=".")
+    resampled.data = do.call(rbind, pilot.data[resampled.indices])
+    return(
+      tryCatch(
+        run.model(resampled.data),
+        warning=function(e) {return(c(syllables=NA, surprisal=NA, both=NA))},
+        error=function(e) {return(c(syllables=NA, surprisal=NA, both=NA))}
+      )
+    )
+  })
+  return(rowMeans(results, na.rm=T))
+}
+# ## good for surprisal, not for syllables
+# bootstrap.power(1000, 100, 72)
+# #      syll surprisal      both 
+# # 0.1938534 0.6170213 0.1182033 
+# 
+# ## good for surprisal, not for syllables
+# bootstrap.power(1000, 50, 50)
+# #      syll surprisal      both 
+# # 0.1122222 0.3222222 0.0300000 
+# 
+# ## good for surprisal and syllables?
+# bootstrap.power(1000, 100, 82)
+# #      syll surprisal      both 
+# # 0.1917336 0.6073479 0.1056257
+# 
+# ## good for surprisal and syllables
+# bootstrap.power(1000, 100, 100)
+# #      syll surprisal      both 
+# # 0.1767497 0.6037960 0.1032028 
+# 
+# ## way more than plenty for surprisal and not enough for syllables
+# bootstrap.power(1000, 1000, 72)
+# #      syll surprisal      both 
+# # 0.3727088 1.0000000 0.3727088 
+# 
+# bootstrap.power(1000, 200, 72)
+# #      syll surprisal      both 
+# # 0.2477376 0.9072398 0.2228507 
+# 
+# bootstrap.power(1000, 150, 72)
+# #      syll surprisal      both 
+# # 0.2390244 0.8317073 0.1865854 
+```
+
+```{r}
+power.sketch.to.plot = data.frame(
+  syll=c(0.1938534, 0.1122222, 0.1917336,
+         0.1767497, 0.3727088, 0.2477376,
+         0.2390244),
+  surprisal=c(0.6170213, 0.3222222, 0.6073479,
+              0.6037960, 1.0000000,0.9072398,
+              0.8317073),
+  both=c(0.1182033, 0.0300000, 0.1056257,
+         0.1032028, 0.3727088, 0.2228507,
+         0.1865854),
+  reps=c(1000, 1000, 1000,
+         1000, 1000, 1000,
+         1000),
+  participantsN=c(100, 50, 100,
+                  100, 1000, 200,
+                  150),
+  intensifiersN=c(72, 50, 82,
+                  100, 72, 72,
+                  72))
+power.sketch.to.plot %>%
+  gather("coefficient", "power", c(syll, surprisal, both)) %>%
+  # filter(participantsN < 1000) %>%
+  ggplot(., aes(x=participantsN, y=intensifiersN,
+                colour=power, size=power)) +
+  geom_point() +
+  facet_wrap(~coefficient)
+ggsave("power.sketch.png", width=10, height=4)
+```
+
+### 4. Items
+
+See [intensifiers-list.html](./intensifiers-list.html)
+

@@ -1,0 +1,62 @@
+---
+title: "Intensifiers List"
+author: "Erin Bennett"
+output: 
+  html_document:
+      toc: false
+---
+
+```{r global_options, include=FALSE}
+rm(list=ls())
+knitr::opts_chunk$set(echo=F, warning=F, cache=F, message=F, sanitiz =T, fig.width = 5, fig.height = 3)
+```
+
+```{r load_settings}
+source("~/cocolab/settings/mini-startup.R")
+```
+
+```{r}
+summarise_category = function(lst) {
+  if ("amplifier" %in% lst) {
+    return("amplifier")
+  } else if ("diminisher" %in% lst) {
+    return("downtoner")
+  } else {
+    return("intensifier")
+  }
+}
+df = read.csv("new.intensifiers.list.data.csv")
+n.grammars = length(unique(df$source))
+df = df %>%
+  filter(obvious.downtoner=="no") %>%
+  # filter(!(obvious.downtoner=="yes")) %>%
+  filter(!(weird=="weird")) %>%
+  filter(region != "BrE") %>%
+  group_by(word) %>%
+  summarise(category = summarise_category(category),
+            obvious.downtoner=obvious.downtoner[1]) %>%
+  filter(category != "downtoner")
+
+old.df = read.csv("web_1grams.csv")
+old.intensifiers = old.df$ngram
+new.intensifiers = df$word
+```
+
+```{r}
+intersection = intersect(old.intensifiers, new.intensifiers)
+newly.introduced = setdiff(new.intensifiers, old.intensifiers)
+lost = setdiff(old.intensifiers, new.intensifiers)
+```
+
+Relation to old list:
+
+* Intersection: `r length(intersection)`
+* New words from grammars: `r length(newly.introduced)`
+* My words not in grammars: `r length(lost)`
+
+New list:
+
+```{r}
+print(as.character(
+  new.intensifiers))
+```
