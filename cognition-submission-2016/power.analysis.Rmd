@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo=F, warning=F, cache=F, message=F, sanitiz =T, fig.wid
 ```
 
 ```{r load_settings}
-source("~/cocolab/settings/mini-startup.R")
+source("~/Settings/mini-startup.R")
 ```
 
 ## Experiment
@@ -76,14 +76,6 @@ df %>% ggplot(., aes(x=word.cost,
   geom_line(stat="smooth",method = "lm", alpha = 0.1) +
   facet_wrap(~object) +
   geom_point(alpha=0.1)
-
-# df %>% ggplot(., aes(x=(0.16*syll + 0.24*surprisal),
-#                      y=logprice,
-#                      group=paste(workerid, object))) +
-#   geom_line(stat="smooth",method = "lm", alpha = 0.1) +
-#   facet_grid(workerid~object) +
-#   geom_point(alpha=0.1)
-# ggsave("raw.data.png", width=5, height=20)
 ```
 
 And here's what the data look like when we z-score within each participant's responses for each object. Now each participant has an intercept of zero (kind of obviously...), but the slopes vary across participants.
@@ -95,38 +87,95 @@ df %>% ggplot(., aes(x=word.cost,
   geom_line(stat="smooth",method = "lm", alpha = 0.1) +
   facet_wrap(~object) +
   geom_point(alpha=0.1)
-
-# df %>% ggplot(., aes(x=(0.16*syll + 0.24*surprisal),
-#                      y=logprice.scaled,
-#                      group=paste(workerid, object))) +
-#   geom_line(stat="smooth",method = "lm", alpha = 0.1) +
-#   facet_grid(workerid~object) +
-#   geom_point(alpha=0.1)
-# ggsave("scaled.data.png", width=5, height=20)
 ```
 
-### 2. Model
+#### Preprocessing for replication design
+
+We will have a larger set of intensifiers in the replication experiment, so ideally we would like to run a "replication design" where we run a certain number of participants on each of 3 or so disjoint sets of intensifiers.
+
+How would this interact with the zscoring step in preprocessing?
 
 ```{r}
-# m.raw.no.object = lmer(logprice ~ 1 + syll.centered * surprisal.centered +
-#                (1 + syll.centered + surprisal.centered | workerid) +
-#                (1 | intensifier), df)
-# m.raw = lmer(logprice ~ 1 + syll.centered * surprisal.centered +
-#                (1 + syll.centered + surprisal.centered | workerid) +
-#                (1 + syll.centered + surprisal.centered | object) +
-#                (1 | intensifier), df)
-# m.scaled = lmer(logprice.scaled ~ 1 + syll.centered * surprisal.centered +
-#                   (0 + syll.centered + surprisal.centered | workerid) +
-#                   (1 | intensifier), df)
-# m.scaled.with.object = lmer(
-#   logprice.scaled ~ 1 + syll.centered * surprisal.centered +
-#     (0 + syll.centered + surprisal.centered | workerid) +
-#     (0 + syll.centered + surprisal.centered | object) +
-#     (1 | intensifier), df)
-## maybe choose model with better BIC
+shuffled_intensifiers = sample(unique(df$intensifier), replace=F)
+shuffled_workers = sample(unique(df$workerid), replace=F)
 
-## there's not many items (objects). so we can't really estimate the random by-object effects. one way is to z-score (thanks, reviewer!).
+create_data_subset = function(data, intensifiers, workers) {
+  indices = c(apply(
+    expand.grid(intensifiers, workers),
+    1,
+    function(lst) {
+      indices = which(df$intensifier==lst[1] &
+                        df$workerid==lst[2])
+      return(indices)
+    }))
+  return(data[indices,])
+}
+
+create_replication_set = function(set_index) {
+  ## split full intensifiers list into 3 disjoint sets
+  ## split workers into corresponding 3 disjoint sets
+  if (set_index==1) {
+    intensifiers_subset = shuffled_intensifiers[1:13]
+    workers_subset = shuffled_workers[1:9]
+  } else if (set_index==2) {
+    intensifiers_subset = shuffled_intensifiers[14:26]
+    workers_subset = shuffled_workers[10:18]
+  } else {
+    intensifiers_subset = shuffled_intensifiers[27:40]
+    workers_subset = shuffled_workers[19:28]
+  }
+  ## sample the rows of the data frame for each set
+  data_subset = create_data_subset(df,
+                                   intensifiers_subset,
+                                   workers_subset) %>%
+    mutate(set = set_index)
+  return(data_subset)
+}
+
+replication_design_data = do.call(
+  rbind,
+  lapply(1:3, create_replication_set))
 ```
+
+Here is a subset of the data where each participant sees items from only one of three disjoint sets of intensifiers.
+
+```{r}
+replication_design_data %>%
+  ggplot(., aes(x=word.cost,
+                y=logprice,
+                group=paste(workerid, object))) +
+  geom_line(stat="smooth",method = "lm", alpha = 0.1) +
+  facet_wrap(~object) +
+  geom_point(alpha=0.1)
+```
+
+And here is that same data, zscored within participant and object. (We have very little data in each normalized subset in this simulation: we will have much more data in the proposed future replication experiment.)
+
+```{r}
+replication_design_data %>%
+  group_by(object, workerid) %>%
+  mutate(
+    z = as.numeric(scale(log(price))),
+    z = ifelse(is.nan(z), 0, z),
+    logprice.scaled = z
+  ) %>%
+  ungroup %>%
+  ggplot(., aes(x=word.cost,
+                y=logprice.scaled,
+                colour=factor(set),
+                group=paste(workerid, object))) +
+  geom_line(stat="smooth",method = "lm", alpha = 0.1) +
+  facet_wrap(~object) +
+  geom_point(alpha=0.1)
+```
+
+At a glance, it looks like this might not warrant the intercept-less model we used when z-scoring within participants and objects on the full dataset.
+
+But the model with random intercepts doesn't actually converge, so maybe it's fine to keep the model the same.
+
+Now, in the replication design, the slopes are much steeper! Are we increasing the possibility of Type 1 errors?
+
+### 2. Model
 
 Given that preprocessing involves normalizing responses from each participant for each item, we would use the following model, which includes a random slope for participant but no random intercept. We include random intercepts for intensifier (the particular words). We center the continuous predictors by subtracting their means.
 
@@ -190,7 +239,7 @@ pilot.data = apply(
     mutate(Var1 = as.character(Var1),
            Var2 = as.character(Var2)), 1, 
   function(v) {
-    return(df %>% select(intensifier, workerid, logprice.scaled,
+    return(df %>% select(intensifier, workerid, price,
                          object, syll.centered, surprisal.centered) %>%
              filter(workerid==v[["Var2"]] & intensifier==v[["Var1"]]))})
 names(pilot.data) = make.indices(intensifiers, workers)
@@ -198,10 +247,27 @@ names(pilot.data) = make.indices(intensifiers, workers)
 
 ```{r}
 run.model = function(data) {
+  preprocessed.data = data %>%
+    group_by(object, workerid) %>%
+    mutate(
+      z = as.numeric(scale(log(price))),
+      z = ifelse(is.nan(z), 0, z),
+      logprice.scaled = z
+    ) %>%
+    select(logprice.scaled, syll.centered, surprisal.centered, workerid, intensifier, object) %>%
+    ungroup
+  if (F) {
+    preprocessed.data %>%
+      ggplot(., aes(x=(0.18*syll.centered + 0.11* surprisal.centered),
+                    y=logprice.scaled,
+                    group=paste(workerid, object))) +
+      geom_line(stat="smooth",method = "lm", alpha = 0.1) +
+      facet_wrap(~object)
+  }
   resampled.model = lmer(
     logprice.scaled ~ 1 + syll.centered * surprisal.centered +
       (0 + syll.centered + surprisal.centered | workerid) +
-      (1 | intensifier), data)
+      (1 | intensifier), preprocessed.data)
   coefficients = summary(resampled.model)$coefficients
   pvalues = c(
     syll=coefficients[["syll.centered", "Pr(>|t|)"]],
@@ -214,12 +280,12 @@ run.model = function(data) {
   significance["both"] = significance[["syll"]] & significance[["surprisal"]]
   return(significance)
 }
-bootstrap.power = function(reps=1, participantsN=10, intensifiersN=10) {
+bootstrap.power = function(reps=1, participantsN=28, intensifiersN=40) {
   results = sapply(1:reps, function(r) {
     resampled.workers = sample(workers, participantsN, replace=T)
-    resampled.intensifiers = sample(intensifiers, participantsN, replace=T)
+    resampled.intensifiers = sample(intensifiers, intensifiersN, replace=T)
     ## for each worker, for each intensifier, what's their data?
-    resampled.indices = paste(resampled.intensifiers, resampled.workers, sep=".")
+    resampled.indices = apply(expand.grid(resampled.intensifiers, resampled.workers), 1, function(lst) {return(paste(lst, collapse="."))})
     resampled.data = do.call(rbind, pilot.data[resampled.indices])
     return(
       tryCatch(
@@ -231,60 +297,31 @@ bootstrap.power = function(reps=1, participantsN=10, intensifiersN=10) {
   })
   return(rowMeans(results, na.rm=T))
 }
-# ## good for surprisal, not for syllables
-# bootstrap.power(1000, 100, 72)
-# #      syll surprisal      both 
-# # 0.1938534 0.6170213 0.1182033 
+bootstrap.power(100, 28, 40)
+#       syll  surprisal       both 
+# 0.14141414 0.69696970 0.09090909 
 # 
-# ## good for surprisal, not for syllables
-# bootstrap.power(1000, 50, 50)
-# #      syll surprisal      both 
-# # 0.1122222 0.3222222 0.0300000 
+# bootstrap.power(100, 100, 72)
+#      syll surprisal      both 
+#      0.31      0.96      0.31 
 # 
-# ## good for surprisal and syllables?
-# bootstrap.power(1000, 100, 82)
-# #      syll surprisal      both 
-# # 0.1917336 0.6073479 0.1056257
+# bootstrap.power(100, 30, 72)
+#      syll surprisal      both 
+#      0.22      0.94      0.22 
 # 
-# ## good for surprisal and syllables
-# bootstrap.power(1000, 100, 100)
-# #      syll surprisal      both 
-# # 0.1767497 0.6037960 0.1032028 
-# 
-# ## way more than plenty for surprisal and not enough for syllables
-# bootstrap.power(1000, 1000, 72)
-# #      syll surprisal      both 
-# # 0.3727088 1.0000000 0.3727088 
-# 
-# bootstrap.power(1000, 200, 72)
-# #      syll surprisal      both 
-# # 0.2477376 0.9072398 0.2228507 
-# 
-# bootstrap.power(1000, 150, 72)
-# #      syll surprisal      both 
-# # 0.2390244 0.8317073 0.1865854 
+# bootstrap.power(100, 10, 72)
+#      syll surprisal      both 
+#      0.14      0.86      0.09 
 ```
 
 ```{r}
 power.sketch.to.plot = data.frame(
-  syll=c(0.1938534, 0.1122222, 0.1917336,
-         0.1767497, 0.3727088, 0.2477376,
-         0.2390244),
-  surprisal=c(0.6170213, 0.3222222, 0.6073479,
-              0.6037960, 1.0000000,0.9072398,
-              0.8317073),
-  both=c(0.1182033, 0.0300000, 0.1056257,
-         0.1032028, 0.3727088, 0.2228507,
-         0.1865854),
-  reps=c(1000, 1000, 1000,
-         1000, 1000, 1000,
-         1000),
-  participantsN=c(100, 50, 100,
-                  100, 1000, 200,
-                  150),
-  intensifiersN=c(72, 50, 82,
-                  100, 72, 72,
-                  72))
+  syll=c(0.14141414, 0.31, 0.22, 0.14),
+  surprisal=c(0.69696970, 0.96, 0.94, 0.86),
+  both=c(0.09090909, 0.31, 0.22, 0.09),
+  reps=c(100, 100, 100, 100),
+  participantsN=c(28, 100, 30, 10),
+  intensifiersN=c(40, 72, 72, 72))
 power.sketch.to.plot %>%
   gather("coefficient", "power", c(syll, surprisal, both)) %>%
   # filter(participantsN < 1000) %>%
@@ -299,3 +336,6 @@ ggsave("power.sketch.png", width=10, height=4)
 
 See [intensifiers-list.html](./intensifiers-list.html)
 
+### 5. Writeup
+
+Reviewer 1 mentioned 2 important issues in our design: our choice of intensifiers and the power of our study. Our choice of intensifiers was not fully systematic or replicable, and any one of our experiments may have been underpowered (though we did replicate our findings in several pilot studies). We therefore ran a further replication with a more systematic set of intensifiers.
