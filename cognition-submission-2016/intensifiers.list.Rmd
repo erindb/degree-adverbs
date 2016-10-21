@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo=F, warning=F, cache=F, message=F, sanitiz =T, fig.wid
 ```
 
 ```{r load_settings}
-source("~/cocolab/settings/mini-startup.R")
+source("~/Settings/mini-startup.R")
 ```
 
 ```{r}
@@ -47,6 +47,8 @@ intersection = intersect(old.intensifiers, new.intensifiers)
 newly.introduced = setdiff(new.intensifiers, old.intensifiers)
 lost = setdiff(old.intensifiers, new.intensifiers)
 ```
+
+Total grammars with reference to "intensifiers", "amplifiers", or "degree adverbs" in their index: `r n.grammars`
 
 Relation to old list:
 

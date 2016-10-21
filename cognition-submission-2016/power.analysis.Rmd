@@ -96,9 +96,6 @@ We will have a larger set of intensifiers in the replication experiment, so idea
 How would this interact with the zscoring step in preprocessing?
 
 ```{r}
-shuffled_intensifiers = sample(unique(df$intensifier), replace=F)
-shuffled_workers = sample(unique(df$workerid), replace=F)
-
 create_data_subset = function(data, intensifiers, workers) {
   indices = c(apply(
     expand.grid(intensifiers, workers),
@@ -111,30 +108,39 @@ create_data_subset = function(data, intensifiers, workers) {
   return(data[indices,])
 }
 
-create_replication_set = function(set_index) {
-  ## split full intensifiers list into 3 disjoint sets
-  ## split workers into corresponding 3 disjoint sets
-  if (set_index==1) {
-    intensifiers_subset = shuffled_intensifiers[1:13]
-    workers_subset = shuffled_workers[1:9]
-  } else if (set_index==2) {
-    intensifiers_subset = shuffled_intensifiers[14:26]
-    workers_subset = shuffled_workers[10:18]
-  } else {
-    intensifiers_subset = shuffled_intensifiers[27:40]
-    workers_subset = shuffled_workers[19:28]
+create_replication_design_data = function(data, intensifiersList, workeridsList) {
+  shuffled_intensifiers = sample(intensifiersList, replace=F)
+  shuffled_workers = sample(workeridsList, replace=F)
+  create_replication_set = function(set_index) {
+    ## split full intensifiers list into 3 disjoint sets
+    ## split workers into corresponding 3 disjoint sets
+    n_intensifiers_set = length(shuffled_intensifiers)/3
+    n_workers_set = length(shuffled_workers)/3
+    w.ind = c(0,0)
+    i.ind = c(0,0)
+    w.ind[1] = ((set_index-1)*n_workers_set)+1
+    w.ind[2] = ((set_index)*n_workers_set)
+    i.ind[1] = ((set_index-1)*n_intensifiers_set)+1
+    i.ind[2] = ((set_index)*n_intensifiers_set)
+    if (set_index==3) {
+      w.ind[2] = length(shuffled_workers)
+      i.ind[2] = length(shuffled_intensifiers)
+    }
+    intensifiers_subset = shuffled_intensifiers[i.ind[1]:i.ind[2]]
+    workers_subset = shuffled_workers[w.ind[1]:w.ind[2]]
+    ## sample the rows of the data frame for each set
+    data_subset = create_data_subset(data,
+                                     intensifiers_subset,
+                                     workers_subset) %>%
+      mutate(set = set_index)
+    return(data_subset)
   }
-  ## sample the rows of the data frame for each set
-  data_subset = create_data_subset(df,
-                                   intensifiers_subset,
-                                   workers_subset) %>%
-    mutate(set = set_index)
-  return(data_subset)
+  return(do.call(
+    rbind,
+    lapply(1:3, create_replication_set)))
 }
 
-replication_design_data = do.call(
-  rbind,
-  lapply(1:3, create_replication_set))
+replication_design_data = create_replication_design_data(df, unique(df$intensifier), unique(df$workerid))
 ```
 
 Here is a subset of the data where each participant sees items from only one of three disjoint sets of intensifiers.
@@ -187,65 +193,13 @@ m = lmer(logprice.scaled ~ 1 + syll.centered * surprisal.centered +
 
 ### 3. Power analysis
 
-#### Median split
-
-```{r}
-split.data = df %>% mutate(
-  word.cost.contrast = ifelse(
-    word.cost < median(word.cost), -1, 1),
-  syll.contrast = ifelse(
-    syll.centered < median(syll.centered), -1, 1),
-  surprisal.contrast = ifelse(
-    surprisal.centered < median(surprisal.centered), -1, 1))
-m.split.combined = lmer(logprice.scaled ~ 0 + word.cost.contrast +
-                          (0 + word.cost.contrast | workerid) +
-                          (1 | intensifier), split.data)
-m.split.syll = lmer(logprice.scaled ~ 0 + syll.contrast +
-                      (0 + syll.contrast | workerid) +
-                      (1 | intensifier), split.data)
-m.split.surprisal = lmer(logprice.scaled ~ 0 + surprisal.contrast +
-                           (0 + surprisal.contrast | workerid) +
-                           (1 | intensifier), split.data)
-```
-
-We can approximate power by doing a median split on the data. This is just a rough approximation. And I'm probably implementing it wrong.
-
-First I did a thing which is probably wrong where I assumed a single predictor that's a linear combination of surprisal and syllables. According to this (almost certainly incorrect) calculation and using [this app](https://jakewestfall.shinyapps.io/crossedpower/), we can get really, really high powe (~.99) with 72 items and 20 participants. We can get really high power (~.98) with 50 items and 50 participants. We can get high power (~.88) with 30 stimuli and 100 participants.
-
-If syllables were our only predictor, our highest possible power with 72 items would be around .74. If we had 82 items, we could get up to .8.
-
-If surprisal were our only predictor, our highest possible power with 72 items would be around .94. With 25 participants and 72 items we could get really high power (~.9). With 50 items and 50 participants, we could get high power (~.8).
-
-Explanation/Summary: Once we z-score, the variance due to participants is greatly reduced, and so we need very few participants for high power. However, there is a lot of variance due to item, and we're not rescaling that. So to get high power we probably need at least 50 intensifiers. For a course feature like syllables, we need a lot more than that (~100 intensifiers).
-
-Conclusion: It's probably fine to use 50 intensifiers and 50 participants, though we might need more intensifiers to have adequate power for the syllables factor.
-
-Caveat: I don't really know what I'm doing. Having two continuous predictors and reducing them to a single median-split variable is kind of weird and complicated, and I'm certainly doing it wrong.
-
 #### Bootstrapping
 
-We could also assume that the two effects are there, and resample the data to see how often we pick up on the significance of both the predictors.
+We could assume that the two effects are there, and resample the original experiment's data to see how often we pick up on the significance of both the predictors.
 
 ```{r}
-## set up a list of data frames to draw from
-workers = as.character(unique(df$workerid))
-intensifiers = as.character(unique(df$intensifier))
-make.indices = function(i, w) {
-  return(apply(
-    expand.grid(i, w), 1,
-    function(v) {return(paste(v, collapse="."))}))}
-pilot.data = apply(
-  expand.grid(intensifiers, workers) %>%
-    mutate(Var1 = as.character(Var1),
-           Var2 = as.character(Var2)), 1, 
-  function(v) {
-    return(df %>% select(intensifier, workerid, price,
-                         object, syll.centered, surprisal.centered) %>%
-             filter(workerid==v[["Var2"]] & intensifier==v[["Var1"]]))})
-names(pilot.data) = make.indices(intensifiers, workers)
-```
-
-```{r}
+workers = unique(df$workerid)
+intensifiers = unique(df$intensifier)
 run.model = function(data) {
   preprocessed.data = data %>%
     group_by(object, workerid) %>%
@@ -256,14 +210,6 @@ run.model = function(data) {
     ) %>%
     select(logprice.scaled, syll.centered, surprisal.centered, workerid, intensifier, object) %>%
     ungroup
-  if (F) {
-    preprocessed.data %>%
-      ggplot(., aes(x=(0.18*syll.centered + 0.11* surprisal.centered),
-                    y=logprice.scaled,
-                    group=paste(workerid, object))) +
-      geom_line(stat="smooth",method = "lm", alpha = 0.1) +
-      facet_wrap(~object)
-  }
   resampled.model = lmer(
     logprice.scaled ~ 1 + syll.centered * surprisal.centered +
       (0 + syll.centered + surprisal.centered | workerid) +
@@ -285,8 +231,7 @@ bootstrap.power = function(reps=1, participantsN=28, intensifiersN=40) {
     resampled.workers = sample(workers, participantsN, replace=T)
     resampled.intensifiers = sample(intensifiers, intensifiersN, replace=T)
     ## for each worker, for each intensifier, what's their data?
-    resampled.indices = apply(expand.grid(resampled.intensifiers, resampled.workers), 1, function(lst) {return(paste(lst, collapse="."))})
-    resampled.data = do.call(rbind, pilot.data[resampled.indices])
+    resampled.data = create_data_subset(df, resampled.intensifiers, workers=resampled.workers)
     return(
       tryCatch(
         run.model(resampled.data),
@@ -295,33 +240,32 @@ bootstrap.power = function(reps=1, participantsN=28, intensifiersN=40) {
       )
     )
   })
-  return(rowMeans(results, na.rm=T))
+  power = rowMeans(results, na.rm=T)
+  return(c(
+    syll=power[["syll"]],
+    surprisal=power[["surprisal"]],
+    both=power[["both"]],
+    intensifiersN=intensifiersN,
+    participantsN=participantsN,
+    reps=reps))
 }
-bootstrap.power(100, 28, 40)
-#       syll  surprisal       both 
-# 0.14141414 0.69696970 0.09090909 
-# 
-# bootstrap.power(100, 100, 72)
-#      syll surprisal      both 
-#      0.31      0.96      0.31 
-# 
-# bootstrap.power(100, 30, 72)
-#      syll surprisal      both 
-#      0.22      0.94      0.22 
-# 
-# bootstrap.power(100, 10, 72)
-#      syll surprisal      both 
-#      0.14      0.86      0.09 
+power.28.40 = bootstrap.power(100, 28, 40)
+power.28.72 = bootstrap.power(100, 28, 72)
+power.28.100 = bootstrap.power(100, 28, 100)
+power.50.40 = bootstrap.power(100, 50, 40)
+power.50.72 = bootstrap.power(100, 50, 72)
+power.50.100 = bootstrap.power(100, 50, 100)
 ```
 
 ```{r}
-power.sketch.to.plot = data.frame(
-  syll=c(0.14141414, 0.31, 0.22, 0.14),
-  surprisal=c(0.69696970, 0.96, 0.94, 0.86),
-  both=c(0.09090909, 0.31, 0.22, 0.09),
-  reps=c(100, 100, 100, 100),
-  participantsN=c(28, 100, 30, 10),
-  intensifiersN=c(40, 72, 72, 72))
+power.sketch.to.plot = data.frame(rbind(
+  power.28.40,
+  power.28.72,
+  power.28.100,
+  power.50.40,
+  power.50.72,
+  power.50.100
+)) %>% rename(syll = syll.syll, surprisal = surprisal.surprisal, both = both.both)
 power.sketch.to.plot %>%
   gather("coefficient", "power", c(syll, surprisal, both)) %>%
   # filter(participantsN < 1000) %>%
@@ -330,6 +274,47 @@ power.sketch.to.plot %>%
   geom_point() +
   facet_wrap(~coefficient)
 ggsave("power.sketch.png", width=10, height=4)
+```
+
+Similarly, we can simulate using a replication design with a preprocessing step where we z-score within objects and participants.
+
+Such a preprocessing step may or may not be reasonable, but this is the effect it would have on power:
+
+```{r}
+## for each number of participants,
+## for each number of intensifiers,
+## divide them all into sets of 3
+## and run a replication design with z-scoring
+
+workers = unique(df$workerid)
+intensifiers = unique(df$intensifier)
+bootstrap.power.rep.design = function(reps=1, participantsN=28, intensifiersN=40) {
+  results = sapply(1:reps, function(r) {
+    resampled.workers = sample(workers, participantsN, replace=T)
+    resampled.intensifiers = sample(intensifiers, intensifiersN, replace=T)
+    ## for each worker, for each intensifier, what's their data?
+    resampled.data = create_data_subset(df, resampled.intensifiers, workers=resampled.workers)
+    replication.design.data = create_replication_design_data(resampled.data, resampled.intensifiers, resampled.workers)
+    return(
+      tryCatch(
+        run.model(replication.design.data),
+        warning=function(e) {return(c(syllables=NA, surprisal=NA, both=NA))},
+        error=function(e) {return(c(syllables=NA, surprisal=NA, both=NA))}
+      )
+    )
+  })
+  power = rowMeans(results, na.rm=T)
+  return(c(
+    syll=power[["syll"]],
+    surprisal=power[["surprisal"]],
+    both=power[["both"]],
+    intensifiersN=intensifiersN,
+    participantsN=participantsN,
+    reps=reps))
+}
+power.rep.20.72 = bootstrap.power.rep.design(100, 20, 72)
+power.rep.50.72 = bootstrap.power.rep.design(100, 50, 72)
+power.rep.100.72 = bootstrap.power.rep.design(100, 100, 72)
 ```
 
 ### 4. Items
