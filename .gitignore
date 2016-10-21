@@ -16,3 +16,6 @@
 old-intensifiers
 local_notes
 cache
+data-collection
+*.DS_Store
+*_files/
