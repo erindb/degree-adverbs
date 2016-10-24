@@ -46,7 +46,31 @@ function UTWorkerLimitReached(ut_id, workerId, assignmentId) {
 (function(){
     var ut_id = "bennett-intensifiers-replication-friends-purchases-10-24-2016";
     if (UTWorkerLimitReached(ut_id)) {
-        document.getElementById('mturk_form').style.display = 'none';
-        document.getElementsByTagName('body')[0].innerHTML = "You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating.";
+    	console.log("nope!");
+    	$(".slide").hide();
+    	//document.body.innerHTML = "";
+
+        var div = document.createElement('div'), style = div.style;
+        style.backgroundColor = "gray";
+        style.color = "white";
+        
+        style.position = "absolute";
+        style.margin = "0";
+        style.padding = "0";
+        style.paddingTop = "15px";
+        style.paddingBottom = "15px";
+        style.top = "0";
+        style.width = "98%";
+        style.textAlign = "center";
+        style.fontFamily = "arial";
+        style.fontSize = "24px";
+        style.fontWeight = "bold";
+        
+        style.opacity = "0.5";
+        style.filter = "alpha(opacity = 50)";
+        
+        div.innerHTML = "You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT'.";
+        
+        document.body.appendChild(div);
     }
 })();
