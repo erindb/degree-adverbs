@@ -155,6 +155,16 @@ function color(object) {
 
 /// init ///
 function init() {
+  repeatWorker = false;
+  (function(){
+      var ut_id = "explanations-exp4-lk-rep-counterfactuals";
+      if (UTWorkerLimitReached(ut_id)) {
+        $('.slide').empty();
+        repeatWorker = true;
+        alert("You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating.");
+      }
+  })();
+  
   exp.objects = _.shuffle(["coffee maker", "laptop", "watch"]);
   exp.items = get_items();
   colors = _.shuffle(["red", "orange", "green", "blue", "purple"]);
@@ -193,6 +203,11 @@ function init() {
       exp.go();
     }
   });
+
+  if (repeatWorker) {
+    $('.slide').empty();
+    alert("You have already completed the maximum number of HITs allowed by this requester. Please click 'Return HIT' to avoid any impact on your approval rating.");
+  }
 
   exp.go(); //show first slide
 }
