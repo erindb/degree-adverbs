@@ -1,0 +1,153 @@
+---
+title: "Intensifiers: Replication Experiment"
+author: "Erin Bennett"
+output: 
+  html_document:
+      toc: false
+---
+
+```{r global_options, include=FALSE}
+rm(list=ls())
+knitr::opts_chunk$set(echo=F, warning=F, cache=F, message=F, sanitiz =T, fig.width = 5, fig.height = 3)
+```
+
+```{r load_settings}
+source("~/Settings/mini-startup.R")
+```
+
+## Experiment
+
+Rating experiment.
+
+## Planned analysis
+
+### 1. Reformat data
+
+We first excluded any participants who are not native speakers of English or who stated that they did not think they followed instructions.
+
+People represent prices logarithmically, so we log-transform all of the prices that participants entered.
+
+We don't care about modeling the prices of the individual objects. We think that this factor might interact with participants (different participants have different beliefs about price distributions for different objects), but we do not have enough data to fit an accurate mixed model with interacting random effects. So we z-score within each participant's ratings for each object (Thanks, Reviewer, for the suggestion!).
+
+```{r}
+## load intensifier data
+unigrams = read.csv("new-intensifiers-with-freq.csv")
+total_ngrams = 1024908267229
+freq = unigrams$frequency
+syll = unigrams$syllables
+names(freq) = names(syll) = unigrams$intensifier
+
+## load experiment data
+df = read.csv("replication2016-data.csv") %>%
+  filter(language %in% c(
+    "English",  "english",  "Engli",    "Englsih",  "engish",   "English ",
+    "ENGLISH", "ENG", "eng") &
+      assess == "Yes") %>%
+  select(workerid, price, intensifier, object) %>%
+  mutate(logprice = as.numeric(log(price))) %>%
+  group_by(object, workerid) %>%
+  mutate(logprice = as.numeric(log(price)),
+         logprice.centered = logprice - mean(logprice),
+         z = as.numeric(scale(log(price))),
+         z = ifelse(is.nan(z), 0, z),
+         logprice.scaled = z) %>%
+  ungroup %>%
+  mutate(freq = freq[as.character(intensifier)],
+         syll = syll[as.character(intensifier)],
+         syll.centered = syll - mean(syll),
+         surprisal = -log(freq/total_ngrams),
+         surprisal.centered = surprisal - mean(surprisal),
+         syll.scaled = scale(syll),
+         surprisal.scaled = scale(surprisal),
+         word.cost = 0.18124*syll.centered + 0.10704*surprisal.centered)
+```
+
+Here's the original data. The slopes and intercepts vary by both participants and objects. In particular, watches seem to have larger slopes than laptops.
+
+```{r}
+df %>% ggplot(., aes(x=word.cost,
+                     y=logprice,
+                     group=paste(workerid, object))) +
+  geom_line(stat="smooth",method = "lm", alpha = 0.1) +
+  facet_wrap(~object) +
+  geom_point(alpha=0.1)
+ggsave("raw-data.png", width=6, height=3)
+```
+
+And here's what the data look like when we z-score within each participant's responses for each object. Now each participant has an intercept of zero (kind of obviously...), but the slopes vary across participants.
+
+```{r}
+df %>% ggplot(., aes(x=word.cost,
+                     y=logprice.scaled,
+                     group=paste(workerid, object))) +
+  geom_line(stat="smooth",method = "lm", alpha = 0.1) +
+  facet_wrap(~object) +
+  geom_point(alpha=0.1)
+ggsave("scaled-data.png", width=6, height=3)
+```
+
+### 2. Model
+
+Given that preprocessing involves normalizing responses from each participant for each item, we would use the following model, which includes a random slope for participant but no random intercept. We include random intercepts for intensifier (the particular words). We center the continuous predictors by subtracting their means.
+
+```{r, echo=T}
+m = lmer(logprice.scaled ~ 1 + syll.centered * surprisal.centered +
+    (0 + syll.centered + surprisal.centered | workerid) +
+    (1 | intensifier), df)
+```
+
+```{r}
+summary(m)
+```
+
+We did not replicate our original model.
+
+```{r}
+m.old = lmer(logprice ~ surprisal + syll +
+               (1 + surprisal + syll | workerid) +
+               (1 + surprisal + syll | object), data=df)
+summary(m.old)
+```
+
+```{r}
+get_coef = function(s) {
+  sub_data = df %>% filter(syll==s)
+  coefs = (sub_data %>%
+            lmer(logprice ~ 1 + surprisal.centered +
+                   (0 + surprisal.centered | workerid) +
+                   (1 | intensifier), .) %>%
+            summary())$coefficients
+  return(c(
+    syllables = s,
+    coef = coefs["surprisal.centered", "Estimate"],
+    se = coefs["surprisal.centered", "Std. Error"],
+    mean.surprisal = mean(sub_data$surprisal),
+    se.surprisal = sd(sub_data$surprisal)/sqrt(length(sub_data$surprisal)),
+    mean.logprice = mean(sub_data$logprice),
+    se.logprice = sd(sub_data$logprice)/sqrt(length(sub_data$logprice))
+  ))
+}
+syllables_coefs_data = as.data.frame(t(sapply(1:4, get_coef)))
+syllables_coefs_data %>%
+  ggplot(., aes(x=syllables, y=coef)) +
+  geom_point() +
+  geom_errorbar(aes(ymin=coef-2*se, ymax=coef+2*se), width=0) +
+  ylab("surprisal coefficient")
+ggsave("surprisal-coefficient-by-syll.png", width=4, height=3)
+syllables_coefs_data %>%
+  ggplot(., aes(x=syllables, y=mean.logprice)) +
+  geom_point() +
+  geom_errorbar(aes(ymin=mean.logprice-2*se.logprice,
+                    ymax=mean.logprice+2*se.logprice), width=0) +
+  ylab("mean log(price estimate)")
+ggsave("response-by-syll.png", width=4, height=3)
+syllables_coefs_data %>%
+  ggplot(., aes(x=syllables, y=mean.surprisal)) +
+  geom_point() +
+  geom_errorbar(aes(ymin=mean.surprisal-(2*se.surprisal),
+                    ymax=mean.surprisal+(2*se.surprisal)), width=0) +
+  ylab("mean surprisal")
+ggsave("surprisal-by-syll.png", width=4, height=3)
+df %>% group_by(syll) %>%
+  summarise(n = length(unique(intensifier)))
+```
