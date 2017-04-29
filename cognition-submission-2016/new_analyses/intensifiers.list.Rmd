@@ -61,4 +61,5 @@ New list:
 ```{r}
 print(as.character(
   new.intensifiers))
+write.csv(x=new.intensifiers, file="new-intensifiers.csv")
 ```
