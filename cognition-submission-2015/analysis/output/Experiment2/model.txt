@@ -1,0 +1,72 @@
+
+Call:
+mlogit(formulnull device 
+          1 
+bles | 0, data = G, method = "nr", 
+    print.level = 0)
+
+Frequencies of alternatives:
+        acutely       amazingly    astoundingly         awfully      colossally       decidedly     desperately 
+       0.018849        0.027778        0.026786        0.023810        0.026786        0.020833        0.023810 
+     especially     exceedingly   exceptionally     excessively extraordinarily       extremely   fantastically 
+       0.020833        0.027778        0.027778        0.027778        0.027778        0.027778        0.025794 
+    frightfully      incredibly        insanely       intensely        markedly        mightily         notably 
+       0.026786        0.027778        0.027778        0.027778        0.025794        0.026786        0.024802 
+   outrageously    particularly    phenomenally           quite       radically      remarkably       seriously 
+       0.027778        0.017857        0.027778        0.014881        0.026786        0.027778        0.025794 
+  significantly      strikingly       supremely    surpassingly        terribly    terrifically         totally 
+       0.027778        0.026786        0.027778        0.025794        0.026786        0.027778        0.021825 
+          truly      uncommonly       unusually         utterly            very 
+       0.019841        0.017857        0.021825        0.025794        0.019841 
+
+nr method
+6 iterations, 0h:0m:10s 
+g'(-H)^-1g = 0.00475 
+successive function values within tolerance limits 
+
+Coefficients :
+          Estimate Std. Error t-value  Pr(>|t|)    
+surprisal 0.164000   0.016193 10.1280 < 2.2e-16 ***
+syllables 0.242732   0.041223  5.8883 3.903e-09 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Log-Likelihood: -1605.2
+
+Call:
+mlogit(formula = ch ~ surprisal + syllables + surprisal:adjective + 
+    syllables:adjective | 0, data = G, method = "nr", print.level = 0)
+
+Frequencies of alternatives:
+        acutely       amazingly    astoundingly         awfully      colossally       decidedly     desperately 
+       0.018849        0.027778        0.026786        0.023810        0.026786        0.020833        0.023810 
+     especially     exceedingly   exceptionally     excessively extraordinarily       extremely   fantastically 
+       0.020833        0.027778        0.027778        0.027778        0.027778        0.027778        0.025794 
+    frightfully      incredibly        insanely       intensely        markedly        mightily         notably 
+       0.026786        0.027778        0.027778        0.027778        0.025794        0.026786        0.024802 
+   outrageously    particularly    phenomenally           quite       radically      remarkably       seriously 
+       0.027778        0.017857        0.027778        0.014881        0.026786        0.027778        0.025794 
+  significantly      strikingly       supremely    surpassingly        terribly    terrifically         totally 
+       0.027778        0.026786        0.027778        0.025794        0.026786        0.027778        0.021825 
+          truly      uncommonly       unusually         utterly            very 
+       0.019841        0.017857        0.021825        0.025794        0.019841 
+
+nr method
+4 iterations, 0h:0m:10s 
+g'(-H)^-1g = 1.21E-07 
+gradient close to zero 
+
+Coefficients :
+                              Estimate Std. Error t-value  Pr(>|t|)    
+surprisal                     0.073518   0.029621  2.4819 0.0130677 *  
+syllables                     0.318197   0.086995  3.6576 0.0002545 ***
+surprisal:adjectiveexpensive  0.170480   0.046523  3.6645 0.0002479 ***
+surprisal:adjectiveold        0.036712   0.042993  0.8539 0.3931611    
+surprisal:adjectivetall       0.188075   0.045466  4.1366 3.524e-05 ***
+syllables:adjectiveexpensive -0.100363   0.119231 -0.8418 0.3999271    
+syllables:adjectiveold       -0.092230   0.118813 -0.7763 0.4375942    
+syllables:adjectivetall      -0.103075   0.120553 -0.8550 0.3925397    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Log-Likelihood: -1592.2
