@@ -1,0 +1,523 @@
+---
+title: "Intensifiers"
+author: "erin"
+output: html_document
+---
+
+```{r}
+### load required packages
+
+library(lme4, quietly=T)
+library(ggplot2, quietly=T)
+library(plyr, quietly=T)
+library(rjson, quietly=T)
+library(grid, quietly=T)
+source("~/opt/r_helper_scripts/bootsSummary.r")
+# source("~/opt/r_helper_scripts/gg_themes.R")
+# gg_color_hue <- function(n) {
+#   hues = seq(15, 375, length=n+1)
+#   hcl(h=hues, l=65, c=100)[1:n]
+# }
+```
+
+# Experiment 1
+
+```{r}
+### load experiment data
+
+d = read.table("degree-adverbs-exp5.tsv", header=T, sep="\t")
+d$intensifier = as.character(d$adverb)
+d = d[,c("workerid", "intensifier", "object", "response", "gender")]
+d$workerid = as.factor(d$workerid)
+d$logprice = log(d$response)
+
+### load web ngrams data
+web_1grams = read.table("web_1grams.csv", header=T, sep=",")
+syllables = web_1grams$syllables
+names(syllables) = web_1grams$ngram
+ngrams = read.table("web_1grams.csv", header=T, sep=",")
+frequencies = ngrams$frequency
+names(frequencies) = as.character(ngrams$ngram)
+d$frequency = sapply(d$intensifier, function(adverb) {return(frequencies[adverb])})
+d$syllables = sapply(d$intensifier, function(adverb) {return(syllables[adverb])})
+total_tokens = 1024908267229
+total_1grams = total_tokens
+# total_unique_2grams = 314843401
+# total_2grams = total_tokens - 40 + total_unique_2grams #because i +40 smoothed the 2grams
+total_ngrams = total_1grams
+d$surprisal = log(total_ngrams) - log(d$frequency)
+#d$surprisal = - log(d$frequency)
+d = d[d$surprisal != 0,]
+d$c.surprisal = d$surprisal - mean(d$surprisal)
+d$c.syllables = d$syllables - mean(d$syllables)
+
+d_summary = bootsSummary(data=d, measurevar="logprice", groupvars=c("intensifier", "surprisal", "syllables"))
+d_summary$syllables = as.ordered(d_summary$syllables)
+p = ggplot(data=d_summary, aes(x=surprisal, y=logprice, colour=syllables)) +
+  geom_smooth(method="lm", colour="grey", alpha=1/10) +
+  geom_point(size=4) +
+  theme_bw(18) +
+  scale_colour_grey() +
+  theme(panel.grid=element_blank()) +
+  ggtitle("how much does a ___ expensive object cost?") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5)
+print(p)
+ggsave("images/exp1-plot.png", width=10, height=6)
+
+d_summary = bootsSummary(data=d, measurevar="logprice", groupvars=c("intensifier", "surprisal", "syllables", "object"))
+d_summary$syllables = as.ordered(d_summary$syllables)
+p = ggplot(data=d_summary, aes(x=surprisal, y=logprice, colour=syllables)) +
+  geom_smooth(method="lm", colour="grey", alpha=1/10) +
+  facet_wrap(~ object) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5) +
+  geom_point(size=4) +
+  theme_blackDisplay()
+ggsave("images/exp1-plot-presentation.png", width=16, height=6)
+```
+
+We used `r length(unique(d$intensifier))` intensifiers.
+There were `r length(unique(d$workerid))` participants.
+
+```{r}
+print(ngrams)
+```
+
+The correlation between surprisal and syllable length in our data was only `r with(d, cor(syllables, surprisal))`.
+
+We found significant positive main effects of surprisal and syllable length and a significant positive interaction.
+
+```{r}
+library(lmerTest, quietly=T)
+d$c.surprisal = d$surprisal - mean(d$surprisal)
+d$c.syllables = d$syllables - mean(d$syllables)
+full_model = lmer(logprice ~ c.surprisal * c.syllables +
+                        (1 + c.surprisal + c.syllables | workerid) +
+                        (1 + c.surprisal + c.syllables | object), data=d)
+print(summary(full_model))
+```
+
+I decided to include an interaction term in the regreesion because an anova showed that to be a better fit,
+
+```{r}
+no_interaction_model = lmer(logprice ~ c.surprisal + c.syllables +
+                        (1 + c.surprisal + c.syllables | workerid) +
+                        (1 + c.surprisal + c.syllables | object), data=d)
+print(anova(no_interaction_model, full_model))
+```
+
+and because the graph looks like it might have an interaction.
+
+```{r}
+d_summary = bootsSummary(data=d, measurevar="logprice", groupvars=c("intensifier", "surprisal", "syllables"))
+d_summary$syllables = as.ordered(d_summary$syllables)
+p = ggplot(data=d_summary, aes(x=surprisal, y=logprice, colour=syllables)) +
+  geom_smooth(method="lm", alpha=1/10) +
+  #geom_point(size=4) +
+  theme_bw(18) +
+  #scale_colour_grey() +
+  theme(panel.grid=element_blank()) +
+  ggtitle("how much does a ___ expensive object cost?") #+
+  #geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5)
+print(p)
+
+d_summary = bootsSummary(data=d, measurevar="logprice", groupvars=c("intensifier", "surprisal", "syllables", "object"))
+d_summary$syllables = as.ordered(d_summary$syllables)
+p = ggplot(data=d_summary, aes(x=surprisal, y=logprice, colour=syllables)) +
+  geom_smooth(method="lm", alpha=1/10) +
+  #geom_point(size=4) +
+  theme_bw(18) +
+  facet_wrap(~ object) +
+  #scale_colour_grey() +
+  theme(panel.grid=element_blank()) +
+  ggtitle("how much does a ___ expensive object cost?") #+
+  #geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5)
+print(p)
+```
+
+There is no random slope for the interaction for worker or object, because when there was, the model wouldn't converge. There are other ways I could have simplified the structure of the mixed effects model, but this seemed reasonable. The difference between the mixed effects model and the simple model with just fixed effects is actually not that big, anyway.
+
+```{r}
+fit = lm(logprice ~ c.surprisal * c.syllables, data=d)
+print(summary(fit))
+```
+
+It also doesn't seem to make much of a difference if I have the random slope be on the interaction rather than on the individual predictors.
+
+```{r}
+full_model = lmer(logprice ~ c.surprisal * c.syllables +
+                        (1 + c.surprisal:c.syllables | workerid) +
+                        (1 + c.surprisal:c.syllables | object), data=d)
+print(summary(full_model))
+```
+
+# Experiment 2
+
+```{r}
+### define different adjective sets
+list_a = c(
+  "surpassingly",
+  "astoundingly",
+  "fantastically",
+  "strikingly",
+  "excessively",
+  "markedly",
+  "remarkably",
+  "utterly",
+  "truly",
+  "particularly"
+)
+list_b = c(
+  "colossally",
+  "phenomenally",
+  "mightily",
+  "acutely",
+  "extraordinarily",
+  "amazingly",
+  "terribly",
+  "notably",
+  "significantly",
+  "quite"
+)
+list_c = c(
+  "terrifically",
+  "uncommonly",
+  "supremely",
+  "awfully",
+  "exceedingly",
+  "radically",
+  "exceptionally",
+  "incredibly",
+  "totally",
+  "especially"
+)
+list_d = c(
+  "frightfully",
+  "outrageously",
+  "insanely",
+  "decidedly",
+  "intensely",
+  "unusually",
+  "desperately",
+  "seriously",
+  "extremely",
+  "very"
+)
+### load data
+d = read.table("degree-adverbs-exp4.tsv", header=T, sep="\t")
+d = d[,c("workerid", "trial", "adverb", "ranking", "asses")]
+d$adjective_phrase = d$adverb
+d$adverb = sapply(strsplit(as.character(d$adjective_phrase), " "), function(lst) {return(lst[[1]])})
+d$adjective = sapply(strsplit(as.character(d$adjective_phrase), " "), function(lst) {return(lst[[2]])})
+d$adverb_list = rep("A", nrow(d))
+d$adverb_list[d$adverb %in% list_b] = "B"
+d$adverb_list[d$adverb %in% list_c] = "C"
+d$adverb_list[d$adverb %in% list_d] = "D"
+frequencies = ngrams$frequency
+names(frequencies) = ngrams$ngram
+d$frequency = sapply(d$adverb, function(adverb) {return(frequencies[adverb])})
+d$syllables = sapply(d$adverb, function(adverb) {return(syllables[adverb])})
+d$surprisal = log(total_ngrams)-log(d$frequency)
+#d$surprisal = -log(d$frequency)
+d = ddply(d, .(workerid, adverb_list), transform, rank_order = rank(frequency))
+d$height_in_list = 1-d$ranking
+d$ranking = 11-d$ranking
+
+# d_summary = bootsSummary(data=d, measurevar="height_in_list", groupvars=c("surprisal", "adjective", "adverb", "adverb_list", "syllables"))
+# d_summary$syllables = as.factor(d_summary$syllables)
+# p = ggplot(data=d_summary, aes(x=surprisal, y=height_in_list, colour=syllables)) +
+#   geom_smooth(method="lm", colour="grey", alpha=1/10) +
+#   geom_point(size=3) +
+#   theme_bw(18) +
+#   scale_colour_grey() +
+#   facet_wrap(~ adjective) +
+#   theme(panel.grid=element_blank()) +
+#   ggtitle("how much does a ___ expensive object cost?") +
+#   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5)
+# print(p)
+
+d_summary = bootsSummary(data=d, measurevar="ranking", groupvars=c("surprisal", "adjective", "adverb", "adverb_list", "syllables"))
+d_summary$syllables = as.factor(d_summary$syllables)
+p = ggplot(data=d_summary, aes(x=surprisal, y=ranking, colour=syllables)) +
+  geom_smooth(method="lm", colour="grey", alpha=1/10) +
+  geom_point(size=3) +
+  theme_bw(18) +
+  ylab("surprisal") +
+  xlab("ranking") +
+  scale_colour_grey() +
+  facet_grid(adverb_list ~ adjective) +
+  theme(panel.grid=element_blank()#,
+        #axis.ticks = element_blank(),
+        #axis.text.x = element_blank()
+        ) +
+  scale_x_continuous(breaks = c(10, 14, 18)) +
+  ggtitle("Experiment 2") +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5) +
+  geom_text(data=bootsSummary(data=d, measurevar="ranking", groupvars=c("adverb_list", "adjective")), label="N=", x=-17, y=0, colour="black") +
+  geom_text(data=bootsSummary(data=d, measurevar="ranking", groupvars=c("adverb_list", "adjective")), aes(label=N), x=-15, y=0, colour="black")
+print(p)
+ggsave("images/exp2-plot.png", width=10, height=10)
+
+
+# d_summary = bootsSummary(data=d, measurevar="height_in_list", groupvars=c("surprisal", "adjective", "adverb", "adverb_list", "syllables"))
+# d_summary$syllables = as.factor(d_summary$syllables)
+# p = ggplot(data=d_summary, aes(x=surprisal, y=height_in_list, colour=syllables)) +
+#   geom_smooth(method="lm", alpha=1/10) +
+#   geom_point(size=3) +
+#   theme_bw(18) +
+#   facet_wrap(~ adverb_list) +
+#   theme(panel.grid=element_blank()) +
+#   ggtitle("how much does a ___ expensive object cost?") +
+#   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5)
+# print(p)
+# 
+# d_summary = bootsSummary(data=d, measurevar="height_in_list", groupvars=c("surprisal", "adjective", "adverb", "adverb_list", "syllables"))
+# d_summary$syllables = as.factor(d_summary$syllables)
+# p = ggplot(data=d_summary, aes(x=surprisal, y=height_in_list, colour=syllables)) +
+#   geom_smooth(method="lm", colour="grey", alpha=1/10) +
+#   geom_point() +
+#   geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0)) +
+#   facet_wrap(~ adjective) +
+#   theme_blackDisplay()
+# print(p)
+# ggsave("images/exp2-plot-presentation.png", width=10, height=6)
+```
+
+The same `r length(unique(d$adverb))` intensifiers were used.
+There were `r length(unique(d$workerid))` participants.
+
+There were main effects of surprisal and syllable length, and a signficant interaction.
+
+```{r}
+d$c.surprisal = d$surprisal - mean(d$surprisal)
+d$c.syllables = d$syllables - mean(d$syllables)
+full_model = lm(height_in_list ~ c.surprisal * c.syllables, data=d)
+print(summary(full_model))
+```
+
+```{r}
+for (adjective in unique(d$adjective)) {
+  print(adjective)
+  full_model = lm(ranking ~ c.surprisal * c.syllables, data=d[d$adjective == adjective,])
+  print(summary(full_model))
+}
+for (adverb_list in unique(d$adverb_list)) {
+  print(adverb_list)
+  full_model = lm(ranking ~ c.surprisal * c.syllables, data=d[d$adverb_list == adverb_list,])
+  print(summary(full_model))
+}
+```
+
+The full model (with an interaction term) is again a better fit than the model without an interaction term.
+
+```{r}
+no_interaction_model = lm(height_in_list ~ c.surprisal + c.syllables, data=d)
+print(anova(no_interaction_model, full_model))
+```
+
+The graph again looks like there might be a multiplicative effect.
+
+```{r}
+d_summary = bootsSummary(data=d, measurevar="height_in_list", groupvars=c("surprisal", "syllables"))
+d_summary$syllables = as.factor(d_summary$syllables)
+p = ggplot(data=d_summary, aes(x=surprisal, y=height_in_list, colour=syllables)) +
+  geom_smooth(method="lm", alpha=1/10) +
+  #geom_point(size=4) +
+  theme_bw(18) +
+  theme(panel.grid=element_blank()) +
+  ggtitle("how much does a ___ expensive object cost?") #+
+  #geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5)
+print(p)
+
+d_summary = bootsSummary(data=d, measurevar="height_in_list", groupvars=c("surprisal", "syllables", "adjective"))
+d_summary$syllables = as.factor(d_summary$syllables)
+p = ggplot(data=d_summary, aes(x=surprisal, y=height_in_list, colour=syllables)) +
+  geom_smooth(method="lm", alpha=1/10) +
+  #geom_point(size=4) +
+  theme_bw(18) +
+  facet_wrap(~ adjective) +
+  theme(panel.grid=element_blank()) +
+  ggtitle("how much does a ___ expensive object cost?") #+
+  #geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5)
+print(p)
+
+d_summary = bootsSummary(data=d, measurevar="height_in_list", groupvars=c("surprisal", "syllables", "adverb_list"))
+d_summary$syllables = as.factor(d_summary$syllables)
+p = ggplot(data=d_summary, aes(x=surprisal, y=height_in_list, colour=syllables)) +
+  geom_smooth(method="lm", alpha=1/10) +
+  #geom_point(size=4) +
+  theme_bw(18) +
+  facet_wrap(~ adverb_list) +
+  theme(panel.grid=element_blank()) +
+  ggtitle("how much does a ___ expensive object cost?") #+
+  #geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=surprisal, width=0), lwd=1.5)
+print(p)
+```
+
+# Experiment 3
+
+
+```{r echo=F}
+### load data
+
+d = read.table("exp8.tsv", header=T, sep="\t")
+# d2 = read.table("exp9.csv", header=T, sep=",")
+# d2$workerid = as.numeric(as.character(d2$workerid)) + 18
+# d2 = d2[d2$Answer.dialect == "other",names(d)]
+# d = rbind(d, d2)
+d$workerid = as.factor(d$workerid)
+impatient_workers = unique(d$workerid[sapply(d$workerid, function(worker) {
+  sum(as.logical(as.character(d$impatient[as.character(d$workerid) == worker])),
+      na.rm=T) > 1
+})])
+d = d[!(d$workerid %in% impatient_workers) &
+        !is.na(d$qtype) &
+        d$qtype != "summary",]
+d$target = d$Answer.target
+d = d[,c("workerid", "word", "qtype", "response", "target", "word_type")]
+d$training_condition = d$target
+d$response = as.numeric(as.character(d$response))
+
+d_price = d[d$qtype == "price",]
+d_price$logprice = log(d_price$response)
+d_freq = d[d$qtype == "frequency",]
+
+d_freq_vs_price = reshape(d[!(d$word %in% c("yep", "expensive", "bare", "tree")) & d$qtype %in% c("frequency", "price"),],
+                          direction="wide", timevar="qtype",
+                          idvar=c("workerid", "word", "training_condition", "word_type", "target"))
+d_freq_vs_price$logprice = log(d_freq_vs_price$response.price)
+d_freq_vs_price$propto.surprisal = -log(d_freq_vs_price$response.frequency)
+
+d_summary = bootsSummary(d_price, measurevar="response",
+                         groupvars=c("training_condition", "word"))
+d_freq = bootsSummary(d_freq, measurevar="response",
+                         groupvars=c("training_condition", "word"))
+
+# d$word = as.character(d$word)
+# d$word[d$word == "bare"] = "other"
+# d$word[d$word == "yep"] = "other"
+# d$word[d$word == "expensive"] = "other"
+d_price_diff = reshape(d_price[,c("workerid", "response", "training_condition", "word")],
+                       direction="wide", timevar="word",
+                       idvar=c("workerid", "training_condition"))
+d_price_diff$diff.truly = d_price_diff$response.truly - d_price_diff$response.bare
+d_price_diff$diff.very = d_price_diff$response.very - d_price_diff$response.bare
+d_price_diff = d_price_diff[,c("workerid", "diff.truly", "diff.very", "training_condition")]
+d_price_diff = reshape(d_price_diff,
+                       direction="long", timevar="word",
+                       varying=c("diff.truly", "diff.very"),
+                       idvar=c("workerid", "training_condition"))
+
+d_price_diff$frequency = mapply(function(word, workerid) {
+  return(
+    d$response[d$qtype == "frequency" &
+                      as.character(d$workerid) == workerid &
+                      d$word == word][1]
+    )}, d_price_diff$word, as.character(d_price_diff$workerid))
+
+d_price_diff$word_type = rep("control", nrow(d_price_diff))
+d_price_diff$word_type[d_price_diff$word == d_price_diff$training_condition] = "target"
+d_diff_summary = bootsSummary(d_price_diff, measurevar="diff",
+                         groupvars=c("training_condition", "word"))
+d_diff_summary_type = bootsSummary(d_price_diff, measurevar="diff",
+                         groupvars=c("word_type", "word"))
+```
+
+There were `r length(unique(d$workerid))` participants.
+
+Frequency estimates for an adverb were significantly higher when that adverb was the target (repeated) adverb.
+
+```{r}
+fit = lmer(response ~ word_type + (1 | word) + (1 | workerid), data=d[d$qtype == "frequency" & d$word_type != "yep" & d$word_type != "tree",])
+print(summary(fit))
+
+d_freq_summary = bootsSummary(d[d$qtype == "frequency" & d$word_type != "yep" & d$word_type != "tree",], measurevar="response",
+                         groupvars=c("word_type", "word"))
+dodge = position_dodge(width=0.9)
+p = ggplot(data=d_freq_summary, aes(x=word_type, y=response, fill=word_type)) +
+  geom_bar(stat="identity", position=dodge) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=word_type),
+                position=dodge, width=0.1) +
+  theme_bw(18) +
+  facet_wrap(~ word) +
+  xlab("word type") +
+  ylab("frequency estimate") +
+  theme(panel.grid=element_blank()) +
+  scale_fill_grey() +
+  ggtitle("frequency estimates in different training conditions")
+print(p)
+ggsave("images/exp3-freq-plot.png", width=10, height=6)
+
+
+p = ggplot(data=d_freq_summary, aes(x=word_type, y=response, fill=word_type)) +
+  geom_bar(stat="identity", position=dodge) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=word_type),
+                position=dodge, width=0.1, colour="white") +
+  facet_wrap(~ word) +
+  xlab("word type") +
+  ylab("frequency estimate") +
+  theme_blackDisplay()
+ggsave("images/exp3-freq-plot-presentation.png", width=10, height=6)
+```
+
+Price estimates were significantly lower when the adverb was the target adverb.
+
+```{r}
+fit = lmer(diff ~ word_type + (1 | word) + (1 | workerid), data=d_price_diff)
+print(summary(fit))
+
+dodge = position_dodge(width=0.9)
+p = ggplot(data=d_diff_summary_type, aes(x=word_type, y=diff, fill=word_type)) +
+  geom_bar(stat="identity", position=dodge) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=word_type),
+                position=dodge, width=0.1) +
+  theme_bw(18) +
+  facet_wrap(~ word) +
+  xlab("word type") +
+  ylab("difference between target and bare price estimates") +
+  theme(panel.grid=element_blank()) +
+  scale_fill_grey() +
+  ggtitle("difference score of prices in different training conditions")
+print(p)
+ggsave("images/exp3-price-plot.png", width=10, height=6)
+
+p = ggplot(data=d_diff_summary_type, aes(x=word_type, y=diff, fill=word_type)) +
+  geom_bar(stat="identity", position=dodge) +
+  geom_errorbar(aes(ymin=bootsci_low, ymax=bootsci_high, x=word_type),
+                position=dodge, width=0.1, colour="white") +
+  facet_wrap(~ word) +
+  xlab("word type") +
+  ylab("difference between target and bare price estimates") +
+  theme_black()
+ggsave("images/exp3-price-plot-presentation.png", width=10, height=6)
+```
+
+Price estimates correlated with frequency estimates.
+
+```{r}
+
+fit = lm(response.price ~ response.frequency, data=d_freq_vs_price)
+print(summary(fit))
+p = ggplot(data=d_freq_vs_price, aes(x=-log(response.frequency), y=log(response.price))) +
+  geom_point(size=3) +
+  theme_bw(18) +
+  xlab("-log(frequency) from participants' frequency estimates") +
+  ylab("logprice") +
+  theme(panel.grid=element_blank()) +
+  geom_smooth(method="lm", colour="grey")
+print(p)
+ggsave("images/exp3-scatterplot.png", width=10, height=6)
+
+
+fit = lm(response.price ~ response.frequency, data=d_freq_vs_price)
+print(summary(fit))
+p = ggplot(data=d_freq_vs_price, aes(x=-log(response.frequency), y=log(response.price))) +
+  geom_point(size=3, colour="white") +
+  geom_smooth(method="lm", colour="grey") +
+  theme_blackDisplay() +
+  xlab("-log(frequency)") +
+  ylab("logprice")
+ggsave("images/exp3-scatterplot-presentation.png", width=10, height=6)
+
+
+with(d_freq_vs_price, cor.test(-log(response.frequency), log(response.price)), method="pearson")
+```

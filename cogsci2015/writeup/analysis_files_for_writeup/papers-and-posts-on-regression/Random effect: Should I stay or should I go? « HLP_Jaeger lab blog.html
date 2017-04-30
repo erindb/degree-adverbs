@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html style="" class=" js rgba multiplebgs backgroundsize borderradius boxshadow textshadow opacity cssgradients csstransitions generatedcontent" lang="en"><!--<![endif]--><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Random effect: Should I stay or should I go? « HLP/Jaeger lab blog</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="https://hlplab.wordpress.com/xmlrpc.php">
+
+<!--[if (gte IE 6)&(lte IE 8)]><script type="text/javascript" src="https://s0.wp.com/wp-content/themes/pub/eventbrite/js/libs/selectivizr-min.js"></script><![endif]--><link rel="alternate" type="application/rss+xml" title="HLP/Jaeger lab blog » Feed" href="https://hlplab.wordpress.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="HLP/Jaeger lab blog » Comments Feed" href="https://hlplab.wordpress.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="HLP/Jaeger lab blog » Random effect: Should I stay or should I&nbsp;go? Comments Feed" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/feed/">
+<script src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/platform.js" async="" type="text/javascript"></script><script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel="stylesheet" id="all-css-0" href="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/a_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="eventbrite-raleway-css" href="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/css.css" type="text/css" media="all">
+<link rel="stylesheet" id="all-css-2" href="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/a.css" type="text/css" media="all">
+<script type="text/javascript">
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"Your subscription did not succeed, please try again with a valid email address."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/a_002.js"></script>
+<link rel="stylesheet" id="all-css-0" href="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://hlplab.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Multinomial random effects models in&nbsp;R" href="https://hlplab.wordpress.com/2009/05/07/multinomial-random-effects-models-in-r/">
+<link rel="next" title="Join the lab as a Computing Innovation&nbsp;Fellows" href="https://hlplab.wordpress.com/2009/05/22/join-the-lab-as-a-computing-innovation-fellows/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/">
+<link rel="shortlink" href="http://wp.me/p9bmb-6C">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=https%3A%2F%2Fhlplab.wordpress.com%2F2009%2F05%2F14%2Frandom-effect-structure%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=https%3A%2F%2Fhlplab.wordpress.com%2F2009%2F05%2F14%2Frandom-effect-structure%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Random effect: Should I stay or should I go?">
+<meta property="og:url" content="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/">
+<meta property="og:description" content="One of the more common questions I get about mixed models is whether there are any standards regarding the removal of random effects from the model. When should a random effect be included in the m...">
+<meta property="article:published_time" content="2009-05-14T22:56:43+00:00">
+<meta property="article:modified_time" content="2010-05-12T02:12:22+00:00">
+<meta property="article:author" content="https://hlplab.wordpress.com/author/tiflo/">
+<meta property="og:site_name" content="HLP/Jaeger lab blog">
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg">
+<meta name="twitter:site" content="@_hlplab_">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@_hlplab_">
+<meta property="fb:app_id" content="249643311490">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="https://s0.wp.com/i/webclip.png">
+<link rel="openid.server" href="https://hlplab.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="https://hlplab.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="https://hlplab.wordpress.com/osd.xml" title="HLP/Jaeger lab blog">
+<link rel="search" type="application/opensearchdescription+xml" href="http://wordpress.com/opensearch.xml" title="WordPress.com">
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		<style type="text/css" media="screen">
+			.widget_author_grid ul { overflow: hidden; }
+			.widget_author_grid ul li { background: none !important; clear: none !important; float: left !important; margin: 0 -5px -3px 0 !important; padding: 0 8px 6px 0 !important; border: none !important; list-style: none !important; }
+			.widget_author_grid ul li a { background: none !important; margin: 0 !important; padding: 0 !important; border: 0 !important; }
+			.widget_author_grid .avatar { vertical-align: middle; }
+		</style>
+				<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="HLP/Jaeger lab blog"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-tooltip" content="2 spoons of psycholinguistics, 1/2 cup full of brain, add some modeling, and run the whole thing in the tropics"><meta name="msapplication-task" content="name=Subscribe;action-uri=https://hlplab.wordpress.com/feed/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico"><meta name="title" content="Random effect: Should I stay or should I&nbsp;go? | HLP/Jaeger lab blog on WordPress.com">
+<meta name="description" content="One of the more common questions I get about mixed models is whether there are any standards regarding the removal of random effects from the model. When should a random effect be included in the model? This was also one of the questions we had hope to answer for our field (psycholinguistics) in the pre-CUNY…">
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-image: url('https://s0.wp.com/wp-content/themes/pub/eventbrite/img/bg-main.png'); background-repeat: repeat; background-position: top left; background-attachment: scroll; }
+</style>
+
+<script type="text/javascript" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/google_service.js">
+</script>
+<script type="text/javascript">
+if ( typeof GS_googleAddAdSenseService == 'function' ) { GS_googleAddAdSenseService("ca-pub-3443918307802676"); }
+if ( typeof GS_googleEnableAllServices == 'function' ) { GS_googleEnableAllServices() };
+</script><script src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/google_ads.js"></script>
+<script type="text/javascript" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/amzn_ads.js"></script>
+<script type="text/javascript">
+try { amznads.getAds("3033","300x250"); } catch(e) { /* ignore */ }
+</script><script type="text/javascript" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/bid"></script>
+<script type="text/javascript">
+var amznKeys = amznads.getKeys();
+if (typeof amznKeys != "undefined" && amznKeys != "") { for (var i =0; i < amznKeys.length; i++) { var key = amznKeys[i]; GA_googleAddAttr("amzn", key);} }
+document.close();
+</script>
+<script type="text/javascript">
+if ( typeof GA_googleAddSlot == 'function' ) { GA_googleAddSlot("ca-pub-3443918307802676", "wpcom_below_post_adsafe"); }
+</script>
+<script type="text/javascript">
+if ( typeof GA_googleFetchAds == 'function' ) { GA_googleFetchAds(); }
+</script>
+
+<script type="text/javascript">
+var wpcom_ads = { bid: 2188611, pt: 'permalink', wa: 0, as: 1, domain: 'hlplab.wordpress.com', url: 'https://hlplab.wordpress.com/2009/05/14/random-effect-structure/', gid: '', };
+</script>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/ga.js" async="" type="text/javascript"></script>
+<script src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/osd.js" type="text/javascript"></script><script src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/rate.js" charset="utf-8"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/services.css"><style id="pd_popup_holder_style_7465179_post_410" type="text/css">#pd_popup_holder_7465179_post_410 { position:absolute; display:none; width:350px; height:auto; top:0px; left:0px; z-index:10000; border:solid 1px #CCC; background-color:white; padding:0px 15px;font-family:Arial,Sans;box-shadow: -10px 10px 20px rgba(0, 0, 0, .5);-webkit-box-shadow: 0px 0px 6px rgba(0, 0, 0, .25);-moz-box-shadow: 0px 0px 6px rgba(0, 0, 0, .25); }</style><script src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/a_003.js" async="" type="text/javascript"></script></head>
+
+<body class="single single-post postid-410 single-format-standard custom-background mp6 highlander-enabled highlander-light">
+		<header role="banner">
+		<div class="container">
+			<div class="logo-row">
+												<a sl-processed="1" href="https://hlplab.wordpress.com/" class="logo-text">
+					<h1>HLP/Jaeger lab blog</h1>
+					<h5>2 spoons of psycholinguistics, 1/2 cup full of brain, add some modeling, and run the whole thing in the tropics</h5>
+				</a>
+			</div>
+			<a sl-processed="1" href="#" class="menu-toggle">-</a>
+		</div>
+	</header>
+
+	<section role="main" class="main-container">
+		<div id="site-container" class="container">
+			<div class="menu"><ul><li class="page_item page-item-2"><a sl-processed="1" href="https://hlplab.wordpress.com/about/">About</a></li><li class="page_item page-item-780 page_item_has_children"><a sl-processed="1" href="https://hlplab.wordpress.com/workshops/">Workshops and Classes</a><ul class="children"><li class="page_item page-item-474"><a sl-processed="1" href="https://hlplab.wordpress.com/workshops/lsa09regression/">Workshops on regression at the LSA 2009 Summer&nbsp;Institute</a></li><li class="page_item page-item-135"><a sl-processed="1" href="https://hlplab.wordpress.com/workshops/womm09/">2009 Workshop on Ordinary and Multilevel Models&nbsp;(WOMM)</a></li></ul></li><li class="page_item page-item-790"><a sl-processed="1" href="https://hlplab.wordpress.com/wheres-flo/">Where’s Flo?</a></li></ul></div>
+		<div class="row">
+			<div class="span8">
+				<div class="left-col">
+	<div class="post-410 post type-post status-publish format-standard hentry category-statistics-methodology category-statisticsr tag-mixed-models tag-multilevel-models tag-r-code tag-random-effects event-item" id="post-410">
+
+	<div class="event-text">
+		<h3><a sl-processed="1" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/" rel="bookmark">Random effect: Should I stay or should I&nbsp;go?</a></h3>		<p class="date">
+			<span class="orange upper">
+								<span class="posted-date">Posted on <a sl-processed="1" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/" title="5:56 pm" rel="bookmark"><time class="entry-date published" datetime="2009-05-14T17:56:43+00:00">May 14, 2009</time></a></span> <span class="updated-date">Updated on <a sl-processed="1" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/" title="5:56 pm" rel="bookmark"><time class="updated" datetime="2010-05-11T21:12:22+00:00">May 11, 2010</time></a></span>			</span>
+		</p>
+		<div style="display: inline-block;" class="pd-rating" id="pd_rating_holder_7465179_post_410"><div class="rating-icons" id="pd_rate_7465179_post_410" style="float:left;"><div class="rating-star-icon" onmouseout="PDRTJS_7465179_post_410.rebuild();" onclick="PDRTJS_7465179_post_410.rate(1);" onmouseover="PDRTJS_7465179_post_410.hover(1);" id="PDRTJS_7465179_post_410_stars_1" style="background-size: 32px 48px !important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(https://polldaddy.com/images/ratings/star-yellow-sml.png) bottom left; float: left; padding: 0px; margin: 0px; margin-right: 1px;">&nbsp;</div><div class="rating-star-icon" onmouseout="PDRTJS_7465179_post_410.rebuild();" onclick="PDRTJS_7465179_post_410.rate(2);" onmouseover="PDRTJS_7465179_post_410.hover(2);" id="PDRTJS_7465179_post_410_stars_2" style="background-size: 32px 48px !important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(https://polldaddy.com/images/ratings/star-yellow-sml.png) bottom left; float: left; padding: 0px; margin: 0px; margin-right: 1px;">&nbsp;</div><div class="rating-star-icon" onmouseout="PDRTJS_7465179_post_410.rebuild();" onclick="PDRTJS_7465179_post_410.rate(3);" onmouseover="PDRTJS_7465179_post_410.hover(3);" id="PDRTJS_7465179_post_410_stars_3" style="background-size: 32px 48px !important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(https://polldaddy.com/images/ratings/star-yellow-sml.png) bottom left; float: left; padding: 0px; margin: 0px; margin-right: 1px;">&nbsp;</div><div class="rating-star-icon" onmouseout="PDRTJS_7465179_post_410.rebuild();" onclick="PDRTJS_7465179_post_410.rate(4);" onmouseover="PDRTJS_7465179_post_410.hover(4);" id="PDRTJS_7465179_post_410_stars_4" style="background-size: 32px 48px !important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(https://polldaddy.com/images/ratings/star-yellow-sml.png) bottom left; float: left; padding: 0px; margin: 0px; margin-right: 1px;">&nbsp;</div><div class="rating-star-icon" onmouseout="PDRTJS_7465179_post_410.rebuild();" onclick="PDRTJS_7465179_post_410.rate(5);" onmouseover="PDRTJS_7465179_post_410.hover(5);" id="PDRTJS_7465179_post_410_stars_5" style="background-size: 32px 48px !important; cursor: pointer; width: 16px; height: 16px; line-height: 16px; background: url(https://polldaddy.com/images/ratings/star-yellow-sml.png) bottom left; float: left; padding: 0px; margin: 0px; margin-right: 1px;">&nbsp;</div></div><span style="float:left;">&nbsp;</span><div id="rating_info_7465179_post_410" style="display:block;float:left;background:url(https://polldaddy.com/images/ratings/info.png) no-repeat 3px 2px;width:16px;height:16px;cursor:pointer; null " onclick="javascript:PDRTJS_7465179_post_410.togglePopup();return false;"><span style="display:none;">i</span></div><div class="pd_popup_holder" id="pd_popup_holder_7465179_post_410">&nbsp;</div><div class="rating-msg" id="PDRTJS_7465179_post_410_msg" style="float:left; padding-left: 5px; text-align: left; font:normal normal /16px ; color: #;">Rate This</div><p style="padding: 0px; margin: 0px; clear: both;"></p></div><br><p>One
+ of the more common questions I get about mixed models is whether there 
+are any standards regarding the removal of random effects from the 
+model. <strong>When should a random effect be included in the model? </strong>This was also one of the questions we had hope to answer for our field (psycholinguistics) in the pre-CUNY <a sl-processed="1" href="https://hlplab.wordpress.com/2009-pre-cuny-workshop-on-ordinary-and-multilevel-models-womm/" target="_self">Workshop on Ordinary and Multilevel Models (WOMM)</a>,
+ but I don’t think we got anywhere close to a “standard” (see Harald 
+Baayen’s presentation on understanding random effect correlations though
+ for a very insightful discussion).</p>
+<p>That being said, I find most of us would probably agree on a set of 
+rules of thumb, at least for factorial analyses of balanced data:<span id="more-410"></span></p>
+<ul>
+<li>for balanced data sets, start with fully crossed and fully specified
+ random effects, e.g. for y ~ a*b have lmer(y ~ a * b + (1 + a * b | 
+subject) +(1 + a * b | item), data)</li>
+<li>if that does not converge because any of the to-be-estimated 
+variances of the random effects are effectively zero, than simplify, 
+e.g.
+<ul>
+<li>lmer(y ~ a * b + (1 + a + b | subject) + (1 + a + b | item), data)</li>
+<li>lmer(y ~ a * b + (1 + a * b | subject) + (1 + a | item), data) or lmer(y ~ a * b + (1 + a * b | subject) + (1 + b | item), data)</li>
+<li>lmer(y ~ a * b + (1 + a * b | subject) + (1 | item), data)</li>
+<li>etc. I usually reduce the item effects first, because (at least in 
+researcher-made experiments) item variances usually seem to be much much
+ smaller than subject variances&nbsp;<em>in experiments designed by researchers </em>(but not in corpus or dialogue studies).</li>
+<li>at some point this will converge</li>
+</ul>
+</li>
+<li>check the correlations between random effects (see Baayen’s WOMM 
+presentation, too — available on the blog [google: hlp lab womm, linked 
+to schedule]). If there are high correlations, check whether you can 
+further remove random effect terms (following the hierarchy principle). 
+Use the procedures outlined in, e.g. <a sl-processed="1" href="http://www.sciencedirect.com/science?_ob=ArticleURL&amp;_udi=B6WK4-4RYXSNC-1&amp;_user=10&amp;_rdoc=1&amp;_fmt=&amp;_orig=search&amp;_sort=d&amp;view=c&amp;_acct=C000050221&amp;_version=1&amp;_urlVersion=0&amp;_userid=10&amp;md5=e1b28de18020fffe084e8c8010ad88ab" target="_blank">Baayen, Davidson, Bates, 2008 (JML)</a>
+ or Baayen 2008 (book) for random effect model comparisons. I use 
+REML-fitted models if I want to test whether removal of a random term is
+ significant for a <em>linear</em> mixed effect model (b/c REML is less 
+biased in estimating variances than ML), but apparently the parameter 
+estimates are usually very similar for both estimation methods anyway.</li>
+</ul>
+<p>I would call the resulting random effect structure, the <strong>“maximal random effect structure justified by model comparison/supported by the data</strong>” (given the random effects considered, e.g. subject and items).</p>
+<p>The function <em><span class="skimlinks-unlinked">aovlmer.fnc</span>()</em> in Baayen’s <em>languageR</em>
+ library (for R) allows comparisons of models that differ only in terms 
+of random effects. I also expect there to be functions pretty soon that 
+automate this process somewhat.</p>
+<p>As always, updates, comments, and questions are welcome.</p>
+
+<div class="wpcnt">
+<div class="wpa">
+<a sl-processed="1" class="wpa-about" href="http://wordpress.com/about-these-ads/" rel="nofollow">About these ads</a>
+<script type="text/javascript">
+		var wpcom_adclk_hovering = false;
+		var wpcom_adclk_recorded = false;
+		var wpcom_adclk_theme = "Eventbrite Multi Event";
+		var wpcom_adclk_slot = "wpcom_below_post_adsafe";
+		var wpcom_adclk_network = ( typeof wpcom_adclk_network === "undefined" ) ? "" : wpcom_adclk_network ;
+
+		jQuery(document).ready( function() {
+			function wpcom_adclk_hover_yes() { wpcom_adclk_hovering = true; }
+			function wpcom_adclk_hover_no() { wpcom_adclk_hovering = false; }
+			jQuery(".wpa").click(wpcom_adclk_click);
+			jQuery(".wpa iframe").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+			jQuery(".wpa object").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+
+			jQuery(window).blur( function() {
+				if ( wpcom_adclk_hovering ) { wpcom_adclk_click(); }
+			});
+		});
+
+		function wpcom_adclk_impression() {
+			var stat_gif = document.location.protocol + "//pixel.wp.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_imp_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_imp_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_imp_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_imp_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			return true;
+		}
+
+		function wpcom_adclk_click() {
+			if (wpcom_adclk_recorded) { return true; } // no double counting
+			var stat_gif = document.location.protocol + "//pixel.wp.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_click_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_click_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_click_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_click_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			wpcom_adclk_recorded = true;
+			var now=new Date(); var end=now.getTime()+250;
+			while(true){now=new Date();if(now.getTime()>end){break;}}
+			return true;
+		}
+	
+if ( typeof GA_googleAddAttr == 'function' ) {
+GA_googleAddAttr("AdOpt", "1");
+GA_googleAddAttr("Origin", "other");
+GA_googleAddAttr("LangId", "1");
+GA_googleAddAttr("Domain", "hlplab.wordpress.com");
+GA_googleAddAttr("BlogId", "2188611");
+GA_googleAddAttr("PageURL", "https://hlplab.wordpress.com/2009/05/14/random-effect-structure/");
+GA_googleAddAttr("AdSafe", "1");
+GA_googleAddAttr("Autotag", "science");
+GA_googleAddAttr("Autotag", "technology");
+GA_googleAddAttr("Tag", "statistics-methodology");
+GA_googleAddAttr("Tag", "statisticsr");
+GA_googleAddAttr("Tag", "mixed-models");
+GA_googleAddAttr("Tag", "multilevel-models");
+GA_googleAddAttr("Tag", "r-code");
+GA_googleAddAttr("Tag", "random-effects");
+GA_googleAddAttr("theme_bg", "ffffff");
+GA_googleAddAttr("theme_border", "e2e2e2");
+GA_googleAddAttr("theme_text", "666666");
+GA_googleAddAttr("theme_link", "e77e23");
+GA_googleAddAttr("theme_url", "e77e23");
+GA_googleAddAdSensePageAttr("google_page_url", "https://hlplab.wordpress.com/2009/05/14/random-effect-structure/");
+GA_googleFillSlot("wpcom_below_post_adsafe");
+}
+</script><script src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/ads"></script><div id="google_ads_div_wpcom_below_post_adsafe_ad_wrapper">
+<div id="google_ads_div_wpcom_below_post_adsafe_ad_container" style="display:inline-block;"><script type="text/javascript">
+<!--//<![CDATA[
+   document.MAX_ct0 ='';
+   var m3_u = (location.protocol=='https:'?'https://cas.criteo.com/delivery/ajs.php?':'http://cas.criteo.com/delivery/ajs.php?');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("zoneid=162615");document.write("&amp;nodis=1");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if ((typeof(document.MAX_ct0) != 'undefined') && (document.MAX_ct0.substring(0,4) == 'http')) {
+       document.write ("&amp;ct0=" + escape(document.MAX_ct0));
+   }
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'></scr"+"ipt>");
+//]]>--></script><script type="text/javascript" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/ajs.php"></script><script language="javascript"><!--
+document.write('<scr'+'ipt language="javascript1.1" src="http://adserver.adtechus.com/addyn/3.0/9534.1/3219698/0/170/ADTECH;loc=100;target=_blank;key=key1+key2+key3+key4;grp=[group];misc='+new Date().getTime()+'"></scri'+'pt>');
+//-->
+</script><script language="javascript1.1" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/ADTECH.js"></script><noscript><a href="http://adserver.adtechus.com/adlink/3.0/9534.1/3219698/0/170/ADTECH;loc=300;key=key1+key2+key3+key4;grp=[group]" target="_blank"><img src="http://adserver.adtechus.com/adserv/3.0/9534.1/3219698/0/170/ADTECH;loc=300;key=key1+key2+key3+key4;grp=[group]" border="0" width="300" height="250"></a></noscript>
+<!-- End of JavaScript Tag -->
+<div id="beacon_aa5d222d18" style="position: absolute; left: 0px; top: 0px; visibility: hidden;">
+<img src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/lg.gif" height="0" width="0">
+</div>
+
+
+</div>
+</div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+jQuery( window ).load( function() {
+    if ( jQuery(".wpa script[src*='virool.com']").length > 0 || jQuery(".wpa script[src*='shareth.ru']").length > 0 || jQuery(".wpa iframe[src*='boomvideo.tv']").length > 0 || jQuery(".wpa iframe[src*='viewablemedia.net']").length > 0 || jQuery(".wpa .sharethrough-placement").length > 0 ) {
+        jQuery( '.wpa' ).css( 'width', '400px' );
+    }
+setTimeout(function(){if(typeof GS_googleAddAdSenseService !== 'function'){new Image().src=document.location.protocol+"//pixel.wp.com/g.gif?v=wpcom-no-pv&x_noads=adblock&baba="+Math.random()}},100);
+} );
+</script>
+
+<div id="jp-post-flair" class="sharedaddy sd-rating-enabled sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-google-plus-1"><a sl-processed="1" rel="nofollow" class="share-google-plus-1 sd-button share-icon" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/?share=google-plus-1&amp;nb=1" target="_blank" title="Click to share on Google+" id="sharing-google-410"><span>Google</span></a></li><li class="share-twitter"><a sl-processed="1" rel="nofollow" class="share-twitter sd-button share-icon" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/?share=twitter&amp;nb=1" target="_blank" title="Click to share on Twitter" id="sharing-twitter-410"><span>Twitter</span></a></li><li class="share-facebook"><a sl-processed="1" rel="nofollow" class="share-facebook sd-button share-icon" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/?share=facebook&amp;nb=1" target="_blank" title="Share on Facebook" id="sharing-facebook-410"><span>Facebook</span></a></li><li><a sl-processed="1" href="#" class="sharing-anchor sd-button share-more"><span>More</span></a></li><li class="share-end"></li></ul><div class="sharing-hidden"><div class="inner" style="display: none;"><ul><li class="share-email share-service-visible"><a sl-processed="1" rel="nofollow" class="share-email sd-button share-icon" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/?share=email&amp;nb=1" target="_blank" title="Click to email this to a friend"><span>Email</span></a></li><li class="share-linkedin"><a sl-processed="1" rel="nofollow" class="share-linkedin sd-button share-icon" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/?share=linkedin&amp;nb=1" target="_blank" title="Click to share on LinkedIn" id="sharing-linkedin-410"><span>LinkedIn</span></a></li><li class="share-end"></li><li class="share-tumblr"><a sl-processed="1" rel="nofollow" class="share-tumblr sd-button share-icon" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/?share=tumblr&amp;nb=1" target="_blank" title="Click to share on Tumblr"><span>Tumblr</span></a></li><li class="share-reddit"><a sl-processed="1" rel="nofollow" class="share-reddit sd-button share-icon" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/?share=reddit&amp;nb=1" target="_blank" title="Click to share on Reddit"><span>Reddit</span></a></li><li class="share-end"></li><li class="share-end"></li></ul></div></div></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-2188611-410-54b59f7ac36a2" data-src="//widgets.wp.com/likes/#blog_id=2188611&amp;post_id=410&amp;origin=hlplab.wordpress.com&amp;obj_id=2188611-410-54b59f7ac36a2" data-name="like-post-frame-2188611-410-54b59f7ac36a2"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-2188611-410-54b59f7ac36a2" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/a.html" frameborder="0" height="55px" width="100%"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div>
+<div style="display: block;" id="jp-relatedposts" class="jp-relatedposts">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal"><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="564" data-post-format="false"><span class="jp-relatedposts-post-title"><a sl-processed="1" data-position="0" data-origin="410" rel="nofollow" title="Nagelkerke and CoxSnell Pseudo R2 for Mixed Logit Models
+
+What to do when you need an intuitive measure of model quality for your logit (logistic) model? The problem is that logit models don't have a nice measure such as R-square for linear models, which has a super intuitive interpretation. However, several pseudo R-square measures have been suggested are some…" href="https://hlplab.wordpress.com/2009/08/29/nagelkerke-and-coxsnell-pseudo-r2-for-mixed-logit-models/" class="jp-relatedposts-post-a">Nagelkerke and CoxSnell Pseudo R2 for Mixed Logit Models</a></span><span class="jp-relatedposts-post-context">In "Statistics &amp; Methodology"</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="985" data-post-format="false"><span class="jp-relatedposts-post-title"><a sl-processed="1" data-position="1" data-origin="410" rel="nofollow" title="More on random slopes and what it means if your effect is not longer significant after the inclusion of random slopes
+
+I thought the following snippet from a somewhat edited email I recently wrote in reply to a question about random slopes and what it means that an effect becomes insignificant might be helpful to some. I also took it as an opportunity to updated the procedure I described at http://hlplab.wordpress.com/2009/05/14/random-effect-structure/.…" href="https://hlplab.wordpress.com/2011/06/25/more-on-random-slopes/" class="jp-relatedposts-post-a">More on random slopes and what it means if your effect is not longer significant after the inclusion of random slopes</a></span><span class="jp-relatedposts-post-context">In "Statistics &amp; Methodology"</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="378" data-post-format="false"><span class="jp-relatedposts-post-title"><a sl-processed="1" data-position="2" data-origin="410" rel="nofollow" title="Multinomial random effects models in R
+
+Running a multinomial mixed effects model with the MCMCglmm package in R." href="https://hlplab.wordpress.com/2009/05/07/multinomial-random-effects-models-in-r/" class="jp-relatedposts-post-a">Multinomial random effects models in R</a></span><span class="jp-relatedposts-post-context">In "HLP lab"</span></p></div></div></div>	</div>
+
+	<p class="post-meta">This entry was posted in <a sl-processed="1" href="https://hlplab.wordpress.com/category/statistics-methodology/" rel="category tag">Statistics &amp; Methodology</a>, <a sl-processed="1" href="https://hlplab.wordpress.com/category/statistics-methodology/statisticsr/" rel="category tag">statistics/R</a> and tagged <a sl-processed="1" href="https://hlplab.wordpress.com/tag/mixed-models/" rel="tag">mixed models</a>, <a sl-processed="1" href="https://hlplab.wordpress.com/tag/multilevel-models/" rel="tag">multilevel models</a>, <a sl-processed="1" href="https://hlplab.wordpress.com/tag/r-code/" rel="tag">R code</a>, <a sl-processed="1" href="https://hlplab.wordpress.com/tag/random-effects/" rel="tag">random effects</a>.</p>
+</div> <!-- end post -->
+			<div class="pagination pagination-centered">
+				<ul>
+					<li class="nav-previous"><a sl-processed="1" href="https://hlplab.wordpress.com/2009/05/07/multinomial-random-effects-models-in-r/" rel="prev"> Multinomial random effects models in&nbsp;R</a></li>					<li class="nav-next"><a sl-processed="1" href="https://hlplab.wordpress.com/2009/05/22/join-the-lab-as-a-computing-innovation-fellows/" rel="next">Join the lab as a Computing Innovation&nbsp;Fellows </a></li>				</ul>
+			</div>
+			<div class="well">    <div id="comments" class="comments-area">
+
+    
+            <h2 class="comments-title">
+            2 thoughts on “<span>Random effect: Should I stay or should I&nbsp;go?</span>”        </h2>
+        <ol class="comment-list">
+            	<div class="comment byuser comment-author-tiflo bypostauthor even thread-even depth-1 highlander-comment" id="div-comment-1699">
+		<div id="comment-1699" class="comment-id">
+			<div class="author-info">
+				<a sl-processed="1" href="http://www.bcs.rochester.edu/people/fjaeger/" rel="external nofollow" class="url">tiflo</a> <span>said:</span><br>
+				<small>February 21, 2011 at 11:36 pm</small>
+			</div>
+			<div class="comment-text">
+				<p>For anyone who’s interested in these issues: there was some 
+discussion on R-lang that is highly relevant to the above issue. I 
+outlined a more detailed strategy as to how to proceed in building an 
+appropriate random effect structure for a simple mixed effect model: <a sl-processed="1" href="https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/000225.html" rel="nofollow">https://mailman.ucsd.edu/pipermail/ling-r-lang-l/2011-February/000225.html</a></p>
+<p>See also the follow-up clarifications and questions linked to that post.</p>
+<p id="comment-like-1699" data-liked="comment-not-liked" class="comment-likes comment-not-liked"><a sl-processed="1" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/?like_comment=1699&amp;_wpnonce=9ecb3796c6" class="comment-like-link needs-login" rel="nofollow" data-blog="2188611"><span>Like</span></a><span id="comment-like-count-1699" class="comment-like-feedback">Like</span></p>
+								<div class="reply">
+					<a sl-processed="1" class="comment-reply-link" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/?replytocom=1699#respond" onclick='return addComment.moveForm( "comment-1699", "1699", "respond", "410" )' aria-label="Reply to tiflo">Reply</a>				</div>
+			</div>
+			<div class="clr"></div>
+		</div>
+	</div>
+	<!-- #comment-## -->
+	<div class="pingback odd alt thread-odd thread-alt depth-1 highlander-comment" id="div-comment-1849">
+		<div id="comment-1849" class="comment-id">
+			<div class="author-info">
+				<a sl-processed="1" href="https://hlplab.wordpress.com/2011/06/25/more-on-random-slopes/" rel="external nofollow" class="url">More
+ on random slopes and what it means if your effect is not longer 
+significant after the inclusion of random slopes « HLP/Jaeger lab blog</a> <span>said:</span><br>
+				<small>June 25, 2011 at 1:14 pm</small>
+			</div>
+			<div class="comment-text">
+				<p>[…] might be helpful to some. I also took it as an opportunity to updated the procedure I described at <a sl-processed="1" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/" rel="nofollow">https://hlplab.wordpress.com/2009/05/14/random-effect-structure/</a>. As always, comments are welcome. What I am writing below are just suggestions. […] an […]</p>
+<p id="comment-like-1849" data-liked="comment-not-liked" class="comment-likes comment-not-liked"><a sl-processed="1" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/?like_comment=1849&amp;_wpnonce=52f2a6bc22" class="comment-like-link needs-login" rel="nofollow" data-blog="2188611"><span>Like</span></a><span id="comment-like-count-1849" class="comment-like-feedback">Like</span></p>
+								<div class="reply">
+					<a sl-processed="1" class="comment-reply-link" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/?replytocom=1849#respond" onclick='return addComment.moveForm( "comment-1849", "1849", "respond", "410" )' aria-label="Reply to More on random slopes and what it means if your effect is not longer significant after the inclusion of random slopes « HLP/Jaeger lab blog">Reply</a>				</div>
+			</div>
+			<div class="clr"></div>
+		</div>
+	</div>
+	<!-- #comment-## -->
+        </ol><!-- .comment-list -->
+
+        
+    
+    
+    								<div id="respond" class="comment-respond js">
+				<h3 id="reply-title" class="comment-reply-title">Questions? Thoughts? <small><a sl-processed="1" rel="nofollow" id="cancel-comment-reply-link" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="https://hlplab.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																										
+
+
+												<input id="highlander_comment_nonce" name="highlander_comment_nonce" value="46d53be0c0" type="hidden"><input name="_wp_http_referer" value="/2009/05/14/random-effect-structure/" type="hidden">
+<input name="hc_post_as" id="hc_post_as" value="guest" type="hidden">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea class="autosizejs " tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px none; padding: 0px; box-sizing: content-box; word-wrap: break-word; height: 0px ! important; min-height: 0px ! important; overflow: hidden; transition: none 0s ease 0s ; font-family: Arial,Helvetica,Tahoma,Verdana,sans-serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: none; word-spacing: 0px; text-indent: 0px; line-height: 20px; width: 683px;">Enter your comment here...</textarea><textarea style="height: 40px; overflow: hidden; word-wrap: break-word; resize: none;" placeholder="Enter your comment here..." id="comment" name="comment" title="Enter your comment here..."></textarea></div>
+</div>
+
+<div style="display: none;" id="comment-form-identity">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a sl-processed="1" href="#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a sl-processed="1" href="#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a sl-processed="1" href="#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a sl-processed="1" href="#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/a_002.html" scrolling="no" allowtransparency="true" seamless="seamless" frameborder="0" height="24" width="24"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a sl-processed="1" href="https://gravatar.com/site/signup/" target="_blank">				<img src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Gravatar" class="no-grav" width="25">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email"></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text"></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="text"></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/wplogo.png" alt="WordPress.com Logo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="" type="hidden">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your <span class="skimlinks-unlinked">WordPress.com</span> account. <span class="comment-form-log-out">(&nbsp;<a sl-processed="1" href="javascript:HighlanderComments.doExternalLogout(%20'wordpress'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a sl-processed="1" href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Twitter picture" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="" type="hidden">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a sl-processed="1" href="javascript:HighlanderComments.doExternalLogout(%20'twitter'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a sl-processed="1" href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Facebook photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="" type="hidden">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a sl-processed="1" href="javascript:HighlanderComments.doExternalLogout(%20'facebook'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a sl-processed="1" href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Google+ photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="" type="hidden">
+				<input name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="" type="hidden">
+				<input name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="" type="hidden">
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> You are commenting using your Google+ account. <span class="comment-form-log-out">(&nbsp;<a sl-processed="1" href="javascript:HighlanderComments.doExternalLogout(%20'googleplus'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a sl-processed="1" href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a sl-processed="1" href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+	
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div style="display: none;" id="comment-form-subscribe">
+	<p class="comment-subscription-form"><input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p><p class="post-subscription-form"><input name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto;" tabindex="7" type="checkbox"> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog" style="display: inline;">Notify me of new posts via email.</label></p></div>
+
+												<p style="display: none;" class="form-submit">
+							<input name="submit" id="comment-submit" class="submit" value="Post Comment" type="submit">
+							<input name="comment_post_ID" value="410" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+						</p>
+						<p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="8bdd48a877" type="hidden"></p>
+<input name="genseq" value="1421188986" type="hidden">
+<p style="display: none;"></p>					<input id="ak_js" name="ak_js" value="1421188989321" type="hidden"></form>
+							</div><!-- #respond -->
+			<div style="clear: both"></div>
+</div><!-- #comments -->
+</div>
+							</div>
+			</div>
+			
+
+<aside class="span4" role="complementary">
+	<div class="sidebar">
+		
+		<div id="search-2" class="widget widget_search"><form role="search" method="get" id="searchform" class="searchform" action="https://hlplab.wordpress.com/">
+				<div>
+					<label class="screen-reader-text" for="s">Search for:</label>
+					<input name="s" id="s" type="text">
+					<input id="searchsubmit" value="Search" type="submit">
+				</div>
+			</form></div><div id="blog-stats-2" class="widget widget_blog-stats"><h2 class="widget-title">Blog Stats</h2>		<ul>
+			<li>245,551 hits</li>
+		</ul>
+		</div><div id="follow_button_widget-2" class="widget widget_follow_button_widget">
+		<iframe scrolling="no" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/index.html" frameborder="0" height="20" width="100%"></iframe>
+		<script type="text/javascript">(function(d){var f = d.getElementsByTagName('SCRIPT')[0], p = d.createElement('SCRIPT');p.type = 'text/javascript';p.async = true;p.src = '//widgets.wp.com/platform.js';f.parentNode.insertBefore(p,f);}(document));</script>
+
+		</div><div id="jetpack_my_community-2" class="widget widget_jetpack_my_community"><h2 class="widget-title">Community</h2><div class="widgets-multi-column-grid"><ul><li><a sl-processed="1" href="http://www.zescience.com/mcmcglmm-multinomial-model-in-r-193474"><img id="grav-false-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/a.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://lauraartworks.wordpress.com/"><img id="grav-37af78fbc9e8f58d1f95335c5a3398b6-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/37af78fbc9e8f58d1f95335c5a3398b6.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://htmm.wordpress.com/"><img id="grav-94785457647aa38d9d500cddab49c2c3-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/94785457647aa38d9d500cddab49c2c3.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-16b87e28601b6bfa01ffcf5627d4e1dd-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/16b87e28601b6bfa01ffcf5627d4e1dd.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://experimentalfieldlinguistics.wordpress.com/"><img id="grav-97a0c0e1f55afaa1fed2fbefde27a80f-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/97a0c0e1f55afaa1fed2fbefde27a80f.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-b2bacfa83b60d2307193a5159c59637e-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/b2bacfa83b60d2307193a5159c59637e.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-fa2b2fd36e6bde260e4353a80784ac68-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/fa2b2fd36e6bde260e4353a80784ac68.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://juliansherman.net/"><img id="grav-ad6ecb2c3eed8906f5746b10abf20dee-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/ad6ecb2c3eed8906f5746b10abf20dee.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-de369a94f14d63d6060d1d1d33299f9a-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/de369a94f14d63d6060d1d1d33299f9a_002.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-a4e0264094eef6b7d4d2db27cbfdc76e-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/a4e0264094eef6b7d4d2db27cbfdc76e.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://becker.phonologist.org/"><img id="grav-b765836965f146ccc07379ac0c43ffcf-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/b765836965f146ccc07379ac0c43ffcf.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http:///"><img id="grav-6b09c84accc07b69d2d60b721ac34a38-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/6b09c84accc07b69d2d60b721ac34a38.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://zhenglei.wordpress.com/"><img id="grav-b005ecee2256efe13837f433a39966e3-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/b005ecee2256efe13837f433a39966e3.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-0a6a3567a8837bae7502e6db52a0f8dd-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/0a6a3567a8837bae7502e6db52a0f8dd.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-eb2be9f4b9fb392bb2e15d1d74ec01ab-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/eb2be9f4b9fb392bb2e15d1d74ec01ab.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://zaqrosen.wordpress.com/"><img id="grav-e74394cccb29dd89c21f431f004b939b-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/e74394cccb29dd89c21f431f004b939b.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-b77da8163d658bf97f561bbb52c4a643-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/b77da8163d658bf97f561bbb52c4a643.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://www-personal.umich.edu/%7Emshvarts/"><img id="grav-31eee613ff9301bc936d0f4fd7284363-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/31eee613ff9301bc936d0f4fd7284363.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-fc1061c4f47d095e981e97a9bb41a045-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/fc1061c4f47d095e981e97a9bb41a045.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://wmtang.org/"><img id="grav-1aef7579b6db3a2b0f1e9139cf5c4ff9-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/1aef7579b6db3a2b0f1e9139cf5c4ff9.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://chrismartinwrites.com/"><img id="grav-dbbee1bafa8b1f9c43a3659610ea11d1-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/dbbee1bafa8b1f9c43a3659610ea11d1.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://teflresearch.wordpress.com/"><img id="grav-74cdb260b4447df1c3120580438347ca-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/74cdb260b4447df1c3120580438347ca.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-3728b96fc3dd2e62cc4a0982a0e07024-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/3728b96fc3dd2e62cc4a0982a0e07024.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://www.flywithjaebek.com/wp"><img id="grav-6384e4b63b7b3d8bbb898581db70dde9-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/6384e4b63b7b3d8bbb898581db70dde9.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://gravatar.com/fusaroli"><img id="grav-0c5392a4e6e4da07842850870b514a03-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/0c5392a4e6e4da07842850870b514a03.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-96201b012cd7ecc6267ae10666f96f95-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/96201b012cd7ecc6267ae10666f96f95.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://talinorfali.wordpress.com/"><img id="grav-5e2a7b3fbdfaf93f2d7b0cd3a97db9c0-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/5e2a7b3fbdfaf93f2d7b0cd3a97db9c0.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-87442e505919f0d53d06593d5617d5b7-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/87442e505919f0d53d06593d5617d5b7.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://epl.beckman.illinois.edu/"><img id="grav-0dc242594a644a3df330fb7e96f74406-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/0dc242594a644a3df330fb7e96f74406.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://kingdomoftides.wordpress.com/"><img id="grav-eab932774b1c5f159658659982c72136-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/eab932774b1c5f159658659982c72136.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://linguisticpulse.com/"><img id="grav-3a0f696db9359fb3dac3c48bbaf9fd50-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/3a0f696db9359fb3dac3c48bbaf9fd50.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://lesleycarter.wordpress.com/"><img id="grav-4fa9e9d40d90ed2c8c4cc5c0594da739-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/4fa9e9d40d90ed2c8c4cc5c0594da739.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://sunnysleevez.wordpress.com/"><img id="grav-f8e5264a007d01bee7473a06b94c9719-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/f8e5264a007d01bee7473a06b94c9719.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://ultimatemindsettoday.wordpress.com/"><img id="grav-c8f8b9e71be067de06ce24382c80f694-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/c8f8b9e71be067de06ce24382c80f694.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://tardigrad.wordpress.com/"><img id="grav-a9f48cc9b2aae17fe063d3e171b17231-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/a9f48cc9b2aae17fe063d3e171b17231.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://kotev25.wordpress.com/"><img id="grav-13a9947d66f514427a4913318391a2a1-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/13a9947d66f514427a4913318391a2a1.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://bhounkpati.wordpress.com/"><img id="grav-fbad7736e96e29993e915cf2ad773482-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/fbad7736e96e29993e915cf2ad773482.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://dianahechavarria.wordpress.com/"><img id="grav-61079f2b42aeeddda67d3bb948976ff6-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/61079f2b42aeeddda67d3bb948976ff6.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-3b6b87e817032e730a15efb48373e34d-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/3b6b87e817032e730a15efb48373e34d.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://travelagos.wordpress.com/"><img id="grav-fd1dbb855bcd8941e24277fbddc58550-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/fd1dbb855bcd8941e24277fbddc58550.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-185b926aa4eea7eca9b8ef619a855b1d-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/185b926aa4eea7eca9b8ef619a855b1d.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-da0cb567ce3e8f69b097914cb87d1305-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/da0cb567ce3e8f69b097914cb87d1305.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://eflnotes.wordpress.com/"><img id="grav-017b8fc8ac957d94ef3a03d3e4b1071e-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/017b8fc8ac957d94ef3a03d3e4b1071e.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://kmyu.wordpress.com/"><img id="grav-196d45d912c119abc8eb9714d5902661-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/196d45d912c119abc8eb9714d5902661.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-462c98deae45aa06035a5868fea1b249-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/462c98deae45aa06035a5868fea1b249.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://seriousstats.wordpress.com/"><img id="grav-1fe0e0b57d18ecd95ad62e9daeabc038-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/1fe0e0b57d18ecd95ad62e9daeabc038.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://carpetbomberz.com/"><img id="grav-c710944044834cf89c4128052947d657-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/c710944044834cf89c4128052947d657.jpeg" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href="http://hmpage.wordpress.com/"><img id="grav-25d86658050a6233cc52b80ad5ae2820-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/25d86658050a6233cc52b80ad5ae2820.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-7925b8d4481bcbb6d006716743cde5a6-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/7925b8d4481bcbb6d006716743cde5a6.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li><li><a sl-processed="1" href=""><img id="grav-7c71cb20edc72141ed0bebeecb0e0a35-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/7c71cb20edc72141ed0bebeecb0e0a35.png" class="avatar avatar-48 grav-hashed" height="48" width="48"></a></li></ul></div></div><div id="recent-comments-3" class="widget widget_recent_comments"><h2 class="widget-title">Recent Comments</h2>				<ul id="recentcomments">
+											<li class="recentcomments">
+							<a sl-processed="1" href="http://bhounkpati.wordpress.com/" rel="external nofollow" class="url">Brad KH</a> on <a sl-processed="1" href="https://hlplab.wordpress.com/2009/04/20/information-on-applying-for-a-waiver-of-the-j1-visa-foreign-residence-requirement/#comment-5275">Information on applying for a waiver of the J1-visa Foreign Residence&nbsp;Requirement</a>						</li>
+
+												<li class="recentcomments">
+							Seth VW on <a sl-processed="1" href="https://hlplab.wordpress.com/2009/04/20/jaeger08/#comment-5260">Jaeger (2008), J Memory Language, 59, 434-446&nbsp;(ANOVA)</a>						</li>
+
+												<li class="recentcomments">
+							Michelle on <a sl-processed="1" href="https://hlplab.wordpress.com/2009/05/07/multinomial-random-effects-models-in-r/#comment-5220">Multinomial random effects models in&nbsp;R</a>						</li>
+
+												<li class="recentcomments">
+							Merner on <a sl-processed="1" href="https://hlplab.wordpress.com/2009/04/20/information-on-applying-for-a-waiver-of-the-j1-visa-foreign-residence-requirement/#comment-5215">Information on applying for a waiver of the J1-visa Foreign Residence&nbsp;Requirement</a>						</li>
+
+										</ul>
+				</div><div id="categories-1" class="widget widget_categories"><h2 class="widget-title">Categories</h2><select name="cat" id="cat" class="postform">
+	<option selected="selected" value="-1">Select Category</option>
+	<option class="level-0" value="3063690">aboutThis&nbsp;&nbsp;(6)</option>
+	<option class="level-0" value="585">etc.&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="28846399">Ever noticed?&nbsp;&nbsp;(15)</option>
+	<option class="level-0" value="145131">For students&nbsp;&nbsp;(33)</option>
+	<option class="level-1" value="2837698">&nbsp;&nbsp;&nbsp;class/tutorial&nbsp;&nbsp;(23)</option>
+	<option class="level-1" value="213665">&nbsp;&nbsp;&nbsp;graduate studies&nbsp;&nbsp;(4)</option>
+	<option class="level-0" value="2838148">HLP lab&nbsp;&nbsp;(57)</option>
+	<option class="level-0" value="2717">link&nbsp;&nbsp;(7)</option>
+	<option class="level-0" value="5281">Papers&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="214194493">Papers, Presentations, etc.&nbsp;&nbsp;(63)</option>
+	<option class="level-1" value="651">&nbsp;&nbsp;&nbsp;articles&nbsp;&nbsp;(27)</option>
+	<option class="level-1" value="34309">&nbsp;&nbsp;&nbsp;Corrections&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="17903">&nbsp;&nbsp;&nbsp;presentations&nbsp;&nbsp;(20)</option>
+	<option class="level-1" value="113753455">&nbsp;&nbsp;&nbsp;Software&nbsp;&nbsp;(4)</option>
+	<option class="level-1" value="10351676">&nbsp;&nbsp;&nbsp;summaries and reviews&nbsp;&nbsp;(4)</option>
+	<option class="level-1" value="4758">&nbsp;&nbsp;&nbsp;thesis&nbsp;&nbsp;(1)</option>
+	<option class="level-1" value="19557">&nbsp;&nbsp;&nbsp;workshop&nbsp;&nbsp;(11)</option>
+	<option class="level-0" value="2764">Press&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="41512">Results&nbsp;&nbsp;(12)</option>
+	<option class="level-1" value="601577">&nbsp;&nbsp;&nbsp;Preliminary&nbsp;&nbsp;(9)</option>
+	<option class="level-0" value="3070443">Statistics &amp; Methodology&nbsp;&nbsp;(93)</option>
+	<option class="level-1" value="2837701">&nbsp;&nbsp;&nbsp;corpus-based research&nbsp;&nbsp;(18)</option>
+	<option class="level-1" value="56734">&nbsp;&nbsp;&nbsp;eye-tracking&nbsp;&nbsp;(2)</option>
+	<option class="level-1" value="6191118">&nbsp;&nbsp;&nbsp;psycholinguistics in the field&nbsp;&nbsp;(7)</option>
+	<option class="level-1" value="3016198">&nbsp;&nbsp;&nbsp;self-paced reading&nbsp;&nbsp;(6)</option>
+	<option class="level-1" value="3016194">&nbsp;&nbsp;&nbsp;statistics/R&nbsp;&nbsp;(59)</option>
+	<option class="level-1" value="28817022">&nbsp;&nbsp;&nbsp;WWW experiments&nbsp;&nbsp;(8)</option>
+	<option class="level-0" value="3908255">Survey&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="1">Uncategorized&nbsp;&nbsp;(15)</option>
+</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	var dropdown = document.getElementById("cat");
+	function onCatChange() {
+		if ( dropdown.options[dropdown.selectedIndex].value > 0 ) {
+			location.href = "https://hlplab.wordpress.com/?cat="+dropdown.options[dropdown.selectedIndex].value;
+		}
+	}
+	dropdown.onchange = onCatChange;
+/* ]]> */
+</script>
+
+</div><div id="top-posts-2" class="widget widget_top-posts"><h2 class="widget-title">Top Posts</h2><ul><li><a sl-processed="1" href="https://hlplab.wordpress.com/2009/05/07/multinomial-random-effects-models-in-r/" class="bump-view" data-bump-view="tp">Multinomial random effects models in R</a></li>
+<li><a sl-processed="1" href="https://hlplab.wordpress.com/2011/02/24/diagnosing-collinearity-in-lme4/" class="bump-view" data-bump-view="tp">Diagnosing collinearity in mixed models from lme4</a></li>
+<li><a sl-processed="1" href="https://hlplab.wordpress.com/2009/04/20/information-on-applying-for-a-waiver-of-the-j1-visa-foreign-residence-requirement/" class="bump-view" data-bump-view="tp">Information on applying for a waiver of the J1-visa Foreign Residence Requirement</a></li>
+<li><a sl-processed="1" href="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/" class="bump-view" data-bump-view="tp">Random effect: Should I stay or should I go?</a></li>
+<li><a sl-processed="1" href="https://hlplab.wordpress.com/2012/03/20/correlation-plot-matrices-using-the-ellipse-library/" class="bump-view" data-bump-view="tp">Correlation plot matrices using the ellipse library</a></li>
+</ul></div><div id="wp_tag_cloud-2" class="widget wp_widget_tag_cloud"><h2 class="widget-title"></h2><div style="overflow:hidden"><a sl-processed="1" href="https://hlplab.wordpress.com/tag/adaptation/" class="tag-link-61092" title="10 topics" style="font-size: 15pt;">adaptation</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/alex-fine/" class="tag-link-13705843" title="5 topics" style="font-size: 10.863636363636pt;">Alex Fine</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/animacy/" class="tag-link-2675138" title="3 topics" style="font-size: 8pt;">animacy</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/centering/" class="tag-link-360121" title="3 topics" style="font-size: 8pt;">centering</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/coding/" class="tag-link-332" title="3 topics" style="font-size: 8pt;">coding</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/cogsci/" class="tag-link-184263" title="4 topics" style="font-size: 9.5909090909091pt;">cogsci</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/collinearity/" class="tag-link-6980127" title="4 topics" style="font-size: 9.5909090909091pt;">collinearity</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/cool-talks/" class="tag-link-2838218" title="4 topics" style="font-size: 9.5909090909091pt;">cool talks</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/cross-linguistic/" class="tag-link-8663475" title="4 topics" style="font-size: 9.5909090909091pt;">cross-linguistic</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/cuny/" class="tag-link-347615" title="5 topics" style="font-size: 10.863636363636pt;">CUNY</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/data-analysis/" class="tag-link-83336" title="5 topics" style="font-size: 10.863636363636pt;">data analysis</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/fedzechkina/" class="tag-link-52917636" title="6 topics" style="font-size: 11.977272727273pt;">Fedzechkina</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/field-work/" class="tag-link-16265" title="9 topics" style="font-size: 14.363636363636pt;">field work</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/funding/" class="tag-link-20250" title="7 topics" style="font-size: 12.772727272727pt;">funding</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/implicit-learning/" class="tag-link-8740347" title="5 topics" style="font-size: 10.863636363636pt;">implicit learning</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/javascript/" class="tag-link-457" title="4 topics" style="font-size: 9.5909090909091pt;">javascript</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/kleinschmidt/" class="tag-link-25024217" title="6 topics" style="font-size: 11.977272727273pt;">Kleinschmidt</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/linear-mixed-models/" class="tag-link-6344356" title="5 topics" style="font-size: 10.863636363636pt;">linear mixed models</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/linguistic-representations/" class="tag-link-33724941" title="4 topics" style="font-size: 9.5909090909091pt;">linguistic representations</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/lmer/" class="tag-link-13267390" title="9 topics" style="font-size: 14.363636363636pt;">lmer</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/lsa/" class="tag-link-150402" title="8 topics" style="font-size: 13.568181818182pt;">LSA</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/maya/" class="tag-link-11361" title="7 topics" style="font-size: 12.772727272727pt;">Maya</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/mechanical-turk/" class="tag-link-17576" title="9 topics" style="font-size: 14.363636363636pt;">Mechanical Turk</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/mixed-logit-model/" class="tag-link-15887271" title="9 topics" style="font-size: 14.363636363636pt;">mixed logit model</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/mixed-models/" class="tag-link-3408561" title="20 topics" style="font-size: 19.454545454545pt;">mixed models</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/multilevel-logit-model/" class="tag-link-15886268" title="7 topics" style="font-size: 12.772727272727pt;">multilevel logit model</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/multilevel-models/" class="tag-link-10915275" title="11 topics" style="font-size: 15.636363636364pt;">multilevel models</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/norcliffe/" class="tag-link-7735227" title="3 topics" style="font-size: 8pt;">Norcliffe</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/nsf/" class="tag-link-24031" title="4 topics" style="font-size: 9.5909090909091pt;">NSF</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/phonetic-adaptation/" class="tag-link-70313191" title="6 topics" style="font-size: 11.977272727273pt;">phonetic adaptation</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/post-doc/" class="tag-link-650487" title="4 topics" style="font-size: 9.5909090909091pt;">post-doc</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/psycholinguistics/" class="tag-link-261432" title="28 topics" style="font-size: 21.681818181818pt;">psycholinguistics</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/qian/" class="tag-link-1124050" title="3 topics" style="font-size: 8pt;">Qian</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/r/" class="tag-link-10189" title="14 topics" style="font-size: 17.227272727273pt;">R</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/r-code/" class="tag-link-4324633" title="29 topics" style="font-size: 22pt;">R code</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/regression/" class="tag-link-151187" title="12 topics" style="font-size: 16.113636363636pt;">regression</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/self-paced-reading/" class="tag-link-3016198" title="5 topics" style="font-size: 10.863636363636pt;">self-paced reading</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/sentence-processing/" class="tag-link-1416132" title="7 topics" style="font-size: 12.772727272727pt;">sentence processing</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/sentence-production/" class="tag-link-4041391" title="16 topics" style="font-size: 18.022727272727pt;">sentence production</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/simulation/" class="tag-link-827" title="3 topics" style="font-size: 8pt;">simulation</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/speech-perception/" class="tag-link-1726045" title="6 topics" style="font-size: 11.977272727273pt;">speech perception</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/syntactic-corpora/" class="tag-link-23073037" title="5 topics" style="font-size: 10.863636363636pt;">syntactic corpora</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/syntactic-priming/" class="tag-link-4488541" title="8 topics" style="font-size: 13.568181818182pt;">syntactic priming</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/travelmotion/" class="tag-link-2838343" title="4 topics" style="font-size: 9.5909090909091pt;">travel/motion</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/typology/" class="tag-link-259952" title="4 topics" style="font-size: 9.5909090909091pt;">typology</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/uniform-information-density/" class="tag-link-28817049" title="8 topics" style="font-size: 13.568181818182pt;">uniform information density</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/visualization/" class="tag-link-44111" title="7 topics" style="font-size: 12.772727272727pt;">visualization</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/word-order/" class="tag-link-2435803" title="9 topics" style="font-size: 14.363636363636pt;">word order</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/workshop/" class="tag-link-19557" title="3 topics" style="font-size: 8pt;">workshop</a>
+<a sl-processed="1" href="https://hlplab.wordpress.com/tag/yucatec/" class="tag-link-6343730" title="8 topics" style="font-size: 13.568181818182pt;">Yucatec</a></div></div><div id="author_grid-2" class="widget widget_author_grid"><h2 class="widget-title"></h2><ul><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/abfine/"> <img id="grav-fff281e077e45e74e45943f240f39eb5-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/fff281e077e45e74e45943f240f39eb5.jpeg" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/annepier/"> <img id="grav-d3538be55e453bd31d4677c41d4e6948-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/d3538be55e453bd31d4677c41d4e6948.png" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/aufrank/"> <img id="grav-b4e4b2476d34da95fe15c5a839c395cd-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/b4e4b2476d34da95fe15c5a839c395cd.jpeg" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/carlosgomezgallo/"> <img id="grav-71c81adc4a72fd2fcdf0af5d2d0bb093-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/71c81adc4a72fd2fcdf0af5d2d0bb093.jpeg" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/dpontillo/"> <img id="grav-dfde865bd83c0f3f13b3f186c827f28b-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/dfde865bd83c0f3f13b3f186c827f28b.png" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/exbuz/"> <img id="grav-246d6e44ca88311cd77815f605b39dda-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/246d6e44ca88311cd77815f605b39dda.png" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/fedzech/"> <img id="grav-e3f5b81d03f76b82a560696e816828ef-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/e3f5b81d03f76b82a560696e816828ef.jpeg" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/jdegen/"> <img id="grav-93d41ee91229d49e4bde8b6097c52258-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/93d41ee91229d49e4bde8b6097c52258.png" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/kleinschmidt/"> <img id="grav-0387a6a7e4ce641c5447dda1c429d1d2-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/0387a6a7e4ce641c5447dda1c429d1d2.jpeg" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/klintonbicknell/"> <img id="grav-de369a94f14d63d6060d1d1d33299f9a-1" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/de369a94f14d63d6060d1d1d33299f9a.png" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/lindsaykb/"> <img id="grav-a8fc8ea6e57ef182304f8b3a3c6b9a50-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/a8fc8ea6e57ef182304f8b3a3c6b9a50.jpeg" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/nesnider/"> <img id="grav-875592bf8505426d9e0a618e15308bf6-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/875592bf8505426d9e0a618e15308bf6.jpeg" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/petergraff/"> <img id="grav-f17cd5045ea25bde1994a30625607d00-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/f17cd5045ea25bde1994a30625607d00.png" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/sabishi/"> <img id="grav-937f87e32a7800c80282337ce87722ff-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/937f87e32a7800c80282337ce87722ff.jpeg" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/tiflo/"> <img id="grav-08d463c5d293b43191eda1ca45736058-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/08d463c5d293b43191eda1ca45736058.jpeg" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li><li><a sl-processed="1" href="https://hlplab.wordpress.com/author/vandurme/"> <img id="grav-c789693764c0d09e765cd19551ee4d85-0" alt="" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/c789693764c0d09e765cd19551ee4d85.jpeg" class="avatar avatar-32 grav-hashed" height="32" width="32"></a></li></ul></div><div id="linkcat-2840784" class="widget widget_links"><h2 class="widget-title">Centers/Labs</h2>
+	<ul class="xoxo blogroll">
+<li><a sl-processed="1" href="http://www.bcs.rochester.edu/" title="Brain and Cognitive Sciences (University of Rochester)">BCS (UofR)</a></li>
+<li><a sl-processed="1" href="http://www.bcs.rochester.edu/ccb/" rel="colleague" title="Interested in computational approaches to the study of the mind &amp; brain? Have a look at the new pages of the Center for Computation and the Brain (University of Rochester)" target="_blank">CCB (UofR)</a></li>
+<li><a sl-processed="1" href="http://www.google.com/calendar/embed?src=eiradsfihb1a0ri2lptla7p4hs%40group.calendar.google.com&amp;ctz=America/New_York" title="Calendar of events relevant to the Center of Langage Science community (local talks, conferences and conference deadlines, etc.)">CLS calendar</a></li>
+<li><a sl-processed="1" href="http://grammar.ucsd.edu/cpl/" title="Roger Levy’s Lab at UCSD">Computational PsychLing Lab (UCSD)</a></li>
+<li><a sl-processed="1" href="http://lpl.ucsd.edu/LabPage/LPL.html" title="Vic Ferreira’s Lab at UCSD">Language Production Lab (UCSD)</a></li>
+<li><a sl-processed="1" href="http://prosodylab.org/labblog/" title="Michael Wagner’s Prosody Lab at McGill">ProsodyLab (McGill)</a></li>
+<li><a sl-processed="1" href="http://tedlab.mit.edu/" title="Ted Gibson’s Lab at MIT">TedLab (MIT)</a></li>
+<li><a sl-processed="1" href="http://www.hlp.rochester.edu/" rel="me" title="Human Language Processing lab (Brain and Cognitive Science, University of Rochester">__HLP lab__</a></li>
+
+	</ul>
+</div>
+<div id="rss-1" class="widget widget_rss"><h2 class="widget-title"><a sl-processed="1" class="rsswidget" href="http://blog.cyberling.org/rss.xml" title="Syndicate this content"><img style="background: orange; color: white; border: none;" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/rss.png" alt="RSS" height="14" width="14"></a> <a sl-processed="1" class="rsswidget" href="http://blog.cyberling.org/" title="">CyberLingBlog</a></h2><ul><li><a sl-processed="1" class="rsswidget" href="http://blog.cyberling.org/node/11640" title="We are pleased to announce the release of PHOIBLE Online, a repository of cross-linguistic phonological inventory data:  http://phoible.org/ read more">PHOIBLE Online</a> <span class="rss-date">September 15, 2014</span> <cite>stiv</cite></li><li><a sl-processed="1" class="rsswidget" href="http://blog.cyberling.org/node/10752" title="Between 11th and 15th of August the Centro Interdisciplinar de Documentação Linguística e Social will organize another summer school in Minde (Portugal), dedicated to the topic &quot;Coding for Language Communities&quot; (CLC 2014). read more">Summer School "Coding for Language Communities"</a> <span class="rss-date">January 23, 2014</span> <cite>pbouda</cite></li><li><a sl-processed="1" class="rsswidget" href="http://blog.cyberling.org/node/10750" title="The NSF Directorates for Social, Behavioral and Economic Sciences (SBE) and for Education and Human Resources (EHR) recently issued the third and final in a series of joint solicitations for Building Community and Capacity for Data-Intensive Research. read more">NSF solicitation "Building Community and Capacity for Data-Intensive Research ... (BCC-SBE/EHR)"</a> <span class="rss-date">December 12, 2013</span> <cite>terry</cite></li><li><a sl-processed="1" class="rsswidget" href="http://blog.cyberling.org/node/10712" title="Back in February of 2012, Sebastian Nordhoff (MPI-EVA) announced on Cyberling the launch of Glottolog/Langdoc, a comprehensive database of bibliographic data about the world’s languages.[1] Unfortunately, given the ephemeral nature of Web resources, links in this announcement, such as &quot;Give me all works about Zulu&quot; now return 404 error messages. Ho […]">Review of Glottolog 2.0</a> <span class="rss-date">August 24, 2013</span> <cite>stiv</cite></li><li><a sl-processed="1" class="rsswidget" href="http://blog.cyberling.org/node/9421" title="Members of the Cyberling community might be interested in the Free Science Blog, for discussion of open access publishing. ">Free Science Blog</a> <span class="rss-date">February 20, 2013</span> <cite>ebender</cite></li></ul></div><div id="rss-2" class="widget widget_rss"><h2 class="widget-title"><a sl-processed="1" class="rsswidget" href="http://languagelog.ldc.upenn.edu/nll/?feed=rss2" title="Syndicate this content"><img style="background: orange; color: white; border: none;" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/rss.png" alt="RSS" height="14" width="14"></a> <a sl-processed="1" class="rsswidget" href="http://languagelog.ldc.upenn.edu/nll" title="">Language Log</a></h2><ul><li><a sl-processed="1" class="rsswidget" href="http://languagelog.ldc.upenn.edu/nll/?p=17097" title="A year ago, I wrote &quot;Zhou Youguang, Father of Pinyin&quot; (1/14/14) to celebrate Zhou xiansheng's 108th birthday and his many accomplishments in language reform and applied linguistics.&nbsp; Included in that post were a portrait of ZYG in his study and numerous links concerning the man and his works. Today I wish to honor my ageless […]">Zhou Youguang, 109 and going strong</a> <span class="rss-date">January 13, 2015</span> <cite>Victor Mair</cite></li><li><a sl-processed="1" class="rsswidget" href="http://languagelog.ldc.upenn.edu/nll/?p=17105" title="Dave Davies, &quot;Clarke out of Philly mayor's race — Butkovitz in?&quot;, newsworks 1/13/2015: Butkovitz made it clear months ago he wanted to run for mayor. He engaged an experienced campaign team, but found it hard to raise money, particularly from unions, as long as there was a chance Clarke might run. In November, Butkovitz called […]">Metaphoric mash-up of the month</a> <span class="rss-date">January 13, 2015</span> <cite>Mark Liberman</cite></li><li><a sl-processed="1" class="rsswidget" href="http://languagelog.ldc.upenn.edu/nll/?p=17100" title="From Gregory &quot;Sir Mashalot&quot; Todd, proof that all Country songs released in 2014 were underlyingly the same: I somehow missed this when it came out in November, but better late than never… Meanwhile, this just in: Terry F. Pettijohn II, Jamie N. Glass, Carly A. Bordino, &amp; Jason T. Eastman, &quot;Facial Feature Assessment of Popular […]">Predictable structure in songs, faces, words, &amp; roles</a> <span class="rss-date">January 13, 2015</span> <cite>Mark Liberman</cite></li><li><a sl-processed="1" class="rsswidget" href="http://languagelog.ldc.upenn.edu/nll/?p=17078" title="At the American Dialect Society annual conference (held in conjunction with the Linguistic Society of America in Portland, OR), the 2014 Word of the Year was a rather unusual choice: the hashtag #blacklivesmatter. I presided over the voting session (in my capacity as the society's Chair of the New Words Committee). You can read the […]">The Word of the Year is a hashtag: #blacklivesmatter</a> <span class="rss-date">January 11, 2015</span> <cite>Ben Zimmer</cite></li><li><a sl-processed="1" class="rsswidget" href="http://languagelog.ldc.upenn.edu/nll/?p=17077" title="From the Hackney Gazette: In some other place and time, perhaps there was a headline &quot;Missing moonshine still discovered&quot;. h/t Anton Cox, who wrote: Although I am a big fan of Language Log, I may be too much of a Brit to get much from most of the crash-blossom posts (I never read them the […]">Missing woman remains found</a> <span class="rss-date">January 11, 2015</span> <cite>Mark Liberman</cite></li></ul></div>	</div>
+</aside>
+		</div>
+	</div>
+</section>
+<footer class="site-footer row" role="contentinfo">
+	<div class="container">
+				<p>
+			<a sl-processed="1" href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com</a>.
+			<a sl-processed="1" href="https://wordpress.com/themes/eventbrite-multi/" title="Learn more about this theme">The Eventbrite Multi Event Theme</a>.		</p>
+		<p>
+			<a sl-processed="1" class="wordpress-link" href="http://eventbrite.com/l/wordpress?ref=wpfooter">We teamed up with Eventbrite</a>
+		</p>
+	</div>
+</footer>
+<!-- wpcom_wp_footer -->
+<script type="text/javascript" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	<div class="grofile-hash-map-fbad7736e96e29993e915cf2ad773482">
+	</div>
+	<div class="grofile-hash-map-b77da8163d658bf97f561bbb52c4a643">
+	</div>
+	<div class="grofile-hash-map-911a3085e8e4536fb30b42d791fb7559">
+	</div>
+	<div class="grofile-hash-map-acbf853f35a59c196c212fc8e461e47d">
+	</div>
+	<div class="grofile-hash-map-08d463c5d293b43191eda1ca45736058">
+	</div>
+	<div class="grofile-hash-map-de369a94f14d63d6060d1d1d33299f9a">
+	</div>
+	<div class="grofile-hash-map-eab932774b1c5f159658659982c72136">
+	</div>
+	<div class="grofile-hash-map-3b6b87e817032e730a15efb48373e34d">
+	</div>
+	<div class="grofile-hash-map-246d6e44ca88311cd77815f605b39dda">
+	</div>
+	<div class="grofile-hash-map-51a9b52230125f564c7708c2a611b5c8">
+	</div>
+	<div class="grofile-hash-map-b2bacfa83b60d2307193a5159c59637e">
+	</div>
+	<div class="grofile-hash-map-9c31ff46070585b5a86e810e0340803f">
+	</div>
+	<div class="grofile-hash-map-0c5392a4e6e4da07842850870b514a03">
+	</div>
+	<div class="grofile-hash-map-5d3d4f8797050e1843ef2d827c590b59">
+	</div>
+	<div class="grofile-hash-map-2a83cefd9c96aea84ebe504599053cef">
+	</div>
+	<div class="grofile-hash-map-462c98deae45aa06035a5868fea1b249">
+	</div>
+	<div class="grofile-hash-map-18f223b2cada86b81624a8716e11dd2a">
+	</div>
+	<div class="grofile-hash-map-0387a6a7e4ce641c5447dda1c429d1d2">
+	</div>
+	<div class="grofile-hash-map-656ad7230f0f06de28e0873c4e3b928f">
+	</div>
+	<div class="grofile-hash-map-16b87e28601b6bfa01ffcf5627d4e1dd">
+	</div>
+	<div class="grofile-hash-map-c0dfed8a2f6ef24c68ec4dcfb61a1e99">
+	</div>
+	<div class="grofile-hash-map-b765836965f146ccc07379ac0c43ffcf">
+	</div>
+	<div class="grofile-hash-map-dcf9672c1893e4b7c5d86ca1bc2bf88f">
+	</div>
+	<div class="grofile-hash-map-da0cb567ce3e8f69b097914cb87d1305">
+	</div>
+	<div class="grofile-hash-map-fa2b2fd36e6bde260e4353a80784ac68">
+	</div>
+	<div class="grofile-hash-map-eb2be9f4b9fb392bb2e15d1d74ec01ab">
+	</div>
+	<div class="grofile-hash-map-d55aa53e10e1817c8cbc6c8e475e5ad1">
+	</div>
+	<div class="grofile-hash-map-937f87e32a7800c80282337ce87722ff">
+	</div>
+	<div class="grofile-hash-map-859c36cc68b1231ed79e767c7feb084d">
+	</div>
+	<div class="grofile-hash-map-a4e0264094eef6b7d4d2db27cbfdc76e">
+	</div>
+	<div class="grofile-hash-map-11d94c899bf55eef248caff14a4952a2">
+	</div>
+	<div class="grofile-hash-map-4a1807109d8bee44380f08e6d783d551">
+	</div>
+	<div class="grofile-hash-map-7925b8d4481bcbb6d006716743cde5a6">
+	</div>
+	<div class="grofile-hash-map-83fe4b875db6af227b73cd1777831cb2">
+	</div>
+	<div class="grofile-hash-map-3728b96fc3dd2e62cc4a0982a0e07024">
+	</div>
+	<div class="grofile-hash-map-31eee613ff9301bc936d0f4fd7284363">
+	</div>
+	<div class="grofile-hash-map-96201b012cd7ecc6267ae10666f96f95">
+	</div>
+	<div class="grofile-hash-map-0dc242594a644a3df330fb7e96f74406">
+	</div>
+	<div class="grofile-hash-map-911214040f54bf5226b7e2a3b243bbc5">
+	</div>
+	<div class="grofile-hash-map-7c71cb20edc72141ed0bebeecb0e0a35">
+	</div>
+	<div class="grofile-hash-map-341138cf329241da596671bacff3d9ab">
+	</div>
+	<div class="grofile-hash-map-4fa9e9d40d90ed2c8c4cc5c0594da739">
+	</div>
+	<div class="grofile-hash-map-94785457647aa38d9d500cddab49c2c3">
+	</div>
+	<div class="grofile-hash-map-1a31cad7eac01636d624b77ae03a4ebd">
+	</div>
+	<div class="grofile-hash-map-017b8fc8ac957d94ef3a03d3e4b1071e">
+	</div>
+	<div class="grofile-hash-map-4959c5e787320c034190f8efc26d3554">
+	</div>
+	<div class="grofile-hash-map-1aef7579b6db3a2b0f1e9139cf5c4ff9">
+	</div>
+	<div class="grofile-hash-map-6384e4b63b7b3d8bbb898581db70dde9">
+	</div>
+	<div class="grofile-hash-map-74cdb260b4447df1c3120580438347ca">
+	</div>
+	<div class="grofile-hash-map-ff3c8b4cf0a66ceb43efa1da087004bf">
+	</div>
+	<div class="grofile-hash-map-c87b0e5b32e3383df7109d0c4a544dce">
+	</div>
+	<div class="grofile-hash-map-fd1dbb855bcd8941e24277fbddc58550">
+	</div>
+	<div class="grofile-hash-map-ad1bf3481b13da405a6fa3d4be84a0f4">
+	</div>
+	<div class="grofile-hash-map-6d7bfec1e01b5f2a4b344940f21d4255">
+	</div>
+	<div class="grofile-hash-map-13a9947d66f514427a4913318391a2a1">
+	</div>
+	<div class="grofile-hash-map-87442e505919f0d53d06593d5617d5b7">
+	</div>
+	<div class="grofile-hash-map-1fe0e0b57d18ecd95ad62e9daeabc038">
+	</div>
+	<div class="grofile-hash-map-5e2a7b3fbdfaf93f2d7b0cd3a97db9c0">
+	</div>
+	<div class="grofile-hash-map-0a6a3567a8837bae7502e6db52a0f8dd">
+	</div>
+	<div class="grofile-hash-map-a6686a4cd649351f8f0fa7731861956c">
+	</div>
+	<div class="grofile-hash-map-533f70f6035926e0b4620dc1417c739e">
+	</div>
+	<div class="grofile-hash-map-b005ecee2256efe13837f433a39966e3">
+	</div>
+	<div class="grofile-hash-map-25d86658050a6233cc52b80ad5ae2820">
+	</div>
+	<div class="grofile-hash-map-0c97b4f4a9d62fb230f46e30cbfddab8">
+	</div>
+	<div class="grofile-hash-map-d20c5e9b7068a86004864c7fcff4b11d">
+	</div>
+	<div class="grofile-hash-map-61079f2b42aeeddda67d3bb948976ff6">
+	</div>
+	<div class="grofile-hash-map-035e836270f93f0c6f4f9c18bbdd2fcf">
+	</div>
+	<div class="grofile-hash-map-a9f48cc9b2aae17fe063d3e171b17231">
+	</div>
+	<div class="grofile-hash-map-c710944044834cf89c4128052947d657">
+	</div>
+	<div class="grofile-hash-map-37af78fbc9e8f58d1f95335c5a3398b6">
+	</div>
+	<div class="grofile-hash-map-530ba2fab6cfead22e509b745b7e5eb3">
+	</div>
+	<div class="grofile-hash-map-e74394cccb29dd89c21f431f004b939b">
+	</div>
+	<div class="grofile-hash-map-7f84ffb3fadbc5c823ce4f12dfc2ea19">
+	</div>
+	<div class="grofile-hash-map-c8f8b9e71be067de06ce24382c80f694">
+	</div>
+	<div class="grofile-hash-map-185b926aa4eea7eca9b8ef619a855b1d">
+	</div>
+	<div class="grofile-hash-map-ded946c44dc0a27defcba56d26acdd01">
+	</div>
+	<div class="grofile-hash-map-dec84078ca7647289efe1ab4a051fb94">
+	</div>
+	<div class="grofile-hash-map-16450dffa70092f90d567a3a1558a449">
+	</div>
+	<div class="grofile-hash-map-ad6ecb2c3eed8906f5746b10abf20dee">
+	</div>
+	<div class="grofile-hash-map-97a0c0e1f55afaa1fed2fbefde27a80f">
+	</div>
+	<div class="grofile-hash-map-af1707fbb19682907e5a8b54b7b80e1a">
+	</div>
+	<div class="grofile-hash-map-3a0f696db9359fb3dac3c48bbaf9fd50">
+	</div>
+	<div class="grofile-hash-map-dbbee1bafa8b1f9c43a3659610ea11d1">
+	</div>
+	<div class="grofile-hash-map-f8e5264a007d01bee7473a06b94c9719">
+	</div>
+	<div class="grofile-hash-map-196d45d912c119abc8eb9714d5902661">
+	</div>
+	<div class="grofile-hash-map-fc1061c4f47d095e981e97a9bb41a045">
+	</div>
+	<div class="grofile-hash-map-6b09c84accc07b69d2d60b721ac34a38">
+	</div>
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/hlplab.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/hlplab.wordpress.com\/wp-login.php?action=logout&_wpnonce=2ef62707eb","homeURL":"https:\/\/hlplab.wordpress.com\/","postID":"410","gravDefault":"monsterid","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"","userIsLoggedIn":"","isJetpack":"0"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/a_004.js"></script>
+
+	<div style="bottom: -287px;" id="bit" class="loggedout-follow-normal">
+		<a sl-processed="1" class="bsub" href="javascript:void(0)"><span id="bsub-text">Follow</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Follow “HLP/Jaeger lab blog”</label></h3>
+
+			<form action="https://subscribe.wordpress.com" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+						<p class="bit-follow-count">Join 671 other followers</p>
+			<p><input name="email" value="Enter your email address" onfocus='this.value=(this.value=="Enter your email address") ? "" : this.value;' onblur='this.value=(this.value=="") ? "Enter your email address" : this.value;' id="loggedout-follow-field" type="email"></p>
+
+			<input name="action" value="subscribe" type="hidden">
+			<input name="blog_id" value="2188611" type="hidden">
+			<input name="source" value="https://hlplab.wordpress.com/2009/05/14/random-effect-structure/" type="hidden">
+			<input name="sub-type" value="loggedout-follow" type="hidden">
+
+			<input id="_wpnonce" name="_wpnonce" value="941350f2b5" type="hidden"><input name="_wp_http_referer" value="/2009/05/14/random-effect-structure/" type="hidden">
+			<p id="bsub-subscribe-button"><input value="Sign me up" type="submit"></p>
+			</form>
+					<div id="bsub-credit"><a sl-processed="1" href="https://wordpress.com/?ref=lof">Build a website with WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+<script type="text/javascript" charset="UTF-8" id="polldaddyRatings"><!--//--><![CDATA[//><!--
+PDRTJS_settings_7465179_post_410={"id":7465179,"unique_id":"wp-post-410","title":"Random%20effect%3A%20Should%20I%20stay%20or%20should%20I%26nbsp%3Bgo%3F","permalink":"https:\/\/hlplab.wordpress.com\/2009\/05\/14\/random-effect-structure\/","item_id":"_post_410"}; if ( typeof PDRTJS_RATING !== 'undefined' ){if ( typeof PDRTJS_7465179_post_410 == 'undefined' ){PDRTJS_7465179_post_410 = new PDRTJS_RATING( PDRTJS_settings_7465179_post_410 );}}
+//--><!]]></script><script type="text/javascript" charset="UTF-8" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/rating.js"></script>
+	<script type="text/javascript">
+		WPCOM_sharing_counts = {"https:\/\/hlplab.wordpress.com\/2009\/05\/14\/random-effect-structure\/":410}	</script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+			
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-linkedin' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-tumblr' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtumblr', 'menubar=1,resizable=1,width=450,height=450' );
+				return false;
+			});
+		});
+		</script>
+				<iframe src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/master.html" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script type="text/javascript">
+		//<![CDATA[
+			var jetpackLikesWidgetQueue = [];
+			var jetpackLikesWidgetBatch = [];
+			var jetpackLikesMasterReady = false;
+
+			function JetpackLikespostMessage( message, target ) {
+				if ( "string" === typeof message ){
+					try{
+						message = JSON.parse( message );
+					}
+					catch(e) {
+						return;
+					}
+				}
+
+				pm( {
+					target: target,
+					type: 'likesMessage',
+					data: message,
+					origin: '*'
+				} );
+			}
+
+			function JetpackLikesBatchHandler() {
+				var requests = [];
+				jQuery( 'div.jetpack-likes-widget-unloaded' ).each( function( i ) {
+					if ( jetpackLikesWidgetBatch.indexOf( this.id ) > -1 )
+						return;
+					jetpackLikesWidgetBatch.push( this.id );
+					var regex = /like-(post|comment)-wrapper-(\d+)-(\d+)-(\w+)/;
+					var match = regex.exec( this.id );
+					if ( ! match || match.length != 5 )
+						return;
+
+					var info = {
+						blog_id: match[2],
+						width:   this.width
+					};
+
+					if ( 'post' == match[1] ) {
+						info.post_id = match[3];
+					} else if ( 'comment' == match[1] ) {
+						info.comment_id = match[3];
+					}
+
+					info.obj_id = match[4];
+
+					requests.push( info );
+				});
+
+				if ( requests.length > 0 ) {
+					JetpackLikespostMessage( { event: 'initialBatch', requests: requests }, window.frames['likes-master'] );
+				}
+			}
+
+			function JetpackLikesMessageListener( event ) {
+				if ( "undefined" == typeof event.event )
+					return;
+
+				if ( 'masterReady' == event.event ) {
+					jQuery( document ).ready( function() {
+						jetpackLikesMasterReady = true;
+
+						var stylesData = {
+								event: 'injectStyles'
+						};
+
+						if ( jQuery( 'iframe.admin-bar-likes-widget' ).length > 0 ) {
+							JetpackLikespostMessage( { event: 'adminBarEnabled' }, window.frames[ 'likes-master' ] );
+
+							stylesData.adminBarStyles = {
+								background: jQuery( '#wpadminbar .quicklinks li#wp-admin-bar-wpl-like > a' ).css( 'background' ),
+								isRtl: ( 'rtl' == jQuery( '#wpadminbar' ).css( 'direction' ) )
+							};
+						}
+
+						if ( !window.addEventListener )
+							jQuery( '#wp-admin-bar-admin-bar-likes-widget' ).hide();
+
+						stylesData.textStyles = {
+							color: jQuery( '.sd-text-color').css( 'color' ),
+							fontFamily: jQuery( '.sd-text-color' ).css( 'font-family' ),
+							fontSize: jQuery( '.sd-text-color' ).css( 'font-size' ),
+							direction: jQuery( '.sd-text-color' ).css( 'direction' ),
+							fontWeight: jQuery( '.sd-text-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-text-color' ).css( 'font-style' ),
+							textDecoration: jQuery( '.sd-text-color' ).css('text-decoration')
+						};
+
+						stylesData.linkStyles = {
+							color: jQuery( '.sd-link-color' ).css('color'),
+							fontFamily: jQuery( '.sd-link-color' ).css('font-family'),
+							fontSize: jQuery( '.sd-link-color' ).css('font-size'),
+							textDecoration: jQuery( '.sd-link-color' ).css('text-decoration'),
+							fontWeight: jQuery( '.sd-link-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-link-color' ).css( 'font-style' )
+						};
+
+						JetpackLikespostMessage( stylesData, window.frames[ 'likes-master' ] );
+
+						JetpackLikesBatchHandler();
+
+						jQuery( document ).on( 'inview', 'div.jetpack-likes-widget-unloaded', function() {
+							jetpackLikesWidgetQueue.push( this.id );
+						});
+					});
+				}
+
+				if ( 'showLikeWidget' == event.event ) {
+					jQuery( '#' + event.id + ' .post-likes-widget-placeholder'  ).fadeOut( 'fast', function() {
+						jQuery( '#' + event.id + ' .post-likes-widget' ).fadeIn( 'fast', function() {
+							JetpackLikespostMessage( { event: 'likeWidgetDisplayed', blog_id: event.blog_id, post_id: event.post_id, obj_id: event.obj_id }, window.frames['likes-master'] );
+						});
+					});
+				}
+
+				if ( 'clickReblogFlair' == event.event ) {
+					wpcom_reblog.toggle_reblog_box_flair( event.obj_id );
+				}
+
+				if ( 'showOtherGravatars' == event.event ) {
+					var $container = jQuery( '#likes-other-gravatars' );
+					var $list = $container.find( 'ul' );
+
+					$container.hide();
+					$list.html( '' );
+
+					$container.find( '.likes-text span' ).text( event.total );
+
+					jQuery.each( event.likers, function( i, liker ) {
+						$list.append( '<li class="' + liker.css_class + '"><a href="' + liker.profile_URL + '" class="wpl-liker" rel="nofollow" target="_parent"><img src="' + liker.avatar_URL + '" alt="' + liker.name + '" width="30" height="30" style="padding-right: 3px;" /></a></li>');
+					} );
+
+					var offset = jQuery( "[name='" + event.parent + "']" ).offset();
+
+					$container.css( 'left', offset.left + event.position.left - 10 + 'px' );
+					$container.css( 'top', offset.top + event.position.top - 33 + 'px' );
+
+					var rowLength = Math.floor( event.width / 37 );
+					var height = ( Math.ceil( event.likers.length / rowLength ) * 37 ) + 13;
+					if ( height > 204 ) {
+						height = 204;
+					}
+
+					$container.css( 'height', height + 'px' );
+					$container.css( 'width', rowLength * 37 - 7 + 'px' );
+
+					$list.css( 'width', rowLength * 37 + 'px' );
+
+					$container.fadeIn( 'slow' );
+
+					var scrollbarWidth = $list[0].offsetWidth - $list[0].clientWidth;
+					if ( scrollbarWidth > 0 ) {
+						$container.width( $container.width() + scrollbarWidth );
+						$list.width( $list.width() + scrollbarWidth );
+					}
+				}
+			}
+
+			pm.bind( 'likesMessage', function(e) { JetpackLikesMessageListener(e); } );
+
+			jQuery( document ).click( function( e ) {
+				var $container = jQuery( '#likes-other-gravatars' );
+
+				if ( $container.has( e.target ).length === 0 ) {
+					$container.fadeOut( 'slow' );
+				}
+			});
+
+			function JetpackLikesWidgetQueueHandler() {
+				var wrapperID;
+				if ( ! jetpackLikesMasterReady ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				if ( jetpackLikesWidgetQueue.length > 0 ) {
+					// We may have a widget that needs creating now
+					var found = false;
+					while( jetpackLikesWidgetQueue.length > 0 ) {
+						// Grab the first member of the queue that isn't already loading.
+						wrapperID = jetpackLikesWidgetQueue.splice( 0, 1 )[0];
+						if ( jQuery( '#' + wrapperID ).hasClass( 'jetpack-likes-widget-unloaded' ) ) {
+							found = true;
+							break;
+						}
+					}
+					if ( ! found ) {
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				} else if ( jQuery( 'div.jetpack-likes-widget-unloaded' ).length > 0 ) {
+					// Grab any unloaded widgets for a batch request
+					JetpackLikesBatchHandler();
+
+					// Get the next unloaded widget
+					wrapperID = jQuery( 'div.jetpack-likes-widget-unloaded' ).first()[0].id;
+					if ( ! wrapperID ) {
+						// Everything is currently loaded
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				}
+
+				if ( 'undefined' === typeof wrapperID ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				var $wrapper = jQuery( '#' + wrapperID );
+				$wrapper.find( 'iframe' ).remove();
+
+				if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='22px' width='68px' frameBorder='0' scrolling='no' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				} else {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='55px' width='100%' frameBorder='0' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				}
+
+				$wrapper.removeClass( 'jetpack-likes-widget-unloaded' ).addClass( 'jetpack-likes-widget-loading' );
+
+				$wrapper.find( 'iframe' ).load( function( e ) {
+					var $iframe = jQuery( e.target );
+					$wrapper.removeClass( 'jetpack-likes-widget-loading' ).addClass( 'jetpack-likes-widget-loaded' );
+
+					JetpackLikespostMessage( { event: 'loadLikeWidget', name: $iframe.attr( 'name' ), width: $iframe.width() }, window.frames[ 'likes-master' ] );
+
+					if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+						$wrapper.find( 'iframe' ).Jetpack( 'resizeable' );
+					}
+				});
+				setTimeout( JetpackLikesWidgetQueueHandler, 250 );
+			}
+			JetpackLikesWidgetQueueHandler();
+		//]]>
+		</script>
+<script type="text/javascript" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/form.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var comment_like_text = {"loading":"Loading..."};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var JetpackEmojiSettings = {"base_url":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/emoji\/twemoji\/"};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var recaptcha_options = {"lang":"en"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/a.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "hlplab.wordpress.com";
+	</script>
+	<script type="text/javascript" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/725X1342.js"></script><script src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/w.js" type="text/javascript"></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_tkq.push(['storeContext', {'blog_id':'2188611','blog_tz':'-5','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+st_go({'blog':'2188611','v':'wpcom','tz':'-5','user_id':'0','post':'410','subd':'hlplab'});
+ex_go({'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWFnNncxc1tjZG9XVXhRVz1bVXJlWWRQcV1qZHBpbUNmZ0guNWJpc1dTMV8tTk5dbmpbYkgsdEJxVkk5a3FxclpiMEFORVNiUkQ5bC9aUkd2bTdxdjMufitraG1lalk3W3NEaG5LLm9NaFNVOTh3UEZkJX5xdTdhfk10fE04NzZtWmpbVUdBUGdTY1lMNEY3L1ZYclclR0crcmRPflM2JjdBdWhIYmdqUHhsN1ZWemlVZW9KLkhxWkQwWXw3cS9dRSxLczIlNWR6b1pQT1VTaC8lMUUtQVBVSDVoVkVjT1FMUTR5OEtaVDJFOStGcXxWY3Bnfm96PzBzbmZNNit8Z1k5MnRVP3pyQTljWUtIPV9WdWJzRnQlfHFtS0dsJT9uTFZbS2FwRnx5PXY9JT9qTyxVOW1WR1p6NjhXSFV4ej8lNzc='});
+addLoadEvent(function(){linktracker_init('2188611',410);});
+	</script><img id="wpstats" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/g_002.gif" alt=""><img id="wpstats2" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/g.gif" alt="" style="display:none">
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+<div style="display: none;" class="comment-likes-overlay"></div><div id="sharing_email" style="display: none;">
+		<form action="/2009/05/14/random-effect-structure/" method="post">
+			<label for="target_email">Send to Email Address</label>
+			<input name="target_email" id="target_email" type="email">
+
+			
+				<label for="source_name">Your Name</label>
+				<input name="source_name" id="source_name" type="text">
+
+				<label for="source_email">Your Email Address</label>
+				<input name="source_email" id="source_email" type="email">
+
+			
+			<div class="recaptcha" id="sharing_recaptcha"></div><input name="recaptcha_public_key" id="recaptcha_public_key" value="6LcYW8MSAAAAADBAuEH9yaPcF7lWh11Iq62ZKtoo" type="hidden">
+			<img style="float: right; display: none" class="loading" src="Random%20effect:%20Should%20I%20stay%20or%20should%20I%20go%3F%20%C2%AB%20HLP_Jaeger%20lab%20blog_files/loading.gif" alt="loading" height="16" width="16">
+			<input value="Send Email" class="sharing_send" type="submit">
+			<a sl-processed="1" href="#cancel" class="sharing_cancel">Cancel</a>
+
+			<div class="errors errors-1" style="display: none;">
+				Post was not sent - check your email addresses!			</div>
+
+			<div class="errors errors-2" style="display: none;">
+				Email check failed, please try again			</div>
+
+			<div class="errors errors-3" style="display: none;">
+				Sorry, your blog cannot share posts by email.			</div>
+		</form>
+	</div><iframe style="display: none; width: 0px; height: 0px;" name="google_osd_static_frame" id="google_osd_static_frame_2158953853742"></iframe></body></html>
