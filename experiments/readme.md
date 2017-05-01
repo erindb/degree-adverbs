@@ -31,3 +31,8 @@ exp4 with novel intensifiers
 # exp13 (Study3)
 
 exp5 with novel intensifiers
+
+# exp14 (Study 1b)
+
+Replication of Study 1 (exp5) with a more systematic set of intensifiers
+
