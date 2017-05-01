@@ -1,0 +1,65 @@
+Extremely costly intensifiers are stronger than quite costly ones
+
+- Introduction
+  - The semantics of intensifying degree adverbs
+  - Intensification as an M-implicature
+    - cite Leon
+    - In the attached appendix we show the predictions of an interpretation model with the minimal assumptions of A) rational communication and B) an unknown-threshold semantics. We show that this model predicts a linear relationship between the values people interpret from an intensified adjective phrase and the communicative cost of that particular intensifier {{reference figure in appendix}}.
+  - Factors affecting communicative cost
+    - We operationalize the communicative cost of a particular intensifier as a linear combination of its length in syllables and its surprisal (negative log frequency in a corpus of English). {{justification}}
+  - Our first series of studies (Studies 1a, 1b, and 2) show a correlation between our measures of communicative cost and the strength of intensifying degree adverbs. Our next set of studies (Studies 3 and 4) show that at least one of these measures of communicative cost (the length in syllables) of a novel intensifier has a causal effect on the strength of its interpretation.
+- Utterance cost predicts intensifier strength
+  - The proposal detailed above predicts an association between measures of cost and strength of interpretations. In our first series of studies, we tested whether our measures of communicative cost can in fact predict intensifier strength.
+  - We used two measures of intensifier strength. Our first measure of intensifier strength was asking participants for a numeric interpretation of intensified adjective phrases. Our second measure was asking participants to rank the strength of adjective phrases that differed only in their intensifier. The first measure allowed us to compare our full set of intensifiers to one another on a numeric scale. The second allowed us to test our hypothesis on a wider range of adjectives at once, some of which (e.g. "beautiful") correspond to more abstract, non-numeric scales.
+  - For our first measure, we ran a large replication study, Study 1b, which resolved some of the methodological issues of Study 1a. In particular, we increased our sample of participants and systematized and documented our process for collecting the set of items in our study.
+  - Study 1a
+    - In Study 1a, we tested the qualitative prediction that as the communicative cost of an intensifier increases, so will the numeric interpretation of the adjective phrase it is part of. We tested this prediction by eliciting free-response price estimates from participants for phrases such as "very expensive watch" and determining whether the prices participants responded with were correlated with a independent measures of communicative cost.
+    - Methods
+      - Participants
+      - Items
+        - adjective: price
+        - intensifiers: collection from word lists online and scanning thesauri for more intensifiers
+          - Because this procedure for collecting intensifiers was insufficiently systematic for direct reproducibility, and because we could not rule out the possibility that this particular set of intensifiers was biased by the researcher's hypotheses, we later revised our set of intensifiers for our replication Study 1b.
+        - objects: from justine's pragmatic halo and hyberbole experiments
+      - Procedure
+        - A demo of Study 1a can be found at http://cocolab.stanford.edu/bennett2017extremely/experiments/Study1a/.
+        - The only allowable characters in responses were the digits 0-9 and (optionally) one decimal point (.) followed by two digits. All other responses were immediately rejected. Participants were prevented from continuing until they provided a valid numeric response for each trial.
+  - Study 1b
+    - Methods
+      - Participants
+        - For the replication experiment (Experiment 1b in the revised paper), we wanted enough participants for a power level of 0.8 for the principal effect of surprisal. Power analyses for mixed effects models with continuous predictors are not algebraically straightforward, and so we approximated the number of participants necessary for our desired power by bootstrapping. For each of 100 iterations, we sampled with replacement from our original experiment (Experiment 1a in the revised paper) a set of P participants and a set of I intensifiers. We created a "resampled" dataset where we crossed the resampled participants with the resampled intensifiers and collected the corresponding responses for each pair. We found that our original Experiment 1 actually was somewhat underpowered by this metric (statistical power was near 0.70 for the surprisal regressor, our principal effect of interest). For the replication, we determined that with the 71 intensifiers we collected from grammars of English, 50 was the minimum number of subjects for power at the 0.8 level for the surprisal term. We doubled this amount and ran 100 participants in the replication experiment (Experiment 1b). Despite having sufficient power for the surprisal term, our bootstrapped power analysis actually suggests that even with 100 participants, the power for the syllables term in the model is only 0.29.
+      - Items
+        - In Study 1a and the remaining studies detailed in this paper,our choice of the set of intensifiers to include was somewhat arbitrary and collected after formation of our hypothesis. To address the concern that this might bias our results, we followed a more systematic procedure for generating a list of intensifiers for our replication Study 1b. Since no single source that we found contained the number of intensifiers desired for sufficient power in Study 1b, our process for collecting intensifiers in this replication was to combine word lists from multiple grammars of English. We first found 12 grammars of English that mentioned one of the following terms: "intensifiers", "adverbs of degree", or "amplifiers". Most of these grammars mentioned examples of such words, and many contained lists of them. The average length of such a list or collection was {{LLL}}. Some "downtoners" were also mixed into some of these lists (e.g. "slightly", "barely"). We excluded obvious downtoners (which were often labeled as downtoners by at least one grammar, but occasionally not, as in the case of {{downtoner}}) and otherwise collected an aggregate list of all words that occurred in an "intensifiers", "adverbs of degree" or "amplifiers" list in at least one grammar. This resulted in a total of 71 unique intensifiers. Of these, only 19 had been in Study 1a. 21 words that appeared in our previous experiments did not appear in any list, including "insanely", "wildly", "exceptionally", and "frightfully".
+      - Procedure
+        - The procedure for Study 1b was identical to that of Study 1a. A demo of Study 1b can be found at http://cocolab.stanford.edu/bennett2017extremely/experiments/Study1b/.
+  - Study 2
+    - Methods
+      - Participants
+      - Items
+        - The full set of intensifiers in Study 2 is identical to that of Study 1a. Study 2 is therefore subject to the same systematicity and reproducibility limitations as Study 1a, but these concerns are mitigated by the inclusion of our replication Study 1b.
+          - The set of intensifiers in Study 4 was the original, less systematic set used in Studies 1a, 2, and 3, and therefore we again rely on Study 1b to address concerns of reproducibility.
+        - For Study 2, we used a ranking dependent measure. To make the task easier for participants and to extend to more adjective scales, we divided the full set of intensifiers into 4 smaller sets. We {{did something}} to maintain a range of syllable lengths and surprisal across the intensifiers in each smaller set.
+      - Prodecure
+        - A demo of Study 2 can be found at http://cocolab.stanford.edu/bennett2017extremely/experiments/Study2/.
+- Intensifier length increases strength of interpretation
+  - Study 3
+    - Methods
+      - Participants
+      - Items
+        - The control/filler items in Study 3 were identical to those of Study 1a.
+        - In addition, we included {{number}} novel intensifiers. These items were taken from in previous studies on complexity bias {{cite molly}} and modified to include a final {{-ly}} suffix.
+        - Eliciting ratings for existing English intensifiers along with novel intensifiers allowed us to again rescale and normalize responses within participants and items, placing all responses for the novel intensifiers on the same scale. It also allowed us to somewhat obscure our use of fabricated words, and thus decrease task demand.
+      - Prodecure
+        - The procedure for Study 3 was identical to that of Studies 1a and 1b, except that participants saw {{one}} additional, novel intensifier. A demo of Study 3 can be found at http://cocolab.stanford.edu/bennett2017extremely/experiments/Study3/.
+    - Results
+      - We included no formal manipulation check, but some participants volunteered that they "{{didn't recognize this new word}}" From this we can infer that at least some participants interpreted the novel intensifier as a standard English word. However, others may have correctly identified the novel words as fabricated for the purpose of our experiment. {{This may have led to... This may limit the generalizability of our findings to truly novel English words. discuss}}
+  - Study 4
+    - Methods
+      - Participants
+      - Items
+        - The items in Study 4 were identical to those of Study 2, except that within each smaller set we included {{one}} novel intensifier, {{alternating the long and short forms between participants}}.
+      - Prodecure
+        - The procedure for Study 4 was identical to that of Study 2, except that participants saw one additional, novel intensifier per trial. A demo of Study 4 can be found at http://cocolab.stanford.edu/bennett2017extremely/experiments/Study4/.
+- General discussion
+- References
+- Appendix

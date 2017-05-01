@@ -7,4 +7,6 @@ contents
 
 changes
 
-* 
+* indclude replication Study 1b
+	- more systematic procedure for generating set of intensifiers
+	- more participants (with power analysis)
