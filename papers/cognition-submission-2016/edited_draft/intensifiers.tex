@@ -5,8 +5,10 @@
 \hypersetup{
     colorlinks = true,
     citecolor = {black},
-    linkcolor = {WildStrawberry},
-    urlcolor = {WildStrawberry}
+    % linkcolor = {WildStrawberry},
+    % urlcolor = {WildStrawberry}
+    linkcolor = {black},
+    urlcolor = {black}
 }
 \usepackage{breakurl}
 \usepackage{cogsci}
@@ -63,7 +65,8 @@ We do not make this distinction.
 The word ``intensifier'' is sometimes used for a completely different linguistic phenomenon, where a reflexive is used for emphasis, e.g. ``The king himself gave the command,'' which we do not analyze in this paper. 
 },
 like \w{extremely} and \w{quite}, as a case study in which to empirically explore the relationship of meaning to factors like word form and distribution of usage.
-Intensifiers form a good case study both because they are amenable to simple quantitative measures of meaning (Many adjectives correspond to concrete numeric scales, and intensifier's strength can be measured as the numeric extent to which it shifts the interpretation of such a scalar adjective.) and because theoretical considerations, which we lay out below, suggest a relationship between intensifier meaning and their communicative cost (i.e. frequency and length).
+Intensifiers form a good case study, partly because they are amenable to simple quantitative measures of meaning: Many adjectives correspond to concrete numeric scales, and intensifier's strength can be measured as the numeric extent to which it shifts the interpretation of such a scalar adjective. In addition, because theoretical considerations, which we lay out below, suggest a relationship between intensifier meaning and their communicative cost (i.e. frequency and length).
+This account of intensifier meaning adds to a growing body of literature exploring how principles of recursive, rational communication shapes langauge interpretation \cite[e.g.]{grice, frank, goodman, Franke2011, Russell2012, kao2014nonliteral, bergen2014pragmatic}.
 
 We first discuss a minimal semantics for intensifiers, building off of previous work on scalar adjectives and formalized concretely in our \hyperref[app:model]{Appendix}.
 We show how pragmatic effects predict systematic variation in the meanings of intensifiers: the meanings of intensifiers are expected to be influenced by their form (in length) and their distribution (frequency) of usage.
@@ -131,14 +134,23 @@ Our model predicts a linear contribution of longer and higher surprisal intensif
 This leaves open the the relative importance of length and surprisal (as well as other factors that might enter into cost), which can be explored via regression models.
 
 \section{Utterance cost predicts intensifier strength}
-The proposal detailed above predicts an association between measures of cost and strength of interpretations. 
-In our first two experiments, we tested whether our measures of cost can in fact predict the intensity of scalar adjective interpretation.
+
+The proposal detailed above predicts an association between measures of cost and strength of interpretations.
+In our first series of studies, detailed in this section, we tested whether our measures of communicative cost can in fact predict intensifier strength.
+
+We used two measures of intensifier strength.
+Our first measure of intensifier strength (used in Studies \hyperref[sec:study1a]{1a} and \hyperref[sec:study1b]{1b}) was asking participants for a numeric interpretation of intensified adjective phrases.
+Our second measure (used in Study \hyperref[sec:study2]{2}) was asking participants to rank the strength of adjective phrases that differed only in their intensifier.
+The first measure allowed us to compare our full set of intensifiers to one another on a numeric scale.
+The second allowed us to test our hypothesis on a wider range of adjectives at once, some of which (e.g. \w{beautiful}) correspond to more abstract, non-numeric scales.
+
+For our first measure only, we ran a large replication study, Study \hyperref[sec:study1b]{1b}, which resolved some of the methodological issues of Study \hyperref[sec:study1a]{1a}.
+In particular, we increased our sample of participants and systematized our process for collecting the set of items in our study.
 
 \subsection{Study 1a \label{sec:study1a}}
 
-In Experiment 1, we test the qualitative prediction that as cost of an utterance increases, so will the interpreted meaning of the intensifier.
-We tested this prediction
-by eliciting free response price estimates from people for phrases such as \w{very expensive watch} and determining whether these prices are correlated with our independent measures of utterance cost.
+In Study \hyperref[sec:study1a]{1a}, we tested the qualitative prediction that as the communicative cost of an intensifier increases, so will the numeric interpretation of the adjective phrase it is part of.
+We tested this prediction by eliciting free-response price estimates from participants for phrases such as \w{very expensive watch} and determining whether the prices participants responded with were correlated with a independent measures of communicative cost.
 
 \subsubsection{Methods\footnote{The full experiment can be found at \url{http://cocolab.stanford.edu/cogsci2015/intensifiers/Experiment1}}}
 
