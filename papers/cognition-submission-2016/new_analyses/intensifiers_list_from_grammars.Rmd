@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo=F, warning=F, cache=F, message=F, sanitiz =T, fig.wid
 ```
 
 ```{r load_settings}
-source("~/Settings/mini-startup.R")
+source("~/Settings/startup.R")
 ```
 
 ```{r}
@@ -25,9 +25,9 @@ summarise_category = function(lst) {
     return("intensifier")
   }
 }
-df = read.csv("new.intensifiers.list.data.csv")
-n.grammars = length(unique(df$source))
-df = df %>%
+raw.df = read.csv("intensifiers_list_from_grammars.csv")
+n.grammars = length(unique(raw.df$source))
+df = raw.df %>%
   filter(obvious.downtoner=="no") %>%
   # filter(!(obvious.downtoner=="yes")) %>%
   filter(!(weird=="weird")) %>%
@@ -63,3 +63,10 @@ print(as.character(
   new.intensifiers))
 write.csv(x=new.intensifiers, file="new-intensifiers.csv")
 ```
+
+```{r}
+counts = raw.df %>% group_by(source) %>%
+  summarise(N=length(word))
+mean(counts$N)
+```
+
