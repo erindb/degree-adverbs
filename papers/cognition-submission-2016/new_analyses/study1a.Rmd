@@ -1,5 +1,5 @@
 ---
-title: "Intensifiers: Replication Experiment"
+title: "Intensifiers: Study 1a"
 author: "Erin Bennett"
 output: 
   html_document:
@@ -8,7 +8,7 @@ output:
 
 ```{r global_options, include=FALSE}
 rm(list=ls())
-knitr::opts_chunk$set(echo=F, warning=F, cache=T, message=F, sanitiz =T, fig.width = 5, fig.height = 3)
+knitr::opts_chunk$set(echo=F, warning=F, cache=F, message=F, sanitiz =T, fig.width = 5, fig.height = 3)
 ```
 
 ```{r load_settings}
@@ -32,19 +32,21 @@ We don't care about modeling the prices of the individual objects. We think that
 
 ```{r}
 ## load intensifier data
-unigrams = read.csv("new-intensifiers-with-freq.csv")
+unigrams = read.csv("web_1grams.csv")
 total_ngrams = 1024908267229
 freq = unigrams$frequency
 syll = unigrams$syllables
-names(freq) = names(syll) = unigrams$intensifier
+names(freq) = names(syll) = unigrams$ngram
 
 ## load experiment data
-raw.df = read.csv("../../../data/study1b_data.csv")
+raw.df = read.csv("../../../data/study1a_data.csv")
 df = raw.df %>%
   filter(language %in% c(
     "English",  "english",  "Engli",    "Englsih",  "engish",   "English ",
     "ENGLISH", "ENG", "eng") &
-      assess != "No") %>%
+      asses != "No") %>%
+  mutate(price = response,
+         intensifier = as.character(adverb)) %>%
   select(workerid, price, intensifier, object) %>%
   mutate(logprice = as.numeric(log(price))) %>%
   group_by(object, workerid) %>%
@@ -110,7 +112,7 @@ report = function(m, regressor) {
   return(paste(
     "$b=",
     round(b, 3),
-    ", t(",
+    ", t(df",
     # "df=",
     round(df, 1),
     ")=",
@@ -240,10 +242,10 @@ df %>% group_by(intensifier, object) %>%
   ylab("normalized log price") +
   scale_colour_gradient(low="gray", high="black") +
   xlab("centered surprisal") +
-  ggtitle("Study 1b") +
+  ggtitle("Study 1a") +
   theme_bw()
 # ggsave("../edited_draft/images/plot_study1b.pdf", width=8, height=2.5)
-ggsave("../edited_draft/images/plot_study1b.pdf", width=5, height=3)
+ggsave("../edited_draft/images/plot_study1a.pdf", width=5, height=3)
 ```
 ```{r}
 df1b = df %>% group_by(intensifier, object) %>%
