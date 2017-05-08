@@ -548,13 +548,13 @@ This suggests that context-specific surprisal might affect the utterance cost, o
 
 In other words, we again found that participants assign stronger interpretations to intensifiers with higher surprisals and/or higher syllable lengths, extending now across four different adjectival scales. However, we found also interactions between modifier and adjective (or perhaps scale).
 
-\begin{figure*}[hbt]
+\begin{figure}[hbt]
 \begin{center}
-\includegraphics[width=\textwidth]{images/plot_study2.pdf}
+\includegraphics[width=0.5\textwidth]{images/plot_study2.pdf}
 \end{center}
 \caption{Results of Study 2. As surprisal and length in syllables increase, participants' rankings increased.} 
 \label{fig:plot_study2}
-\end{figure*}
+\end{figure}
 
 \subsection{Discussion}  
 \todo{  
@@ -609,34 +609,40 @@ The order of the questions was randomized between and within participants.
 
 \subsubsection{Analysis}
 
-\todo{}
+In Study 3,  to study the effect of the length of a novel intensifier on its interpretation, we ran a linear mixed effects model on only the novel intensifiers, with length (``long''=1 or ``short''=-1) as a fixed effect, a random slope for participant, and random intercepts for the three different ``roots''.
 
-\subsubsection{Results}
-\todo{
-In Experiment 3, we included as filler a subset of the intensifiers we tested in Experiment 1, and so we first confirmed our findings from Experiment 1. As in Experiment 1, we ran a linear mixed effects regression with fixed effects of syllables and surprisal, and random intercepts and slopes for both participant and object, and we used the logarithm of participants' price estimates as the dependent variable. Replicating our findings from Experiment 1, we found significant main effects of surprisal ($\beta=0.09$, $SE=0.03$, $t=3.55$, $p=0.026$) and syllable length ($\beta=0.11$, $SE=0.02$, $t=4.92$, $p<0.001$) (Figure \ref{exp3_replication}).
+We included as filler a subset of the intensifiers we tested in Study 1a, and so we also confirmed our findings from Study 1a.
+As in Study 1a, we ran a linear mixed effects regression with centered fixed effects of syllables and surprisal, a random slope for participant, and a random intercept for intensifier.
+
+To see the effect of the two measures of communicative costseparately, we compared the full model to a model without that measure as a regressor using a likelihood ratio test.
 
 \begin{figure}[hbt]
 \begin{center}
-\includegraphics[width=0.5\textwidth]{scatter3.pdf}
+\includegraphics[width=.5\textwidth]{images/plot_study3_A.pdf}
 \end{center}
-\caption{\todo{In Experiment 3, we replicated our findings from Experiment 1.}}
-\label{exp3_replication}
+\caption{In Study 3, we found a significant effect of length for all novel intensifiers.} 
+\label{fig:plot_study3_barplot}
 \end{figure}
 
-We then ran a linear mixed effects model on only the novel intensifiers, with length (``long'' or ``short'') as a fixed effect, random intercepts and slopes for objects, and random intercepts for the three different ``roots''. We found a significant effect of length condition ($\beta(\mbox{``short''})=-1.46$, $SE=0.39$, $t=-3.74$, $p<0.001$), indicating that people use the length of an intensifier in order to interpret its meaning, even for novel intensifiers with no conventional meaning (Firgure \ref{exp3_novel}).
-In a post-hoc regression with a fixed effect for novel adverb root, we found a significant effect of root on response ($p=0.016$), suggesting possible additional effects of form that we have not captured with length in syllables alone. Average responses for \w{ratumly} were lowest out of all the intensifiers used in Experiment 3, and average responses for \w{tupabugornly} were highest. The rest of the novel intensifiers had average ratings within the range of the attested intensifiers.
-}
-
-\begin{figure*}[hbt]
+\begin{figure}[hbt]
 \begin{center}
-\includegraphics[width=.8\textwidth]{novel.pdf}
+\includegraphics[width=0.5\textwidth]{images/plot_study3_B.pdf}
 \end{center}
-\caption{In Experiment 3, we found a significant effect of length for all novel intensifiers.} 
-\label{exp3_novel}
-\end{figure*}
+\caption{In Study 3, we replicated our findings from Study 1a.}
+\label{fig:plot_study3_scatter}
+\end{figure}
+
+\subsubsection{Results}
+
+In our analysis of novel intensifiers, we found a significant effect of length condition ($b=0.538$, $SE=0.195$, $t=2.757$, $p<0.05$), indicating that people use the length of an intensifier in order to interpret its meaning, even for novel intensifiers with no conventional meaning (Firgure \ref{fig:plot_study3_barplot}).
+
+Replicating our findings from Study 1a, we found significant main effects of surprisal ($b=0.14, t(7.2)=2.49, p<0.05$) but no significant effect of syllable length ($b=0.194, t(6.3)=2.046, p=0.085$) (Figure \ref{fig:plot_study3_scatter}).
+
+In a post-hoc regression with a fixed effect for novel adverb root, we found a significant effect of root on response ($F(2)=3.386, p<0.05$), suggesting possible additional effects of form that we have not captured with length in syllables alone.
+Average responses for \w{ratumly} were lowest out of all the intensifiers used in Experiment 3, and average responses for \w{tupabugornly} were highest.
+The rest of the novel intensifiers had average ratings within the range of the attested intensifiers.
 
 % \todo{discuss novel vs. attested: e.g. what's the inferred surprisal?}
-
 
 \subsection{Study 4 \label{sec:study4}}
 
@@ -694,9 +700,9 @@ Either way, these results demonstrate that the relationship between word cost an
 
 \section{General Discussion}
 
-Motivated by a recent probabilistic model of scalar adjectives \cite{lassiter}, we argued that adjectival intensifiers could gain aspects of their meaning through a systematic pragmatic inference, even in the absence of conventional literal meaning. Our model predicted a linear relationship between the intensity of an intensifier and its cost, measured here in terms of length and negative log-frequency.
+Motivated by a recent probabilistic model of scalar adjectives \cite{lassiter_context_2013}, we argued that adjectival intensifiers could gain aspects of their meaning through a systematic pragmatic inference, even in the absence of conventional literal meaning. Our model predicted a linear relationship between the intensity of an intensifier and its cost, measured here in terms of length and negative log-frequency.
 In four experiments we provided evidence that intensifier meanings do depend systematically on the length and frequency of distribution of those word forms and that this relationship holds even for novel words.
-While it is unlikely that this accounts for all intensifier meaning, it does suggest that a major portion of meaning comes not from arbitrary, conventional association of signal to sign \cite{saussure}, but from features of the word's form and distribution, together with inferential processes of listeners.
+While it is unlikely that this accounts for all intensifier meaning, it does suggest that a major portion of meaning comes not from arbitrary, conventional association of signal to sign \cite{de_saussure_nature_1916}, but from features of the word's form and distribution, together with inferential processes of listeners.
 
 % Over the course of four expeirments, using attested and novel intensifiers and different dependent measures, we have shown a relationship between factors affecting utterance cost and the strength of interpretation of those utterances.
 
