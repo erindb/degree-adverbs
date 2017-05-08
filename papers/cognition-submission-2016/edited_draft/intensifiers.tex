@@ -267,11 +267,9 @@ In the analysis below we use word length and word surprisal (negative log-freque
 The syllable lengths of our intensifiers and the surprisals were correlated ($r = 0.26$).
 This correlation makes it somewhat difficult to determine the effect of one measure of cost above and beyond the other.
 In our first series of studies, we focus on the primary effect of surprisal, since we have more range in surprisal across intensifiers than in syllables and since we manipulate length in syllbles for our next series of studies.
-However, we model both measures of communicative cost in our analyses, including both predictors in regressions and reporting likelihood-ratio tests between the full model and simpler models.
+However, we model both measures of communicative cost in our analyses: we include both predictors in regressions and report likelihood-ratio tests between the full model and simpler models.
 
 \subsubsection{Analysis}
-
-%% what's the alternative hypothesis?
 
 Prices that participants give obviously vary systematically with the object (expensive laptops tend to be more expensive than expensive coffee makers).
 Prices are also likely sensitive to variation across participants due to their different beliefs about likely prices.
@@ -287,17 +285,19 @@ To see the effect of the two measures of communicative cost (surprisal and lengt
 
 \subsubsection{Results}
 
-\todo{
+If the meaning of an intensifier is stronger for higher cost intensifiers, we would expect to find that as surprisal increases and length in syllables increases, the prices participants give will also increase. We find that this is the case for surprisal, but do not show a significant effect of syllable length beyond this.
 
-If the meaning of an intensifier is stronger for higher cost intensifiers, we would expect to find that as surprisal increases and length in syllables increases, the prices participants give will also increase. We find that this is the case.
+Our results are shown in Figure~\ref{fig:plot_study1a}, in a way that highlights the surprisal predictor. 
+We found a significant main effect of surprisal ($b=0.106,t(38.9)=3.411,p<0.05$) such that less frequent words tend to be associated with higher price estimates.
+We did not a significant main effect of syllable length ($b=0.133,t(39.9)=1.717,p=0.094$), above and beyond surprisal.
 
-Our results are shown in Figure~\ref{fig:plot_study1a}, in a way that highlights the surprisal predictor. Both measures of cost play a role in predicting participants' price estimates. We found a significant main effect of surprisal ($\beta=0.05, SE=0.01, t(3)=5.72, p=0.009$) such that less frequent words tend to be associated with higher price estimates. We also found a significant main effect of syllable length ($\beta=0.06, SE=0.02, t(3)=3.54, p=0.036$), above and beyond surprisal, such that longer words predict stronger meanings.\footnote{
-Because surprisal and syllable-length are correlated, in addition to the analysis reported here we also computed length-corrected surprisals by regressing the raw surprisals onto word length in syllables using linear regression with a single main effect of word length. The residuals of this model, length-corrected surprisals, were used for the surprisal predictor in similar analyses to the ones we report, and we consistently found similar results. This suggests more strongly that surprisal and syllable length \emph{both} independently contribute to participants' estimates.
-}
-}
+Because surprisal and syllable-length are correlated, in addition to the analysis reported here we also used likelihood ratio tests to compare the full model to models with only one of the two predictors.
+These tests show that syllables alone account for the data less well than the full model ($\chi^2(3)=11.389, p<0.05$) and that surprisal alone also accounts for the data less well than the full model ($\chi^2(3)=10.247, p<0.05$).
+%computed length-corrected surprisals by regressing the raw surprisals onto word length in syllables using linear regression with a single main effect of word length. The residuals of this model, length-corrected surprisals, were used for the surprisal predictor in similar analyses to the ones we report, and we consistently found similar results. This suggests more strongly that surprisal and syllable length \emph{both} independently contribute to participants' estimates.
 
-Thus intensifiers that are less frequent and longer (and therefore are more costly to communicate) also tend to be interpreted as having stronger meanings, at least when used to modify the adjective \emph{expensive}.
-Furthermore, the relationship appears to be linear in surprisal and length, as predicted by the M-implicature proposal introduced above.
+Thus intensifiers that are less frequent (and therefore are more costly to communicate) also tend to be interpreted as having stronger meanings, at least when used to modify the adjective \emph{expensive}.
+We did not confirm our secondary prediction that length (another factor in communicative cost) has any effect beyond that of surprisal.
+%Furthermore, the relationship appears to be linear in surprisal and length, as predicted by the M-implicature proposal introduced above.
 
 \begin{figure}[ht]
 \begin{center}
@@ -448,7 +448,11 @@ As in Study~\hyperref[sec:study1a]{1a}, we normalized log-transformed prices wit
 
 \subsubsection{Results}
 
-\todo{regression is significant for surprisal, marginal for syllables. ratio test is marginal for syllables, significant for surprisal.}
+Our results are shown in Figure~\ref{fig:plot_study1b}. 
+As in Study 1a, we found a significant main effect of surprisal ($b=0.107, t(70.1)=3.255, p<0.05$) such that less frequent words tend to be associated with higher price estimates.
+We did not a significant main effect of syllable length ($b=0.055, t(69.4)=1.021, p=0.311$), above and beyond surprisal.
+
+In likelihood ratio tests, we found that syllables alone accounts for the data less well than the full model ($\chi^2(3)=25.028,p<0.05$) but that surprisal alone accounts for the data as well as the full model ($\chi^2(3)=7.526,p=0.057$) and that .
 
 \begin{figure}[ht]
 \begin{center}
@@ -480,7 +484,7 @@ The full set of intensifiers in Study \hyperref[sec:study2]{2} is identical to t
 
 For Study \hyperref[sec:study2]{2}, we used a ranking dependent measure.
 Because arranging these phrases required participants to be aware of the full set of adjective phrases and access all of them on the same computer screen (which might vary in size for different participants), not all of our 40 intensifiers could effectively be presented at once.
-To make the task easier for participants and to extend to more adjective scales, we divided the full set of intensifiers into 4 smaller sets. We \todo{did something} to maintain a range of syllable lengths and surprisal across the intensifiers in each smaller set.
+To make the task easier for participants and to extend to more adjective scales, we divided the full set of intensifiers into 4 smaller sets, maintaining a range of syllable lengths and surprisal across the intensifiers in each smaller set.
 
 With the ranking dependent measure, we no longer need the adjectives to correspond to a standard numeric scale.
 We therefore included 4 adjectives: \w{old}, \w{expensive}, \w{beautiful}, and \w{tall}.
