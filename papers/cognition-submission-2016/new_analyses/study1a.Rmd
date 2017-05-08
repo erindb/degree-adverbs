@@ -247,6 +247,7 @@ df %>% group_by(intensifier, object) %>%
 # ggsave("../edited_draft/images/plot_study1b.pdf", width=8, height=2.5)
 ggsave("../edited_draft/images/plot_study1a.pdf", width=5, height=3)
 ```
+
 ```{r}
 df1b = df %>% group_by(intensifier, object) %>%
   summarise(logprice=mean(logprice)) %>%
@@ -264,3 +265,9 @@ df %>% group_by(intensifier) %>%
   write.csv("intensifiers_for_table.csv", row.names=F)
 ```
 
+```{r}
+m.old = lmer(logprice ~ surprisal + syll +
+               (1 + surprisal + syll | workerid) +
+               (1 + surprisal + syll | object), data=df)
+summary(m.old)
+```
