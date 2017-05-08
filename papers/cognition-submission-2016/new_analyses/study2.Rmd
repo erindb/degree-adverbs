@@ -1,0 +1,431 @@
+---
+title: "Intensifiers: Replication Experiment"
+author: "Erin Bennett"
+output: 
+  html_document:
+      toc: false
+---
+
+```{r global_options, include=FALSE}
+rm(list=ls())
+knitr::opts_chunk$set(echo=F, warning=F, cache=T, message=F, sanitiz =T, fig.width = 5, fig.height = 3)
+```
+
+```{r load_settings}
+source("~/Settings/startup.R")
+```
+
+```{r}
+## load data
+# load dependencies
+library(boot)
+library(ordinal)
+library(plyr)
+library(languageR)
+
+myCenter <- function(x) {
+  if (is.numeric(x)) { return(x - mean(x)) }
+  if (is.factor(x)) {
+    x <- as.numeric(x)
+    return(x - mean(x))
+  }
+  if (is.data.frame(x) || is.matrix(x)) {
+    m <- matrix(nrow=nrow(x), ncol=ncol(x))
+    colnames(m) <- paste("c", colnames(x), sep="")
+    for (i in 1:ncol(x)) {
+      if (is.factor(x[,i])) {
+        y <- as.numeric(x[,i])
+        m[,i] <- y - mean(y, na.rm=T)
+      }
+      if (is.numeric(x[,i])) {
+        m[,i] <- x[,i] - mean(x[,i], na.rm=T)
+      }
+    }
+    return(as.data.frame(m))
+  }
+}
+
+# read in data
+d = read.csv("../../../data/study2_data.csv")
+total_ngrams = 1024908267229
+ngrams = read.csv("web_1grams.csv")
+ngrams$surprisal = - (log(ngrams$frequency) - log(total_ngrams))
+
+df = d
+
+list_a = c(
+  "surpassingly",
+  "astoundingly",
+  "fantastically",
+  "strikingly",
+  "excessively",
+  "markedly",
+  "remarkably",
+  "utterly",
+  "truly",
+  "particularly"
+)
+list_b = c(
+  "colossally",
+  "phenomenally",
+  "mightily",
+  "acutely",
+  "extraordinarily",
+  "amazingly",
+  "terribly",
+  "notably",
+  "significantly",
+  "quite"
+)
+list_c = c(
+  "terrifically",
+  "uncommonly",
+  "supremely",
+  "awfully",
+  "exceedingly",
+  "radically",
+  "exceptionally",
+  "incredibly",
+  "totally",
+  "especially"
+)
+list_d = c(
+  "frightfully",
+  "outrageously",
+  "insanely",
+  "decidedly",
+  "intensely",
+  "unusually",
+  "desperately",
+  "seriously",
+  "extremely",
+  "very"
+)
+
+total_workers = length(unique(df$workerid))
+uncooperative = length(unique(subset(df, asses=="No")$workerid))
+df = subset(df, asses == "Yes" | is.na(asses))
+good_workers = length(unique(df$workerid))
+print(total_workers)
+print(uncooperative)
+print(good_workers)
+df = df[,c("workerid", "adverb", "ranking")]
+df$adverb = as.character(df$adverb)
+df$adjective = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][2])})
+df$adverb = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][1])})
+df$surprisal = sapply(df$adverb, function(adv) {return(ngrams$surprisal[adv == as.character(ngrams$ngram)][1])})
+df$syllables = sapply(df$adverb, function(adv) {return(ngrams$syllables[adv == as.character(ngrams$ngram)][1])})
+df$height_in_list = 9 - df$ranking
+df$adverb_list = rep("A", nrow(df))
+df$adverb_list[df$adverb %in% list_b] = "B"
+df$adverb_list[df$adverb %in% list_c] = "C"
+df$adverb_list[df$adverb %in% list_d] = "D"
+
+## add predictor for surprisal that is the residual of surprisal after being predicted by syllables
+m.resid = lm(surprisal~syllables,data=df)
+df$resid_surprisal = resid(m.resid)
+
+aggdf = ddply(df, .(adverb, adjective), function(subd) {
+  resampled = boot(subd, function(orig, indices) {
+    return( mean(orig[indices,]$height_in_list) )
+  }, 100)$t
+  newd = data.frame(
+    adverb = subd$adverb[[1]],
+    adjective = subd$adjective[[1]],
+    surprisal = subd$surprisal[[1]],
+    resid_surprisal = subd$resid_surprisal[[1]],
+    syllables = subd$syllables[[1]],
+    adverb_list = subd$adverb_list[[1]],
+    height_in_list = mean(subd$height_in_list),
+    height_in_list_high = quantile(resampled, 0.025),
+    height_in_list_low = quantile(resampled, 0.975)
+  )
+  return(newd)
+})
+p = aggdf %>%
+  mutate(syllables = as.numeric(syllables)) %>%
+  ggplot(data=., aes(x=surprisal, y=height_in_list, colour=syllables)) +
+  geom_smooth(method="lm", lwd=0, colour="gray", alpha=1/10) +
+  geom_point(
+    # size=1
+  ) +
+  geom_errorbar(aes(ymin=height_in_list_low, ymax=height_in_list_high, x=surprisal), width=0) +
+  theme_bw() +
+  facet_grid(. ~ adjective, scale="free") +
+  xlab("surprisal") +
+  ylab("height in list") +
+  scale_colour_continuous(name="syllables") +
+  scale_x_continuous(breaks=c(10, 14, 18)) +
+  ggtitle("Study 2") +
+  #   scale_colour_brewer(type="div", palette=7) +
+  #   scale_fill_brewer(type="div", palette=7) +
+  scale_colour_gradient(low="gray", high="black") +
+  theme(panel.grid=element_blank())
+print(p)
+ggsave("../edited_draft/images/plot_study2.pdf", width=10, height=3)
+# p = ggplot(data=aggdf, aes(x=surprisal, y=height_in_list, colour=as.numeric(syllables))) +
+#   geom_smooth(method="lm", lwd=0, colour="gray", alpha=1/10) +
+#   geom_point(size=3) +
+#   geom_errorbar(aes(ymin=height_in_list_low, ymax=height_in_list_high, x=surprisal), width=0.3) +
+#   theme_bw(14) +
+#   facet_grid(. ~ adjective, scale="free") +
+#   xlab("surprisal") +
+#   ylab("height in list") +
+#   scale_colour_continuous(name="syllables") +
+#   scale_x_continuous(breaks=c(10, 14, 18)) +
+#   ggtitle("Study 2") +
+#   #   scale_colour_brewer(type="div", palette=7) +
+#   #   scale_fill_brewer(type="div", palette=7) +
+#   theme(panel.grid=element_blank())
+# print(p)
+# ggsave("../edited_draft/images/plot_study2_A.pdf", width=10, height=3)
+# p = ggplot(data=aggdf, aes(x=surprisal, y=height_in_list, colour=as.numeric(syllables))) +
+#   geom_smooth(method="lm", lwd=0, colour="gray", alpha=1/10) +
+#   geom_point(size=3) +
+#   geom_errorbar(aes(ymin=height_in_list_low, ymax=height_in_list_high, x=surprisal), width=0.3) +
+#   theme_bw(14) +
+#   facet_grid(adverb_list ~ adjective, scale="free") +
+#   xlab("surprisal") +
+#   ylab("height in list") +
+#   scale_colour_continuous(name="syllables") +
+#   scale_x_continuous(breaks=c(10, 14, 18)) +
+#   ggtitle("Study 2") +
+# #   scale_colour_brewer(type="div", palette=7) +
+# #   scale_fill_brewer(type="div", palette=7) +
+#   theme(panel.grid=element_blank())
+# print(p)
+# ggsave("../edited_draft/images/plot_study2_B.pdf", width=10, height=10)
+# 
+# response_order = ddply(aggdf, .(adverb), summarise, height_in_list = mean(height_in_list))
+# aggdf$adverb = factor(aggdf$adverb, levels = as.character(response_order$adverb)[order(response_order$height_in_list)])
+# 
+# ordering = ggplot(aggdf, aes(y=adverb, x=height_in_list, colour=adverb)) +
+#   geom_point(size=3) +
+#   geom_errorbarh(aes(y=adverb, xmin=height_in_list_low, xmax=height_in_list_high)) +
+#   theme_bw(14) +
+#   theme(panel.grid=element_blank()) +
+#   guides(colour=FALSE) +
+#   facet_grid(.~adjective, scale="free") +
+#   ggtitle("Study 2: intensifiers")
+# print(ordering)
+# ggsave("../edited_draft/images/plot_study2_C.pdf", width=20, height=6)
+# 
+# centered = cbind(df, myCenter(df[,c("surprisal","syllables","resid_surprisal")]))
+# 
+# pdf(file="../edited_draft/images/plot_study2_D.pdf", width=17, height=17)
+# pairscor.fnc(centered[,c("surprisal","syllables","csurprisal","csyllables","height_in_list","resid_surprisal","cresid_surprisal")])
+# dev.off()
+# 
+# library(mlogit)
+# sink(file="model_study2.txt")
+# df$ch = df$ranking + 1
+# df$chid = paste(df$adverb_list, df$workerid)
+# G <- mlogit.data(df, choice = "ch", shape = "long", chid.var="chid",
+#                  alt.var="adverb", ranked = TRUE)
+# model = mlogit(ch ~ surprisal + syllables | 0, G)
+# print(summary(model))
+# print(summary(mlogit(ch ~ surprisal + syllables + surprisal:adjective + syllables:adjective | 0, G)))
+# sink(NULL)
+# 
+# 
+# # Gbeautiful <- mlogit.data(subset(df, adjective == "beautiful"), choice = "ch", shape = "long", chid.var="chid",
+# #                  alt.var="adverb", ranked = TRUE)
+# # Gold <- mlogit.data(subset(df, adjective == "old"), choice = "ch", shape = "long", chid.var="chid",
+# #                           alt.var="adverb", ranked = TRUE)
+# # Gtall <- mlogit.data(subset(df, adjective == "tall"), choice = "ch", shape = "long", chid.var="chid",
+# #                     alt.var="adverb", ranked = TRUE)
+# # Gexpensive <- mlogit.data(subset(df, adjective == "expensive"), choice = "ch", shape = "long", chid.var="chid",
+# #                      alt.var="adverb", ranked = TRUE)
+# # summary(mlogit(ch ~ surprisal + syllables | 0, Gbeautiful))
+# # summary(mlogit(ch ~ surprisal + syllables | 0, Gold))
+# # summary(mlogit(ch ~ surprisal + syllables | 0, Gtall))
+# # summary(mlogit(ch ~ surprisal + syllables | 0, Gexpensive))
+# params = data.frame(
+#   type=c("surprisal", "syllables", "surprisal", "syllables", "surprisal", "syllables", "surprisal", "syllables"),
+#   estimate=c(0.073518, 0.318197, 0.110228, 0.225962, 0.261593, 0.215122, 0.243998, 0.217833),
+#   error=c(0.029621, 0.086995, 0.031160, 0.080922, 0.034492, 0.083455, 0.035874, 0.081535),
+#   adjective=c("beautiful", "beautiful", "old", "old", "tall", "tall", "expensive", "expensive")
+# )
+# p = ggplot(params, aes(x=adjective, y=estimate, colour=adjective)) +
+#   facet_wrap(~ type) +
+#   geom_point() +
+#   geom_errorbar(aes(x=adjective, ymin=estimate-error, ymax=estimate+error))
+# print(p)
+# ggsave("../edited_draft/images/plot_study2_E.pdf", width=8.5, height=4)
+```
+
+<!-- Here's the original data. The slopes and intercepts vary by both participants and objects. In particular, watches seem to have larger slopes than laptops. -->
+
+```{r}
+# df %>% ggplot(., aes(x=word.cost,
+#                      y=logprice,
+#                      group=paste(workerid, object))) +
+#   geom_line(stat="smooth",method = "lm", alpha = 0.1) +
+#   facet_wrap(~object) +
+#   geom_point(alpha=0.1)
+# ggsave("raw-data.png", width=6, height=3)
+```
+
+<!-- And here's what the data look like when we z-score within each participant's responses for each object. Now each participant has an intercept of zero (kind of obviously...), but the slopes vary across participants. -->
+
+```{r}
+# df %>% ggplot(., aes(x=word.cost,
+#                      y=logprice.scaled,
+#                      group=paste(workerid, object))) +
+#   geom_line(stat="smooth",method = "lm", alpha = 0.1) +
+#   facet_wrap(~object) +
+#   geom_point(alpha=0.1)
+# ggsave("scaled-data.png", width=6, height=3)
+```
+
+<!-- ### 2. Model
+
+Given that preprocessing involves normalizing responses from each participant for each item, we would use the following model, which includes a random slope for participant but no random intercept. We include random intercepts for intensifier (the particular words). We center the continuous predictors by subtracting their means. -->
+
+Model:
+
+```{r, echo=T}
+m = lmer(logprice.scaled ~ 1 + syll.centered + surprisal.centered +
+    (0 + syll.centered + surprisal.centered | workerid) +
+    (1 | intensifier), df)
+```
+
+```{r}
+# summary(m)
+```
+
+```{r}
+require(lmtest)
+m_simple = lmer(logprice.scaled ~ 1 +
+    (0 | workerid) +
+    (1 | intensifier), df)
+m_syll = lmer(logprice.scaled ~ 1 + syll.centered +
+    (0 + syll.centered | workerid) +
+    (1 | intensifier), df)
+m_surp = lmer(logprice.scaled ~ 1 + surprisal.centered +
+    (0 + surprisal.centered | workerid) +
+    (1 | intensifier), df)
+lr_full = lrtest (m_simple, m)
+lr_diff_due_to_surp = lrtest (m_syll, m)
+lr_diff_due_to_syll = lrtest (m_surp, m)
+```
+
+```{r}
+report = function(df, chisq, p) {
+  return(paste(
+    "$\\chi^2(df=",
+    df,
+    ")=",
+    round(chisq, 3),
+    ", ",
+    ifelse(p<0.05, "p<0.05", paste("p=", round(p, 3), sep="")),
+    "$",
+    sep=""))
+}
+```
+
+
+full likeihood ratio test: `r report(lr_full$Df[[2]], lr_full$Chisq[[2]], lr_full[["Pr(>Chisq)"]][[2]])`
+
+likeihood ratio test for surprisal effect beyond syllables effect: `r report(lr_diff_due_to_surp$Df[[2]], lr_diff_due_to_surp$Chisq[[2]], lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])`
+
+likeihood ratio test for syllables effect beyond surprisal effect: `r report(lr_diff_due_to_syll$Df[[2]], lr_diff_due_to_syll$Chisq[[2]], lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])`
+
+<!-- We did not replicate our original model. -->
+
+```{r}
+# m.old = lmer(logprice ~ surprisal + syll +
+#                (1 + surprisal + syll | workerid) +
+#                (1 + surprisal + syll | object), data=df)
+# summary(m.old)
+```
+
+```{r}
+# get_coef = function(s) {
+#   sub_data = df %>% filter(syll==s)
+#   coefs = (sub_data %>%
+#             lmer(logprice ~ 1 + surprisal.centered +
+#                    (0 + surprisal.centered | workerid) +
+#                    (1 | intensifier), .) %>%
+#             summary())$coefficients
+#   return(c(
+#     syllables = s,
+#     coef = coefs["surprisal.centered", "Estimate"],
+#     se = coefs["surprisal.centered", "Std. Error"],
+#     mean.surprisal = mean(sub_data$surprisal),
+#     se.surprisal = sd(sub_data$surprisal)/sqrt(length(sub_data$surprisal)),
+#     mean.logprice = mean(sub_data$logprice),
+#     se.logprice = sd(sub_data$logprice)/sqrt(length(sub_data$logprice))
+#   ))
+# }
+# syllables_coefs_data = as.data.frame(t(sapply(1:4, get_coef)))
+# syllables_coefs_data %>%
+#   ggplot(., aes(x=syllables, y=coef)) +
+#   geom_point() +
+#   geom_errorbar(aes(ymin=coef-2*se, ymax=coef+2*se), width=0) +
+#   ylab("surprisal coefficient")
+# ggsave("surprisal-coefficient-by-syll.png", width=4, height=3)
+# syllables_coefs_data %>%
+#   ggplot(., aes(x=syllables, y=mean.logprice)) +
+#   geom_point() +
+#   geom_errorbar(aes(ymin=mean.logprice-2*se.logprice,
+#                     ymax=mean.logprice+2*se.logprice), width=0) +
+#   ylab("mean log(price estimate)")
+# ggsave("response-by-syll.png", width=4, height=3)
+# syllables_coefs_data %>%
+#   ggplot(., aes(x=syllables, y=mean.surprisal)) +
+#   geom_point() +
+#   geom_errorbar(aes(ymin=mean.surprisal-(2*se.surprisal),
+#                     ymax=mean.surprisal+(2*se.surprisal)), width=0) +
+#   ylab("mean surprisal")
+# ggsave("surprisal-by-syll.png", width=4, height=3)
+# df %>% group_by(syll) %>%
+#   summarise(n = length(unique(intensifier)))
+```
+
+Results:
+
+```{r, width=10}
+library(ggrepel)
+df %>% group_by(intensifier, object) %>%
+  summarise(surprisal.centered = surprisal.centered[[1]],
+            syll = syll[[1]],
+            logprice.scaled = mean(logprice.scaled)) %>%
+  summarise(surprisal.centered = surprisal.centered[1],
+            syllables = syll[1],
+            low = ci.low(logprice.scaled),
+            high = ci.high(logprice.scaled),
+            logprice.scaled = mean(logprice.scaled)) %>%
+  ggplot(., aes(x=surprisal.centered,
+                y=logprice.scaled,
+                colour=syllables)) +
+  geom_smooth(method="lm", colour="gray", alpha=0.1) +
+  geom_point() +
+  geom_errorbar(aes(ymin=low, ymax=high)) +
+  # geom_text_repel(aes(label=intensifier)) +
+  # facet_wrap(~object, scale="free") +
+  ylab("normalized log price") +
+  scale_colour_gradient(low="gray", high="black") +
+  xlab("centered surprisal") +
+  ggtitle("Study 1b") +
+  theme_bw()
+# ggsave("../edited_draft/images/plot_study1b.pdf", width=8, height=2.5)
+ggsave("../edited_draft/images/plot_study1b.pdf", width=5, height=3)
+```
+```{r}
+df1b = df %>% group_by(intensifier, object) %>%
+  summarise(logprice=mean(logprice)) %>%
+  summarise(logprice=mean(logprice))
+# df1b$intensifier[order(df1b$logprice)] %>%
+df1b %>% write.csv("intensifiers_mean_logprice_study1b.csv",
+                   row.names=F)
+```
+
+
+```{r}
+df %>% group_by(intensifier) %>%
+  summarise(freq=freq[[1]],
+            syll=syll[[1]]) %>%
+  write.csv("intensifiers_for_table.csv", row.names=F)
+```
+

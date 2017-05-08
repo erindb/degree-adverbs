@@ -256,9 +256,11 @@ df1b %>% write.csv("intensifiers_mean_logprice_study1b.csv",
 
 
 ```{r}
-df %>% group_by(intensifier) %>%
+intensifiers = df %>% group_by(intensifier) %>%
   summarise(freq=freq[[1]],
-            syll=syll[[1]]) %>%
+            syll=syll[[1]])
+intensifiers = intensifiers[order(intensifiers$freq),]
+intensifiers %>%
   write.csv("intensifiers_for_table.csv", row.names=F)
 ```
 

@@ -145,7 +145,7 @@ lr_diff_due_to_syll = lrtest (m_surp, m)
 ```
 
 ```{r}
-report = function(df, chisq, p) {
+report_chisq = function(df, chisq, p) {
   return(paste(
     "$\\chi^2(",
     # "df=",
@@ -160,11 +160,11 @@ report = function(df, chisq, p) {
 ```
 
 
-full likeihood ratio test: `r report(lr_full$Df[[2]], lr_full$Chisq[[2]], lr_full[["Pr(>Chisq)"]][[2]])`
+full likeihood ratio test: `r report_chisq(lr_full$Df[[2]], lr_full$Chisq[[2]], lr_full[["Pr(>Chisq)"]][[2]])`
 
-likeihood ratio test for surprisal effect beyond syllables effect: `r report(lr_diff_due_to_surp$Df[[2]], lr_diff_due_to_surp$Chisq[[2]], lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])`
+likeihood ratio test for surprisal effect beyond syllables effect: `r report_chisq(lr_diff_due_to_surp$Df[[2]], lr_diff_due_to_surp$Chisq[[2]], lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])`
 
-likeihood ratio test for syllables effect beyond surprisal effect: `r report(lr_diff_due_to_syll$Df[[2]], lr_diff_due_to_syll$Chisq[[2]], lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])`
+likeihood ratio test for syllables effect beyond surprisal effect: `r report_chisq(lr_diff_due_to_syll$Df[[2]], lr_diff_due_to_syll$Chisq[[2]], lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])`
 
 <!-- We did not replicate our original model. -->
 
@@ -265,9 +265,12 @@ df %>% group_by(intensifier) %>%
   write.csv("intensifiers_for_table.csv", row.names=F)
 ```
 
-```{r}
+```{r, echo=T}
 m.old = lmer(logprice ~ surprisal + syll +
                (1 + surprisal + syll | workerid) +
                (1 + surprisal + syll | object), data=df)
-summary(m.old)
 ```
+
+syllables: `r report(m.old, "syll")`
+
+surprisal: `r report(m.old, "surprisal")`
