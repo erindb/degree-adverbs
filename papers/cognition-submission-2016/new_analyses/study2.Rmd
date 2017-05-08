@@ -17,7 +17,7 @@ source("~/Settings/startup.R")
 # load dependencies
 library(boot)
 library(ordinal)
-library(plyr)
+# library(plyr)
 library(languageR)
 library(mlogit)
 ```
@@ -181,4 +181,11 @@ print(summary(model))
 print(summary(mlogit(ch ~ surprisal + syllables + surprisal:adjective + syllables:adjective | 0, G)))
 sink(NULL)
 
+```
+```{r}
+df2 = df %>% group_by(adverb) %>%
+  summarise(ranking=mean(ranking))
+# df1b$intensifier[order(df1b$logprice)] %>%
+df2 %>% write.csv("intensifiers_mean_logprice_study2.csv",
+                   row.names=F)
 ```

@@ -246,8 +246,7 @@ df %>% group_by(intensifier, object) %>%
 ggsave("../edited_draft/images/plot_study1b.pdf", width=5, height=3)
 ```
 ```{r}
-df1b = df %>% group_by(intensifier, object) %>%
-  summarise(logprice=mean(logprice)) %>%
+df1b = df %>% group_by(intensifier) %>%
   summarise(logprice=mean(logprice))
 # df1b$intensifier[order(df1b$logprice)] %>%
 df1b %>% write.csv("intensifiers_mean_logprice_study1b.csv",
