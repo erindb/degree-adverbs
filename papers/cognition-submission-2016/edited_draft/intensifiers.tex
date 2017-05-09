@@ -548,28 +548,32 @@ This suggests that context-specific surprisal might affect the utterance cost, o
 
 In other words, we again found that participants assign stronger interpretations to intensifiers with higher surprisals and/or higher syllable lengths, extending now across four different adjectival scales. However, we found also interactions between modifier and adjective (or perhaps scale).
 
-\begin{figure}[hbt]
+\begin{figure*}[hbt]
 \begin{center}
-\includegraphics[width=0.5\textwidth]{images/plot_study2.pdf}
+\includegraphics[width=\textwidth]{images/plot_study2.pdf}
 \end{center}
 \caption{Results of Study 2. As surprisal and length in syllables increase, participants' rankings increased.} 
 \label{fig:plot_study2}
-\end{figure}
+\end{figure*}
 
-\subsection{Discussion}  
-\todo{  
-These experiments provide evidence that intensifier meanings depend systematically on the length and frequency of distribution of their word forms.
+\subsection{Discussion}
+
+In Studies 1a and 1b, we found evidence that an intensifier's surprisal is a significant predictor of strength of its meaning. In Study 2, we used a more sensitive dependent measure and showed that length in syllables is also a significant predictor of strength of meaning.
+These studies taken together provide evidence that intensifier meanings depend systematically on the length and frequency of distribution of their word forms.
+
 While it is unlikely that this accounts for all intensifier meaning, it does suggest that a major portion of meaning comes not from arbitrary, conventional association of signal to sign \cite{de_saussure_nature_1916}, but systematically from features of the word's form and distribution.
 
 Since this is a correlational study, such a relationship does not confirm that an intensifier's cost \emph{causes} it to have a given meaning.
-%This correlation is predicted by the model sketched above, but it might be predicted by other analyses of intensifiers and their meanings. 
-Rarity, in particular, might be correlated with strength of meaning merely because more extreme meanings refer to less probable things in the world, are therefore talked about less, and therefore the words with those meanings will necessarily be rarer.
-%% this next bit is sketch
 
-Although it seems reasonable to suspect that word frequencies reflect the probabilities of the real-world concepts they describe, it might also be the case that improbable things are more likely to be commented on, and so to a certain extent the frequencies of words that describe rare concepts will be inflated. Syllable length in turn can depend on the frequency, simplicity, or predictability of a word \cite{zipf_psycho-biology_1935, lewis_conceptual_2016, mahowald_info/information_2013}, either because words that are frequently used get shortened over time \cite{kanwal_evolution_2016} or perhaps because words that refer to simpler or more common concepts enter the lexicon sooner (when more short word forms remain to be assigned meanings). It is therefore possible that these measures of cost have no causal influence on the meanings of intensifiers within a particular communicative act.
+In particular, we can explain the correlation with rarity if the strength of an intensifier's meaning causes it to be rarely used.
+That is, more extreme intensifiers naturally refer to less probable events and properties in the world, and therefore might be used less frequently\footnote{
+However, note that the frequency with which things occur in the world does not map directly on to how often those things are talked about. 
+Although it seems reasonable to suspect that word frequencies reflect the probabilities of the real-world concepts they describe, it might also be the case that improbable things are more likely to be commented on, and so to a certain extent the frequencies of words that describe rare concepts will be inflated. 
+}.
+Syllable length in turn can depend on the frequency, simplicity, or predictability of a word \cite{zipf_psycho-biology_1935, lewis_conceptual_2016, mahowald_info/information_2013}, either because words that are frequently used get shortened over time \cite{kanwal_evolution_2016} or perhaps because words that refer to simpler or more common concepts enter the lexicon sooner (when more short word forms remain to be assigned meanings).
+It is therefore possible that neither of these measures of cost have causal influence on the meanings of intensifiers within a particular communicative act.
 
-To more directly address the question of whether utterance cost \emph{causes} people to interpret an intensifier as stronger, we ran Experiments 3 and 4, where we directly manipulated one of our measures of cost---length---in novel intensifiers which have no conventional meaning associated to them.
-}
+To more directly address the question of whether utterance cost \emph{causes} people to interpret an intensifier as stronger, we ran Studies 3 and 4, where we directly manipulated one of our measures of cost---length---in novel intensifiers which have no conventional meaning associated to them. 
 
 \section{Novel intensifier length increases strength of interpretation}
 
@@ -782,7 +786,7 @@ This work was supported by a James S. McDonnell Foundation Scholar Award to NDG 
 
 \section{Appendix} \label{app:model}
 
- \citeA{lassiter}'s model of scalar adjectives belongs to the family of Rational Speech Act (RSA) models in which speaker and listener communicate by  reasoning about each other's goals and inferences (\citeNP{frank, goodman}; for related models, see also \citeNP{Franke2011, Russell2012}). 
+ \citeA{lassiter_context_2013}'s model of scalar adjectives belongs to the family of Rational Speech Act (RSA) models in which speaker and listener communicate by  reasoning about each other's goals and inferences (\citeNP{frank_predicting_2012, goodman_knowledge_2013}; for related models, see also \citeNP{franke_quantity_2011, russell_probabilistic_2012}). 
  These models have been shown to account for a number of key phenomena in pragmatics. The adjective model accounts for uncertainty about the adjectival threshold by including a semantic variable, which the pragmatic listener infers at the same time that she infers the speaker's intended meaning. 
 
 RSA models begin with a literal listener, which captures the semantic denotation of sentences. 
@@ -807,8 +811,9 @@ $$ P_{L_1}(d, \vec{\theta} | u_i) \propto P(d) \cdot P_{S_1}(u_i | d, \vec{\thet
 We simulated such a model with three alternative adjective phrases (i.e.~three intensifiers) with costs of $1$, $5$, and $10$. We also included a null utterance, with trivial meaning (always true) and cost of $0$. The prior distribution of degrees along this adjective's scale (which we will discuss as ``prices'' for concreteness and consistency with our Experiment 1) was a gaussian peaked at $0$.
 We used an optimality parameter of $\lambda=5$ in our simulation. 
 
-Though the literal semantics are identical (but permitting different threshold parameters), the different phrases received different interpretations: the more costly intensifiers corresponded to less probable, more extreme prices (Figure ~\ref{model}). This can be seen as an M-implicature: more costly intensifiers are assigned stronger, less probable, meanings. 
-The model therefore predicts an association between intensifier meaning and utterance cost.
+Though the literal semantics are identical (but permitting different threshold parameters), the different phrases received different interpretations: the more costly intensifiers corresponded to less probable, more extreme prices (Figure ~\ref{model}).
+This can be seen as an M-implicature: more costly intensifiers are assigned stronger, less probable, meanings. 
+The model therefore predicts an association between intensifier meaning and utterance cost (see \citeA{bergen_pragmatic_2014} for other M-implicature models within the RSA framework).
 
 \begin{figure}[tbh]
 \begin{center}

@@ -100,7 +100,8 @@ replication = function(df) {
     )
     return(newd)
   })
-  p = ggplot(data=aggdf, aes(x=surprisal, y=height_in_list, colour=as.numeric(syllables))) +
+  p = aggdf %>% 
+    mutate(syllables = as.numeric(syllables)) %>% ggplot(data=., aes(x=surprisal, y=height_in_list, colour=syllables)) +
     geom_smooth(method="lm", lwd=0, colour="gray", alpha=1/10) +
     geom_point(#size=3
       ) +
@@ -109,14 +110,15 @@ replication = function(df) {
     facet_grid(. ~ adjective, scale="free") +
     xlab("surprisal") +
     ylab("height in list") +
-    scale_colour_continuous(name="syllables") +
+    # scale_colour_continuous(name="syllables") +
     scale_x_continuous(breaks=c(10, 14, 18)) +
     ggtitle("Study 4") +
     #   scale_colour_brewer(type="div", palette=7) +
     #   scale_fill_brewer(type="div", palette=7) +
-    theme(panel.grid=element_blank())
+    theme(panel.grid=element_blank()) +
+    scale_colour_gradient(low="gray", high="black")
   print(p)
-  ggsave("../edited_draft/images/plot_study4.pdf", width=8.5, height=4)
+  ggsave("../edited_draft/images/plot_study4.pdf", width=5, height=2.5)
   
   # # pdf(file="output/Experiment4/predictors.pdf", width=17, height=17)
   # # pairscor.fnc(df[,c("surprisal","syllables","height_in_list")])
