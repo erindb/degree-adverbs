@@ -189,7 +189,7 @@ likeihood ratio test for syllables effect beyond surprisal effect: `r report_chi
 Results:
 
 ```{r, width=10}
-# library(ggrepel)
+library(ggrepel)
 df %>%
   group_by(intensifier) %>%
   summarise(surprisal.centered = surprisal.centered[[1]],
@@ -202,7 +202,8 @@ df %>%
                 colour=syllables)) +
   geom_smooth(method="lm", colour="gray", alpha=0.1) +
   geom_point() +
-  geom_errorbar(aes(ymin=low, ymax=high)) +
+  geom_text_repel(size=3, aes(label=intensifier)) +
+  geom_errorbar(aes(ymin=low, ymax=high), width=0) +
   # geom_text_repel(aes(label=intensifier)) +
   # facet_wrap(~object, scale="free") +
   ylab("normalized log price") +
@@ -221,4 +222,19 @@ df3 = full_df %>% group_by(intensifier, object) %>%
 # df1b$intensifier[order(df1b$logprice)] %>%
 df3 %>% write.csv("intensifiers_mean_logprice_study3.csv",
                    row.names=F)
+```
+
+```{r}
+intensities = full_df %>% group_by(intensifier) %>%
+  summarise(
+    low = ci.low(logprice.scaled),
+    high = ci.high(logprice.scaled),
+    mean_logprice = mean(logprice.scaled)) %>%
+  mutate(
+    low = (low - mean(mean_logprice))/sd(mean_logprice),
+    high = (high - mean(mean_logprice))/sd(mean_logprice),
+    intensity = (mean_logprice - mean(mean_logprice))/sd(mean_logprice)) %>%
+  select(intensifier, intensity, low, high)
+intensities = intensities[order(intensities$intensity),]
+write.csv(intensities, "intensities_study3.csv", row.names=F)
 ```

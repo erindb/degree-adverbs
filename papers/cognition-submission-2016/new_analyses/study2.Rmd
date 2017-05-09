@@ -189,3 +189,23 @@ df2 = df %>% group_by(adverb) %>%
 df2 %>% write.csv("intensifiers_mean_logprice_study2.csv",
                    row.names=F)
 ```
+
+```{r}
+intensities = df %>% 
+  rename(intensifier = adverb) %>%
+  group_by(intensifier) %>%
+  summarise(
+    low = ci.low(height_in_list),
+    high = ci.high(height_in_list),
+    mean_height_in_list = mean(height_in_list)) %>%
+  mutate(
+    low = (low - 
+      mean(mean_height_in_list))/sd(mean_height_in_list),
+    high = (high - 
+      mean(mean_height_in_list))/sd(mean_height_in_list),
+    intensity = (mean_height_in_list -
+      mean(mean_height_in_list))/sd(mean_height_in_list)) %>%
+  select(intensifier, intensity, low, high)
+intensities = intensities[order(intensities$intensity),]
+write.csv(intensities, "intensities_study2.csv", row.names=F)
+```

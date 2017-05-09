@@ -275,3 +275,19 @@ surprisal: `r report(m.old, "surprisal")`
 # df1a %>% write.csv("intensifiers_mean_logprice_study1a.csv",
 #                    row.names=F)
 ```
+
+```{r}
+intensities = df %>% group_by(intensifier) %>%
+  summarise(
+    low = ci.low(logprice.scaled),
+    high = ci.high(logprice.scaled),
+    mean_logprice = mean(logprice.scaled)) %>%
+  mutate(
+    low = low/sd(mean_logprice) - mean(mean_logprice),
+    high = high/sd(mean_logprice) - mean(mean_logprice),
+    intensity = mean_logprice/sd(mean_logprice) - mean(mean_logprice)) %>%
+  select(intensifier, intensity, low, high)
+intensities = intensities[order(intensities$intensity),]
+write.csv(intensities, "intensities_study1a.csv", row.names=F)
+```
+
