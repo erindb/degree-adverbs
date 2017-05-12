@@ -180,8 +180,6 @@ There were three categories of objects (\w{laptop}, \w{watch}, and \w{coffee mak
 The intensifiers in our study were collected from word lists online and searching thesauri for more intensifiers.
 We chose intensifiers that have a wide range of frequencies and excluded intensifiers that are either more commonly used to signal affect than to signal degree (e.g. \w{depressingly expensive} might indicate a degree, but it mainly indicates affect) or are ambiguous between other parts of speech (e.g. \w{super} can be used as an intensifier, as in ``super expensive'', but it can also be used as an exclamation, as in ``Super!'').
 
-Because this procedure for collecting intensifiers was insufficiently systematic for direct reproducibility, and because we could not rule out the possibility that this particular set of intensifiers was biased by the researcher's hypotheses, we later revised our set of intensifiers for our replication Study \hyperref[sec:study1b]{1b}.
-
 We chose the domain of price for Study \hyperref[sec:study1a]{1a} and used only the adjective \w{expensive}.
 Because price constitutes a quantitative scale with standard units (dollars for our US participants), this allowed us to quantitatively measure the relative strengths of different intensifiers.
 
@@ -271,7 +269,7 @@ However, we model both measures of communicative cost in our analyses: we includ
 
 Prices that participants give obviously vary systematically with the object (expensive laptops tend to be more expensive than expensive coffee makers).
 Prices are also likely sensitive to variation across participants due to their different beliefs about likely prices.
-Because we have few objects, we are unable to model the variation due to object, and because we have many intensifiers (they are fully crossed with objects), normalizing is fairly effective at converting all objects to the same scale.
+Because we have few objects, we are unable to model the variation due to object, but because we have many intensifiers (they are fully crossed with objects), normalizing is fairly effective at converting all objects to the same scale.
 We are not theoretically interested in the variation due to objects, and so in order to compare intensifiers across these objects, we first normalized log-transformed prices within participant and object.
 We used the logarithm of participants' price estimates because of evidence that people's representation of numbers, including prices, is logarithmic \cite{fechner_elements_1860}.\footnote{
   I.e. the perceptual distance between two prices the same dollar amount apart is more for small numbers (e.g. \$3 and \$6) and less for large numbers (e.g. \$1,543 and \$1,546).
@@ -283,8 +281,8 @@ To see the effect of the two measures of communicative cost (surprisal and lengt
 
 \subsubsection{Results}
 
-If the meaning of an intensifier is stronger for higher cost intensifiers, we would expect to find that as surprisal increases and length in syllables increases, the prices participants give will also increase. We find that this is the case for surprisal, but do not show a significant effect of syllable length beyond this.
-
+If the meaning of an intensifier is stronger for higher cost intensifiers, we would expect to find that as surprisal increases and length in syllables increases, the prices participants give will also increase. 
+%We find that this is the case for surprisal, but do not show a significant effect of syllable length beyond the effect of surprisal.
 Our results are shown in Figure~\ref{fig:plot_study1a}, in a way that highlights the surprisal predictor. 
 We found a significant main effect of surprisal ($b=0.106,t(38.9)=3.411,p<0.05$) such that less frequent words tend to be associated with higher price estimates.
 We did not a significant main effect of syllable length ($b=0.133,t(39.9)=1.717,p=0.094$), above and beyond surprisal.
@@ -292,6 +290,7 @@ We did not a significant main effect of syllable length ($b=0.133,t(39.9)=1.717,
 Because surprisal and syllable-length are correlated, in addition to the analysis reported here we also used likelihood ratio tests to compare the full model to models with only one of the two predictors.
 These tests show that syllables alone account for the data less well than the full model ($\chi^2(3)=11.389, p<0.05$) and that surprisal alone also accounts for the data less well than the full model ($\chi^2(3)=10.247, p<0.05$).
 %computed length-corrected surprisals by regressing the raw surprisals onto word length in syllables using linear regression with a single main effect of word length. The residuals of this model, length-corrected surprisals, were used for the surprisal predictor in similar analyses to the ones we report, and we consistently found similar results. This suggests more strongly that surprisal and syllable length \emph{both} independently contribute to participants' estimates.
+\ndg{doesn't this mean that we do need syllables in addition to surprisal, thus confirming the syllables prediction?}
 
 Thus intensifiers that are less frequent (and therefore are more costly to communicate) also tend to be interpreted as having stronger meanings, at least when used to modify the adjective \emph{expensive}.
 We did not confirm our secondary prediction that length (another factor in communicative cost) has any effect beyond that of surprisal.
@@ -307,16 +306,18 @@ We did not confirm our secondary prediction that length (another factor in commu
 
 \subsection{Study 1b \label{sec:study1b}}
 
-We ran a large replication study, which resolved some of the methodological issues of Study \hyperref[sec:study1a]{1a}.
-In particular, we increased our sample of participants and systematized our process for collecting the set of items in our study.
+Our initial selection of intensifiers was somewhat haphazard, being chosen partly to give the best (intuitive) chance of observing an effect. 
+To show that there was no implicit bias induced by this selection, we next replicated using a revised, and more systematic, set of intensifiers.
+We additionally took this opportunity to increase the sample size, guided by a power analysis based on the results of \hyperref[sec:study1a]{1a}.
+
 
 
 \subsubsection{Methods}
 
 \paragraph{Participants}
 
-For the replication Study \hyperref[sec:study1b]{1b}, we wanted enough participants for a power level of 0.8 for the principal effect of surprisal.
-Power analyses for mixed effects models with continuous predictors are not algebraically straightforward, and so we approximated the number of participants necessary for our desired power by bootstrapping.
+We wanted enough participants for a power level of 0.8 for the principal effect of surprisal.
+Power analyses for mixed effects models with continuous predictors are not analytically straightforward, and so we approximated the number of participants necessary for our desired power by bootstrapping.
 We used the data from our original Study \hyperref[sec:study1a]{1a} to simulate alternative possible datasets with different numbers of intensifiers and participants.
 For each of 100 iterations, we sampled with replacement from Study \hyperref[sec:study1a]{1a} a set of $P$ participants and a set of $I$ intensifiers, varying $P$ and $I$.
 We created a resampled dataset where we crossed the resampled participants with the resampled intensifiers and collected the corresponding responses for each pair.
@@ -324,10 +325,10 @@ For each resampled dataset, we ran the regression model from Study \hyperref[sec
 We computed the proportion of runs in which the surprisal term was significant and interpreted this as the power of such a study.
 
 We found that our original Study \hyperref[sec:study1a]{1a} was somewhat underpowered by this metric (statistical power was near 0.70 for the surprisal regressor, our principal effect of interest).
-For the replication Study \hyperref[sec:study1b]{1b}, we determined that with the 71 intensifiers we collected from grammars of English, 50 was the minimum number of subjects for power at the 0.8 level for the surprisal term.
-We doubled this amount for a goal of 100 participants for the replication Study \hyperref[sec:study1b]{1b}.
-Despite having sufficient power for the surprisal term, our bootstrapped power analysis suggests that even with 100 participants, the power for the syllables term in the model is only 0.29.
-Due to a slight error in data collection on Amazon's Mechanical Turk, we actually recruited 108 participants.
+For the replication, we determined that with the 71 intensifiers we collected from grammars of English (described below), 50 was the minimum number of subjects for power at the 0.8 level for the surprisal term.
+We doubled this amount for a goal of 100 participants for the replication.
+(Despite having sufficient power for the surprisal term, our bootstrapped power analysis suggests that even with 100 participants, the power for the syllables term in the model is only 0.29. We address this instead, with a direct manipulation of syllables, in experiments 4 and 5.)
+Due to a slight error in data collection, we actually recruited 108 participants.
 
 Following this power analysis, 108 participants with US IP addresses were recruited through Amazon’s Mechanical Turk and paid \$1.00 for their participation. 1 participant was excluded from the analysis for admitting that they did not think they followed the instructions in a post-experiment survey and another for not being a native speaker of English.
 
@@ -338,7 +339,8 @@ We used the same objects (\w{laptop}, \w{watch}, and \w{coffee maker}) as in Stu
 
 In Study  \hyperref[sec:study1a]{1a} and the remaining studies detailed in this paper, our choice of the set of intensifiers to include was somewhat arbitrary and collected after formation of our hypothesis.
 To address the concern that this might bias our results, we followed a more systematic procedure for generating a list of intensifiers for our replication Study \hyperref[sec:study1b]{1b}.
-Since no single source that we found contained the number of intensifiers desired for sufficient power in Study \hyperref[sec:study1b]{1b}, our process for collecting intensifiers in this replication was to combine word lists from multiple grammars of English.
+We sought out English grammars that listed intensifiers.
+Since no single source contained the number of intensifiers desired for sufficient power in Study \hyperref[sec:study1b]{1b}, our process for collecting intensifiers in this replication was to combine word lists from multiple grammars of English.
 We first found 12 grammars of English that mentioned one of the following terms: ``intensifiers'', ``adverbs of degree'', or ``amplifiers'' \cite{aarts_oxford_2014,douglas_longman_2000,declerck_comprehensive_1991,garner_chicago_2016,givon_english_1993,greenbaum_oxford_1996,huddleston_cambridge_2002,huddleston_introduction_1984,nelson_english:_2010,quirk_grammar_1972,quirk_students_1990,van_gelderen_introduction_2010}.
 Most of these grammars mentioned examples of such words, and many contained lists of them.
 The average length of such a list or collection was approximately 21 words.
@@ -350,10 +352,10 @@ In addition, some lists included comparative degree adverbs like \w{more}.
 We excluded downtowners, intensifiers that do not pre-modify, comparatives, and exclusively British English intensifiers.
 This resulted in a total of 71 unique intensifiers.
 Of these, only 19 had been in Study \hyperref[sec:study1a]{1a}.
-21 words that appeared in our previous experiments did not appear in a list in any of the English grammars, including \w{insanely}, \w{wildly}, \w{exceptionally}, and \w{frightfully}.
+21 words that appeared in our previous experiment did not appear in a list in any of the English grammars, including \w{insanely}, \w{wildly}, \w{exceptionally}, and \w{frightfully}.
 The full list of intensifiers included in Study \hyperref[sec:study1b]{1b} is in Table \hyperref[table:intensifiers_study1a]{\ref{table:intensifiers_study1b}}.
 
-Because replicating Study \hyperref[sec:study1a]{1a} perfectly with this new set of intensifiers would require each participant to answer 213 very similar questions and would likely take at least 30 minutes (the higher end of task lengths on Amazon’s Mechanical Turk), we opted for a ``replication design'' for our replication Study \hyperref[sec:study1b]{1b} (following \citeA{judd_experiments_2017}). We spit the full set of intensifiers into 3 replication sets and varied these sets between participants. Our final simulations for the bootstrapped power analysis detailed above included this replicaiton design in computing power.
+Because replicating Study \hyperref[sec:study1a]{1a} perfectly with this new set of intensifiers would require each participant to answer 213 very similar questions and would likely take at least 30 minutes (the higher end of task lengths on Amazon’s Mechanical Turk), we opted for a ``replication design'' for our replication Study \hyperref[sec:study1b]{1b} (following \citeA{judd_experiments_2017}). We spit the full set of intensifiers into 3 replication sets and varied these sets between participants. Our final simulations for the bootstrapped power analysis detailed above included this replication design in computing power.
 
 \begin{table}[ht]
  \begin{center}
@@ -452,9 +454,11 @@ As in Study~\hyperref[sec:study1a]{1a}, we normalized log-transformed prices wit
 
 Our results are shown in Figure~\ref{fig:plot_study1b}. 
 As in Study 1a, we found a significant main effect of surprisal ($b=0.107, t(70.1)=3.255, p<0.05$) such that less frequent words tend to be associated with higher price estimates.
-We did not a significant main effect of syllable length ($b=0.055, t(69.4)=1.021, p=0.311$), above and beyond surprisal.
+We did not find a significant main effect of syllable length ($b=0.055, t(69.4)=1.021, p=0.311$), above and beyond surprisal.
 
-In likelihood ratio tests, we found that syllables alone accounts for the data less well than the full model ($\chi^2(3)=25.028,p<0.05$) but that surprisal alone accounts for the data as well as the full model ($\chi^2(3)=7.526,p=0.057$) and that .
+In likelihood ratio tests, we found that syllables alone accounts for the data less well than the full model ($\chi^2(3)=25.028,p<0.05$) but that surprisal alone accounts for the data as well as the full model ($\chi^2(3)=7.526,p=0.057$) and that . \ndg{fixme}
+
+This replicates the results of Study~\hyperref[sec:study1a]{1a}, and extends them to a larger, more systematic set of intensifiers.
 
 \begin{figure}[ht]
 \begin{center}
