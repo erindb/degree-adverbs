@@ -45,6 +45,8 @@ We discuss the implications for adverbial meaning and the more general question 
 intensifiers; degree adverbs; scalar adjectives; pragmatics; m-implicature
 \end{abstract}
 
+\todo{Reviewers asked to report the "strengths of the effects" and the amount of variance explained. I don't know how to do that.}
+
 \section{Introduction}
 
 How do different words get their meanings?
@@ -203,11 +205,11 @@ Participants were prevented from continuing until they provided a valid numeric 
 \begin{table}[ht]
  \begin{center}
  \footnotesize
-  \caption{Intensifiers from Study \hyperref[sec:study1a]{1a}, number of occurences in Google Web 1T 5grams corpus, and number of syllables.}
+  \caption{Intensifiers from Study \hyperref[sec:study1a]{1a}, number of occurences in Google Web 1T 5grams corpus, and length in syllables.}
   \label{table:intensifiers_study1a}
   \begin{tabular}{llc}
    \hline
-   ngram & frequency & syllables \\
+   ngram & frequency & length \\
     \hline
     surpassingly & 11156 & 4 \\
     colossally & 11167 & 4 \\
@@ -262,7 +264,7 @@ The frequencies were collected from the Google Web 1T 5-grams database \cite{bra
 In the analysis below we use word length and word surprisal (negative log-frequency) as proxies for a word's cost, as motivated above.
 The syllable lengths of our intensifiers and the surprisals were correlated ($r = 0.26$).
 This correlation makes it somewhat difficult to determine the effect of one measure of cost above and beyond the other.
-In our first series of studies, we focus on the primary effect of surprisal, since we have more range in surprisal across intensifiers than in syllables and since we manipulate length in syllbles for our next series of studies.
+In our first series of studies, we focus on the primary effect of surprisal, since we have more range in surprisal across intensifiers than in length and since we manipulate length in syllbles for our next series of studies.
 However, we model both measures of communicative cost in our analyses: we include both predictors in regressions and report likelihood-ratio tests between the full model and simpler models.
 
 \subsubsection{Analysis}
@@ -275,25 +277,45 @@ We used the logarithm of participants' price estimates because of evidence that 
   I.e. the perceptual distance between two prices the same dollar amount apart is more for small numbers (e.g. \$3 and \$6) and less for large numbers (e.g. \$1,543 and \$1,546).
 }
 
-We ran a linear mixed effects regression with centered fixed effects of syllables and surprisal, a random slope for participant (the normalization gives each participant an intercept of 0), and a random intercept for intensifier (to model any idiosyncratic meaning there might be to a particular intensifier beyond communicative cost).
+\todo{One reviewer said we should have a random intercept for intensifier to model any idiosyncratic meaning there might be to a particular intensifier beyond communicative cost. But then we would basically have a parameter for every item. Does that make sense? Are there other ways to address the reviewer's concerns that a few very strong or very weak intensifiers would drive the effect?}
 
-To see the effect of the two measures of communicative cost (surprisal and length in syllables) separately, we compared the full model to a model without that measure as a regressor using a likelihood ratio test.
+We ran a linear mixed effects regression to predict scaled price estimates. We included centered fixed effects of length and surprisal. To model random effects due to participant, we only included random slopes, since the normalization gives each participant an intercept of 0.  %We also included a random intercept for intensifier to model any idiosyncratic meaning there might be to a particular intensifier beyond communicative cost. 
+The predicted mean $y_{ij}$ for the $i^{th}$ condition (object-intensifier pair where the intensifier has surprisal $s_i$ and length $l_i$) and the $j^{th}$ participant under this model is shown in Equation \ref{eq:study1}.
+%, with random by-intensifier intercepts $I_i$ and random by-participant slopes $P_{1j}$ and $P_{2j}$.
+
+\todo{What is a conventional/correct way to write this model and talk about it in the text?}
+
+\begin{equation}
+\label{eq:study1}
+y_{ij} = \beta_0 + (\beta_1 + u^1_{j})s_i + (\beta_2 + u^2_{j})l_i
+\end{equation}
+
+As previously noted, surprisal and length in syllables are correlated predictors. We focus on surprisal as our primary effect, but we are also interested in the independent contribution of length in syllables. To address the independent effects of these variables, we ran model comparisons using log likelihood, leaving out each of the fixed effects but maintaining the full random effects structure. We also ran two additional mixed effects reggressions: one in which the suprisal is first residualized against length (using ordinary linear regression), and one where length is residualized against surprisal.
 
 \subsubsection{Results}
 
 If the meaning of an intensifier is stronger for higher cost intensifiers, we would expect to find that as surprisal increases and length in syllables increases, the prices participants give will also increase. 
 %We find that this is the case for surprisal, but do not show a significant effect of syllable length beyond the effect of surprisal.
 Our results are shown in Figure~\ref{fig:plot_study1a}, in a way that highlights the surprisal predictor. 
-We found a significant main effect of surprisal ($b=0.106,t(38.9)=3.411,p<0.05$) such that less frequent words tend to be associated with higher price estimates.
-We did not a significant main effect of syllable length ($b=0.133,t(39.9)=1.717,p=0.094$), above and beyond surprisal.
+
+%The full regression shown in Equation was significant ($F(,)=__.__,p<0.___$), with an $R^2$ of $0.___$.
+We found a significant effect of surprisal ($b=0.106, t(27)=12.592, p<0.0005$) such that less frequent words tend to be associated with higher price estimates.
+%In this regression, we did not a significant effect of syllable length ($b=0.133,t(39.9)=1.717,p=0.094$), above and beyond surprisal.
+We also found a significant effect of syllable length ($b=0.133, t(27)=5.823, p<0.0005$), above and beyond surprisal.
 
 Because surprisal and syllable-length are correlated, in addition to the analysis reported here we also used likelihood ratio tests to compare the full model to models with only one of the two predictors.
-These tests show that syllables alone account for the data less well than the full model ($\chi^2(3)=11.389, p<0.05$) and that surprisal alone also accounts for the data less well than the full model ($\chi^2(3)=10.247, p<0.05$).
+These tests show that length in length alone account for the data less well than the full model ($\chi^2(7)=57.278, p<0.0005$) and that surprisal alone also accounts for the data less well than the full model ($\chi^2(7)=22.778, p<0.0005$).
+In addition, when surprisal was residualized with respect to length, both surprisal ($b=0.106, t(27)=12.592, p<0.0005$) and length ($b=0.202, t(27)=8.542, p<0.0005$) were significant predictors of scaled ratings. And when the length was residualized with respect to surprisal, both surprisal ($b=0.12, t(27)=13.58, p<0.0005$) and length ($b=0.133, t(27)=5.823, p<0.0005$) were significant predictors of scaled ratings.
+This suggests that both surprisal and length in syllables may independently contribute to the strength of an intensifier.
 %computed length-corrected surprisals by regressing the raw surprisals onto word length in syllables using linear regression with a single main effect of word length. The residuals of this model, length-corrected surprisals, were used for the surprisal predictor in similar analyses to the ones we report, and we consistently found similar results. This suggests more strongly that surprisal and syllable length \emph{both} independently contribute to participants' estimates.
-\ndg{doesn't this mean that we do need syllables in addition to surprisal, thus confirming the syllables prediction?}
+%\ndg{doesn't this mean that we do need length in addition to surprisal, thus confirming the length prediction?}
+% yeahhh....
 
 Thus intensifiers that are less frequent (and therefore are more costly to communicate) also tend to be interpreted as having stronger meanings, at least when used to modify the adjective \emph{expensive}.
-We did not confirm our secondary prediction that length (another factor in communicative cost) has any effect beyond that of surprisal.
+
+\todo{What is a good test of linearity?}
+
+%We did not confirm our secondary prediction that length (another factor in communicative cost) has any effect beyond that of surprisal.
 %Furthermore, the relationship appears to be linear in surprisal and length, as predicted by the M-implicature proposal introduced above.
 
 \begin{figure}[ht]
@@ -310,8 +332,6 @@ Our initial selection of intensifiers was somewhat haphazard, being chosen partl
 To show that there was no implicit bias induced by this selection, we next replicated using a revised, and more systematic, set of intensifiers.
 We additionally took this opportunity to increase the sample size, guided by a power analysis based on the results of \hyperref[sec:study1a]{1a}.
 
-
-
 \subsubsection{Methods}
 
 \paragraph{Participants}
@@ -327,7 +347,7 @@ We computed the proportion of runs in which the surprisal term was significant a
 We found that our original Study \hyperref[sec:study1a]{1a} was somewhat underpowered by this metric (statistical power was near 0.70 for the surprisal regressor, our principal effect of interest).
 For the replication, we determined that with the 71 intensifiers we collected from grammars of English (described below), 50 was the minimum number of subjects for power at the 0.8 level for the surprisal term.
 We doubled this amount for a goal of 100 participants for the replication.
-(Despite having sufficient power for the surprisal term, our bootstrapped power analysis suggests that even with 100 participants, the power for the syllables term in the model is only 0.29. We address this instead, with a direct manipulation of syllables, in experiments 4 and 5.)
+(Despite having sufficient power for the surprisal term, our bootstrapped power analysis suggests that even with 100 participants, the power for the length term in the model is only 0.29. We address this instead, with a direct manipulation of length, in experiments 4 and 5.)
 Due to a slight error in data collection, we actually recruited 108 participants.
 
 Following this power analysis, 108 participants with US IP addresses were recruited through Amazon’s Mechanical Turk and paid \$1.00 for their participation. 1 participant was excluded from the analysis for admitting that they did not think they followed the instructions in a post-experiment survey and another for not being a native speaker of English.
@@ -360,7 +380,7 @@ Because replicating Study \hyperref[sec:study1a]{1a} perfectly with this new set
 \begin{table}[ht]
  \begin{center}
  \footnotesize
-  \caption{Intensifiers from Study1b, number of occurences in Google Web 1T 5grams corpus, and number of syllables.}
+  \caption{Intensifiers from Study1b, number of occurences in Google Web 1T 5grams corpus, and length in syllables.}
   \label{table:intensifiers_study1b}
   \begin{tabular}{llc}
    \hline
@@ -448,15 +468,18 @@ The procedure for Study \hyperref[sec:study1b]{1b} was identical to that of Stud
 
 \subsubsection{Analysis}
 
-As in Study~\hyperref[sec:study1a]{1a}, we normalized log-transformed prices within participant and object and then ran a linear mixed effects regression with centered fixed effects of syllables and surprisal, a random slope for participant, and a random intercept for intensifier.
+As in Study~\hyperref[sec:study1a]{1a}, we normalized log-transformed prices within participant and object and then ran a linear mixed effects regression with centered fixed effects of length and surprisal, a random slope for participant.
+%, and a random intercept for intensifier.
 
 \subsubsection{Results}
 
 Our results are shown in Figure~\ref{fig:plot_study1b}. 
-As in Study 1a, we found a significant main effect of surprisal ($b=0.107, t(70.1)=3.255, p<0.05$) such that less frequent words tend to be associated with higher price estimates.
-We did not find a significant main effect of syllable length ($b=0.055, t(69.4)=1.021, p=0.311$), above and beyond surprisal.
+As in Study 1a, we found a significant main effect of surprisal (\todo{model didn't converge}) such that less frequent words tend to be associated with higher price estimates.
+We did not find a significant main effect of syllable length (\todo{model didn't converge}), above and beyond surprisal.
 
-In likelihood ratio tests, we found that syllables alone accounts for the data less well than the full model ($\chi^2(3)=25.028,p<0.05$) but that surprisal alone accounts for the data as well as the full model ($\chi^2(3)=7.526,p=0.057$) and that . \ndg{fixme}
+\todo{This model succeeds with a random intercept for intensifier and fails to converge when I *exclude* that random effect. What?}
+
+In likelihood ratio tests, we found that length alone accounts for the data less well than the full model (\todo{model didn't converge}) and that surprisal alone also accounts for the data less well than the full model (\todo{model didn't converge}). When residualizing length with respect to surprisal, we found significant effects of length (\todo{model didn't converge}) and surprisal (\todo{model didn't converge}), and when residualizing surprisal with respect to length, we also found significant effects of length (\todo{model didn't converge}) and surprisal (\todo{model didn't converge}).
 
 This replicates the results of Study~\hyperref[sec:study1a]{1a}, and extends them to a larger, more systematic set of intensifiers.
 
@@ -541,15 +564,19 @@ Participants completed 4 such trials, ranking intensifiers for all 4 adjectives 
 
 \subsubsection{Analysis}
 
-We ran a rank-ordered logit model \cite{beggs_assessing_1981, hausman_specifying_1987} with alternative-specific variables for surprisal and for length in syllables and no intercept.
+We ran a rank-ordered logit model \cite{beggs_assessing_1981, hausman_specifying_1987} with alternative-specific variables for surprisal and for length in syllables. This model did not include an intercept.
 %
-To test whether we find an interaction between intensifier strength and the adjective it modifies, we ran a second rank-ordered logit model with additional alternative-specific variables for the interaction between the adjective being modified and both surprisal and syllables. 
+To test whether we find an interaction between intensifier strength and the adjective it modifies, we ran a second rank-ordered logit model with additional alternative-specific variables for the interaction between the adjective being modified and both surprisal and length. 
+
+\todo{does a likelihood ratio test make sense here? should I residualize?}
 
 \subsubsection{Results}
 
-Our results for Study 2 are shown in Figure~\ref{fig:plot_study2}. In our first model, with surprisal and syllables as the only predictors in question, we again found a significant effect of surprisal ($\beta=0.16, SE=0.02, t=10.13, p<0.001$). In addition, with this more sensitive ranking measure, we also find a significant effect of syllable length ($\beta=0.24, SE=0.04, t=5.89, p<0.001$).
+Our results for Study 2 are shown in Figure~\ref{fig:plot_study2}. In our first model, with surprisal and length as the only predictors in question, we again found a significant effect of surprisal ($\beta=0.16, SE=0.02, t=10.13, p<0.001$). In addition, with this more sensitive ranking measure, we also find a significant effect of syllable length ($\beta=0.24, SE=0.04, t=5.89, p<0.001$).
 
-In the second model, we again found significant effects of surprisal ($p=0.013$) and syllables ($p<0.001$), and also found a significant interaction between surprisal and the adjective being modified (estimates for \w{tall} and \w{expensive} were significantly higher than for \w{beautiful}, while \w{old} was not significantly different from \w{beautiful}).
+\todo{this is not residualized. should i include that?}
+
+In the second model, with adjective interactions, we again found significant effects of surprisal ($p=0.013$) and length ($p<0.001$), and also found a significant interaction between surprisal and the adjective being modified (estimates for \w{tall} and \w{expensive} were significantly higher than for \w{beautiful}, while \w{old} was not significantly different from \w{beautiful}).
 This suggests that context-specific surprisal (e.g.~bigram frequencies) might affect the utterance cost, or that factors of utterance cost might have different effects for different adjectives.
 
 In other words, we again found that participants assign stronger interpretations to intensifiers with higher surprisals and/or higher syllable lengths, extending now across four different adjectival scales. In addition, we found interactions between modifier and adjective (or perhaps scale).
@@ -622,9 +649,10 @@ The order of the questions was randomized between and within participants.
 In Study 3,  to study the effect of the length of a novel intensifier on its interpretation, we ran a linear mixed effects model on only the novel intensifiers, with length (``long''=1 or ``short''=-1) as a fixed effect, a random slope for participant, and random intercepts for the three different ``roots''.
 
 We included as filler a subset of the intensifiers we tested in Study 1a, and so we also confirmed our findings from Study 1a.
-As in Study 1a, we ran a linear mixed effects regression with centered fixed effects of syllables and surprisal, a random slope for participant, and a random intercept for intensifier.
-
-To see the effect of the two measures of communicative cost separately, we compared the full model to a model without that measure as a regressor using a likelihood ratio test.
+As in Study 1a, we ran a linear mixed effects regression with centered fixed effects of length and surprisal and a random slope for participant.
+%, and a random intercept for intensifier.
+%
+To see the effect of the two measures of communicative cost separately, we compared the full model to a model without that measure as a regressor using a likelihood ratio test and ran versions of the model where we first residualized the measures with respect to one another.
 
 \begin{figure}[hbt]
 \begin{center}
@@ -644,9 +672,20 @@ To see the effect of the two measures of communicative cost separately, we compa
 
 \subsubsection{Results}
 
+\todo{update this to NOT include the random effect for intensifiers and run all the analyses i promised above}
+
 In our analysis of novel intensifiers, we found a significant effect of length condition ($b=0.538$, $SE=0.195$, $t=2.757$, $p<0.05$), indicating that people a longer intensifier as stronger, even for novel intensifiers with no conventional meaning (Figure \ref{fig:plot_study3_barplot}).
 
-Replicating our findings from Study 1a, we found significant main effects of surprisal ($b=0.14, t(7.2)=2.49, p<0.05$) but no significant effect of syllable length ($b=0.194, t(6.3)=2.046, p=0.085$) (Figure \ref{fig:plot_study3_scatter}).
+Replicating our findings from Study 1a, we found significant main effects of surprisal ($b=0.14, t(26)=7.094, p<0.0005$) but no significant effect of syllable length ($b=0.194, t(26)=8.268, p<0.0005$) (Figure \ref{fig:plot_study3_scatter}). In likelihood ratio test, we found that the full model was a better fit than the model with surprisal only ($\chi^2(7)=34.803, p<0.0005$) and the model with length only ($\chi^2(7)=30.718, p<0.0005$). Residualizing each regressor with respect to one another, we again found significant effects $p<0.0005$.
+
+%report(m_resid_syll, "surprisal.centered")
+%[1] "$b=0.182, t(26)=9.495, p<0.0005$"
+%> report(m_resid_syll, "syll_resid")
+%[1] "$b=0.194, t(26)=8.268, p<0.0005$"
+%> report(m_resid_surp, "surprisal_resid")
+%[1] "$b=0.14, t(26)=7.094, p<0.0005$"
+%> report(m_resid_surp, "syll.centered")
+%[1] "$b=0.286, t(26)=11.952, p<0.0005$"
 
 In a post-hoc regression with a fixed effect for novel adverb root, we found a significant effect of root on response ($F(2)=3.386, p<0.05$), suggesting possible additional effects of form that we have not captured with length in syllables alone.
 Average responses for \w{ratumly} were lowest out of all the intensifiers used in Experiment 3, and average responses for \w{tupabugornly} were highest.
@@ -685,9 +724,13 @@ With our filler intensifiers for Study 4 we again ran a ranked order logit model
 
 In the cumulative logit model, we found a significant effect of length condition ($\beta(\mbox{``short''})=-1.41$, $SE=0.51$, $t=-2.79$, $p=0.005$).
 
+\todo{this is not residualized. should i include that?}
+
 When we included a regressor for the root of the novel intensifier, we did not find a significant effect of root on participants' relative rankings (for root \w{lopus}, $p=0.110$; for root \w{ratum} $p>.250$).
 
 Rankings for novel intensifiers had much higher variance than rankings for attested intensifiers, since we had many fewer rankings for the novel intensifiers (which varied between participants) than for the attested ones (which every participant saw once). The novel intensifier \w{ratumly} was again on average ranked as less strong than any other intensifier, but the highest-ranked novel intensifiers (\w{gaburatumly} and \w{tupabugornly}) were on average ranked below the highest-ranked attested intensifiers (\w{colossally}, \w{phenomenally}, \w{extraordinarily}, and \w{amazingly}).
+
+\todo{check residualization here}
 
 For the filler items, we replicated our findings from Study 2, showing significant effects of both surprisal ($\beta=0.45$, $SE=0.03$, $t=13.88$, $p<0.001$)
 and syllable length ($\beta=0.58$, $SE=0.05$, $t=10.74$, $p<0.001$) on the order in the list that participants chose for the intensifiers (see Figure \ref{fig:plot_study4}).
@@ -737,22 +780,22 @@ We have implemented and described one version of such a semantics, but other ver
 
 The intensifiers we have looked at may also have other source(s) of meaning in addition to the measures of communicative cost that we have explored.
 There appears to be consistent variation in intensifier meaning beyond that explained by our measures of communicative cost.
-\ndg{maybe so how much?}
+\todo{what is a good measure of this? falls under the "variance explained" question}
+%\ndg{maybe so how much?}
 This may be because we have not exhausted the sources of communicative cost.
 It could also be that in addition to the relationship we have described between communicative cost and strength, conventional contributions to meaning are associated with certain adverbs.
  In particular, many intensifiers seem to be derived from adverbs having to do with emotion, and the valence and/or arousal of these root emotions might influence the strength of an intensifier or its affinity to co-occur with some adjective types rather than others.
 This might be especially true for intensifiers that are still making the change from manner adverb to intensifier (e.g. terribly once only carried the qualitative meaning of ``bad and frightening'', but now almost exclusively means simply ``a lot'').
 
-While we have shown, through our use of novel intensifiers, that people can use communicative cost for in-the-moment interpretation, they may not have to.
-It is possible that over time such an interpretation could become lexicalized, become part of the context-independent semantics of that word. \ndg{do we need this par?}
+%While we have shown, through our use of novel intensifiers, that people can use communicative cost for in-the-moment interpretation, they may not have to.
+%It is possible that over time such an interpretation could become lexicalized, become part of the context-independent semantics of that word. \ndg{do we need this par?}
 
-One consequence of our studies, independent of our proposal of \emph{how} intensifiers get their meanings,
-\ndg{awk!}
- is that we have collected many judgements about the relative strengths of intensifiers across several adjective scales and dependent measures.
+In investigating our proposal proposal of how intensifiers get their meanings, we have collected many judgements about the relative strengths of intensifiers across several adjective scales and dependent measures.
 As a summary of these judgements, we have aggregated across the different dependent measures in our studies and displayed them in a common scale in Figure~\ref{fig:intensities}.
 For each study, we computed the average value of the dependent measure (normalized log-transformed price for Studies 1a, 1b and 3 and height in list for Studies 2 and 4) for each intensifier in that study. We then z-scored within the study, so that our different operationalizations of ``strength'' in the different study designs could be reasonably compared together.
 Given this rescaling, we can compare the strengths of these intensifiers to one another, including the novel intensifiers from Studies 3 and 4.
-\ndg{say something about what we see here?}
+%\ndg{say something about what we see here?}
+We see some consistency across experiments and show that our choices of novel intensifiers spanned the full range of natural intensifier strengths.
 
 For the broader question of form-meaning mapping, we have suggested a source of non-arbitrary association based on both properties of the word form and of its distribution.
 The effect of a word's distribution on its interpretation has potentially interesting implications for language change.
