@@ -21,3 +21,5 @@ data/data-collection
 *.DS_Store
 *_files/
 *_cache/
+*/*/*/untracked/*
+*/presentation-files/*
