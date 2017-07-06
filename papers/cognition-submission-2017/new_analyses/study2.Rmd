@@ -14,6 +14,11 @@ knitr::opts_chunk$set(echo=F, warning=F, cache=T, message=F, sanitiz =T, fig.wid
 ```{r load_settings}
 source("~/Settings/startup.R")
 
+# install.packages("boot")
+# install.packages("ordinal", dependencies=T)
+# install.packages("languageR", dependencies=T)
+# install.packages("mlogit", dependencies=T)
+
 # load dependencies
 library(boot)
 library(ordinal)

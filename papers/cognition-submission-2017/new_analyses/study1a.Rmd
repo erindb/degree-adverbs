@@ -15,21 +15,6 @@ knitr::opts_chunk$set(echo=F, warning=F, cache=F, message=F, sanitiz =T, fig.wid
 source("~/Settings/startup.R")
 ```
 
-<!-- ## Experiment
-
-Rating experiment.
-
-## Planned analysis
-
-### 1. Reformat data
-
-We first excluded any participants who are not native speakers of English or who stated that they did not think they followed instructions.
-
-People represent prices logarithmically, so we log-transform all of the prices that participants entered.
-
-We don't care about modeling the prices of the individual objects. We think that this factor might interact with participants (different participants have different beliefs about price distributions for different objects), but we do not have enough data to fit an accurate mixed model with interacting random effects. So we z-score within each participant's ratings for each object (Thanks, Reviewer, for the suggestion!).
--->
-
 ```{r}
 ## load intensifier data
 unigrams = read.csv("web_1grams.csv")
@@ -66,40 +51,43 @@ df = raw.df %>%
          word.cost = 0.18124*syll.centered + 0.10704*surprisal.centered)
 ```
 
-<!-- Here's the original data. The slopes and intercepts vary by both participants and objects. In particular, watches seem to have larger slopes than laptops. -->
-
 ```{r}
-# df %>% ggplot(., aes(x=word.cost,
-#                      y=logprice,
-#                      group=paste(workerid, object))) +
-#   geom_line(stat="smooth",method = "lm", alpha = 0.1) +
-#   facet_wrap(~object) +
-#   geom_point(alpha=0.1)
-# ggsave("raw-data.png", width=6, height=3)
+## colinearity
+r = with(df, cor(surprisal.centered, syll.centered))
+surp_by_syll = lm(surprisal.centered ~ syll.centered, df)
+syll_by_surp = lm(syll.centered ~ surprisal.centered, df)
+df = df %>% mutate(
+  surprisal_resid = resid(surp_by_syll),
+  syll_resid = resid(syll_by_surp))
 ```
-
-<!-- And here's what the data look like when we z-score within each participant's responses for each object. Now each participant has an intercept of zero (kind of obviously...), but the slopes vary across participants. -->
-
-```{r}
-# df %>% ggplot(., aes(x=word.cost,
-#                      y=logprice.scaled,
-#                      group=paste(workerid, object))) +
-#   geom_line(stat="smooth",method = "lm", alpha = 0.1) +
-#   facet_wrap(~object) +
-#   geom_point(alpha=0.1)
-# ggsave("scaled-data.png", width=6, height=3)
-```
-
-<!-- ### 2. Model
-
-Given that preprocessing involves normalizing responses from each participant for each item, we would use the following model, which includes a random slope for participant but no random intercept. We include random intercepts for intensifier (the particular words). We center the continuous predictors by subtracting their means. -->
 
 Model:
 
 ```{r, echo=T}
-m = lmer(logprice.scaled ~ 1 + syll.centered + surprisal.centered +
-    (0 + syll.centered + surprisal.centered | workerid) +
-    (1 | intensifier), df)
+m_colinear = lmer(logprice.scaled ~ 1 + syll.centered + surprisal.centered +
+    (0 + syll.centered + surprisal.centered | workerid), df)
+```
+
+```{r}
+m_resid_surp = lmer(logprice.scaled ~ 1 + syll.centered + surprisal_resid +
+    (0 + syll.centered + surprisal_resid | workerid), df)
+m_resid_syll = lmer(logprice.scaled ~ 1 + syll_resid + surprisal.centered +
+    (0 + syll_resid + surprisal.centered | workerid), df)
+
+## unable to evaluate scaled gradientModel...
+m_only_syll = lmer(logprice.scaled ~ 1 + syll.centered +
+    (0 + syll.centered + surprisal.centered | workerid), df)
+
+m_only_surp = lmer(logprice.scaled ~ 1 + surprisal.centered +
+    (0 + syll.centered + surprisal.centered | workerid), df)
+m_fixed_only = lm(logprice.scaled ~ 1 + syll.centered + surprisal.centered, df)
+```
+
+```{r}
+# cor(df$logprice.scaled, fitted(m_colinear))^2
+# cor(df$logprice.scaled, fitted(m_fixed_only))^2
+# logLik(m_colinear)
+# summary(m_colinear)
 ```
 
 ```{r}
@@ -112,36 +100,42 @@ report = function(m, regressor) {
   return(paste(
     "$b=",
     round(b, 3),
-    ", t(df",
+    ", t(",
     # "df=",
     round(df, 1),
     ")=",
     round(t, 3),
     ", ",
-    ifelse(p<0.05, "p<0.05", paste("p=", round(p, 3), sep="")),
+    ifelse(0==round(p, 4), "p<0.0005", paste("p=", round(p, 4), sep="")),
+    # ifelse(p<0.001, "p<0.001" "p<0.05", paste("p=", round(p, 3), sep="")),
     "$",
     sep=""))
 }
 ```
 
-syllables: `r report(m, "syll.centered")`
+Colinear model:
 
-surprisal: `r report(m, "surprisal.centered")`
+* surprisal: `r report(m_colinear, "surprisal.centered")`
+* syllables: `r report(m_colinear, "syll.centered")`
+
+Surprisal and length in syllables are correlated predictors ($r=`r r`$). We focus on surprisal as our primary effect, but we are also interested in the independent contribution of length in syllables.
+
+Model with syllables residualized (by surprisal):
+
+* surprisal: `r report(m_resid_syll, "surprisal.centered")`
+* syllables: `r report(m_resid_syll, "syll_resid")`
+
+Model with surprisal residualized (by syllables):
+
+* surprisal: `r report(m_resid_surp, "surprisal_resid")`
+* syllables: `r report(m_resid_surp, "syll.centered")`
+
+To address the independent effects of these variables, we ran model comparisons using log likelihood, leaving out each of the fixed effects but maintaining the full random effects structure. We also ran two additional mixed effects reggressions: one in which the suprisal is first residualized against syllables (using ordinary linear regression), and one where syllables is residualized against surprisal.
 
 ```{r}
-require(lmtest)
-m_simple = lmer(logprice.scaled ~ 1 +
-    (0 | workerid) +
-    (1 | intensifier), df)
-m_syll = lmer(logprice.scaled ~ 1 + syll.centered +
-    (0 + syll.centered | workerid) +
-    (1 | intensifier), df)
-m_surp = lmer(logprice.scaled ~ 1 + surprisal.centered +
-    (0 + surprisal.centered | workerid) +
-    (1 | intensifier), df)
-lr_full = lrtest (m_simple, m)
-lr_diff_due_to_surp = lrtest (m_syll, m)
-lr_diff_due_to_syll = lrtest (m_surp, m)
+# anova(m_colinear)
+lr_diff_due_to_syll = anova(m_colinear, m_only_surp)
+lr_diff_due_to_surp = anova(m_colinear, m_only_syll)
 ```
 
 ```{r}
@@ -153,69 +147,44 @@ report_chisq = function(df, chisq, p) {
     ")=",
     round(chisq, 3),
     ", ",
-    ifelse(p<0.05, "p<0.05", paste("p=", round(p, 3), sep="")),
+    ifelse(0==round(p, 4), "p<0.0005", paste("p=", round(p, 4), sep="")),
     "$",
     sep=""))
 }
 ```
 
-
-full likeihood ratio test: `r report_chisq(lr_full$Df[[2]], lr_full$Chisq[[2]], lr_full[["Pr(>Chisq)"]][[2]])`
-
 likeihood ratio test for surprisal effect beyond syllables effect: `r report_chisq(lr_diff_due_to_surp$Df[[2]], lr_diff_due_to_surp$Chisq[[2]], lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])`
 
 likeihood ratio test for syllables effect beyond surprisal effect: `r report_chisq(lr_diff_due_to_syll$Df[[2]], lr_diff_due_to_syll$Chisq[[2]], lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])`
 
-<!-- We did not replicate our original model. -->
+Check assumptions.
+
+Normality:
 
 ```{r}
-# m.old = lmer(logprice ~ surprisal + syll +
-#                (1 + surprisal + syll | workerid) +
-#                (1 + surprisal + syll | object), data=df)
-# summary(m.old)
+ggplot(NULL, aes(x=resid(m_colinear))) +
+  geom_density()
 ```
 
+Residuals as a function of predictors:
+
 ```{r}
-# get_coef = function(s) {
-#   sub_data = df %>% filter(syll==s)
-#   coefs = (sub_data %>%
-#             lmer(logprice ~ 1 + surprisal.centered +
-#                    (0 + surprisal.centered | workerid) +
-#                    (1 | intensifier), .) %>%
-#             summary())$coefficients
-#   return(c(
-#     syllables = s,
-#     coef = coefs["surprisal.centered", "Estimate"],
-#     se = coefs["surprisal.centered", "Std. Error"],
-#     mean.surprisal = mean(sub_data$surprisal),
-#     se.surprisal = sd(sub_data$surprisal)/sqrt(length(sub_data$surprisal)),
-#     mean.logprice = mean(sub_data$logprice),
-#     se.logprice = sd(sub_data$logprice)/sqrt(length(sub_data$logprice))
-#   ))
-# }
-# syllables_coefs_data = as.data.frame(t(sapply(1:4, get_coef)))
-# syllables_coefs_data %>%
-#   ggplot(., aes(x=syllables, y=coef)) +
-#   geom_point() +
-#   geom_errorbar(aes(ymin=coef-2*se, ymax=coef+2*se), width=0) +
-#   ylab("surprisal coefficient")
-# ggsave("surprisal-coefficient-by-syll.png", width=4, height=3)
-# syllables_coefs_data %>%
-#   ggplot(., aes(x=syllables, y=mean.logprice)) +
-#   geom_point() +
-#   geom_errorbar(aes(ymin=mean.logprice-2*se.logprice,
-#                     ymax=mean.logprice+2*se.logprice), width=0) +
-#   ylab("mean log(price estimate)")
-# ggsave("response-by-syll.png", width=4, height=3)
-# syllables_coefs_data %>%
-#   ggplot(., aes(x=syllables, y=mean.surprisal)) +
-#   geom_point() +
-#   geom_errorbar(aes(ymin=mean.surprisal-(2*se.surprisal),
-#                     ymax=mean.surprisal+(2*se.surprisal)), width=0) +
-#   ylab("mean surprisal")
-# ggsave("surprisal-by-syll.png", width=4, height=3)
-# df %>% group_by(syll) %>%
-#   summarise(n = length(unique(intensifier)))
+ggplot(NULL, aes(x=df$surprisal.centered, y=resid(m_colinear))) +
+  geom_point() +
+  geom_smooth(method="loess")
+ggplot(NULL, aes(x=df$syll.centered, y=resid(m_colinear))) +
+  geom_point()
+```
+
+Check linearity:
+
+```{r}
+ggplot(NULL, aes(x=predict(m_colinear), y=df$logprice.scaled)) +
+         geom_point() + geom_smooth(method="loess") +
+         geom_smooth(method="lm")
+ggplot(df, aes(x=1.33*syll.centered + 1.06*surprisal.centered, y=logprice.scaled)) +
+         geom_point() + geom_smooth(method="loess") +
+         geom_smooth(method="lm")
 ```
 
 Results:
@@ -256,26 +225,6 @@ df %>% group_by(intensifier) %>%
   write.csv("intensifiers_for_table.csv", row.names=F)
 ```
 
-```{r, echo=T}
-m.old = lmer(logprice ~ surprisal + syll +
-               (1 + surprisal + syll | workerid) +
-               (1 + surprisal + syll | object), data=df)
-```
-
-syllables: `r report(m.old, "syll")`
-
-surprisal: `r report(m.old, "surprisal")`
-
-```{r}
-# # take the model,
-# # get the intercept for intensifier and the slope on cost(s)
-# df1a = df %>% group_by(intensifier) %>%
-#   summarise(logprice=mean(logprice))
-# # df1b$intensifier[order(df1b$logprice)] %>%
-# df1a %>% write.csv("intensifiers_mean_logprice_study1a.csv",
-#                    row.names=F)
-```
-
 ```{r}
 intensities = df %>% group_by(intensifier) %>%
   summarise(
@@ -290,4 +239,3 @@ intensities = df %>% group_by(intensifier) %>%
 intensities = intensities[order(intensities$intensity),]
 write.csv(intensities, "intensities_study1a.csv", row.names=F)
 ```
-
