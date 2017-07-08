@@ -148,3 +148,4 @@ intensities = df %>% group_by(intensifier) %>%
 intensities = intensities[order(intensities$intensity),]
 write.csv(intensities, "output/intensities_study1a.csv", row.names=F)
 
+proportion_variance_explained = cor(predict(m_colinear), df$logprice.scaled)^2

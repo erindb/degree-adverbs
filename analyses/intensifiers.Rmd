@@ -29,6 +29,8 @@ Colinear model:
 * surprisal: `r report_coef(m_colinear, "surprisal.centered")`
 * syllables: `r report_coef(m_colinear, "syll.centered")`
 
+$r^2 = `r proportion_variance_explained`$
+
 Surprisal and length in syllables are correlated predictors ($r=`r r`$). We focus on surprisal as our primary effect, but we are also interested in the independent contribution of length in syllables.
 
 Model with syllables residualized (by surprisal):
@@ -74,6 +76,8 @@ Colinear model:
 
 * surprisal: `r report_coef(m_colinear, "surprisal.centered")`
 * syllables: `r report_coef(m_colinear, "syll.centered")`
+
+$r^2 = `r proportion_variance_explained`$
 
 Surprisal and length in syllables are correlated predictors ($r=`r r`$). We focus on surprisal as our primary effect, but we are also interested in the independent contribution of length in syllables.
 
