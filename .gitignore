@@ -13,13 +13,9 @@
 */mturk
 */*/mturk
 */*/*/mturk
-old-intensifiers
-local_notes
-cache
-data-collection
-data/data-collection
 *.DS_Store
 *_files/
 *_cache/
-*/*/*/untracked/*
-*/presentation-files/*
+cache
+data/data-collection
+reviewer_comments

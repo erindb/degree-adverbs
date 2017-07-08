@@ -81,7 +81,25 @@ m_only_syll = lmer(logprice.scaled ~ 1 + syll.centered +
 m_only_surp = lmer(logprice.scaled ~ 1 + surprisal.centered +
     (0 + syll.centered + surprisal.centered | workerid), df)
 m_fixed_only = lm(logprice.scaled ~ 1 + syll.centered + surprisal.centered, df)
+
+
+
+
+m_colinear_with_randomI = lmer(logprice.scaled ~ 1 + syll.centered + surprisal.centered +
+    (0 + syll.centered + surprisal.centered + intensifier | workerid), df)
+m_resid_surp_with_randomI = lmer(logprice.scaled ~ 1 + syll.centered + surprisal_resid +
+    (0 + syll.centered + surprisal_resid + intensifier | workerid), df)
+m_resid_syll_with_randomI = lmer(logprice.scaled ~ 1 + syll_resid + surprisal.centered +
+    (0 + syll_resid + surprisal.centered  + intensifier | workerid), df)
+
+## unable to evaluate scaled gradientModel...
+m_only_syll_with_randomI = lmer(logprice.scaled ~ 1 + syll.centered +
+    (0 + syll.centered + surprisal.centered + intensifier | workerid), df)
+
+m_only_surp_with_randomI = lmer(logprice.scaled ~ 1 + surprisal.centered +
+    (0 + syll.centered + surprisal.centered + intensifier | workerid), df)
 ```
+
 
 ```{r}
 # cor(df$logprice.scaled, fitted(m_colinear))^2
@@ -136,6 +154,38 @@ To address the independent effects of these variables, we ran model comparisons 
 # anova(m_colinear)
 lr_diff_due_to_syll = anova(m_colinear, m_only_surp)
 lr_diff_due_to_surp = anova(m_colinear, m_only_syll)
+```
+```{r}
+sink("study1a_models.txt")
+cat("\n\n\n\n=========m_colinear===========\n\n")
+summary(m_colinear)
+cat("\n\n\n\n=========m_resid_surp===========\n\n")
+summary(m_resid_surp)
+cat("\n\n\n\n=========m_resid_syll===========\n\n")
+summary(m_resid_syll)
+cat("\n\n\n\n=========m_only_syll===========\n\n")
+summary(m_only_syll)
+cat("\n\n\n\n=========m_only_surp===========\n\n")
+summary(m_only_surp)
+cat("\n\n\n\n=========m_fixed_only===========\n\n")
+summary(m_fixed_only)
+cat("\n\n\n\n=========lr_diff_due_to_syll===========\n\n")
+summary(lr_diff_due_to_syll)
+cat("\n\n\n\n=========lr_diff_due_to_surp============\n\n")
+summary(lr_diff_due_to_surp)
+
+cat("\n\n\n\n=========m_colinear_with_randomI===========\n\n")
+summary(m_colinear_with_randomI)
+cat("\n\n\n\n=========m_resid_surp_with_randomI===========\n\n")
+summary(m_resid_surp_with_randomI)
+cat("\n\n\n\n=========m_resid_syll_with_randomI===========\n\n")
+summary(m_resid_syll_with_randomI)
+cat("\n\n\n\n=========m_only_syll_with_randomI===========\n\n")
+summary(m_only_syll_with_randomI)
+cat("\n\n\n\n=========m_only_surp_with_randomI===========\n\n")
+summary(m_only_surp_with_randomI)
+cat("\n\n\n\n=========m_fixed_only_with_randomI===========\n\n")
+sink()
 ```
 
 ```{r}
