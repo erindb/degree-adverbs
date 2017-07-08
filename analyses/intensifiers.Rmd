@@ -6,7 +6,8 @@ output: html_document
 
 ```{r global_options, include=FALSE}
 rm(list=ls())
-knitr::opts_chunk$set(echo=F, warning=F, cache=F, message=F, sanitiz =T, fig.width = 5, fig.height = 3)
+knitr::opts_chunk$set(echo=F, warning=F, cache=F, message=F,
+                      sanitiz=T, fig.width = 5, fig.height = 3)
 ```
 
 ```{r load_settings}
@@ -14,34 +15,102 @@ source("~/Settings/startup.R")
 ```
 
 ```{r}
+source("specific_analyses/utils.R")
+```
+
+## Study 1a
+
+```{r}
 source("specific_analyses/study1a.R")
 ```
 
+Colinear model:
+
+* surprisal: `r report_coef(m_colinear, "surprisal.centered")`
+* syllables: `r report_coef(m_colinear, "syll.centered")`
+
+Surprisal and length in syllables are correlated predictors ($r=`r r`$). We focus on surprisal as our primary effect, but we are also interested in the independent contribution of length in syllables.
+
+Model with syllables residualized (by surprisal):
+
+* surprisal: `r report_coef(m_resid_syll, "surprisal.centered")`
+* syllables: `r report_coef(m_resid_syll, "syll_resid")`
+
+Model with surprisal residualized (by syllables):
+
+* surprisal: `r report_coef(m_resid_surp, "surprisal_resid")`
+* syllables: `r report_coef(m_resid_surp, "syll.centered")`
+
+To address the independent effects of these variables, we ran model comparisons using log likelihood, leaving out each of the fixed effects but maintaining the full random effects structure. We also ran two additional mixed effects reggressions: one in which the suprisal is first residualized against syllables (using ordinary linear regression), and one where syllables is residualized against surprisal.
+
+likeihood ratio test for surprisal effect beyond syllables effect: `r report_chisq(lr_diff_due_to_surp$Df[[2]], lr_diff_due_to_surp$Chisq[[2]], lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])`
+
+likeihood ratio test for syllables effect beyond surprisal effect: `r report_chisq(lr_diff_due_to_syll$Df[[2]], lr_diff_due_to_syll$Chisq[[2]], lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])`
+
+Some plots to check assumptions:
+
+```{r, fig.width=2, fig.height=1.5}
+print(residuals_normality_plot)
+print(residuals_by_surprisal)
+print(residuals_by_length)
+print(predicted_vs_actual)
+```
+
+## Power analysis
+
 ```{r}
-source("specific_analyses/new_intensifiers.R")
+# source("specific_analyses/new_intensifiers.R")
+```
+
+
+## Study 1b
+
+```{r}
+# source("specific_analyses/power_analysis.R")
+```
+
+
+Colinear model:
+
+* surprisal: `r report_coef(m_colinear, "surprisal.centered")`
+* syllables: `r report_coef(m_colinear, "syll.centered")`
+
+Surprisal and length in syllables are correlated predictors ($r=`r r`$). We focus on surprisal as our primary effect, but we are also interested in the independent contribution of length in syllables.
+
+Model with syllables residualized (by surprisal):
+
+* surprisal: `r report_coef(m_resid_syll, "surprisal.centered")`
+* syllables: `r report_coef(m_resid_syll, "syll_resid")`
+
+Model with surprisal residualized (by syllables):
+
+* surprisal: `r report_coef(m_resid_surp, "surprisal_resid")`
+* syllables: `r report_coef(m_resid_surp, "syll.centered")`
+
+To address the independent effects of these variables, we ran model comparisons using log likelihood, leaving out each of the fixed effects but maintaining the full random effects structure. We also ran two additional mixed effects reggressions: one in which the suprisal is first residualized against syllables (using ordinary linear regression), and one where syllables is residualized against surprisal.
+
+likeihood ratio test for surprisal effect beyond syllables effect: `r report_chisq(lr_diff_due_to_surp$Df[[2]], lr_diff_due_to_surp$Chisq[[2]], lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])`
+
+likeihood ratio test for syllables effect beyond surprisal effect: `r report_chisq(lr_diff_due_to_syll$Df[[2]], lr_diff_due_to_syll$Chisq[[2]], lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])`
+
+
+```{r}
+# source("specific_analyses/study1b.R")
 ```
 
 ```{r}
-source("specific_analyses/power_analysis.R")
+# source("specific_analyses/study2.R")
 ```
 
 ```{r}
-source("specific_analyses/study1b.R")
+# source("specific_analyses/study3.R")
 ```
 
 ```{r}
-source("specific_analyses/study2.R")
+# source("specific_analyses/study4.R")
 ```
 
 ```{r}
-source("specific_analyses/study3.R")
-```
-
-```{r}
-source("specific_analyses/study4.R")
-```
-
-```{r}
-source("specific_analyses/intensifier_strength_across_experiments.R")
+# source("specific_analyses/intensifier_strength_across_experiments.R")
 ```
 
