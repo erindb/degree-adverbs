@@ -39,6 +39,15 @@ total_ngrams = 1024908267229
 ngrams = read.csv("../data/web_1grams.csv")
 ngrams$surprisal = - (log(ngrams$frequency) - log(total_ngrams))
 
+
+
+n_nonenglish = length(unique((d %>%
+                                filter(!(language %in% c(
+                                  "English",  "english",  "Engli",    "Englsih",  "engish",   "English ",
+                                  "ENGLISH", "ENG", "eng"))))$workerid))
+n_did_not_follow_instructions = length(unique((d %>% filter(asses == "No"))$workerid))
+
+
 total_workers = length(unique(d$workerid))
 uncooperative = length(unique(subset(d, asses=="No")$workerid))
 d = subset(d, asses == "Yes" | asses == "Confused" | is.na(asses))
@@ -47,18 +56,24 @@ print(total_workers)
 print(uncooperative)
 print(good_workers)
 
-####### Oooops!!!!! Fix me
-df = d %>%
-  select(workerid, ranking, adverb, adjective, asses) %>%
-  mutate(ranking = rank(ranking),
-         adverb = char(adverb),
-         adjective = sapply(adverb, function(adv) {
-           return(strsplit(adv, " ")[[1]][2])
-         }),
-         adverb = sapply(adverb, function(adv) {
-           return(strsplit(adv, " ")[[1]][1])
-         }),
-         height_in_list = 9 - ranking)
+
+df = d %>% filter(asses!="No" | is.na(asses))
+
+df = df[,c("workerid", "adverb", "ranking")]
+df$adverb = as.character(df$adverb)
+df$adjective = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][2])})
+df$adverb = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][1])})
+
+df$surprisal = sapply(df$adverb, function(adv) {return(ngrams$surprisal[adv == as.character(ngrams$ngram)][1])})
+df$syllables = sapply(df$adverb, function(adv) {return(ngrams$syllables[adv == as.character(ngrams$ngram)][1])})
+df$height_in_list = 9 - df$ranking
+df$adverb_list = rep("A", nrow(df))
+df$adverb_list[df$adverb %in% list_b] = "B"
+df$adverb_list[df$adverb %in% list_c] = "C"
+df$adverb_list[df$adverb %in% list_d] = "D"
+
+
+
 
 filler_df = df %>%
   filter(!(adverb %in% c(
@@ -110,6 +125,8 @@ aggdf %>%
   scale_colour_gradient(low="gray", high="black")
 ggsave("../edited_draft/images/plot_study4.pdf", width=5, height=2.5)
 
+
+#### fix me: dplyr or plyr or something
 
 novel = function(df) {
   df = df[(df$adverb %in% c("bugornly expensive", "tupabugornly expensive",

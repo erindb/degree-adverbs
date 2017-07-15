@@ -37,7 +37,13 @@ total_ngrams = 1024908267229
 ngrams = read.csv("../data/web_1grams.csv")
 ngrams$surprisal = - (log(ngrams$frequency) - log(total_ngrams))
 
-df = d
+
+
+n_nonenglish = length(unique((d %>%
+                                filter(!(language %in% c(
+                                  "English",  "english",  "Engli",    "Englsih",  "engish",   "English ",
+                                  "ENGLISH", "ENG", "eng"))))$workerid))
+n_did_not_follow_instructions = length(unique((d %>% filter(asses == "No"))$workerid))
 
 list_a = c(
   "surpassingly",
@@ -88,13 +94,8 @@ list_d = c(
   "very"
 )
 
-total_workers = length(unique(df$workerid))
-uncooperative = length(unique(subset(df, asses=="No")$workerid))
-df = subset(df, asses == "Yes" | is.na(asses))
-good_workers = length(unique(df$workerid))
-print(total_workers)
-print(uncooperative)
-print(good_workers)
+df = d %>% filter(asses!="No" | is.na(asses))
+
 df = df[,c("workerid", "adverb", "ranking")]
 df$adverb = as.character(df$adverb)
 df$adjective = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][2])})
