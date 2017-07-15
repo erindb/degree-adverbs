@@ -194,6 +194,8 @@ non-native speaker of English - `r n_nonenglish` Ss
 
 Novel intensifiers model:
 
+fix me: print this out more pretty like
+
 ```{r}
 print(summary(novel_m))
 print(summary(novel_m_with_root))
@@ -247,8 +249,12 @@ print(residuals_by_length)
 print(predicted_vs_actual)
 ```
 
+## Study 4
+
+### Replication portion
+
 ```{r}
-# source("specific_analyses/study4.R")
+source("specific_analyses/study4.R")
 ```
 
 ```{r}

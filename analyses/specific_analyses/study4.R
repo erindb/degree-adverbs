@@ -1,17 +1,4 @@
----
-title: "Intensifiers: Replication Experiment"
-author: "Erin Bennett"
-output: 
-  html_document:
-      toc: false
----
 
-```{r global_options, include=FALSE}
-rm(list=ls())
-knitr::opts_chunk$set(echo=F, warning=F, cache=T, message=F, sanitiz =T, fig.width = 5, fig.height = 3)
-```
-
-```{r load_settings}
 source("~/Settings/startup.R")
 
 # load dependencies
@@ -19,9 +6,8 @@ library(boot)
 library(ordinal)
 library(languageR)
 library(mlogit)
-```
 
-```{r}
+
 ## load data
 # library(plyr)
 
@@ -48,9 +34,9 @@ myCenter <- function(x) {
 }
 
 # read in data
-d = read.csv("../../../data/study4_data.csv")
+d = read.csv("../data/study4_data.csv")
 total_ngrams = 1024908267229
-ngrams = read.csv("web_1grams.csv")
+ngrams = read.csv("../data/web_1grams.csv")
 ngrams$surprisal = - (log(ngrams$frequency) - log(total_ngrams))
 
 total_workers = length(unique(d$workerid))
@@ -61,6 +47,7 @@ print(total_workers)
 print(uncooperative)
 print(good_workers)
 
+####### Oooops!!!!! Fix me
 df = d %>%
   select(workerid, ranking, adverb, adjective, asses) %>%
   mutate(ranking = rank(ranking),
@@ -86,9 +73,8 @@ filler_df = df %>%
     syllables = sapply(adverb, function(adv) {
       return(ngrams$syllables[adv == as.character(ngrams$ngram)][1])
     }))
-```
 
-```{r}
+
 aggdf = filler_df %>% 
   group_by(adverb, adjective) %>%
   summarise(
@@ -123,9 +109,8 @@ aggdf %>%
   theme(panel.grid=element_blank()) +
   scale_colour_gradient(low="gray", high="black")
 ggsave("../edited_draft/images/plot_study4.pdf", width=5, height=2.5)
-```
 
-```{r}
+
 novel = function(df) {
   df = df[(df$adverb %in% c("bugornly expensive", "tupabugornly expensive",
                             "ratumly expensive", "gaburatumly expensive",
@@ -217,17 +202,17 @@ novel(d)
 # 
 # response_order = ddply(aggdf, .(adverb), summarise, height_in_list = mean(height_in_list))
 # aggdf$adverb = factor(aggdf$adverb, levels = as.character(response_order$adverb)[order(response_order$height_in_list)])
-```
 
-```{r}
+
+
 df2 = df %>% group_by(adverb) %>%
   summarise(ranking=mean(ranking))
 # df1b$intensifier[order(df1b$logprice)] %>%
 df2 %>% write.csv("intensifiers_mean_logprice_study2.csv",
                    row.names=F)
-```
 
-```{r}
+
+
 intensities = df %>% 
   rename(intensifier = adverb) %>%
   group_by(intensifier) %>%
@@ -245,4 +230,28 @@ intensities = df %>%
   select(intensifier, intensity, low, high)
 intensities = intensities[order(intensities$intensity),]
 write.csv(intensities, "intensities_study4.csv", row.names=F)
-```
+
+
+
+
+df = filler_df
+
+df$ch = df$height_in_list + 1
+df$chid = df$workerid
+G <- mlogit.data(df, choice = "ch", shape = "long", chid.var="chid",
+                 alt.var="adverb", ranked = TRUE)
+m_colinear = mlogit(ch ~ surprisal + syllables | 0, G)
+model_with_adj_interaction = mlogit(ch ~ surprisal + syllables + surprisal:adjective + syllables:adjective | 0, G)
+
+message("running simplified models...")
+m_only_syll = mlogit(ch ~ syllables | 0, G)
+m_only_surp = mlogit(ch ~ surprisal | 0, G)
+
+message("running residualized models...")
+m_resid_syll = mlogit(ch ~ surprisal + syll_resid | 0, G)
+m_resid_surp = mlogit(ch ~ surprisal_resid + syllables | 0, G)
+
+message("running likelihood ratio tests...")
+# anova(m_colinear)
+lr_diff_due_to_syll = lrtest(m_colinear, m_only_surp)
+lr_diff_due_to_surp = lrtest(m_colinear, m_only_syll)
