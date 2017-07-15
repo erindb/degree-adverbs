@@ -201,12 +201,6 @@ lr_diff_due_to_syll = lrtest(m_colinear, m_only_surp)
 lr_diff_due_to_surp = lrtest(m_colinear, m_only_syll)
 
 
-proportion_variance_explained = NULL
-
-
-
-
-
 df2 = df %>% group_by(adverb) %>%
   summarise(ranking=mean(ranking))
 # df1b$intensifier[order(df1b$logprice)] %>%

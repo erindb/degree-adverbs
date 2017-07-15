@@ -152,7 +152,6 @@ novel_m = novel_df %>%
          (0 + length | workerid) +
          (1 | root), data=.)
 
-proportion_variance_explained_novel = cor(predict(novel_m), novel_df$logprice.scaled)^2
 
 novel_m_with_root = novel_df %>%
   mutate(length = ifelse(length=="short", -1, 1)) %>%
@@ -187,37 +186,7 @@ df %>%
 # ggsave("../edited_draft/images/plot_study1b.pdf", width=8, height=2.5)
 ggsave("../paper/images/plot_study3_B.pdf", width=5, height=3)
 
-proportion_variance_explained_established = cor(predict(m_colinear), df$logprice.scaled)^2
 
-
-individual_proportion_variance_explained = cor(predict(m_colinear), df$logprice.scaled)^2
-
-## simulate new data
-n = length(unique(df$workerid))
-agg_by_intensifier = df %>% group_by(intensifier) %>%
-  summarise(logprice.scaled = mean(logprice.scaled),
-            syll.centered = syll.centered[1],
-            workerid=max(df$workerid)+1,
-            surprisal.centered = surprisal.centered[1])
-simulated_data = do.call(rbind, lapply(1:n, function(i) {
-  return(df %>% group_by(intensifier) %>%
-           summarise(logprice.scaled = mean(logprice.scaled),
-                     syll.centered = syll.centered[1],
-                     workerid=max(df$workerid)+i,
-                     surprisal.centered = surprisal.centered[1]))
-}))
-simulated_data$predicted = predict(m_colinear, newdata=simulated_data, allow.new.levels=T)
-proportion_variance_explained_simulated_n = with(simulated_data %>%
-                                                   group_by(intensifier) %>%
-                                                   summarise(predicted=mean(predicted),
-                                                             actual=mean(logprice.scaled)),
-                                                 (cor(actual, predicted))^2)
-proportion_variance_explained = (
-  cor(
-    agg_by_intensifier$logprice.scaled,
-    predict(m_colinear, newdata=agg_by_intensifier, allow.new.levels=T)
-  )
-)^2
 
 df3 = full_df %>% group_by(intensifier, object) %>%
   summarise(logprice=mean(logprice)) %>%

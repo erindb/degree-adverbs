@@ -161,34 +161,7 @@ intensities = df %>% group_by(intensifier) %>%
 intensities = intensities[order(intensities$intensity),]
 write.csv(intensities, "output/intensities_study1a.csv", row.names=F)
 
-individual_proportion_variance_explained = cor(predict(m_colinear), df$logprice.scaled)^2
 
-## simulate new data
-n = length(unique(df$workerid))
-agg_by_intensifier = df %>% group_by(intensifier) %>%
-  summarise(logprice.scaled = mean(logprice.scaled),
-            syll.centered = syll.centered[1],
-            workerid=max(df$workerid)+1,
-            surprisal.centered = surprisal.centered[1])
-simulated_data = do.call(rbind, lapply(1:n, function(i) {
-  return(df %>% group_by(intensifier) %>%
-           summarise(logprice.scaled = mean(logprice.scaled),
-                     syll.centered = syll.centered[1],
-                     workerid=max(df$workerid)+i,
-                     surprisal.centered = surprisal.centered[1]))
-}))
-simulated_data$predicted = predict(m_colinear, newdata=simulated_data, allow.new.levels=T)
-proportion_variance_explained_simulated_n = with(simulated_data %>%
-                                       group_by(intensifier) %>%
-                                       summarise(predicted=mean(predicted),
-                                                 actual=mean(logprice.scaled)),
-                                     (cor(actual, predicted))^2)
-proportion_variance_explained = (
-  cor(
-    agg_by_intensifier$logprice.scaled,
-    predict(m_colinear, newdata=agg_by_intensifier, allow.new.levels=T)
-  )
-)^2
 
 ## Rescaling plots:
 
