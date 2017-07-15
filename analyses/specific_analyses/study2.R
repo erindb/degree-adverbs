@@ -1,23 +1,4 @@
----
-title: "Intensifiers: Replication Experiment"
-author: "Erin Bennett"
-output: 
-  html_document:
-      toc: false
----
-
-```{r global_options, include=FALSE}
-rm(list=ls())
-knitr::opts_chunk$set(echo=F, warning=F, cache=T, message=F, sanitiz =T, fig.width = 5, fig.height = 3)
-```
-
-```{r load_settings}
 source("~/Settings/startup.R")
-
-# install.packages("boot")
-# install.packages("ordinal", dependencies=T)
-# install.packages("languageR", dependencies=T)
-# install.packages("mlogit", dependencies=T)
 
 # load dependencies
 library(boot)
@@ -25,9 +6,7 @@ library(ordinal)
 # library(plyr)
 library(languageR)
 library(mlogit)
-```
 
-```{r}
 ## load data
 
 myCenter <- function(x) {
@@ -53,9 +32,9 @@ myCenter <- function(x) {
 }
 
 # read in data
-d = read.csv("../../../data/study2_data.csv")
+d = read.csv("../data/study2_data.csv")
 total_ngrams = 1024908267229
-ngrams = read.csv("web_1grams.csv")
+ngrams = read.csv("../data/web_1grams.csv")
 ngrams$surprisal = - (log(ngrams$frequency) - log(total_ngrams))
 
 df = d
@@ -120,6 +99,7 @@ df = df[,c("workerid", "adverb", "ranking")]
 df$adverb = as.character(df$adverb)
 df$adjective = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][2])})
 df$adverb = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][1])})
+
 df$surprisal = sapply(df$adverb, function(adv) {return(ngrams$surprisal[adv == as.character(ngrams$ngram)][1])})
 df$syllables = sapply(df$adverb, function(adv) {return(ngrams$syllables[adv == as.character(ngrams$ngram)][1])})
 df$height_in_list = 9 - df$ranking
@@ -132,7 +112,11 @@ df$adverb_list[df$adverb %in% list_d] = "D"
 m.resid = lm(surprisal~syllables,data=df)
 df$resid_surprisal = resid(m.resid)
 
-aggdf = ddply(df, .(adverb, adjective), function(subd) {
+conditions = df %>% group_by(adverb, adjective) %>% summarise() %>% as.data.frame
+aggdf = do.call(rbind, lapply(1:nrow(conditions), function(i) {
+  av = conditions$adverb[i]
+  aj = conditions$adjective
+  subd = df %>% filter(adverb==av & adjective==aj)
   resampled = boot(subd, function(orig, indices) {
     return( mean(orig[indices,]$height_in_list) )
   }, 100)$t
@@ -148,11 +132,12 @@ aggdf = ddply(df, .(adverb, adjective), function(subd) {
     height_in_list_low = quantile(resampled, 0.975)
   )
   return(newd)
-})
+}))
+
 p = aggdf %>%
   mutate(syllables = as.numeric(syllables)) %>%
   ggplot(data=., aes(x=surprisal, y=height_in_list, colour=syllables)) +
-  geom_smooth(method="lm", lwd=0, colour="gray", alpha=1/10) +
+  geom_smooth(method="lm", colour="gray", alpha=1/10) +
   geom_point(
     # size=1
   ) +
@@ -169,33 +154,65 @@ p = aggdf %>%
   scale_colour_gradient(low="gray", high="black") +
   theme(panel.grid=element_blank())
 print(p)
-ggsave("../edited_draft/images/plot_study2.pdf", width=10, height=3)
+ggsave("../paper/images/plot_study2.pdf", width=10, height=3)
 
-response_order = ddply(aggdf, .(adverb), summarise, height_in_list = mean(height_in_list))
+response_order = aggdf %>% group_by(adverb) %>%
+  summarise(height_in_list = mean(height_in_list))
 aggdf$adverb = factor(aggdf$adverb, levels = as.character(response_order$adverb)[order(response_order$height_in_list)])
 
 centered = cbind(df, myCenter(df[,c("surprisal","syllables","resid_surprisal")]))
 
-sink(file="model_study2.txt")
+
+## colinearity
+surp_by_syll = lm(surprisal ~ syllables, df)
+syll_by_surp = lm(syllables ~ surprisal, df)
+df = df %>% mutate(
+  surprisal_resid = resid(surp_by_syll),
+  syll_resid = resid(syll_by_surp))
+
+
+
+
+r = with(df %>% group_by(adverb) %>% 
+           summarise(surprisal=surprisal[1],
+                     syllables = syllables[1]), cor(surprisal, syllables))
+
+
+
+
 df$ch = df$ranking + 1
 df$chid = paste(df$adverb_list, df$workerid)
 G <- mlogit.data(df, choice = "ch", shape = "long", chid.var="chid",
                  alt.var="adverb", ranked = TRUE)
-model = mlogit(ch ~ surprisal + syllables | 0, G)
-print(summary(model))
-print(summary(mlogit(ch ~ surprisal + syllables + surprisal:adjective + syllables:adjective | 0, G)))
-sink(NULL)
+m_colinear = mlogit(ch ~ surprisal + syllables | 0, G)
+model_with_adj_interaction = mlogit(ch ~ surprisal + syllables + surprisal:adjective + syllables:adjective | 0, G)
 
-```
-```{r}
+message("running simplified models...")
+m_only_syll = mlogit(ch ~ syllables | 0, G)
+m_only_surp = mlogit(ch ~ surprisal | 0, G)
+
+message("running residualized models...")
+m_resid_syll = mlogit(ch ~ surprisal + syll_resid | 0, G)
+m_resid_surp = mlogit(ch ~ surprisal_resid + syllables | 0, G)
+
+message("running likelihood ratio tests...")
+# anova(m_colinear)
+lr_diff_due_to_syll = lrtest(m_colinear, m_only_surp)
+lr_diff_due_to_surp = lrtest(m_colinear, m_only_syll)
+
+
+proportion_variance_explained = NULL
+
+
+
+
+
 df2 = df %>% group_by(adverb) %>%
   summarise(ranking=mean(ranking))
 # df1b$intensifier[order(df1b$logprice)] %>%
 df2 %>% write.csv("intensifiers_mean_logprice_study2.csv",
                    row.names=F)
-```
 
-```{r}
 intensities = df %>% 
   rename(intensifier = adverb) %>%
   group_by(intensifier) %>%
@@ -212,5 +229,5 @@ intensities = df %>%
       mean(mean_height_in_list))/sd(mean_height_in_list)) %>%
   select(intensifier, intensity, low, high)
 intensities = intensities[order(intensities$intensity),]
-write.csv(intensities, "intensities_study2.csv", row.names=F)
-```
+write.csv(intensities, "output/intensities_study2.csv", row.names=F)
+

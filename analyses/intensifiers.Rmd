@@ -18,20 +18,40 @@ source("~/Settings/startup.R")
 source("specific_analyses/utils.R")
 ```
 
+## Overview
+
+Across all studies:
+
+* in the colinear model, surprisal is significant, syllables is not significant.
+* when we residualize syllables by surprisal, we get no additional significant effect for syllables
+* all likelihood ratio tests show that the model with both predictors is significantly better than either models with just one
+* $R^2$ is approximately 0.3 for logprice
+
 ## Study 1a
 
-```{r}
+```{r, message=F}
 source("specific_analyses/study1a.R")
 ```
+
+
+non-native speaker of English - `r n_nonenglish` Ss
+
+"I didn't follow directions" - `r n_did_not_follow_instructions` Ss
+
+Given that preprocessing involves normalizing responses from each participant for each item, we would use the following model, which includes a random slope for participant but no random intercept. We include random intercepts for intensifier (the particular words). We center the continuous predictors by subtracting their means.
 
 Colinear model:
 
 * surprisal: `r report_coef(m_colinear, "surprisal.centered")`
 * syllables: `r report_coef(m_colinear, "syll.centered")`
 
-$r^2 = `r proportion_variance_explained`$
+<!-- $r^2 = `r proportion_variance_explained`$ -->
 
 Surprisal and length in syllables are correlated predictors ($r=`r r`$). We focus on surprisal as our primary effect, but we are also interested in the independent contribution of length in syllables.
+
+To address the independent effects of these variables, we ran model comparisons using log likelihood, leaving out information about one of the predictors. We also ran two additional mixed effects reggressions: one in which the suprisal is first residualized against syllables (using ordinary linear regression), and one where syllables is residualized against surprisal.
+
+Since length in syllables is a discrete value taking one of 6 values, whereas surprisal is continuous, length can be more informatively predicted from surprisal (different surprisals can map onto approximately the same length) than surprisal can be predicted from length (the same length cannot map onto different surprisals). It therefore makes the most sense to model syllables with respect to surprisal first, and then see if there is any additional contribution of the actual length in syllables beyond this.
 
 Model with syllables residualized (by surprisal):
 
@@ -43,11 +63,17 @@ Model with surprisal residualized (by syllables):
 * surprisal: `r report_coef(m_resid_surp, "surprisal_resid")`
 * syllables: `r report_coef(m_resid_surp, "syll.centered")`
 
-To address the independent effects of these variables, we ran model comparisons using log likelihood, leaving out each of the fixed effects but maintaining the full random effects structure. We also ran two additional mixed effects reggressions: one in which the suprisal is first residualized against syllables (using ordinary linear regression), and one where syllables is residualized against surprisal.
-
 likeihood ratio test for surprisal effect beyond syllables effect: `r report_chisq(lr_diff_due_to_surp$Df[[2]], lr_diff_due_to_surp$Chisq[[2]], lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])`
 
 likeihood ratio test for syllables effect beyond surprisal effect: `r report_chisq(lr_diff_due_to_syll$Df[[2]], lr_diff_due_to_syll$Chisq[[2]], lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])`
+
+Some plots to illustrate scaling:
+
+```{r, fig.width=3, fig.height=1.5}
+print(raw_dv_plot)
+print(log_dv_plot)
+print(scaled_dv_plot)
+```
 
 Some plots to check assumptions:
 
@@ -64,22 +90,33 @@ print(predicted_vs_actual)
 # source("specific_analyses/new_intensifiers.R")
 ```
 
-
-## Study 1b
-
 ```{r}
 # source("specific_analyses/power_analysis.R")
 ```
 
+## Study 1b
+
+```{r}
+source("specific_analyses/study1b.R")
+```
+
+
+non-native speaker of English - `r n_nonenglish` Ss
+
+"I didn't follow directions" - `r n_did_not_follow_instructions` Ss
 
 Colinear model:
 
 * surprisal: `r report_coef(m_colinear, "surprisal.centered")`
 * syllables: `r report_coef(m_colinear, "syll.centered")`
 
-$r^2 = `r proportion_variance_explained`$
+<!-- $r^2 = `r proportion_variance_explained`$ -->
 
-Surprisal and length in syllables are correlated predictors ($r=`r r`$). We focus on surprisal as our primary effect, but we are also interested in the independent contribution of length in syllables.
+Surprisal and length in syllables are even more correlated in this new set of intensifiers ($r=`r r`$). We focus on surprisal as our primary effect, but we are also interested in the independent contribution of length in syllables.
+
+To address the independent effects of these variables, we ran model comparisons using log likelihood, leaving out information about one of the predictors. We also ran two additional mixed effects reggressions: one in which the suprisal is first residualized against syllables (using ordinary linear regression), and one where syllables is residualized against surprisal.
+
+Since length in syllables is a discrete value taking one of 6 values, whereas surprisal is continuous, length can be more informatively predicted from surprisal (different surprisals can map onto approximately the same length) than surprisal can be predicted from length (the same length cannot map onto different surprisals). It therefore makes the most sense to model syllables with respect to surprisal first, and then see if there is any additional contribution of the actual length in syllables beyond this.
 
 Model with syllables residualized (by surprisal):
 
@@ -91,23 +128,123 @@ Model with surprisal residualized (by syllables):
 * surprisal: `r report_coef(m_resid_surp, "surprisal_resid")`
 * syllables: `r report_coef(m_resid_surp, "syll.centered")`
 
-To address the independent effects of these variables, we ran model comparisons using log likelihood, leaving out each of the fixed effects but maintaining the full random effects structure. We also ran two additional mixed effects reggressions: one in which the suprisal is first residualized against syllables (using ordinary linear regression), and one where syllables is residualized against surprisal.
+likeihood ratio test for surprisal effect beyond syllables effect: `r report_chisq(lr_diff_due_to_surp$Df[[2]], lr_diff_due_to_surp$Chisq[[2]], lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])`
+
+likeihood ratio test for syllables effect beyond surprisal effect: `r report_chisq(lr_diff_due_to_syll$Df[[2]], lr_diff_due_to_syll$Chisq[[2]], lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])`
+
+Some plots to illustrate scaling:
+
+```{r, fig.width=3, fig.height=1.5}
+print(raw_dv_plot)
+print(log_dv_plot)
+print(scaled_dv_plot)
+```
+
+Some plots to check assumptions:
+
+```{r, fig.width=2, fig.height=1.5}
+print(residuals_normality_plot)
+print(residuals_by_surprisal)
+print(residuals_by_length)
+print(predicted_vs_actual)
+```
+
+## Study 2
+
+```{r}
+source("specific_analyses/study2.R")
+```
+
+non-native speaker of English - `r n_nonenglish` Ss
+
+"I didn't follow directions" - `r n_did_not_follow_instructions` Ss
+
+Colinear model:
+
+* surprisal: `r report_mlogit_coef(m_colinear, "surprisal")`
+* syllables: `r report_mlogit_coef(m_colinear, "syllables")`
+
+$r^2 = `r proportion_variance_explained`$
+
+Surprisal and length in syllables are correlated in this set of intensifiers ($r=`r r`$). We focus on surprisal as our primary effect, but we are also interested in the independent contribution of length in syllables.
+
+Model with syllables residualized (by surprisal):
+
+* surprisal: `r report_mlogit_coef(m_resid_syll, "surprisal")`
+* syllables: `r report_mlogit_coef(m_resid_syll, "syll_resid")`
+
+Model with surprisal residualized (by syllables):
+
+* surprisal: `r report_mlogit_coef(m_resid_surp, "surprisal_resid")`
+* syllables: `r report_mlogit_coef(m_resid_surp, "syll.centered")`
 
 likeihood ratio test for surprisal effect beyond syllables effect: `r report_chisq(lr_diff_due_to_surp$Df[[2]], lr_diff_due_to_surp$Chisq[[2]], lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])`
 
 likeihood ratio test for syllables effect beyond surprisal effect: `r report_chisq(lr_diff_due_to_syll$Df[[2]], lr_diff_due_to_syll$Chisq[[2]], lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])`
 
+## Study 3
 
 ```{r}
-# source("specific_analyses/study1b.R")
+source("specific_analyses/study3.R")
 ```
 
-```{r}
-# source("specific_analyses/study2.R")
-```
+non-native speaker of English - `r n_nonenglish` Ss
+
+"I didn't follow directions" - `r n_did_not_follow_instructions` Ss
+
+Novel intensifiers model:
 
 ```{r}
-# source("specific_analyses/study3.R")
+print(summary(novel_m))
+print(summary(novel_m_with_root))
+```
+
+For novel intensifiers: $r^2 = `r proportion_variance_explained_novel`$
+
+### Replication portion
+
+Colinear model:
+
+* surprisal: `r report_coef(m_colinear, "surprisal.centered")`
+* syllables: `r report_coef(m_colinear, "syll.centered")`
+
+For established intensifiers: $r^2 = `r proportion_variance_explained_established`$
+
+Surprisal and length in syllables are correlated in this set of intensifiers ($r=`r r`$). We focus on surprisal as our primary effect, but we are also interested in the independent contribution of length in syllables.
+
+To address the independent effects of these variables, we ran model comparisons using log likelihood, leaving out information about one of the predictors. We also ran two additional mixed effects reggressions: one in which the suprisal is first residualized against syllables (using ordinary linear regression), and one where syllables is residualized against surprisal.
+
+Since length in syllables is a discrete value taking one of 6 values, whereas surprisal is continuous, length can be more informatively predicted from surprisal (different surprisals can map onto approximately the same length) than surprisal can be predicted from length (the same length cannot map onto different surprisals). It therefore makes the most sense to model syllables with respect to surprisal first, and then see if there is any additional contribution of the actual length in syllables beyond this.
+
+Model with syllables residualized (by surprisal):
+
+* surprisal: `r report_coef(m_resid_syll, "surprisal.centered")`
+* syllables: `r report_coef(m_resid_syll, "syll_resid")`
+
+Model with surprisal residualized (by syllables):
+
+* surprisal: `r report_coef(m_resid_surp, "surprisal_resid")`
+* syllables: `r report_coef(m_resid_surp, "syll.centered")`
+
+likeihood ratio test for surprisal effect beyond syllables effect: `r report_chisq(lr_diff_due_to_surp$Df[[2]], lr_diff_due_to_surp$Chisq[[2]], lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])`
+
+likeihood ratio test for syllables effect beyond surprisal effect: `r report_chisq(lr_diff_due_to_syll$Df[[2]], lr_diff_due_to_syll$Chisq[[2]], lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])`
+
+Some plots to illustrate scaling:
+
+```{r, fig.width=3, fig.height=1.5}
+print(raw_dv_plot)
+print(log_dv_plot)
+print(scaled_dv_plot)
+```
+
+Some plots to check assumptions:
+
+```{r, fig.width=2, fig.height=1.5}
+print(residuals_normality_plot)
+print(residuals_by_surprisal)
+print(residuals_by_length)
+print(predicted_vs_actual)
 ```
 
 ```{r}

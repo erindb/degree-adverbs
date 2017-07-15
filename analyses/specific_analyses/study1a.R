@@ -1,5 +1,8 @@
 source("~/Settings/startup.R")
 
+n_nonenglish = 0
+n_did_not_follow_instructions = 0
+
 load_intensifiers_data = function() {
   ## load intensifier data
   unigrams = read.csv("../data/web_1grams.csv")
@@ -10,6 +13,13 @@ load_intensifiers_data = function() {
   
   ## load experiment data
   raw.df = read.csv("../data/study1a_data.csv")
+  
+  n_nonenglish <<- length(unique((raw.df %>%
+                    filter(!(language %in% c(
+                      "English",  "english",  "Engli",    "Englsih",  "engish",   "English ",
+                      "ENGLISH", "ENG", "eng"))))$workerid))
+  n_did_not_follow_instructions <<- length(unique((raw.df %>% filter(asses == "No"))$workerid))
+  
   df = raw.df %>%
     filter(language %in% c(
       "English",  "english",  "Engli",    "Englsih",  "engish",   "English ",
@@ -48,7 +58,10 @@ load_intensifiers_data = function() {
 df = load_intensifiers_data()
 message("data loaded")
 
-r = with(df, cor(surprisal.centered, syll.centered))
+
+r = with(df %>% group_by(intensifier) %>% 
+           summarise(surprisal.centered=surprisal.centered[1],
+                     syll.centered = syll.centered[1]), cor(surprisal.centered, syll.centered))
 
 message("running colinear model...")
 m_colinear = lmer(logprice.scaled ~ 1 + syll.centered + surprisal.centered +
@@ -71,32 +84,32 @@ m_only_surp = lmer(logprice.scaled ~ 1 + surprisal.centered +
     (0 + surprisal.centered | workerid) +
       (1 | intensifier), df)
 
-message("running anovas...")
+message("running likelihood ratio tests...")
 # anova(m_colinear)
-lr_diff_due_to_syll = anova(m_colinear, m_only_surp)
-lr_diff_due_to_surp = anova(m_colinear, m_only_syll)
+lr_diff_due_to_syll = anova(m_colinear, m_only_surp, test = "LRT")
+lr_diff_due_to_surp = anova(m_colinear, m_only_syll, test = "LRT")
 
 
 # Draw plots to check things:
 
 residuals_normality_plot = ggplot(NULL, aes(x=resid(m_colinear))) +
-  geom_density() +
+  geom_density(alpha=0.1, size=0.3) +
   xlab("residuals")
 
 residuals_by_surprisal = ggplot(NULL, aes(x=df$surprisal.centered, y=resid(m_colinear))) +
-  geom_point() +
+  geom_point(alpha=0.1, size=0.3) +
   geom_smooth(method="loess") +
   xlab("surprisal") +
   ylab("residuals")
 
 residuals_by_length = ggplot(NULL, aes(x=df$syll.centered, y=resid(m_colinear))) +
-  geom_point() +
+  geom_point(alpha=0.1, size=0.3) +
   xlab("length") +
   ylab("residuals")
 
 predicted_vs_actual = ggplot(NULL, aes(x=predict(m_colinear), y=df$logprice.scaled)) +
-         geom_point() + geom_smooth(method="loess") +
-         geom_smooth(method="lm") +
+  geom_point(alpha=0.1, size=0.3) + geom_smooth(method="loess") +
+  geom_smooth(method="lm") +
   xlab("predicted") +
   ylab("actual")
 
@@ -148,4 +161,66 @@ intensities = df %>% group_by(intensifier) %>%
 intensities = intensities[order(intensities$intensity),]
 write.csv(intensities, "output/intensities_study1a.csv", row.names=F)
 
-proportion_variance_explained = cor(predict(m_colinear), df$logprice.scaled)^2
+individual_proportion_variance_explained = cor(predict(m_colinear), df$logprice.scaled)^2
+
+## simulate new data
+n = length(unique(df$workerid))
+agg_by_intensifier = df %>% group_by(intensifier) %>%
+  summarise(logprice.scaled = mean(logprice.scaled),
+            syll.centered = syll.centered[1],
+            workerid=max(df$workerid)+1,
+            surprisal.centered = surprisal.centered[1])
+simulated_data = do.call(rbind, lapply(1:n, function(i) {
+  return(df %>% group_by(intensifier) %>%
+           summarise(logprice.scaled = mean(logprice.scaled),
+                     syll.centered = syll.centered[1],
+                     workerid=max(df$workerid)+i,
+                     surprisal.centered = surprisal.centered[1]))
+}))
+simulated_data$predicted = predict(m_colinear, newdata=simulated_data, allow.new.levels=T)
+proportion_variance_explained_simulated_n = with(simulated_data %>%
+                                       group_by(intensifier) %>%
+                                       summarise(predicted=mean(predicted),
+                                                 actual=mean(logprice.scaled)),
+                                     (cor(actual, predicted))^2)
+proportion_variance_explained = (
+  cor(
+    agg_by_intensifier$logprice.scaled,
+    predict(m_colinear, newdata=agg_by_intensifier, allow.new.levels=T)
+  )
+)^2
+
+## Rescaling plots:
+
+raw_dv_plot = df %>%
+  ggplot(., aes(x=surprisal.centered, y=price,
+                colour=syll, group=paste(workerid, object))) +
+  geom_line(stat="smooth",method = "loess", alpha = 0.1) +
+  geom_line(aes(group=object), stat="smooth",method = "loess") +
+  facet_wrap(~object) +
+  geom_point(alpha=0.1, size=0.3) +
+  ylab("price") +
+  scale_colour_gradient(low="gray", high="black") +
+  xlab("centered surprisal") + theme(legend.position = "none")
+
+log_dv_plot = df %>%
+  ggplot(., aes(x=surprisal.centered, y=log(price),
+                colour=syll, group=paste(workerid, object))) +
+  geom_line(stat="smooth",method = "loess", alpha = 0.1) +
+  geom_line(aes(group=object), stat="smooth",method = "loess") +
+  facet_wrap(~object) +
+  geom_point(alpha=0.1, size=0.3) +
+  ylab("log price") +
+  scale_colour_gradient(low="gray", high="black") +
+  xlab("centered surprisal") + theme(legend.position = "none")
+
+scaled_dv_plot = df %>%
+  ggplot(., aes(x=surprisal.centered, y=logprice.scaled,
+                colour=syll, group=paste(workerid, object))) +
+  geom_line(stat="smooth",method = "loess", alpha = 0.1) +
+  geom_line(aes(group=object), stat="smooth",method = "loess") +
+  facet_wrap(~object) +
+  geom_point(alpha=0.1, size=0.3) +
+  ylab("scaled log price") +
+  scale_colour_gradient(low="gray", high="black") +
+  xlab("centered surprisal") + theme(legend.position = "none")
