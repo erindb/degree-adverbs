@@ -109,23 +109,27 @@ df$adverb_list[df$adverb %in% list_b] = "B"
 df$adverb_list[df$adverb %in% list_c] = "C"
 df$adverb_list[df$adverb %in% list_d] = "D"
 
-## add predictor for surprisal that is the residual of surprisal after being predicted by syllables
-m.resid = lm(surprisal~syllables,data=df)
-df$resid_surprisal = resid(m.resid)
+## colinearity
+surp_by_syll = lm(surprisal ~ syllables, df)
+syll_by_surp = lm(syllables ~ surprisal, df)
+df = df %>% mutate(
+  surprisal_resid = resid(surp_by_syll),
+  syll_resid = resid(syll_by_surp))
 
 conditions = df %>% group_by(adverb, adjective) %>% summarise() %>% as.data.frame
 aggdf = do.call(rbind, lapply(1:nrow(conditions), function(i) {
-  av = conditions$adverb[i]
-  aj = conditions$adjective
+  av = char(conditions$adverb)[i]
+  aj = char(conditions$adjective)[i]
   subd = df %>% filter(adverb==av & adjective==aj)
   resampled = boot(subd, function(orig, indices) {
     return( mean(orig[indices,]$height_in_list) )
   }, 100)$t
   newd = data.frame(
-    adverb = subd$adverb[[1]],
-    adjective = subd$adjective[[1]],
+    adverb = av,
+    adjective = aj,
     surprisal = subd$surprisal[[1]],
-    resid_surprisal = subd$resid_surprisal[[1]],
+    surprisal_resid = subd$surprisal_resid[[1]],
+    syll_resid = subd$syll_resid[[1]],
     syllables = subd$syllables[[1]],
     adverb_list = subd$adverb_list[[1]],
     height_in_list = mean(subd$height_in_list),
@@ -147,7 +151,7 @@ p = aggdf %>%
   facet_grid(. ~ adjective, scale="free") +
   xlab("surprisal") +
   ylab("height in list") +
-  scale_colour_continuous(name="syllables") +
+  # scale_colour_continuous(name="syllables") +
   scale_x_continuous(breaks=c(10, 14, 18)) +
   ggtitle("Study 2") +
   #   scale_colour_brewer(type="div", palette=7) +
@@ -161,16 +165,7 @@ response_order = aggdf %>% group_by(adverb) %>%
   summarise(height_in_list = mean(height_in_list))
 aggdf$adverb = factor(aggdf$adverb, levels = as.character(response_order$adverb)[order(response_order$height_in_list)])
 
-centered = cbind(df, myCenter(df[,c("surprisal","syllables","resid_surprisal")]))
-
-
-## colinearity
-surp_by_syll = lm(surprisal ~ syllables, df)
-syll_by_surp = lm(syllables ~ surprisal, df)
-df = df %>% mutate(
-  surprisal_resid = resid(surp_by_syll),
-  syll_resid = resid(syll_by_surp))
-
+centered = cbind(df, myCenter(df[,c("surprisal","syllables","surprisal_resid", "syll_resid")]))
 
 
 
@@ -200,13 +195,6 @@ message("running likelihood ratio tests...")
 # anova(m_colinear)
 lr_diff_due_to_syll = lrtest(m_colinear, m_only_surp)
 lr_diff_due_to_surp = lrtest(m_colinear, m_only_syll)
-
-
-df2 = df %>% group_by(adverb) %>%
-  summarise(ranking=mean(ranking))
-# df1b$intensifier[order(df1b$logprice)] %>%
-df2 %>% write.csv("intensifiers_mean_logprice_study2.csv",
-                   row.names=F)
 
 intensities = df %>% 
   rename(intensifier = adverb) %>%

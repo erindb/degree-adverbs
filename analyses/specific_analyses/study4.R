@@ -54,11 +54,7 @@ df = d %>%
          adverb = sapply(char(adverb), function(adv) {
            return(strsplit(adv, " ")[[1]][1])
          })) %>%
-  group_by(workerid, adjective) %>%
-  mutate(ranking = rank(ranking),
-         height_in_list = 9 - ranking) %>%
-  ungroup() %>% as.data.frame %>%
-  select(workerid, height_in_list, adverb, adjective)
+  select(workerid, ranking, adverb, adjective, adverb_list)
 
 
 
@@ -74,7 +70,11 @@ filler_df = df %>%
     }),
     syllables = sapply(adverb, function(adv) {
       return(ngrams$syllables[adv == as.character(ngrams$ngram)][1])
-    }))
+    })) %>%
+  group_by(workerid, adjective) %>%
+  mutate(ranking = rank(ranking),
+         height_in_list = 9 - ranking) %>%
+  ungroup() %>% as.data.frame
 
 
 aggdf = filler_df %>% 
@@ -110,7 +110,7 @@ aggdf %>%
   #   scale_fill_brewer(type="div", palette=7) +
   theme(panel.grid=element_blank()) +
   scale_colour_gradient(low="gray", high="black")
-ggsave("../edited_draft/images/plot_study4.pdf", width=5, height=2.5)
+ggsave("../paper/images/plot_study4.pdf", width=5, height=2.5)
 
 
 novel = function(df) {
@@ -145,50 +145,36 @@ novel = function(df) {
   df$length = sapply(as.character(df$adverb), function(adv) {return(adverb_length[adv])})
   df$root = sapply(as.character(df$adverb), function(adv) {return(adverb_root[adv])})
   
-  aggdf = ddply(df, .(adverb), function(subd) {
-    resampled = boot(subd, function(orig, indices) {
-      return( c(
-        mean(orig[indices,]$height_in_list),
-        mean(orig[indices,]$ranking) )
-      )
-    }, 100)$t
-    newd = data.frame(
-      adverb = subd$adverb[[1]],
-      #     adjective = subd$adjective[[1]],
-      #     resid_surprisal = subd$resid_surprisal[[1]],
-      #     syllables = subd$syllables[[1]],
-      height_in_list = mean(subd$height_in_list),
-      height_in_list_high = quantile(resampled[,1], 0.025),
-      height_in_list_low = quantile(resampled[,1], 0.975),
-      ranking = mean(subd$ranking),
-      ranking_high = quantile(resampled[,2], 0.025),
-      ranking_low = quantile(resampled[,2], 0.975)
-    )
-    return(newd)
-  })
+  aggdf = df %>% group_by(adverb) %>%
+    summarise(
+      height_in_list_high = ci.high(height_in_list),
+      height_in_list_low = ci.low(height_in_list),
+      height_in_list = mean(height_in_list),
+      ranking_high = ci.high(ranking),
+      ranking_low = ci.low(ranking),
+      ranking = mean(ranking))
+  
   # ggplot(aggdf, aes(x=adverb, y=height_in_list, colour=adverb)) +
   #   geom_point(size=3) +
   #   geom_errorbar(aes(x=adverb, ymin=height_in_list_low, ymax=height_in_list_high))
   
-  sink(file="output/Experiment4/novel-model.txt")
   df$ranking = ordered(df$ranking)
   df$height_in_list = ordered(df$height_in_list)
+  
+  
+  
   model = clm(height_in_list ~ length, data=df)
+  
   model_with_root = clm(height_in_list ~ length + root, data=df)
   print(summary(model))
   print(summary(model_with_root))
-  sink(NULL)
+  
 }
 
 novel(d)
 
-df2 = df %>% group_by(adverb) %>%
-  summarise(ranking=mean(ranking))
-# df1b$intensifier[order(df1b$logprice)] %>%
-df2 %>% write.csv("intensifiers_mean_logprice_study2.csv",
-                  row.names=F)
-
 intensities = df %>% 
+  mutate(height_in_list = 9 - ranking) %>%
   rename(intensifier = adverb) %>%
   group_by(intensifier) %>%
   summarise(
@@ -204,6 +190,39 @@ intensities = df %>%
                    mean(mean_height_in_list))/sd(mean_height_in_list)) %>%
   select(intensifier, intensity, low, high)
 intensities = intensities[order(intensities$intensity),]
-write.csv(intensities, "intensities_study4.csv", row.names=F)
+write.csv(intensities, "output/intensities_study4.csv", row.names=F)
 
-detach(package:plyr, unload=T)
+
+## colinearity
+surp_by_syll = lm(surprisal ~ syllables, filler_df)
+syll_by_surp = lm(syllables ~ surprisal, filler_df)
+filler_df = filler_df %>% mutate(
+  surprisal_resid = resid(surp_by_syll),
+  syll_resid = resid(syll_by_surp))
+
+r = with(filler_df %>% group_by(adverb) %>% 
+           summarise(surprisal=surprisal[1],
+                     syllables = syllables[1]), cor(surprisal, syllables))
+
+
+filler_df$ch = filler_df$ranking
+filler_df$chid = paste(filler_df$adverb_list, filler_df$workerid)
+G <- mlogit.data(filler_df, choice = "ch", shape = "long", chid.var="chid",
+                 alt.var="adverb", ranked = TRUE)
+m_colinear = mlogit(ch ~ surprisal + syllables | 0, G)
+model_with_adj_interaction = mlogit(ch ~ surprisal + syllables + surprisal:adjective + syllables:adjective | 0, G)
+
+message("running simplified models...")
+m_only_syll = mlogit(ch ~ syllables | 0, G)
+m_only_surp = mlogit(ch ~ surprisal | 0, G)
+
+message("running residualized models...")
+m_resid_syll = mlogit(ch ~ surprisal + syll_resid | 0, G)
+m_resid_surp = mlogit(ch ~ surprisal_resid + syllables | 0, G)
+
+message("running likelihood ratio tests...")
+# anova(m_colinear)
+lr_diff_due_to_syll = lrtest(m_colinear, m_only_surp)
+lr_diff_due_to_surp = lrtest(m_colinear, m_only_syll)
+
+

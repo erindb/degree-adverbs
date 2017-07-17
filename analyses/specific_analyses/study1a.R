@@ -58,7 +58,6 @@ load_intensifiers_data = function() {
 df = load_intensifiers_data()
 message("data loaded")
 
-
 r = with(df %>% group_by(intensifier) %>% 
            summarise(surprisal.centered=surprisal.centered[1],
                      syll.centered = syll.centered[1]), cor(surprisal.centered, syll.centered))
