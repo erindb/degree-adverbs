@@ -257,6 +257,11 @@ Colinear model:
 * surprisal: `r report_mlogit_coef(m_colinear, "surprisal")`
 * syllables: `r report_mlogit_coef(m_colinear, "syllables")`
 
+With adj interaction:
+
+* surprisal: `r report_mlogit_coef(model_with_adj_interaction, "surprisal")`
+* syllables: `r report_mlogit_coef(model_with_adj_interaction, "syllables")`
+
 Surprisal and length in syllables are correlated in this set of intensifiers ($r=`r r`$). We focus on surprisal as our primary effect, but we are also interested in the independent contribution of length in syllables.
 
 Model with syllables residualized (by surprisal):

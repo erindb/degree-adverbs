@@ -193,8 +193,11 @@ m_resid_surp = mlogit(ch ~ surprisal_resid + syllables | 0, G)
 
 message("running likelihood ratio tests...")
 # anova(m_colinear)
-lr_diff_due_to_syll = lrtest(m_colinear, m_only_surp)
-lr_diff_due_to_surp = lrtest(m_colinear, m_only_syll)
+lr_diff_due_to_syll = lrtest(m_only_surp, m_colinear)
+lr_diff_due_to_surp = lrtest(m_only_syll, m_colinear)
+
+report_chisq(lr_diff_due_to_syll$Df[[2]], lr_diff_due_to_syll$Chisq[[2]], lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])
+report_chisq(lr_diff_due_to_surp$Df[[2]], lr_diff_due_to_surp$Chisq[[2]], lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])
 
 intensities = df %>% 
   rename(intensifier = adverb) %>%
