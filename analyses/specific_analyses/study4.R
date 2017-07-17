@@ -125,9 +125,6 @@ aggdf %>%
   scale_colour_gradient(low="gray", high="black")
 ggsave("../edited_draft/images/plot_study4.pdf", width=5, height=2.5)
 
-
-#### fix me: dplyr or plyr or something
-
 novel = function(df) {
   df = df[(df$adverb %in% c("bugornly expensive", "tupabugornly expensive",
                             "ratumly expensive", "gaburatumly expensive",
@@ -181,44 +178,13 @@ novel = function(df) {
   model = clm(height_in_list ~ length, data=df)
   
   model_with_root = clm(height_in_list ~ length + root, data=df)
+  
   print(summary(model))
   print(summary(model_with_root))
   
 }
 
 novel(d)
-
-# df = d
-# 
-# df$adverb = as.character(df$adverb)
-# df$adjective = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][2])})
-# df$adverb = sapply(df$adverb, function(adv) {return(strsplit(adv, " ")[[1]][1])})
-# # 
-# # aggdf = ddply(df, .(adverb, adjective), function(subd) {
-# #   resampled = boot(subd, function(orig, indices) {
-# #     return( mean(orig[indices,]$height_in_list) )
-# #   }, 100)$t
-# #   newd = data.frame(
-# #     adverb = subd$adverb[[1]],
-# #     adjective = subd$adjective[[1]],
-# #     height_in_list = mean(subd$height_in_list),
-# #     height_in_list_high = quantile(resampled, 0.025),
-# #     height_in_list_low = quantile(resampled, 0.975)
-# #   )
-# #   return(newd)
-# # })
-# 
-# response_order = ddply(aggdf, .(adverb), summarise, height_in_list = mean(height_in_list))
-# aggdf$adverb = factor(aggdf$adverb, levels = as.character(response_order$adverb)[order(response_order$height_in_list)])
-
-
-
-df2 = df %>% group_by(adverb) %>%
-  summarise(ranking=mean(ranking))
-# df1b$intensifier[order(df1b$logprice)] %>%
-df2 %>% write.csv("intensifiers_mean_logprice_study2.csv",
-                   row.names=F)
-
 
 
 intensities = df %>% 

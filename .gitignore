@@ -19,3 +19,6 @@
 cache
 data/data-collection
 reviewer_comments
+*.png
+*.pdf
+analyses/output/*

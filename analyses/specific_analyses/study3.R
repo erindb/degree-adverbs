@@ -188,15 +188,6 @@ ggsave("../paper/images/plot_study3_B.pdf", width=5, height=3)
 
 
 
-df3 = full_df %>% group_by(intensifier, object) %>%
-  summarise(logprice=mean(logprice)) %>%
-  summarise(logprice=mean(logprice))
-# df1b$intensifier[order(df1b$logprice)] %>%
-df3 %>% write.csv("output/intensifiers_mean_logprice_study3.csv",
-                   row.names=F)
-
-
-
 intensities = full_df %>% group_by(intensifier) %>%
   summarise(
     low = ci.low(logprice.scaled),
