@@ -160,39 +160,30 @@ novel = function(df) {
   df$length = sapply(as.character(df$adverb), function(adv) {return(adverb_length[adv])})
   df$root = sapply(as.character(df$adverb), function(adv) {return(adverb_root[adv])})
   
-  aggdf = ddply(df, .(adverb), function(subd) {
-    resampled = boot(subd, function(orig, indices) {
-      return( c(
-        mean(orig[indices,]$height_in_list),
-        mean(orig[indices,]$ranking) )
-      )
-    }, 100)$t
-    newd = data.frame(
-      adverb = subd$adverb[[1]],
-  #     adjective = subd$adjective[[1]],
-      #     resid_surprisal = subd$resid_surprisal[[1]],
-  #     syllables = subd$syllables[[1]],
-      height_in_list = mean(subd$height_in_list),
-      height_in_list_high = quantile(resampled[,1], 0.025),
-      height_in_list_low = quantile(resampled[,1], 0.975),
-      ranking = mean(subd$ranking),
-      ranking_high = quantile(resampled[,2], 0.025),
-      ranking_low = quantile(resampled[,2], 0.975)
-    )
-    return(newd)
-  })
+  aggdf = df %>% group_by(adverb) %>%
+    summarise(
+      height_in_list_high = ci.high(height_in_list),
+      height_in_list_low = ci.low(height_in_list),
+      height_in_list = mean(height_in_list),
+      ranking_high = ci.high(ranking),
+      ranking_low = ci.low(ranking),
+      ranking = mean(ranking))
+  
   # ggplot(aggdf, aes(x=adverb, y=height_in_list, colour=adverb)) +
   #   geom_point(size=3) +
   #   geom_errorbar(aes(x=adverb, ymin=height_in_list_low, ymax=height_in_list_high))
   
-  sink(file="output/Experiment4/novel-model.txt")
   df$ranking = ordered(df$ranking)
   df$height_in_list = ordered(df$height_in_list)
+  
+  
+  
   model = clm(height_in_list ~ length, data=df)
+  
   model_with_root = clm(height_in_list ~ length + root, data=df)
   print(summary(model))
   print(summary(model_with_root))
-  sink(NULL)
+  
 }
 
 novel(d)
@@ -254,9 +245,13 @@ write.csv(intensities, "intensities_study4.csv", row.names=F)
 df = filler_df
 
 df$ch = df$height_in_list + 1
-df$chid = df$workerid
+df$chid = paste(df$adverb_list, df$workerid)
+
+
 G <- mlogit.data(df, choice = "ch", shape = "long", chid.var="chid",
                  alt.var="adverb", ranked = TRUE)
+
+
 m_colinear = mlogit(ch ~ surprisal + syllables | 0, G)
 model_with_adj_interaction = mlogit(ch ~ surprisal + syllables + surprisal:adjective + syllables:adjective | 0, G)
 

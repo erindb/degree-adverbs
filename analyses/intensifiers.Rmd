@@ -254,7 +254,7 @@ print(predicted_vs_actual)
 ### Replication portion
 
 ```{r}
-source("specific_analyses/study4.R")
+# source("specific_analyses/study4.R")
 ```
 
 ```{r}
