@@ -236,3 +236,10 @@ scaled_dv_plot = df %>%
   ylab("scaled log price") +
   scale_colour_gradient(low="gray", high="black") +
   xlab("centered surprisal") + theme(legend.position = "none")
+
+
+# install.packages("piecewiseSEM")
+library(piecewiseSEM)
+marginal_r_squared = sem.model.fits(m_colinear)$Marginal
+conditional_r_squared = sem.model.fits(m_colinear)$Conditional
+

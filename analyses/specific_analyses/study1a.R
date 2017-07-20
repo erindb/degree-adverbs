@@ -112,6 +112,18 @@ predicted_vs_actual = ggplot(NULL, aes(x=predict(m_colinear), y=df$logprice.scal
   xlab("predicted") +
   ylab("actual")
 
+residuals_by_predicted = ggplot(NULL, aes(x=predict(m_colinear),  y=resid(m_colinear))) +
+  geom_point(alpha=0.1, size=0.3) +
+  geom_smooth(method="loess") +
+  xlab("predicted") +
+  ylab("actual")
+ggsave("resid_by_predictor_1a.png", width=4, height=3)
+
+png(filename="resid_qqplot_1a.png")
+qqnorm( resid(m_colinear) )
+qqline( resid(m_colinear) )
+dev.off()
+
 # Results:
 
 library(ggrepel)
@@ -196,3 +208,26 @@ scaled_dv_plot = df %>%
   ylab("scaled log price") +
   scale_colour_gradient(low="gray", high="black") +
   xlab("centered surprisal") + theme(legend.position = "none")
+
+# install.packages("piecewiseSEM")
+library(piecewiseSEM)
+marginal_r_squared = sem.model.fits(m_colinear)$Marginal
+conditional_r_squared = sem.model.fits(m_colinear)$Conditional
+  
+
+
+prop_variance_explained = with(df %>% group_by(intensifier) %>%
+       summarise(surprisal = surprisal[[1]],
+                 response = mean(logprice.scaled)),
+     cor(surprisal, response))^2
+
+df %>% group_by(intensifier) %>%
+  summarise(surprisal = surprisal[[1]],
+            response = mean(logprice.scaled)) %>%
+  lm(response ~ surprisal, .) %>%
+  summary
+
+
+
+
+  

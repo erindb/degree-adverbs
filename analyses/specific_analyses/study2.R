@@ -217,3 +217,20 @@ intensities = df %>%
 intensities = intensities[order(intensities$intensity),]
 write.csv(intensities, "output/intensities_study2.csv", row.names=F)
 
+# # agg_by_intensifier = df %>% group_by(adverb) %>% 
+# #   summarise(ranking = mean(ranking))
+# # actual = agg_by_intensifier$ranking
+# # names(actual) = agg_by_intensifier$adverb
+# cor(predict(m_colinear), actual)
+# df$ch
+
+
+
+prop_variance_explained = with(df %>% group_by(adverb) %>%
+       summarise(surprisal = surprisal[[1]],
+                 response = mean(height_in_list)),
+     cor(surprisal, response))^2
+
+
+
+

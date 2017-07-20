@@ -212,3 +212,32 @@ scaled_dv_plot = df %>%
   scale_colour_gradient(low="gray", high="black") +
   geom_line(aes(group=object), stat="smooth",method = "loess") +
   xlab("centered surprisal") + theme(legend.position = "none")
+
+residuals_by_predicted = ggplot(NULL, aes(x=predict(m_colinear),  y=resid(m_colinear))) +
+  geom_point(alpha=0.1, size=0.3) +
+  geom_smooth(method="loess") +
+  xlab("predicted") +
+  ylab("actual")
+ggsave("resid_by_predictor_1b.png", width=4, height=3)
+
+png(filename="resid_qqplot_1b.png")
+qqnorm( resid(m_colinear) )
+qqline( resid(m_colinear) )
+dev.off()
+
+# install.packages("piecewiseSEM")
+library(piecewiseSEM)
+marginal_r_squared = sem.model.fits(m_colinear)$Marginal
+conditional_r_squared = sem.model.fits(m_colinear)$Conditional
+
+
+prop_variance_explained = with(df %>% group_by(intensifier) %>%
+  summarise(surprisal = surprisal[[1]],
+            response = mean(logprice.scaled)),
+  cor(surprisal, response))^2
+
+df %>% group_by(intensifier) %>%
+  summarise(surprisal = surprisal[[1]],
+            response = mean(logprice.scaled)) %>%
+  lm(response ~ surprisal, .) %>%
+  summary

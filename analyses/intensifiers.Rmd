@@ -40,6 +40,8 @@ non-native speaker of English - `r n_nonenglish` Ss
 
 Given that preprocessing involves normalizing responses from each participant for each item, we would use the following model, which includes a random slope for participant but no random intercept. We include random intercepts for intensifier (the particular words). We center the continuous predictors by subtracting their means.
 
+Prop intensifier variance explained by surprisal: `r round(prop_variance_explained, 3)`.
+
 Colinear model:
 
 * surprisal: `r report_coef(m_colinear, "surprisal.centered")`
@@ -75,12 +77,14 @@ print(scaled_dv_plot)
 
 Some plots to check assumptions:
 
+Residuals don’t depend on predicted value in a systematic way…
+
 ```{r, fig.width=2, fig.height=1.5}
-print(residuals_normality_plot)
-print(residuals_by_surprisal)
-print(residuals_by_length)
-print(predicted_vs_actual)
+print(residuals_by_predicted)
 ```
+
+
+
 
 ## Power analysis
 
@@ -138,12 +142,13 @@ print(scaled_dv_plot)
 
 Some plots to check assumptions:
 
+Residuals don’t depend on predicted value in a systematic way…
+
 ```{r, fig.width=2, fig.height=1.5}
-print(residuals_normality_plot)
-print(residuals_by_surprisal)
-print(residuals_by_length)
-print(predicted_vs_actual)
+print(residuals_by_predicted)
 ```
+
+Prop intensifier variance explained by surprisal: `r round(prop_variance_explained, 3)`.
 
 ## Study 2
 
@@ -175,6 +180,8 @@ Model with surprisal residualized (by syllables):
 likeihood ratio test for surprisal effect beyond syllables effect: `r report_chisq(lr_diff_due_to_surp$Df[[2]], lr_diff_due_to_surp$Chisq[[2]], lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])`
 
 likeihood ratio test for syllables effect beyond surprisal effect: `r report_chisq(lr_diff_due_to_syll$Df[[2]], lr_diff_due_to_syll$Chisq[[2]], lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])`
+
+Prop intensifier variance explained by surprisal: `r round(prop_variance_explained, 3)`.
 
 ## Study 3
 
@@ -232,11 +239,10 @@ print(scaled_dv_plot)
 
 Some plots to check assumptions:
 
+Residuals might depend on predicted value in a systematic way…
+
 ```{r, fig.width=2, fig.height=1.5}
-print(residuals_normality_plot)
-print(residuals_by_surprisal)
-print(residuals_by_length)
-print(predicted_vs_actual)
+print(residuals_by_predicted)
 ```
 
 ## Study 4
