@@ -236,8 +236,15 @@ prop_variance_explained = with(df %>% group_by(intensifier) %>%
             response = mean(logprice.scaled)),
   cor(surprisal, response))^2
 
-df %>% group_by(intensifier) %>%
+simplest_regression = df %>% group_by(intensifier) %>%
   summarise(surprisal = surprisal[[1]],
             response = mean(logprice.scaled)) %>%
-  lm(response ~ surprisal, .) %>%
-  summary
+  lm(response ~ surprisal, .)
+
+b = summary(simplest_regression)$coefficients["surprisal",][["Estimate"]]
+
+laptop_stats = df %>% filter(object=="laptop") %>%
+  summarise(sd = sd(logprice),
+            mean = mean(logprice))
+exp(b*laptop_stats$sd)
+
