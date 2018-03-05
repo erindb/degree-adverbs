@@ -243,5 +243,44 @@ library(piecewiseSEM)
 marginal_r_squared = sem.model.fits(m_colinear)$Marginal
 conditional_r_squared = sem.model.fits(m_colinear)$Conditional
 
+library(pbkrtest)
+
+# get the KR-approximated degrees of freedom
+coefs = summary(novel_m)$coefficients
+df.KR <- get_ddf_Lb(novel_m, fixef(novel_m))
+# get p-values from the t-distribution using the t-values and approximated
+# degrees of freedom
+p.KR <- 2 * (1 - pt(abs(coefs[,"t value"]), df.KR))
+p.KR
+
+# get the KR-approximated degrees of freedom
+coefs = summary(novel_m_with_root)$coefficients
+df.KR <- get_ddf_Lb(novel_m_with_root, fixef(novel_m_with_root))
+# get p-values from the t-distribution using the t-values and approximated
+# degrees of freedom
+p.KR <- 2 * (1 - pt(abs(coefs[,"t value"]), df.KR))
+p.KR
+
+anova(novel_m_with_root)
+coefs = summary(novel_m_with_root)$coefficients
+f = t(anova(novel_m_with_root)["F value"])
+df1 = t(anova(novel_m_with_root)["F value"])
+df.KR = get_ddf_Lb(novel_m_with_root, fixef(novel_m_with_root))
+2 * (1 - pf(abs(f), df1, df.KR))
+2 * (1 - pt(abs(coefs[,"t value"]), df.KR))
 
 
+novel_m_with_root_ratum = novel_df %>%
+  mutate(length = ifelse(length=="short", -1, 1)) %>%
+  mutate(lopusvbugorn = ifelse(root=="lopus", 1, ifelse(root=="bugorn", -1, 0))) %>%
+  mutate(ratumvother = ifelse(root=="ratum", 2, -1)) %>%
+  lmer(logprice.scaled ~ length + lopusvbugorn + ratumvother +
+         (0 + length | workerid), data=.)
+coefs = summary(novel_m_with_root_ratum)$coefficients
+df.KR <- get_ddf_Lb(novel_m_with_root_ratum, fixef(novel_m_with_root_ratum))
+# 2 * (1 - pf(abs(t(anova(novel_m_with_root_ratum)["F value"])), df1, df.KR))
+2 * (1 - pt(abs(coefs[,"t value"]), df.KR))
+
+
+get_ddf_Lb(m_colinear, fixef(m_colinear))
+summary(m_colinear)

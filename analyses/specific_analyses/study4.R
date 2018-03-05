@@ -162,10 +162,16 @@ novel = function(df) {
   df$height_in_list = ordered(df$height_in_list)
   
   
+  model = df %>%
+    mutate(length = ifelse(length=="short", -1, 1)) %>%
+    clm(height_in_list ~ length, data=.)
   
-  model = clm(height_in_list ~ length, data=df)
-  
-  model_with_root = clm(height_in_list ~ length + root, data=df)
+  model_with_root = df %>%
+    mutate(length = ifelse(length=="short", -1, 1)) %>%
+    mutate(lopusvbugorn = ifelse(root=="lopus", 1, ifelse(root=="bugorn", -1, 0))) %>%
+    mutate(ratumvother = ifelse(root=="ratum", 2, -1)) %>%
+    clm(height_in_list ~ length + lopusvbugorn + ratumvother, data=.)
+
   print(summary(model))
   print(summary(model_with_root))
   
@@ -224,5 +230,4 @@ message("running likelihood ratio tests...")
 # anova(m_colinear)
 lr_diff_due_to_syll = lrtest(m_only_surp, m_colinear)
 lr_diff_due_to_surp = lrtest(m_only_syll, m_colinear)
-
 
