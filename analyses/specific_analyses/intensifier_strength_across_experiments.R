@@ -1,21 +1,21 @@
----
-title: "Intensifiers: Aggregate effect size"
-author: "Erin Bennett"
-output: 
-  html_document:
-      toc: false
----
-
-
-```{r}
-df1a = read.csv("intensities_study1a.csv") %>% mutate(study="1a")
-df1b = read.csv("intensities_study1b.csv") %>% mutate(study="1b")
-df2 = read.csv("intensities_study2.csv") %>% mutate(study="2")
-df3 = read.csv("intensities_study3.csv") %>% mutate(study="3")
-df4 = read.csv("intensities_study4.csv") %>% mutate(study="4")
-```
-
-```{r}
+# ---
+# title: "Intensifiers: Aggregate effect size"
+# author: "Erin Bennett"
+# output: 
+#   html_document:
+#       toc: false
+# ---
+# 
+# 
+# ```{r}
+df1a = read.csv("output/intensities_study1a.csv") %>% mutate(study="1a")
+df1b = read.csv("output/intensities_study1b.csv") %>% mutate(study="1b")
+df2 = read.csv("output/intensities_study2.csv") %>% mutate(study="2")
+df3 = read.csv("output/intensities_study3.csv") %>% mutate(study="3")
+df4 = read.csv("output/intensities_study4.csv") %>% mutate(study="4")
+# ```
+# 
+# ```{r}
 df = rbind(df1a, df1b, df2, df3, df4)
 mean_intensities = df %>%
   group_by(intensifier) %>%
@@ -29,10 +29,10 @@ df = df %>%
       ]
     )
   )
-```
-
-
-```{r, fig.height=10}
+# ```
+# 
+# 
+# ```{r, fig.height=10}
 df = df %>%
   mutate(novel = intensifier %in% c(
     "bugornly", "tupabugornly",
@@ -57,7 +57,7 @@ df %>%
   scale_colour_manual(values=c("black", "red")) +
   # + theme(axis.text.x = element_text(angle=-90, hjust=0)) +
   theme(axis.text.y = element_text(colour=colvec))
-ggsave("../edited_draft/images/intensities.pdf", height=15, width=6)
-```
+ggsave("../paper/images/intensities.pdf", height=15, width=6)
+# ```
 
 

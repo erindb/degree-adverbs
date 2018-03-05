@@ -1,0 +1,156 @@
+---
+title: "R Notebook"
+---
+
+```{r}
+source("specific_analyses/utils.R")
+
+myround = function(x) {x}
+
+variables = function(x) {
+  return(c(
+    syll.centered="Length",
+    `(Intercept)` = "(Intercept)",
+    surprisal.centered="Surprisal",
+    surprisal_resid="Surprisal Resid",
+    syll_resid="Length Resid"
+  )[x])
+}
+rand_vars = function(x) {
+  return(paste(variables(x), "|Participant", sep=""))
+}
+
+# model, row, column, value
+get_model_data = function(m, tag) {
+  coefs = summary(m)$coefficients
+  intercept_sd = attr(summary(m)$varcor$intensifier, "stddev")
+  slope_sds = attr(summary(m)$varcor$workerid, "stddev")
+  slope_cor = attr(summary(m)$varcor$workerid, "correlation")[1,2]
+  
+  fixed_df = expand.grid(
+    row=sapply(row.names(coefs), variables),
+    col=colnames(coefs)) %>%
+    mutate(
+      model = tag,
+      portion = "fixed",
+      value = sapply(
+        mapply(
+          function(r,c) {
+            return(coefs[r, c])}, row, col),
+        myround))
+  rand_rows = c("Intercept|Intensifier",
+                sapply(names(slope_sds), rand_vars))
+  rand_df = data.frame(
+    row = c(rand_rows, rand_rows[length(rand_rows)]),
+    col = c("sd", "sd", "sd", "cor"),
+    model = tag,
+    portion = "random",
+    value = c(intercept_sd, slope_sds,slope_cor)
+  )
+  return(rbind(fixed_df, rand_df))
+  
+}
+
+get_likelihood_ratio_test_data = function(lr_diff_due_to_syll, lr_diff_due_to_surp) {
+  syll_chi = round(lr_diff_due_to_syll$Chisq[[2]], 2)
+  syll_p = myround(lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]])
+  surp_chi = round(lr_diff_due_to_surp$Chisq[[2]], 2)
+  surp_p = myround(lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]])
+  return(data.frame(
+    model = "Model Comparison:NEWLINEPredictors removed from Model 1",
+    row = c("Length", "Length", "Surprisal", "Surprisal"),
+    col = c("chisq", "p", "chisq", "p"),
+    portion = "likelihood",
+    value = c(syll_chi, syll_p, surp_chi, surp_p)
+  ))
+}
+
+# model, row, column, value
+get_logit_model_data = function(m, tag) {
+  coefs = summary(m)$CoefTable
+  fixed_df = expand.grid(
+    row=row.names(coefs),
+    col=colnames(coefs)) %>%
+    mutate(
+      model = tag,
+      portion = "fixed",
+      value = sapply(
+        mapply(
+          function(r,c) {
+            return(coefs[r, c])}, row, col),
+        myround))
+  return(fixed_df)
+}
+```
+
+
+```{r}
+source("specific_analyses/study1a.R")
+
+data1a = do.call(rbind, list(
+  get_model_data(m = m_colinear, tag = "Model 1: Colinear Predictors"),
+  get_model_data(m = m_resid_syll, tag = "Model 2: Length, residualized by Surprisal"),
+  get_model_data(m = m_resid_surp, tag = "Model 3: Surprisal, residualized by Length"),
+  get_likelihood_ratio_test_data(lr_diff_due_to_syll, lr_diff_due_to_surp)))
+
+write.csv(data1a, file="output/data1a.csv", row.names=F)
+```
+
+```{r}
+source("specific_analyses/study1b.R")
+
+data1b = do.call(rbind, list(
+  get_model_data(m = m_colinear, tag = "Model 1: Colinear Predictors"),
+  get_model_data(m = m_resid_syll, tag = "Model 2: Length, residualized by Surprisal"),
+  get_model_data(m = m_resid_surp, tag = "Model 3: Surprisal, residualized by Length"),
+  get_likelihood_ratio_test_data(lr_diff_due_to_syll, lr_diff_due_to_surp)))
+
+write.csv(data1b, file="output/data1b.csv", row.names=F)
+```
+
+```{r}
+source("specific_analyses/study2.R")
+
+data2 = do.call(rbind, list(
+  get_logit_model_data(m = m_colinear, tag = "Model 1: Colinear Predictors"),
+  get_logit_model_data(m = m_resid_syll, tag = "Model 2: Length, residualized by Surprisal"),
+  get_logit_model_data(m = m_resid_surp, tag = "Model 3: Surprisal, residualized by Length"),
+  get_likelihood_ratio_test_data(lr_diff_due_to_syll, lr_diff_due_to_surp),
+  get_logit_model_data(model_with_adj_interaction, "Model 4: With Adjective Interaction")))
+
+write.csv(data2, file="output/data2.csv", row.names=F)
+```
+
+
+
+
+```{r}
+source("specific_analyses/study3.R")
+
+data3rep = do.call(rbind, list(
+  get_model_data(m = m_colinear, tag = "Model 1: Colinear Predictors"),
+  get_model_data(m = m_resid_syll, tag = "Model 2: Length, residualized by Surprisal"),
+  get_model_data(m = m_resid_surp, tag = "Model 3: Surprisal, residualized by Length"),
+  get_likelihood_ratio_test_data(lr_diff_due_to_syll, lr_diff_due_to_surp)))
+
+write.csv(data3rep, file="output/data3rep.csv", row.names=F)
+```
+
+```{r}
+
+```
+
+
+```{r}
+source("specific_analyses/study4.R")
+
+data4rep = do.call(rbind, list(
+  get_logit_model_data(m = m_colinear, tag = "Model 1: Colinear Predictors"),
+  get_logit_model_data(m = m_resid_syll, tag = "Model 2: Length, residualized by Surprisal"),
+  get_logit_model_data(m = m_resid_surp, tag = "Model 3: Surprisal, residualized by Length"),
+  get_likelihood_ratio_test_data(lr_diff_due_to_syll, lr_diff_due_to_surp)))
+
+write.csv(data4rep, file="output/data4rep.csv", row.names=F)
+```
+
+

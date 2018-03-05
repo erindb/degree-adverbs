@@ -56,3 +56,18 @@ report_chisq = function(df, chisq, p) {
     "$",
     sep=""))
 }
+
+variables = c(
+  syll.centered="Length",
+  `(Intercept)` = "(Intercept)",
+  surprisal.centered="Surprisal",
+  surprisal_resid="Surprisal Resid",
+  syll_resid="Length Resid"
+)
+
+random_vars = c(
+  syll.centered="Length | Participant",
+  surprisal.centered="Surprisal | Participant",
+  surprisal_resid="Surprisal Resid | Participant",
+  syll_resid="Length Resid | Participant"
+)

@@ -243,3 +243,5 @@ library(piecewiseSEM)
 marginal_r_squared = sem.model.fits(m_colinear)$Marginal
 conditional_r_squared = sem.model.fits(m_colinear)$Conditional
 
+
+

@@ -117,9 +117,9 @@ residuals_by_predicted = ggplot(NULL, aes(x=predict(m_colinear),  y=resid(m_coli
   geom_smooth(method="loess") +
   xlab("predicted") +
   ylab("actual")
-ggsave("resid_by_predictor_1a.png", width=4, height=3)
+ggsave("output/resid_by_predictor_1a.png", width=4, height=3)
 
-png(filename="resid_qqplot_1a.png")
+png(filename="output/resid_qqplot_1a.png")
 qqnorm( resid(m_colinear) )
 qqline( resid(m_colinear) )
 dev.off()

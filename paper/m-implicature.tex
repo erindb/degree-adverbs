@@ -1,0 +1,41 @@
+\subsection{Intensification as an M-implicature}
+
+We explore the idea that an adjective phrase with an intensifying degree adverb derives much of its meaning from a M(arkedness)-implicature \cite{levinson_presumptive_2000}: more marked (costly to utter) versions of an adjective phrase will be interpreted as implicating higher values (e.g. in case of the adjective \w{expensive}, higher prices). 
+Given two possible utterances a speaker could say to communicate the same meaning, a speaker will usually choose the less costly utterance.
+If the speaker instead chooses a more costly utterance (e.g. ``I got the car to start'' as opposed to ``I started the car''), they may be doing so in order to communicate something more distinct, intense, or unusual (e.g. ``I got the car to start, but it was unusually difficult'').
+In other words, the marked form corresponds to the marked meaning.
+If scalar adjectives include a free threshold variable inferred from context, then the speaker's use of a longer, intensified adjective phrase could lead the listener to infer that the threshold for this adjective phrase is unusually extreme relative to other, less costly phrases that the speaker could have used. 
+
+To realize such an M-implicature, we suggest extending \citeA{lassiter_context_2013}'s probabilistic model of scalar adjective interpretation slightly.
+We assume that each time a scalar adjective is used, in each phrase, it introduces a free threshold variable---a new token threshold is inferred for each access of the lexical entry of the adjective.
+The set of thresholds, for the actual sentence and all alternative sentences, is then established by a pragmatic inference that takes into account the differing costs of the sentences.
+The intensifiers themselves do not contribute to the semantics but increase the cost of the utterance, thus affecting pragmatic inferences.
+This model is described in detail in the \hyperref[app:model]{Appendix}.
+As in previous RSA models that include utterances with similar semantics but different costs \cite{bergen_thats_2012, bergen_pragmatic_2014}, we find an M-implicature, such that more costly intensifiers result in stronger adjective phrases.
+As illustrated in the \hyperref[app:model]{Appendix} this relationship is expected to be approximately linear, resulting in a straightforward quantitative hypothesis that we evaluate against empirical data in our studies.
+
+We view this model as an illustrative caricature of intensifier meaning: In this model intensifiers contribute \emph{nothing} to the literal, compositional semantics.
+Yet, pragmatic interpretation yields a spectrum of effective meanings for the intensifiers, determined by their relative usage costs.
+This predicts an empirically testable systematic variation in meaning as a function of cost.
+It is very likely that the meaning of individual intensifiers includes idiosyncratic, conventional aspects in addition to these systematic factors.
+This would be expected to show up as residual variation not predicted by cost, but would not nullify the hypothesized relationship between cost and meaning.
+This account applies straightforwardly only to intensifying degree adverbs; ``de-intensifying'' adverbs that effectively lower the threshold will require further work to explain.
+
+
+\subsection{Factors affecting utterance cost}
+
+We have identified an intensifier's cost as a potentially critical determiner of its interpreted meaning.
+To connect this prediction to empirical facts, we still must specify (at least a subset of) the factors we expect to impact cost.
+The most natural notion of cost is the effort a speaker incurs to produce an utterance. 
+This could include cognitive effort to access lexical items from memory, articulatory effort to produce  the sound forms, and other such direct costs.
+Speakers might also seek to minimize comprehension cost for their listeners, resulting in other contributions to cost. 
+For the purposes of this paper, we restrict ourselves to the most obvious contributors to production cost and use proxies that are straightforward to quantify: length (longer utterances are more costly)\footnote{
+  We measure length in number of syllables, although length in characters (which might be a more relevant source of utterance cost in a written format) has similar predictive power to syllable length in all of our analyses.
+}
+and frequency (rarer intensifiers are harder to retrieve from memory in production and therefore more costly).
+In a number of different tasks, lexical frequency affects difficulty in an approximately logarithmic way.
+For instance, word recognition time \cite{mccusker_determinants_1977} and reading time in context \cite{smith_effect_2013} are both logarithmic in frequency.
+We thus use the log-frequency (whose negative is also called \emph{surprisal}) as the quantitative contribution to cost.
+
+Our model predicts a linear contribution of longer and higher surprisal intensifiers to the meaning of an adjective phrase (see the \hyperref[app:model]{Appendix} for more detail). 
+This leaves open the the relative importance of length and surprisal (as well as other factors that might enter into cost), which can be explored via regression models.

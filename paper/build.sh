@@ -1,0 +1,2 @@
+bibtex intensifiers
+pdflatex intensifiers

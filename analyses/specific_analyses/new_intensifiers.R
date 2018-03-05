@@ -1,21 +1,13 @@
----
-title: "Intensifiers List"
-author: "Erin Bennett"
-output: 
-  html_document:
-      toc: false
----
 
-```{r global_options, include=FALSE}
-rm(list=ls())
-knitr::opts_chunk$set(echo=F, warning=F, cache=F, message=F, sanitiz =T, fig.width = 5, fig.height = 3)
-```
 
-```{r load_settings}
+# title: "Intensifiers List"
+# author: "Erin Bennett"
+# output: 
+#   html_document:
+#       toc: false
+
 source("~/Settings/startup.R")
-```
 
-```{r}
 summarise_category = function(lst) {
   if ("amplifier" %in% lst) {
     return("amplifier")
@@ -25,7 +17,7 @@ summarise_category = function(lst) {
     return("intensifier")
   }
 }
-raw.df = read.csv("intensifiers_list_from_grammars.csv")
+raw.df = read.csv("../data/intensifiers_list_from_grammars.csv")
 n.grammars = length(unique(raw.df$source))
 df = raw.df %>%
   filter(obvious.downtoner=="no") %>%
@@ -37,36 +29,33 @@ df = raw.df %>%
             obvious.downtoner=obvious.downtoner[1]) %>%
   filter(category != "downtoner")
 
-old.df = read.csv("web_1grams.csv")
+old.df = read.csv("../data/web_1grams.csv")
 old.intensifiers = old.df$ngram
 new.intensifiers = df$word
-```
 
-```{r}
 intersection = intersect(old.intensifiers, new.intensifiers)
 newly.introduced = setdiff(new.intensifiers, old.intensifiers)
 lost = setdiff(old.intensifiers, new.intensifiers)
-```
 
-Total grammars with reference to "intensifiers", "amplifiers", or "degree adverbs" in their index: `r n.grammars`
+# Total grammars with reference to "intensifiers", "amplifiers", or "degree adverbs" in their index: `r n.grammars`
+# 
+# Relation to old list:
+# 
+# * Intersection: `r length(intersection)`
+# * New words from grammars: `r length(newly.introduced)`
+# * My words not in grammars: `r length(lost)`
+# 
+# New list:
 
-Relation to old list:
-
-* Intersection: `r length(intersection)`
-* New words from grammars: `r length(newly.introduced)`
-* My words not in grammars: `r length(lost)`
-
-New list:
-
-```{r}
 print(as.character(
   new.intensifiers))
-write.csv(x=new.intensifiers, file="new-intensifiers.csv")
-```
+write.csv(x=new.intensifiers, file="output/new-intensifiers.csv")
 
-```{r}
 counts = raw.df %>% group_by(source) %>%
   summarise(N=length(word))
 mean(counts$N)
-```
+
+frequencies = read.csv("../data/web_1grams.csv")
+freq_list = frequencies$frequency
+names(freq_list) = char(frequencies$ngrams)
 

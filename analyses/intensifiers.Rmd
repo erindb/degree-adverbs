@@ -183,6 +183,14 @@ likeihood ratio test for syllables effect beyond surprisal effect: `r report_chi
 
 Prop intensifier variance explained by surprisal: `r round(prop_variance_explained, 3)`.
 
+```{r}
+# draw_table(m_colinear)
+# draw_table(m_resid_syll)
+# draw_table(m_resid_surp)
+# paste("& Length", round(lr_diff_due_to_syll$Chisq[[2]], 2), "&", myround(lr_diff_due_to_syll[["Pr(>Chisq)"]][[2]]), "\\")
+# paste("& Surprisal", round(lr_diff_due_to_surp$Chisq[[2]], 2), "&", myround(lr_diff_due_to_surp[["Pr(>Chisq)"]][[2]]), "\\")
+```
+
 ## Study 3
 
 ```{r}

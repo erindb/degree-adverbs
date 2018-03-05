@@ -7,7 +7,7 @@ load_intensifiers_data = function() {
 
 
   ## load intensifier data
-  unigrams = read.csv("output/new-intensifiers-with-freq.csv")
+  unigrams = read.csv("../data/new-intensifiers-with-freq.csv")
   total_ngrams = 1024908267229
   freq = unigrams$frequency
   syll = unigrams$syllables
