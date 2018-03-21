@@ -22,3 +22,5 @@ reviewer_comments
 *.png
 *.pdf
 analyses/output/*
+*.html
+*.Rapp.history
