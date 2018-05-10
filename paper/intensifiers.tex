@@ -1,5 +1,7 @@
 \documentclass[10pt,letterpaper]{article}
 
+% \usepackage[margin=0.5in]{geometry}
+
 \usepackage[usenames, dvipsnames]{color}
 \usepackage{hyperref}
 \hypersetup{
@@ -9,7 +11,8 @@
     urlcolor = {black}
 }
 \usepackage{breakurl}
-\usepackage{cogsci}
+% \usepackage{cogsci}
+\usepackage{fullpage}
 \usepackage{pslatex}
 \usepackage{apacite}
 \usepackage{graphicx}
@@ -17,6 +20,9 @@
 \usepackage{subcaption}
 \usepackage{amsfonts}
 \usepackage{amsmath}
+
+\usepackage[title]{appendix}
+\usepackage{chngcntr}
 
 \newcommand{\w}[1]{\emph{#1}}
 \newcommand{\todo}[1]{{\color{red}#1}}
@@ -61,13 +67,13 @@ intensifiers; degree adverbs; scalar adjectives; pragmatics; m-implicature
 
 This work was supported by a James S. McDonnell Foundation Scholar Award to NDG and ONR grant N00014-13-1-0788.
 
+\input{appendix}
+
 \bibliographystyle{apacite}
 
 \setlength{\bibleftmargin}{.125in}
 \setlength{\bibindent}{-\bibleftmargin}
 
 \bibliography{intensifiers}
-
-\input{appendix}
 
 \end{document}
