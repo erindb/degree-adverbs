@@ -255,13 +255,13 @@ bootstrap.power = function(reps=1, participantsN=28, intensifiersN=40) {
     participantsN=participantsN,
     reps=reps))
 }
-bootstrap.power(100, 100, 72)
-# power.28.40 = bootstrap.power(100, 28, 40)
-# power.28.72 = bootstrap.power(100, 28, 72)
-# power.28.100 = bootstrap.power(100, 28, 100)
-# power.50.40 = bootstrap.power(100, 50, 40)
-# power.50.72 = bootstrap.power(100, 50, 72)
-# power.50.100 = bootstrap.power(100, 50, 100)
+power.100.72 = bootstrap.power(100, 100, 72)
+power.28.40 = bootstrap.power(100, 28, 40)
+power.28.72 = bootstrap.power(100, 28, 72)
+power.28.100 = bootstrap.power(100, 28, 100)
+power.50.40 = bootstrap.power(100, 50, 40)
+power.50.72 = bootstrap.power(100, 50, 72)
+power.50.100 = bootstrap.power(100, 50, 100)
 # ```
 # 
 # ```{r}
@@ -272,7 +272,7 @@ power.sketch.to.plot = data.frame(rbind(
   power.50.40,
   power.50.72,
   power.50.100
-)) %>% rename(syll = syll.syll, surprisal = surprisal.surprisal, both = both.both)
+)) #%>% rename(syll = syll.syll, surprisal = surprisal.surprisal, both = both.both)
 power.sketch.to.plot %>%
   gather("coefficient", "power", c(syll, surprisal, both)) %>%
   # filter(participantsN < 1000) %>%
