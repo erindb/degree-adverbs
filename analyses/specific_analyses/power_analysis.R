@@ -13,7 +13,7 @@
 # 
 # ```{r load_settings}
 # source("~/Settings/mini-startup.R")
-source("~/Settings/startup.R")
+source("../startup.R")
 # ```
 
 # ## Experiment
@@ -40,7 +40,7 @@ names(freq) = names(syll) = unigrams$ngram
 
 ## load experiment data
 df = read.csv("../data/study1a_data.csv") %>%
-  rename(assess=asses, price=response, intensifier = adverb) %>%
+  rename(price=response, intensifier = adverb) %>%
   filter(language %in% c("English", "ENGLISH", "ENG", "eng", "english") &
            assess == "Yes") %>%
   select(workerid, price, intensifier, object) %>%

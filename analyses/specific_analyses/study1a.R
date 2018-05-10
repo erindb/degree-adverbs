@@ -18,13 +18,13 @@ load_intensifiers_data = function() {
                     filter(!(language %in% c(
                       "English",  "english",  "Engli",    "Englsih",  "engish",   "English ",
                       "ENGLISH", "ENG", "eng"))))$workerid))
-  n_did_not_follow_instructions <<- length(unique((raw.df %>% filter(asses == "No"))$workerid))
+  n_did_not_follow_instructions <<- length(unique((raw.df %>% filter(assess == "No"))$workerid))
   
   df = raw.df %>%
     filter(language %in% c(
       "English",  "english",  "Engli",    "Englsih",  "engish",   "English ",
       "ENGLISH", "ENG", "eng") &
-        asses != "No") %>%
+        assess != "No") %>%
     mutate(price = response,
            intensifier = as.character(adverb)) %>%
     select(workerid, price, intensifier, object) %>%

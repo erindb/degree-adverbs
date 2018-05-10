@@ -1,4 +1,4 @@
-source("~/Settings/startup.R")
+source("../startup.R")
 
 # load dependencies
 library(boot)
@@ -43,7 +43,7 @@ n_nonenglish = length(unique((d %>%
                                 filter(!(language %in% c(
                                   "English",  "english",  "Engli",    "Englsih",  "engish",   "English ",
                                   "ENGLISH", "ENG", "eng"))))$workerid))
-n_did_not_follow_instructions = length(unique((d %>% filter(asses == "No"))$workerid))
+n_did_not_follow_instructions = length(unique((d %>% filter(assess == "No"))$workerid))
 
 list_a = c(
   "surpassingly",
@@ -94,7 +94,7 @@ list_d = c(
   "very"
 )
 
-df = d %>% filter(asses!="No" | is.na(asses))
+df = d %>% filter(assess!="No" | is.na(assess))
 
 df = df[,c("workerid", "adverb", "ranking")]
 df$adverb = as.character(df$adverb)

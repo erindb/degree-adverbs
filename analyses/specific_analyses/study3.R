@@ -1,4 +1,4 @@
-source("~/Settings/startup.R")
+source("../startup.R")
 
 ## load intensifier data
 unigrams = read.csv("../data/web_1grams.csv")
@@ -20,13 +20,13 @@ n_nonenglish = length(unique((raw.df %>%
                                   filter(!(language %in% c(
                                     "English",  "english",  "Engli",    "Englsih",  "engish",   "English ",
                                     "ENGLISH", "ENG", "eng"))))$workerid))
-n_did_not_follow_instructions = length(unique((raw.df %>% filter(asses == "No"))$workerid))
+n_did_not_follow_instructions = length(unique((raw.df %>% filter(assess == "No"))$workerid))
 
 full_df = raw.df %>%
   filter(language %in% c(
     "English",  "english",  "Engli",    "Englsih",  "engish",   "English ",
     "ENGLISH", "ENG", "eng") &
-      asses != "No") %>%
+      assess != "No") %>%
   mutate(price = response,
          intensifier = as.character(adverb)) %>%
   select(workerid, price, intensifier, object) %>%

@@ -1,5 +1,5 @@
 
-source("~/Settings/startup.R")
+source("../startup.R")
 
 # load dependencies
 library(boot)
@@ -38,7 +38,7 @@ n_nonenglish = length(unique((d %>%
                                   "English",  "english",  "Engli", "en",
                                   "Englsih",  "engish",   "English ", "Enlgish",
                                   "ENGLISH", "ENG", "eng"))))$workerid))
-n_did_not_follow_instructions = length(unique((d %>% filter(asses == "No"))$workerid))
+n_did_not_follow_instructions = length(unique((d %>% filter(assess == "No"))$workerid))
 
 
 total_ngrams = 1024908267229
@@ -46,7 +46,7 @@ ngrams = read.csv("../data/web_1grams.csv")
 ngrams$surprisal = - (log(ngrams$frequency) - log(total_ngrams))
 
 total_workers = length(unique(d$workerid))
-d = subset(d, asses == "Yes" | asses == "Confused" | is.na(asses))
+d = subset(d, assess == "Yes" | assess == "Confused" | is.na(assess))
 good_workers = length(unique(d$workerid))
 
 df = d %>%
