@@ -8,6 +8,10 @@
 # 
 # 
 # ```{r}
+
+source("startup.R")
+
+
 df1a = read.csv("output/intensities_study1a.csv") %>% mutate(study="1a")
 df1b = read.csv("output/intensities_study1b.csv") %>% mutate(study="1b")
 df2 = read.csv("output/intensities_study2.csv") %>% mutate(study="2")

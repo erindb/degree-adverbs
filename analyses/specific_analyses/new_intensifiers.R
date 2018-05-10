@@ -5,8 +5,7 @@
 # output: 
 #   html_document:
 #       toc: false
-
-source("~/Settings/startup.R")
+source("startup.R")
 
 summarise_category = function(lst) {
   if ("amplifier" %in% lst) {

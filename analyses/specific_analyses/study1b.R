@@ -1,4 +1,4 @@
-source("../startup.R")
+source("startup.R")
 
 n_nonenglish = 0
 n_did_not_follow_instructions = 0

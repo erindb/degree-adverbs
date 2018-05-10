@@ -13,7 +13,7 @@
 # 
 # ```{r load_settings}
 # source("~/Settings/mini-startup.R")
-source("../startup.R")
+source("startup.R")
 # ```
 
 # ## Experiment

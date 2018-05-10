@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo=F, warning=F, cache=F, message=F,
 ```
 
 ```{r load_settings}
-source("~/Settings/startup.R")
+source("startup.R")
 ```
 
 ```{r}

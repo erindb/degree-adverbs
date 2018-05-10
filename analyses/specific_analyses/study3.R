@@ -1,4 +1,4 @@
-source("../startup.R")
+source("startup.R")
 
 ## load intensifier data
 unigrams = read.csv("../data/web_1grams.csv")

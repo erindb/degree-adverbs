@@ -1,3 +1,5 @@
+source("startup.R")
+
 report_coef = function(m, regressor) {
   coefs = summary(m)$coefficients[regressor,]
   b = coefs[["Estimate"]]

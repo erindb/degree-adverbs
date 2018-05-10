@@ -1,5 +1,5 @@
 
-source("../startup.R")
+source("startup.R")
 
 # load dependencies
 library(boot)
