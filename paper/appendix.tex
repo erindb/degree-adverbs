@@ -13,18 +13,18 @@
 
 \section{Pragmatic Model \label{app:model}}
 
-\citeA{lassiter_context_2013}'s model of scalar adjectives belongs to the family of Rational Speech Act (RSA) models in which speaker and listener communicate by  reasoning about each other's goals and inferences (\citeNP{frank_predicting_2012, goodman_knowledge_2013}; for related models, see also \citeNP{franke_quantity_2011, russell_probabilistic_2012}). 
+\citet{lassiter_context_2013}'s model of scalar adjectives belongs to the family of Rational Speech Act (RSA) models in which speaker and listener communicate by  reasoning about each other's goals and inferences %(\citeNP{frank_predicting_2012, goodman_knowledge_2013}; for related models, see also \citeNP{franke_quantity_2011, russell_probabilistic_2012}). 
+\citep{frank_predicting_2012, goodman_knowledge_2013, franke_quantity_2011, russell_probabilistic_2012}.
 These models have been shown to account for a number of key phenomena in pragmatics. The adjective model accounts for uncertainty about the adjectival threshold by including a semantic variable, which the pragmatic listener infers at the same time that she infers the speaker's intended meaning. 
 
 RSA models begin with a literal listener, which captures the semantic denotation of sentences. 
 We assume adjective phrases with the same scale and polarity have the same denotation. For example, \w{expensive}, \w{very expensive} and \w{phenomenally expensive} all denote: $\lambda x . \text{price}(x) > \theta_i$. %unpack?
 However, every adjective phrase has its own threshold variable $\theta_i$,\footnote{%
 %
-Other versions of this model could easily be imagined in which the threshold for an adjective phrase is determined by the basic threshold for the adjective and \eb{some transformation on that threshold caused by the intensifier. 
+Other versions of this model could easily be imagined in which the threshold for an adjective phrase is determined by the basic threshold for the adjective and some transformation on that threshold caused by the intensifier. 
 For example, \cite{cliff1959adverbs} argue that intensifying adverbs operate on adjectives meanings through scalar multiplication.
 % (e.g. multiplication, addition, etc.)
 If, as in multiplication, the transformation is regular, with a single parameter needing to be inferred for each intensifier, and if the values of these parameters are inferred for each adjective phrase, then such a model would be functionally equivalent to the one we describe here.%
-}
 %
 } together notated $\vec{\theta}$, allowing their meanings to differ.
 Given an utterance $u_i$ (e.g. an \w{expensive laptop} or a \w{very expensive laptop}) and a set of thresholds, a literal listener $L_0$ will use Bayesian inference to update his prior beliefs $P(d)$ about the degree $d$ (e.g. the laptop's price) given that the degree is greater than the threshold for that utterance.
@@ -48,7 +48,7 @@ We used an optimality parameter of $\lambda=5$ in our simulation.
 
 Though the literal semantics are identical (but permitting different threshold parameters), the different phrases received different interpretations: the more costly intensifiers corresponded to less probable, more extreme prices (Figure ~\ref{model}).
 This can be seen as an M-implicature: more costly intensifiers are assigned stronger, less probable, meanings. 
-The model therefore predicts an association between intensifier meaning and utterance cost (see \citeA{bergen_pragmatic_2014} for other M-implicature models within the RSA framework).
+The model therefore predicts an association between intensifier meaning and utterance cost (see \citet{bergen_pragmatic_2014} for other M-implicature models within the RSA framework).
 
 
 \begin{figure}[htb]
@@ -71,19 +71,19 @@ It is this simple prediction that we explore in the main text.
 \label{model-heights}
 \end{figure}
 
+\section{Regression Results \label{app:1a} \label{app:1b} \label{app:2} \label{app:3} \label{app:4}}
 
-\section{Study 1a Regressions}
+% \section{Study 1a Regressions \label{app:1a}}
 
-Below, we present results of linear mixed-effects models of scaled responses in Study 1a as a function of length in syllables and surprisal.
+In Table \ref{table:1a}, we present results of linear mixed-effects models of scaled responses in Study \hyperref[sec:study1a]{1a} as a function of length in syllables and surprisal.
 Model 1 includes raw predictors.
 In Model 2, we replace the length predictor by the residuals when length is modeled as a linear function of surprisal.
 In Model 3, we replace the surprisal predictor by the residuals when surprisal is modeled as a linear function of length.
 Finally, we present results of likelihood ratio tests when each of the predictors is removed from the full model.
 
-\vspace{4mm}
-
-\noindent
-\footnotesize{
+\begin{table}[h]
+\footnotesize
+\center
 \begin{tabular}{r|cccc}
 \hline
 \hline
@@ -120,22 +120,23 @@ Surprisal & 17.05 & 0.001 \\
 \hline
 \hline
 \end{tabular}
-}
+\caption{Study 1a Regression Results}
+\label{table:1a}
+\end{table}
 
 
 
-\section{Study 1b Regressions}
+% \section{Study 1b Regressions \label{app:1b}}
 
-Below, we present results of linear mixed-effects models of scaled responses in Study 1b as a function of length in syllables and surprisal.
+In Table \ref{table:1b}, we present results of linear mixed-effects models of scaled responses in Study \hyperref[sec:study1b]{1b} as a function of length in syllables and surprisal.
 Model 1 includes raw predictors.
 In Model 2, we replace the length predictor by the residuals when length is modeled as a linear function of surprisal.
 In Model 3, we replace the surprisal predictor by the residuals when surprisal is modeled as a linear function of length.
 Finally, we present results of likelihood ratio tests when each of the predictors is removed from the full model.
 
-\vspace{4mm}
-
-\noindent
-\footnotesize{
+\begin{table}[h]
+\center
+\footnotesize
 \begin{tabular}{r|cccc}
 \hline
 \hline
@@ -172,23 +173,24 @@ Surprisal & 30.32 & $<0.001$ \\
 \hline
 \hline
 \end{tabular}
-}
+\caption{Study 1b Regression Results}
+\label{table:1b}
+\end{table}
 
 
 
-\section{Study 2 Regressions}
+% \section{Study 2 Regressions \label{app:2}}
 
-Below, we present results of linear mixed-effects models of rankings in Study 2 as a function of length in syllables and surprisal.
+In Table \ref{table:2}, we present results of linear mixed-effects models of rankings in Study \hyperref[sec:study2]{2} as a function of length in syllables and surprisal.
 Model 1 includes raw predictors.
 In Model 2, we replace the length predictor by the residuals when length is modeled as a linear function of surprisal.
 In Model 3, we replace the surprisal predictor by the residuals when surprisal is modeled as a linear function of length.
 In Model 4, we add interactions for adjectives.
 Finally, we present results of likelihood ratio tests when each of the length and surprisal predictors are removed from Model 1.
 
-\vspace{4mm}
-
-\noindent
-\footnotesize{
+\begin{table}[h]
+\center
+\footnotesize
 \begin{tabular}{r|cccc}
 \hline
 \hline
@@ -240,23 +242,24 @@ Surprisal & 108.08 & $<0.001$ \\
 \hline
 \hline
 \end{tabular}
-}
+\caption{Study 2 Regression Results}
+\label{table:2}
+\end{table}
 
 
 
-\section{Study 3 Regressions}
+% \section{Study 3 Regressions \label{app:3}}
 
 
-Below, we present results of linear mixed-effects models of scaled responses in Study 3's replication portion as a function of length in syllables and surprisal.
+In Table \ref{table:3}, we present results of linear mixed-effects models of scaled responses in Study \hyperref[sec:study3]{3}'s replication portion as a function of length in syllables and surprisal.
 Model 1 includes raw predictors.
 In Model 2, we replace the length predictor by the residuals when length is modeled as a linear function of surprisal.
 In Model 3, we replace the surprisal predictor by the residuals when surprisal is modeled as a linear function of length.
 Finally, we present results of likelihood ratio tests when each of the predictors is removed from the full model.
 
-\vspace{4mm}
-
-\noindent
-\footnotesize{
+\begin{table}[h]
+\center
+\footnotesize
 \begin{tabular}{r|cccc}
 \hline
 \hline
@@ -293,16 +296,15 @@ Surprisal & 39.19 & $<0.001$ \\
 \hline
 \hline
 \end{tabular}
-}
+\caption{Study 3 Regression Results}
+\label{table:3}
+\end{table}
 
-\vspace{4mm}
+In Table \ref{table:3rep}, we present results of regressions predicting scaled responses for novel intensifiers in Study \hyperref[sec:study3]{3}.
 
-Below, we present results of regressions predicting scaled responses for novel intensifiers in Study 3.
-
-\vspace{4mm}
-
-\noindent
-\footnotesize{
+\begin{table}[h]
+\center
+\footnotesize
 \begin{tabular}{r|cccc}
 \hline
 \hline
@@ -327,16 +329,17 @@ Lopus/Bugorn &  0.073  & 0.235 &   0.311 & 0.759 \\
 \hline
 \hline
 \end{tabular}
-}
+\caption{Study 3 Replication Portion Regression Results}
+\label{table:3rep}
+\end{table}
 
-\section{Study 4 Regressions}
+% \section{Study 4 Regressions \label{app:4}}
 
-Below, we present results of regression predicting rankings for novel intensifiers in Study 4.
+In Table \ref{table:4}, we present results of regression predicting rankings for novel intensifiers in Study \hyperref[sec:study4]{4}.
 
-\vspace{4mm}
-
-\noindent
-\footnotesize{
+\begin{table}[h]
+\center
+\footnotesize
 \begin{tabular}{r|cccc}
 \hline
 \hline
@@ -358,20 +361,19 @@ Lopus/Bugorn & -0.518 & 0.324 & -1.60 & 0.110 \\
 \hline
 \hline
 \end{tabular}
-} 
+\caption{Study 4 Regression Results}
+\label{table:4}
+\end{table}
 
-\vspace{4mm}
-
-Below, we present results of linear mixed-effects models of rankings in Study 4's replication portion as a function of length in syllables and surprisal.
+In Table \ref{table:4rep}, we present results of linear mixed-effects models of rankings in Study \hyperref[sec:study4]{4}'s replication portion as a function of length in syllables and surprisal.
 Model 1 includes raw predictors.
 In Model 2, we replace the length predictor by the residuals when length is modeled as a linear function of surprisal.
 In Model 3, we replace the surprisal predictor by the residuals when surprisal is modeled as a linear function of length.
 Finally, we present results of likelihood ratio tests when each of the predictors is removed from the full model.
 
-\vspace{4mm}
-
-\noindent
-\footnotesize{
+\begin{table}[h]
+\center
+\footnotesize
 \begin{tabular}{r|cccc}
 \hline
 \hline
@@ -408,7 +410,10 @@ Surprisal & 231.57 & $<0.001$ \\
 \hline
 \hline
 \end{tabular}
-}
+
+\caption{Study 4 Replication Portion Regression Results}
+\label{table:4rep}
+\end{table}
 
 
 
@@ -422,13 +427,5 @@ Surprisal & 231.57 & $<0.001$ \\
 % \end{tabular}
 % \label{regressions}
 % \end{table}
-
-\begin{figure}[hbt]
-\begin{center}
-\includegraphics[width=0.5\textwidth]{images/intensities.pdf}
-\end{center}
-\caption{Intensities (each dependent measure, z-scored) of all intensifiers across all 5 studies. Novel intensifiers are shown in red, standard English intensifiers in black.}
-\label{fig:intensities}
-\end{figure}
 
 \end{appendices}

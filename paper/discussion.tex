@@ -4,8 +4,7 @@
 \section{General Discussion}
 
 Motivated by a recent probabilistic model of scalar adjectives \cite{lassiter_context_2013}, we argued that adjectival intensifiers could gain aspects of their meaning through a systematic pragmatic inference, even in the absence of conventional literal meaning.
-Our \eb{M-implicature model (presented in further detail in our \hyperref[app:model]{Appendix})} predicted a linear relationship between the intensity of an intensifier and its communicative cost, measured here in terms of length and negative log-frequency%
-\eb{, and we explore this linear relationship using regression models.}
+Our M-implicature model (presented in further detail in Appendix \ref{app:model}) predicted a linear relationship between the intensity of an intensifier and its communicative cost, measured here in terms of length and negative log-frequency, and we explore this linear relationship using regression models.
 
 In five experiments we provided evidence that intensifier meanings do depend systematically on the length and frequency of occurance of those word forms and that this relationship holds even for novel words.
 
@@ -17,22 +16,20 @@ We have extended previous proposals that degree adverbs transform or create new 
 This mechanism for linking a parsimonious semantics to interpretation via pragmatic inference follows naturally and straightforwardly from an understanding of rational social agents engaging in communication.
 With the minimal assumption that each use of a scalar adjective has a different threshold, we have been able to extend a model of adjective interpretation to account for a major source of intensifier meaning.
 This model adds to an abundance of linguistic phenomena --- e.g. aspects of metaphor \cite{kao_formalizing_2014}, prosody \cite{bergen_strategic_2015}, politeness \cite{yoon_i_2017}, and presupposition projection \cite{qing_rational_2016} --- which can be explained within the basic RSA framework, each with minimal, compatible assumptions.
-The precise specification of this model is laid out in more detail in the Appendix.
+The precise specification of this model is laid out in more detail in Appendix \ref{app:model}.
 
 Our proposal and our experiments suggest that even a very minimal semantics for intensifying degree adverbs can be plausible and productive.
 We have implemented and described one version of such a semantics, but other versions might exist with different methods of generating the threshold variable for an adjective phrase.
 
-\eb{
 We use surprisal and length in syllables as measures of communicative cost, but there may be other systematic features of intensifiers that contribute to strength.
 In particular, many intensifiers seem to be derived from adverbs having to do with emotion, and the valence and/or arousal of these root emotions might influence the strength of an intensifier or its affinity to co-occur with some adjective types rather than others.
 This might be especially true for intensifiers that are still making the change from manner adverb to intensifier (e.g. terribly once only carried the qualitative meaning of ``bad and frightening'', but now almost exclusively means simply ``a lot'').
 
 As an illustration of the variance explained by our surprisal measure of communicative cost, we first averaged across participants and adjectives to get an average scaled response for each intensifier.
 We then computed the squared correlation between those values and the surprisal predictor.
-We find that surprisal can explain around 30\% of the variance for attested intensifiers ($R^2=0.293$ for Study \hyperref[sec:study1a]{1a}, $R^2=0.273$ for Study 1b, and $R^2=0.358$ for Study 2).\footnote{
+We find that surprisal can explain around 30\% of the variance for attested intensifiers ($R^2=0.293$ for Study \hyperref[sec:study1a]{1a}, $R^2=0.273$ for Study  \hyperref[sec:study1b]{1b}, and $R^2=0.358$ for Study  \hyperref[sec:study2]{2}).\footnote{
 For intuition this means that one nat difference in surprisal predicts 0.128 normalized units of cost difference. In the case of laptops, for example, one nat of surprisal would predict approximately a 9\% increase in the interpreted price.
 }.
-}
 
 % In the discussion, "This remaining variance may be because we have not exhausted the sources of communicative cost.." and subsequent: I found this part hard to follow. It almost seems like the authors are apologizing for not being able to explain all variance. It would be surprising if, in a system like language, all variance could be explained by communicative cost. We should expect some random variation. I think the authors could be clearer about what role--and how much of a role--considerations of communicative cost should play in language design.
 % \todo{be clearer about what role--and how much of a role--considerations of communicative cost should play in language design.}
@@ -52,3 +49,11 @@ This process indeed seems to be evident in the history of English \cite{bolinger
 We have argued that form-to-meaning mapping can come about through the inferences known to support pragmatic interpretation.
 Seen another way, the basic assumption that people are actively trying to communicate with each other---each reasoning about what the interlocutor means---\emph{requires} non-arbitrary relationships between a variety of factors and effective meaning.
 Some systematic aspects of meaning follow directly from the principles of language understanding.
+
+\begin{figure}[hbt]
+\begin{center}
+\includegraphics[width=0.5\textwidth]{images/intensities.pdf}
+\end{center}
+\caption{Intensities (each dependent measure, z-scored) of all intensifiers across all 5 studies. Novel intensifiers are shown in red, standard English intensifiers in black.}
+\label{fig:intensities}
+\end{figure}
